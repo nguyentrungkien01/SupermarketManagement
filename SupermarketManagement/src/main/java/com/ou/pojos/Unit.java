@@ -5,6 +5,7 @@ import java.util.List;
 public class Unit {
     private Integer uniId;
     private String uniName;
+    private Boolean uniIsActive = Boolean.TRUE;
     private List<ProductUnit> productUnits;
 
     public Integer getUniId() {
@@ -29,5 +30,13 @@ public class Unit {
 
     public void setProductUnits(List<ProductUnit> productUnits) {
         this.productUnits = productUnits;
+    }
+
+    public Boolean getUniIsActive() {
+        return uniIsActive;
+    }
+
+    public void setUniIsActive(Boolean uniIsActive) {
+        this.uniIsActive = uniIsActive;
     }
 }

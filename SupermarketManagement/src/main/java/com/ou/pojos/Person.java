@@ -11,6 +11,7 @@ public abstract class Person {
     protected String persLastName;
     protected Date persDateOfBirth;
     protected Date persJoinedDate;
+    protected Boolean persIsActive = Boolean.TRUE;
 
     public Integer getPersId() {
         return persId;
@@ -74,5 +75,13 @@ public abstract class Person {
 
     public void setPersJoinedDate(Date persJoinedDate) {
         this.persJoinedDate = persJoinedDate;
+    }
+
+    public Boolean getPersIsActive() {
+        return persIsActive;
+    }
+
+    public void setPersIsActive(Boolean persIsActive) {
+        this.persIsActive = persIsActive;
     }
 }

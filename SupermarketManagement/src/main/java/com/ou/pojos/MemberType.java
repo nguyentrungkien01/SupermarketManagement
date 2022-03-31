@@ -8,6 +8,7 @@ public class MemberType {
     private Sale memtSale;
     private String memtName;
     private BigDecimal memtTotalMoney;
+    private Boolean memtIsActive = Boolean.TRUE;
     private Sale sale;
     private List<Member> members;
 
@@ -57,5 +58,13 @@ public class MemberType {
 
     public void setMembers(List<Member> members) {
         this.members = members;
+    }
+
+    public Boolean getMemtIsActive() {
+        return memtIsActive;
+    }
+
+    public void setMemtIsActive(Boolean memtIsActive) {
+        this.memtIsActive = memtIsActive;
     }
 }
