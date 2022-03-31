@@ -20,8 +20,7 @@ public class DatabaseUtils {
     }
 
     public static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(
-                String.format("jdbc:mysql://%s/%s", HOST, DATABASE), USERNAME, PASSWORD);
+        return DriverManager.getConnection(String.format("jdbc:mysql://%s/%s", HOST, DATABASE), USERNAME, PASSWORD);
     }
 
 }

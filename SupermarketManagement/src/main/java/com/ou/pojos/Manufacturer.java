@@ -5,6 +5,7 @@ import java.util.List;
 public class Manufacturer {
     private Integer manId;
     private String manName;
+    private Boolean manIsActive  = Boolean.TRUE;
     private List<Product> products;
 
     public Integer getManId() {
@@ -29,5 +30,13 @@ public class Manufacturer {
 
     public void setProducts(List<Product> products) {
         this.products = products;
+    }
+
+    public Boolean getManIsActive() {
+        return manIsActive;
+    }
+
+    public void setManIsActive(Boolean manIsActive) {
+        this.manIsActive = manIsActive;
     }
 }

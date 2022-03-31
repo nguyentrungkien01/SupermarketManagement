@@ -5,6 +5,7 @@ import java.util.List;
 public class Product {
     private Integer proId;
     private String proName;
+    private Boolean proIsActive = Boolean.TRUE;
     private List<ProductBranch> productBranches;
     private List<ProductBill> productBills;
     private List<ProductUnit> productUnits;
@@ -65,5 +66,13 @@ public class Product {
 
     public void setManufacturer(Manufacturer manufacturer) {
         this.manufacturer = manufacturer;
+    }
+
+    public Boolean getProIsActive() {
+        return proIsActive;
+    }
+
+    public void setProIsActive(Boolean proIsActive) {
+        this.proIsActive = proIsActive;
     }
 }

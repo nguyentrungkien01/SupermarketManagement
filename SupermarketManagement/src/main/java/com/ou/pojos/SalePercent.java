@@ -5,6 +5,7 @@ import java.util.List;
 public class SalePercent {
     private Integer sperId;
     private Float sperPercent;
+    private Boolean sperIsActive = Boolean.TRUE;
     private List<Sale> sales;
 
     public Integer getSperId() {
@@ -29,5 +30,13 @@ public class SalePercent {
 
     public void setSales(List<Sale> sales) {
         this.sales = sales;
+    }
+
+    public Boolean getSperIsActive() {
+        return sperIsActive;
+    }
+
+    public void setSperIsActive(Boolean sperIsActive) {
+        this.sperIsActive = sperIsActive;
     }
 }

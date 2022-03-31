@@ -5,6 +5,7 @@ import java.util.List;
 public class Category {
     private Integer catId;
     private Integer catName;
+    private Boolean catIsActive  = Boolean.TRUE;
     private List<Product> products;
 
     public Integer getCatId() {
@@ -29,5 +30,13 @@ public class Category {
 
     public void setProducts(List<Product> products) {
         this.products = products;
+    }
+
+    public Boolean getCatIsActive() {
+        return catIsActive;
+    }
+
+    public void setCatIsActive(Boolean catIsActive) {
+        this.catIsActive = catIsActive;
     }
 }

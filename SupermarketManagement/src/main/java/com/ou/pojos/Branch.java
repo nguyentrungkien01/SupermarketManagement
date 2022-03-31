@@ -6,8 +6,12 @@ public class Branch {
     private Integer braId;
     private String braName;
     private String braAddress;
+    private Boolean braIsActive = Boolean.TRUE;
     private List<ProductBranch> productBranches;
     private List<Staff> staffs;
+
+    private int productAmount;
+    private  int staffAmount;
 
     public Integer getBraId() {
         return braId;
@@ -47,5 +51,29 @@ public class Branch {
 
     public void setStaffs(List<Staff> staffs) {
         this.staffs = staffs;
+    }
+
+    public int getProductAmount() {
+        return productAmount;
+    }
+
+    public void setProductAmount(int productAmount) {
+        this.productAmount = productAmount;
+    }
+
+    public int getStaffAmount() {
+        return staffAmount;
+    }
+
+    public void setStaffAmount(int staffAmount) {
+        this.staffAmount = staffAmount;
+    }
+
+    public Boolean getBraIsActive() {
+        return braIsActive;
+    }
+
+    public void setBraIsActive(Boolean braIsActive) {
+        this.braIsActive = braIsActive;
     }
 }
