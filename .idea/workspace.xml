@@ -5,23 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e81043f1-563b-4be6-9200-33a8dc1c33d9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/DemoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Branch.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Branch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Manufacturer.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Manufacturer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/MemberType.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/MemberType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Sale.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Sale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/SalePercent.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/SalePercent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Unit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/utils/DatabaseUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/utils/DatabaseUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/demo.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/controller/DemoTester.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/target/classes/com/ou/controllers/demo.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/target/classes/com/ou/controllers/branch.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/target/classes/com/ou/controllers/branch.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,10 +56,10 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -96,6 +81,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BranchServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SupermarketManagement" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ou.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ou.services" />
+      <option name="MAIN_CLASS_NAME" value="com.ou.services.BranchServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BranchServiceTest.testDeleteBranchWithExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SupermarketManagement" />
       <extension name="coverage">
@@ -112,7 +112,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BranchServiceTest.testDeleteBranchWithInvalidInformation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BranchServiceTest.testUpdateBranchWithExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SupermarketManagement" />
       <extension name="coverage">
         <pattern>
@@ -122,13 +122,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.ou.services" />
       <option name="MAIN_CLASS_NAME" value="com.ou.services.BranchServiceTest" />
-      <option name="METHOD_NAME" value="testDeleteBranchWithInvalidInformation" />
+      <option name="METHOD_NAME" value="testUpdateBranchWithExist" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BranchServiceTest.testDeleteBranchWithNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BranchServiceTest.testUpdateBranchWithInvalidInformation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SupermarketManagement" />
       <extension name="coverage">
         <pattern>
@@ -138,23 +138,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.ou.services" />
       <option name="MAIN_CLASS_NAME" value="com.ou.services.BranchServiceTest" />
-      <option name="METHOD_NAME" value="testDeleteBranchWithNull" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BranchServiceTest.testDeleteBranchWithValidInfomation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SupermarketManagement" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ou.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ou.services" />
-      <option name="MAIN_CLASS_NAME" value="com.ou.services.BranchServiceTest" />
-      <option name="METHOD_NAME" value="testDeleteBranchWithValidInfomation" />
+      <option name="METHOD_NAME" value="testUpdateBranchWithInvalidInformation" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -163,10 +147,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
-        <item itemvalue="JUnit.BranchServiceTest.testDeleteBranchWithValidInfomation" />
         <item itemvalue="JUnit.BranchServiceTest.testDeleteBranchWithExist" />
-        <item itemvalue="JUnit.BranchServiceTest.testDeleteBranchWithInvalidInformation" />
-        <item itemvalue="JUnit.BranchServiceTest.testDeleteBranchWithNull" />
+        <item itemvalue="JUnit.BranchServiceTest" />
+        <item itemvalue="JUnit.BranchServiceTest.testUpdateBranchWithInvalidInformation" />
+        <item itemvalue="JUnit.BranchServiceTest.testUpdateBranchWithExist" />
       </list>
     </recent_temporary>
   </component>
@@ -189,7 +173,10 @@
       <workItem from="1648563509781" duration="4537000" />
       <workItem from="1648606088335" duration="6586000" />
       <workItem from="1648649436360" duration="3778000" />
-      <workItem from="1648688290986" duration="5655000" />
+      <workItem from="1648688290986" duration="10855000" />
+      <workItem from="1648823137542" duration="63000" />
+      <workItem from="1648975509010" duration="7438000" />
+      <workItem from="1648990941814" duration="8190000" />
     </task>
     <servers />
   </component>
@@ -206,5 +193,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

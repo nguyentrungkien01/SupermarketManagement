@@ -26,11 +26,16 @@ public class BranchService {
     // Thêm chi nhánh
     public boolean addBranch(Branch branch) throws SQLException {
         if (branch == null ||
-                branch.getBraName()==null|| branch.getBraName().trim().isEmpty()||
-                branch.getBraAddress() == null|| branch.getBraAddress().trim().isEmpty())
+                branch.getBraName() == null || branch.getBraName().trim().isEmpty() ||
+                branch.getBraAddress() == null || branch.getBraAddress().trim().isEmpty())
             return false;
-        if (BRANCH_REPOSITORY.isExistBranch(branch))
+        if (BRANCH_REPOSITORY.isExistBranch(branch)) {
+            Branch branchAdd = BRANCH_REPOSITORY.getBranches(branch.getBraName()
+                    .trim()).get(0);
+            if (!branchAdd.getBraIsActive())
+                return BRANCH_REPOSITORY.addBranch(branchAdd);
             return false;
+        }
         return BRANCH_REPOSITORY.addBranch(branch);
     }
 
@@ -38,17 +43,20 @@ public class BranchService {
     public boolean updateBranch(Branch branch) throws SQLException {
         if (branch == null ||
                 branch.getBraId() == null ||
-                branch.getBraName() ==  null || branch.getBraName().trim().isEmpty()||
+                branch.getBraName() == null || branch.getBraName().trim().isEmpty() ||
                 branch.getBraAddress() == null || branch.getBraAddress().trim().isEmpty())
             return false;
-        if (BRANCH_REPOSITORY.isExistBranch(branch))
+        if (!BRANCH_REPOSITORY.isExistBranch(branch.getBraId()) ||
+                BRANCH_REPOSITORY.isExistBranch(branch))
             return false;
         return BRANCH_REPOSITORY.updateBranch(branch);
     }
 
     // Xóa chi nhánh
     public boolean deleteBranch(Branch branch) throws SQLException {
-        if (branch==null || branch.getBraId() == null)
+        if (branch == null || branch.getBraId() == null)
+            return false;
+        if (!BRANCH_REPOSITORY.isExistBranch(branch.getBraId()))
             return false;
         return BRANCH_REPOSITORY.deleteBranch(branch);
     }

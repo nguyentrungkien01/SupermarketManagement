@@ -1,6 +1,7 @@
 package com.ou.services;
 
 import com.ou.pojos.Branch;
+import com.ou.pojos.Manufacturer;
 import com.ou.utils.DatabaseUtils;
 import org.junit.jupiter.api.*;
 
@@ -150,10 +151,13 @@ public class BranchServiceTest {
     @Test
     public void testAddBranchWithValidInfomation(){
         try {
-            Branch  branch = new Branch();
+            Branch branch = new Branch();
             branch.setBraName("Tên chi nhánh thứ 3");
             branch.setBraAddress("Địa chỉ chi nhánh thứ 3");
+            int preAmo = branchService.getBranchAmount();
             Assertions.assertTrue(branchService.addBranch(branch));
+            int nextAmo = branchService.getBranchAmount();
+            Assertions.assertNotEquals(preAmo, nextAmo);
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -240,7 +244,7 @@ public class BranchServiceTest {
     }
 
     // Kiểm tra xóa thông tin chi nhánh không tồn tại
-    // chi nhánh có mã là 3 đã tồn tại. Trả về false
+    // chi nhánh có mã là 9999 không tồn tại. Trả về false
     @Test
     public void testDeleteBranchWithExist(){
         try {
@@ -259,7 +263,7 @@ public class BranchServiceTest {
         try {
             Branch  branch = branchServiceForTest.getBranchById(1);
             int preAmo = branchService.getBranchAmount();
-            branchService.deleteBranch(branch);
+            Assertions.assertTrue(branchService.deleteBranch(branch));
             int nextAmo = branchService.getBranchAmount();
             Assertions.assertNotEquals(preAmo, nextAmo);
         }catch (SQLException e){
