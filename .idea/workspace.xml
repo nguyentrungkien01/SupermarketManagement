@@ -23,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="sign-in-feature" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -71,7 +71,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -172,11 +172,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.App" />
-        <item itemvalue="JUnit.BranchServiceTest.testDeleteBranchWithExist" />
-        <item itemvalue="JUnit.BranchServiceTest" />
         <item itemvalue="JUnit.BranchServiceTest.testUpdateBranchWithInvalidInformation" />
         <item itemvalue="JUnit.BranchServiceTest.testUpdateBranchWithExist" />
+        <item itemvalue="JUnit.BranchServiceTest.testDeleteBranchWithExist" />
+        <item itemvalue="JUnit.BranchServiceTest" />
+        <item itemvalue="Application.App" />
       </list>
     </recent_temporary>
   </component>
