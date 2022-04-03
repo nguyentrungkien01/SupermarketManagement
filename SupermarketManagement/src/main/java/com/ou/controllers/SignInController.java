@@ -51,7 +51,7 @@ public class SignInController implements Initializable {
                 else{
                     // chuyen windown
                     if(staff.getStaIsAdmin() == true) // Admin
-                        AlertUtils.showAlert("Chuyển qua cửa sổ Admin", Alert.AlertType.INFORMATION);
+                        AlertUtils.showAlert("Chuyển qua cửa sổ Admin  ", Alert.AlertType.INFORMATION);
 
                     else // Nhân viên
                         AlertUtils.showAlert("Chuyển qua cửa sổ nhân viên", Alert.AlertType.INFORMATION);
