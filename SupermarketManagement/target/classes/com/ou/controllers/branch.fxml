@@ -113,12 +113,12 @@
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tổng số chi nhánh:">
                      <FlowPane.margin>
-                        <Insets top="10.0" />
+                        <Insets top="5.0" />
                      </FlowPane.margin>
                   </Text>
                   <Text fx:id="textBraAmount" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                      <FlowPane.margin>
-                        <Insets left="20.0" top="10.0" />
+                        <Insets left="20.0" top="5.0" />
                      </FlowPane.margin>
                   </Text>
                </children>
