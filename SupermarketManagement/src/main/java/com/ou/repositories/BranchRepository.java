@@ -13,10 +13,10 @@ public class BranchRepository {
     public List<Branch> getBranches(String kw) throws SQLException {
         List<Branch> branches = new ArrayList<>();
         try (Connection connection = DatabaseUtils.getConnection()) {
-            String query = "SELECT * FROM Branch WHERE bra_is_active = TRUE " +
-                    "AND bra_name LIKE CONCAT(\"%\", ? , \"%\")";
-            if (kw==null)
-                kw="";
+            String query = "SELECT * FROM Branch " +
+                    "WHERE bra_name LIKE CONCAT(\"%\", ? , \"%\")";
+            if (kw == null)
+                kw = "";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, kw);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -28,6 +28,7 @@ public class BranchRepository {
                 branch.setBraAddress(resultSet.getString("bra_address"));
                 branch.setProductAmount(getProductAmount(braId));
                 branch.setStaffAmount(getStaffAmount(braId));
+                branch.setBraIsActive(resultSet.getBoolean("bra_is_active"));
                 branches.add(branch);
             }
         }
@@ -82,7 +83,14 @@ public class BranchRepository {
 
     // Thêm một chi nhánh mới
     public boolean addBranch(Branch branch) throws SQLException {
-        try(Connection connection = DatabaseUtils.getConnection()){
+        try (Connection connection = DatabaseUtils.getConnection()) {
+            if (!branch.getBraIsActive()) {
+                String query = "UPDATE Branch SET bra_is_active = TRUE WHERE bra_id = ?";
+                PreparedStatement preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setInt(1, branch.getBraId());
+                return preparedStatement.executeUpdate() == 1;
+            }
+
             String query = "INSERT INTO Branch (bra_name, bra_address) VALUES (?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, branch.getBraName().trim());
@@ -93,8 +101,8 @@ public class BranchRepository {
 
     // Chính sửa thông tin của chi nhánh
     public boolean updateBranch(Branch branch) throws SQLException {
-        try(Connection connection = DatabaseUtils.getConnection()){
-            String query = "UPDATE Branch SET bra_name = ? , bra_address = ? WHERE bra_id = ?";
+        try (Connection connection = DatabaseUtils.getConnection()) {
+            String query = "UPDATE Branch SET bra_name = ? , bra_address = ? WHERE bra_id = ? AND bra_is_active = TRUE";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, branch.getBraName().trim());
             preparedStatement.setString(2, branch.getBraAddress().trim());
@@ -104,8 +112,8 @@ public class BranchRepository {
     }
 
     // Xóa một chi nhánh
-    public  boolean deleteBranch (Branch branch) throws SQLException{
-        try(Connection connection = DatabaseUtils.getConnection()){
+    public boolean deleteBranch(Branch branch) throws SQLException {
+        try (Connection connection = DatabaseUtils.getConnection()) {
             String query = "UPDATE Branch SET bra_is_active = FALSE WHERE bra_id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, branch.getBraId());
@@ -114,13 +122,22 @@ public class BranchRepository {
     }
 
     // Kiểm tra chi nhánh đó đã tồn tài hay chưa
-    public boolean isExistBranch (Branch branch) throws SQLException {
-        try(Connection connection = DatabaseUtils.getConnection()){
-            String query  = "SELECT * FROM Branch " +
-                    "WHERE (bra_name = ? or bra_address = ?)";
+    public boolean isExistBranch(Branch branch) throws SQLException {
+        try (Connection connection = DatabaseUtils.getConnection()) {
+            String query = "SELECT * FROM Branch WHERE (bra_name = ? or bra_address = ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, branch.getBraName().trim());
             preparedStatement.setString(2, branch.getBraAddress().trim());
+            return preparedStatement.executeQuery().next();
+        }
+    }
+
+    // Kiểm tra nhà sản xuất đó đã tồn tài hay chưa
+    public boolean isExistBranch(Integer braId) throws SQLException {
+        try (Connection connection = DatabaseUtils.getConnection()) {
+            String query = "SELECT * FROM Branch WHERE bra_id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, braId);
             return preparedStatement.executeQuery().next();
         }
     }

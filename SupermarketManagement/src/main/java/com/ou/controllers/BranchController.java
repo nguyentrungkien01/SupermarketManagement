@@ -44,6 +44,9 @@ public class BranchController implements Initializable {
     private TextField txtBraProductAmount;
 
     @FXML
+    private TextField txtBraIsActive;
+
+    @FXML
     private Text textBraAmount;
 
     @FXML
@@ -72,7 +75,7 @@ public class BranchController implements Initializable {
         this.btnEditBra.setOnMouseClicked(e -> updateBranch());
         this.btnDelBra.setOnMouseClicked(e -> deleteBranch());
         this.btnBack.setOnMouseClicked(e -> backMenu());
-        this.txtSearchBraName.textProperty().addListener(e->loadBranchTbvData(this.txtSearchBraName.getText()));
+        this.txtSearchBraName.textProperty().addListener(e -> loadBranchTbvData(this.txtSearchBraName.getText()));
     }
 
     // KHởi tạo các thuộc tính của vùng input
@@ -80,6 +83,7 @@ public class BranchController implements Initializable {
         this.txtBraId.setEditable(false);
         this.txtBraProductAmount.setEditable(false);
         this.txtBraStaffAmount.setEditable(false);
+        this.txtBraIsActive.setEditable(false);
     }
 
     // Khởi tạo các thuộc tính của table view liệu chi nhánh
@@ -105,19 +109,22 @@ public class BranchController implements Initializable {
         TableColumn<Branch, String> braAddressColumn = new TableColumn<>("Địa chỉ chi nhánh");
         TableColumn<Branch, Integer> braStaffAmountColumn = new TableColumn<>("Số lượng nhân viên");
         TableColumn<Branch, String> braProductAmountColumn = new TableColumn<>("Số lượng sản phẩm");
+        TableColumn<Branch, Boolean> braIsActiveColumn = new TableColumn<>("Trạng thái");
         braIdColumn.setCellValueFactory(new PropertyValueFactory<>("braId"));
         braNameColumn.setCellValueFactory(new PropertyValueFactory<>("braName"));
         braAddressColumn.setCellValueFactory(new PropertyValueFactory<>("braAddress"));
         braStaffAmountColumn.setCellValueFactory(new PropertyValueFactory<>("staffAmount"));
         braProductAmountColumn.setCellValueFactory(new PropertyValueFactory<>("productAmount"));
-        braIdColumn.setPrefWidth(200);
-        braNameColumn.setPrefWidth(400);
+        braIsActiveColumn.setCellValueFactory(new PropertyValueFactory<>("braIsActive"));
+        braIdColumn.setPrefWidth(100);
+        braNameColumn.setPrefWidth(300);
         braAddressColumn.setPrefWidth(600);
         braStaffAmountColumn.setPrefWidth(150);
         braProductAmountColumn.setPrefWidth(150);
+        braIsActiveColumn.setPrefWidth(200);
         braIdColumn.setSortType(TableColumn.SortType.DESCENDING);
         this.tbvBranch.getColumns().addAll(braIdColumn, braNameColumn, braAddressColumn,
-                braStaffAmountColumn, braProductAmountColumn);
+                braStaffAmountColumn, braProductAmountColumn, braIsActiveColumn);
     }
 
     // Lấy số lượng chi nhánh
@@ -138,6 +145,8 @@ public class BranchController implements Initializable {
             this.txtBraAddress.setText(selectedBra.getBraAddress());
             this.txtBraStaffAmount.setText(String.valueOf(selectedBra.getStaffAmount()));
             this.txtBraProductAmount.setText(String.valueOf(selectedBra.getProductAmount()));
+            this.txtBraIsActive.setText(selectedBra.getBraIsActive() ? "Đang hoạt động" : "Ngưng hoạt động");
+
         }
     }
 
@@ -146,8 +155,15 @@ public class BranchController implements Initializable {
         this.txtBraId.setText("");
         this.txtBraName.setText("");
         this.txtBraAddress.setText("");
-        this.txtBraStaffAmount.setText("");
-        this.txtBraProductAmount.setText("");
+        this.txtBraStaffAmount.setText("0");
+        this.txtBraProductAmount.setText("0");
+    }
+
+    // reload dữ liệu
+    private void reloadData() {
+        loadBranchTbvData(this.txtSearchBraName.getText());
+        loadBranchAmount();
+        clearInputData();
     }
 
     // Thêm một chi nhánh mới
@@ -158,9 +174,7 @@ public class BranchController implements Initializable {
         try {
             if (BRANCH_SERVICE.addBranch(branch)) {
                 AlertUtils.showAlert("Thêm thành công", Alert.AlertType.INFORMATION);
-                loadBranchTbvData(this.txtSearchBraName.getText());
-                loadBranchAmount();
-                clearInputData();
+                reloadData();
             } else {
                 AlertUtils.showAlert("Thêm thất bại!", Alert.AlertType.ERROR);
             }
@@ -180,12 +194,11 @@ public class BranchController implements Initializable {
         }
         branch.setBraName(this.txtBraName.getText());
         branch.setBraAddress(this.txtBraAddress.getText());
+        branch.setBraIsActive(this.txtBraIsActive.getText().equals("Đang hoạt động"));
         try {
             if (BRANCH_SERVICE.updateBranch(branch)) {
                 AlertUtils.showAlert("Sửa thành công", Alert.AlertType.INFORMATION);
-                loadBranchTbvData(this.txtSearchBraName.getText());
-                loadBranchAmount();
-                clearInputData();
+                reloadData();
             } else {
                 AlertUtils.showAlert("Sửa thất bại!", Alert.AlertType.ERROR);
             }
@@ -206,9 +219,7 @@ public class BranchController implements Initializable {
         try {
             if (BRANCH_SERVICE.deleteBranch(branch)) {
                 AlertUtils.showAlert("Xoá thành công", Alert.AlertType.INFORMATION);
-                loadBranchTbvData(this.txtSearchBraName.getText());
-                loadBranchAmount();
-                clearInputData();
+                reloadData();
             } else {
                 AlertUtils.showAlert("Xóa thất bại!", Alert.AlertType.ERROR);
             }

@@ -6,6 +6,7 @@ public class Manufacturer {
     private Integer manId;
     private String manName;
     private Boolean manIsActive  = Boolean.TRUE;
+    private Integer productAmount;
     private List<Product> products;
 
     public Integer getManId() {
@@ -38,5 +39,13 @@ public class Manufacturer {
 
     public void setManIsActive(Boolean manIsActive) {
         this.manIsActive = manIsActive;
+    }
+
+    public Integer getProductAmount() {
+        return productAmount;
+    }
+
+    public void setProductAmount(Integer productAmount) {
+        this.productAmount = productAmount;
     }
 }
