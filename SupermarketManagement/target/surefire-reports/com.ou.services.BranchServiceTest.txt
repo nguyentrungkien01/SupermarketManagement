@@ -1,0 +1,72 @@
+-------------------------------------------------------------------------------
+Test set: com.ou.services.BranchServiceTest
+-------------------------------------------------------------------------------
+Tests run: 17, Failures: 17, Errors: 0, Skipped: 0, Time elapsed: 0.022 sec <<< FAILURE!
+com.ou.services.BranchServiceTest.testUpdateBranchWithInvalidInformation()  Time elapsed: 0.004 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at com.ou.services.BranchServiceTest.testUpdateBranchWithInvalidInformation(BranchServiceTest.java:179)
+
+com.ou.services.BranchServiceTest.testUpdateBranchWithValidInfomation()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at com.ou.services.BranchServiceTest.testUpdateBranchWithValidInfomation(BranchServiceTest.java:209)
+
+com.ou.services.BranchServiceTest.testAddBranchWithInvalidInformation()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at com.ou.services.BranchServiceTest.testAddBranchWithInvalidInformation(BranchServiceTest.java:130)
+
+com.ou.services.BranchServiceTest.testDeleteBranchWithInvalidInformation()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at com.ou.services.BranchServiceTest.testDeleteBranchWithInvalidInformation(BranchServiceTest.java:234)
+
+com.ou.services.BranchServiceTest.testDeleteBranchWithValidInfomation()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at com.ou.services.BranchServiceTest.testDeleteBranchWithValidInfomation(BranchServiceTest.java:260)
+
+com.ou.services.BranchServiceTest.testSelectAllBranchByEmptyKw()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at com.ou.services.BranchServiceTest.testSelectAllBranchByEmptyKw(BranchServiceTest.java:65)
+
+com.ou.services.BranchServiceTest.testSelectAllBranchByValidKw()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at com.ou.services.BranchServiceTest.testSelectAllBranchByValidKw(BranchServiceTest.java:78)
+
+com.ou.services.BranchServiceTest.testGetBranchAmount()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at com.ou.services.BranchServiceTest.testGetBranchAmount(BranchServiceTest.java:102)
+
+com.ou.services.BranchServiceTest.testAddBranchWithNull()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at com.ou.services.BranchServiceTest.testAddBranchWithNull(BranchServiceTest.java:116)
+
+com.ou.services.BranchServiceTest.testAddBranchWithExist()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at com.ou.services.BranchServiceTest.testAddBranchWithExist(BranchServiceTest.java:141)
+
+com.ou.services.BranchServiceTest.testAddBranchWithValidInfomation()  Time elapsed: 0.002 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at com.ou.services.BranchServiceTest.testAddBranchWithValidInfomation(BranchServiceTest.java:156)
+
+com.ou.services.BranchServiceTest.testSelectAllBranchByInValid()  Time elapsed: 0.002 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at com.ou.services.BranchServiceTest.testSelectAllBranchByInValid(BranchServiceTest.java:90)
+
+com.ou.services.BranchServiceTest.testUpdateBranchWithNull()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at com.ou.services.BranchServiceTest.testUpdateBranchWithNull(BranchServiceTest.java:168)
+
+com.ou.services.BranchServiceTest.testSelectAllBranchByNullKw()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at com.ou.services.BranchServiceTest.testSelectAllBranchByNullKw(BranchServiceTest.java:52)
+
+com.ou.services.BranchServiceTest.testDeleteBranchWithNull()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at com.ou.services.BranchServiceTest.testDeleteBranchWithNull(BranchServiceTest.java:223)
+
+com.ou.services.BranchServiceTest.testDeleteBranchWithExist()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at com.ou.services.BranchServiceTest.testDeleteBranchWithExist(BranchServiceTest.java:247)
+
+com.ou.services.BranchServiceTest.testUpdateBranchWithExist()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at com.ou.services.BranchServiceTest.testUpdateBranchWithExist(BranchServiceTest.java:195)
+

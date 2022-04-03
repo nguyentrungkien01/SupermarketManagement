@@ -1,0 +1,4 @@
+--patch-module
+com.ou.controllers=_
+--add-reads
+com.ou.controllers=ALL-UNNAMED
