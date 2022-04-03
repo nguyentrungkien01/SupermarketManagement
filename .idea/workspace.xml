@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e81043f1-563b-4be6-9200-33a8dc1c33d9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/target/classes/com/ou/controllers/branch.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/target/classes/com/ou/controllers/branch.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_linux_18.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_linux_18.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_linux_18.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_linux_18.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/SupermarketManagement.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/SupermarketManagement.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,16 +58,26 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\KTPM\SupermarketManagement\SupermarketManagement\src\main\resources\com\ou\controllers" />
+      <recent name="C:\KTPM\SupermarketManagement\SupermarketManagement\src\main\java\com\ou\services" />
+      <recent name="C:\KTPM\SupermarketManagement\SupermarketManagement\src\main\java\com\ou\repositories" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers" />
       <recent name="$PROJECT_DIR$/SupermarketManagement/src/main/resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ou.services" />
+      <recent name="com.ou.utils" />
+      <recent name="com.ou.controllers" />
     </key>
   </component>
   <component name="RunManager" selected="Application.App">
