@@ -41,6 +41,7 @@ public class SignInController implements Initializable {
         });
     }
 
+    // Kiểm tra mật khẩu
     @FXML
     private void  checkAccount(){
         try {
@@ -65,6 +66,7 @@ public class SignInController implements Initializable {
         }
     }
 
+    // Kiểm tra dữ liệu nhập
     private boolean checkTextInput() throws SQLException, NoSuchAlgorithmException{
         if("".equals(this.txtUsername.getText().trim()) || this.txtUsername.getText().trim().length()< 6){
             AlertUtils.showAlert("Tên tài khoản phải có ít nhất 6 kí tự !!", Alert.AlertType.ERROR);
@@ -80,6 +82,7 @@ public class SignInController implements Initializable {
             }
     }
 
+    // Sự kiện bàn phím
     @FXML
     public void setKeyEnter(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {

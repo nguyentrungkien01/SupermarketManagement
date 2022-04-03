@@ -4,6 +4,7 @@
  */
 package com.ou.services;
 
+import com.ou.services.SignInServiceForTest;
 import com.ou.services.SignInService;
 import com.ou.utils.DatabaseUtils;
 import java.sql.Connection;
@@ -29,7 +30,8 @@ import org.junit.jupiter.api.Test;
 public class SignInServiceTest {
     private static Connection conn;
     private static SignInService signInService;
-    
+    private static SignInServiceForTest signInServiceForTest;
+
     public  SignInServiceTest(){
         
     }
@@ -87,17 +89,10 @@ public class SignInServiceTest {
     // Kiểm tra danh sách Staff có username trùng không
     @Test
     public void testUnique() throws SQLException {
-        String query ="SELECT * FROM Staff";
-        PreparedStatement preparedStatement = conn.prepareStatement(query);
-        ResultSet rs = preparedStatement.executeQuery();
+        List<String> listUsername = signInServiceForTest.getStaff();
+        Set<String> r = new HashSet<>(listUsername);
 
-        List<String> username = new ArrayList<>();
-        while(rs.next()){
-            username.add(rs.getString("sta_username"));
-        }
-        Set<String> r = new HashSet<>(username);
-
-        Assertions.assertEquals(username.size(), r.size());
+        Assertions.assertEquals(listUsername.size(), r.size());
     }
 
     // Kiểm tra hàm MD5
