@@ -14,7 +14,7 @@ public class SignInRepository {
         try (Connection connection = DatabaseUtils.getConnection()) {
             String query = "SELECT * FROM staff,person  WHERE staff.sta_id = person.pers_id"
                     + " AND staff.sta_username = ? "
-                    + " AND staff.sta_password LIKE CONCAT(\"%\", ? , \"%\")"
+                    + " AND staff.sta_password =  ? "
                     + " AND person.pers_is_active = true";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, username);
