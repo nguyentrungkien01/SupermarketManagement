@@ -108,7 +108,7 @@ public class CategoryServiceTest {
     public void testGetCategoryAmount(){
         try {
             Category category = categoryServiceForTest.getCategoryById(1);
-            categoryService.deletetegory(category);
+            categoryService.deleteCategory(category);
             int amount = categoryService.getCategoryAmount();
             Assertions.assertEquals(amount, 4);
         }catch (SQLException e){
@@ -222,7 +222,7 @@ public class CategoryServiceTest {
     @Test
     public void testDeleteCategoryWithNull(){
         try {
-            Assertions.assertFalse(categoryService.deletetegory(null));
+            Assertions.assertFalse(categoryService.deleteCategory(null));
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -235,7 +235,7 @@ public class CategoryServiceTest {
         try {
             Category category = categoryServiceForTest.getCategoryById(1);
             category.setCatId(null);
-            Assertions.assertFalse(categoryService.deletetegory(category));
+            Assertions.assertFalse(categoryService.deleteCategory(category));
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -247,7 +247,7 @@ public class CategoryServiceTest {
         try {
             Category category = categoryServiceForTest.getCategoryById(1);
             category.setCatId(9999);
-            Assertions.assertFalse(categoryService.deletetegory(category));
+            Assertions.assertFalse(categoryService.deleteCategory(category));
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -260,7 +260,7 @@ public class CategoryServiceTest {
         try {
             Category category = categoryServiceForTest.getCategoryById(1);
             int preAmo = categoryService.getCategoryAmount();
-            categoryService.deletetegory(category);
+            categoryService.deleteCategory(category);
             int nextAmo = categoryService.getCategoryAmount();
             Assertions.assertNotEquals(preAmo, nextAmo);
         }catch (SQLException e){

@@ -196,7 +196,7 @@ public class CategoryController implements Initializable {
             return;
         }
         try {
-            if (CATEGORY_SERVICE.deletetegory(category)) {
+            if (CATEGORY_SERVICE.deleteCategory(category)) {
                 AlertUtils.showAlert("Xoá thành công", Alert.AlertType.INFORMATION);
                 loadData();
             } else {

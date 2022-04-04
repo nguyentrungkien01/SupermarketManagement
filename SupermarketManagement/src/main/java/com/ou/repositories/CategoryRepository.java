@@ -112,4 +112,15 @@ public class CategoryRepository {
             return preparedStatement.executeQuery().next();
         }
     }
+
+    // Kiểm tra danh mục đó đã tồn tại hay chưa
+    public boolean isExistCategory (Integer catId) throws SQLException {
+        try(Connection connection = DatabaseUtils.getConnection()){
+            String query  = "SELECT * FROM Category " +
+                    "WHERE cat_id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, catId);
+            return preparedStatement.executeQuery().next();
+        }
+    }
 }

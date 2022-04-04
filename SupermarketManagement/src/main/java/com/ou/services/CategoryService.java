@@ -5,7 +5,6 @@
 package com.ou.services;
 
 import com.ou.pojos.Category;
-import com.ou.pojos.Manufacturer;
 import com.ou.repositories.CategoryRepository;
 
 import java.sql.SQLException;
@@ -50,13 +49,15 @@ public class CategoryService {
                 category.getCatName() ==  null || 
                 category.getCatName().trim().isEmpty())
             return false;
-        if (CATEGORY_REPOSITORY.isExistCategory(category))
+        if (CATEGORY_REPOSITORY.isExistCategory(category) || !CATEGORY_REPOSITORY.isExistCategory(category.getCatId()))
             return false;
         return CATEGORY_REPOSITORY.updateCategory(category);
     }
     //Xóa danh mục
-    public boolean deletetegory(Category category) throws SQLException{
+    public boolean deleteCategory(Category category) throws SQLException{
         if (category == null ||category.getCatId() == null)
+            return false;
+        if (!CATEGORY_REPOSITORY.isExistCategory(category.getCatId()))
             return false;
         return CATEGORY_REPOSITORY.deleteCategory(category);
     }
