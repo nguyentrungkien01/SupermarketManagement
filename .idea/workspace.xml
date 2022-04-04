@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e81043f1-563b-4be6-9200-33a8dc1c33d9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/target/classes/com/ou/controllers/branch.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/target/classes/com/ou/controllers/branch.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +21,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="sign-in-feature" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -31,6 +35,18 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/SignInController.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/App.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/SignInRepositoryForTest.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/SignInRepository.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/SignInServiceForTest.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/SignInService.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/utils/MD5Utils.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/signIn.fxml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/SignInServiceTest.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/.gitignore" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -62,9 +78,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\KTPM\SupermarketManagement\SupermarketManagement\src\main\resources\com\ou\controllers" />
+      <recent name="C:\KTPM\SupermarketManagement\SupermarketManagement\src\main\java\com\ou\services" />
+      <recent name="C:\KTPM\SupermarketManagement\SupermarketManagement\src\main\java\com\ou\repositories" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers" />
       <recent name="$PROJECT_DIR$/SupermarketManagement/src/main/resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ou.services" />
+      <recent name="com.ou.utils" />
+      <recent name="com.ou.controllers" />
     </key>
   </component>
   <component name="RunManager" selected="Application.App">
@@ -146,11 +172,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.App" />
-        <item itemvalue="JUnit.BranchServiceTest.testDeleteBranchWithExist" />
-        <item itemvalue="JUnit.BranchServiceTest" />
         <item itemvalue="JUnit.BranchServiceTest.testUpdateBranchWithInvalidInformation" />
         <item itemvalue="JUnit.BranchServiceTest.testUpdateBranchWithExist" />
+        <item itemvalue="JUnit.BranchServiceTest.testDeleteBranchWithExist" />
+        <item itemvalue="JUnit.BranchServiceTest" />
+        <item itemvalue="Application.App" />
       </list>
     </recent_temporary>
   </component>
