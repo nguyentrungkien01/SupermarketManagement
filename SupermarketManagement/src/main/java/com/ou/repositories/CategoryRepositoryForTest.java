@@ -27,8 +27,9 @@ public class CategoryRepositoryForTest {
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()){
                 Category category = new Category();
-                category.setCatId(resultSet.getInt("bra_id"));
-                category.setCatName(resultSet.getString("bra_name"));
+                category.setCatId(resultSet.getInt("cat_id"));
+                category.setCatName(resultSet.getString("cat_name"));
+                category.setCatIsActive(resultSet.getBoolean("cat_is_active"));
                 return category;
             }
             return null;

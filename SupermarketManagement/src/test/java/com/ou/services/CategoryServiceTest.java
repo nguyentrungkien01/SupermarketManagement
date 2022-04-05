@@ -59,7 +59,7 @@ public class CategoryServiceTest {
         try {
             List<Category> categories = categoryService.getCategories(null);
             int amount = categoryService.getCategoryAmount();
-            Assertions.assertEquals(categories.size(), amount);
+            Assertions.assertEquals(amount, categories.size());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -72,7 +72,7 @@ public class CategoryServiceTest {
         try {
             List<Category> categories = categoryService.getCategories("");
             int amount = categoryService.getCategoryAmount();
-            Assertions.assertEquals(categories.size(), amount);
+            Assertions.assertEquals(amount, categories.size());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -84,7 +84,7 @@ public class CategoryServiceTest {
     public void testSelectAllCategoryByValidKw() {
         try {
             List<Category> categories = categoryService.getCategories("Tên loại sản phẩm thứ 2");
-            Assertions.assertEquals(categories.size(), 1);
+            Assertions.assertEquals(1, categories.size());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -96,7 +96,7 @@ public class CategoryServiceTest {
     public void testSelectAllCategoryByInValid() {
         try {
             List<Category> categories = categoryService.getCategories("ABC XYZ");
-            Assertions.assertEquals(categories.size(), 0);
+            Assertions.assertEquals(0, categories.size());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -110,7 +110,7 @@ public class CategoryServiceTest {
             Category category = categoryServiceForTest.getCategoryById(1);
             categoryService.deleteCategory(category);
             int amount = categoryService.getCategoryAmount();
-            Assertions.assertEquals(amount, 4);
+            Assertions.assertEquals(4, amount);
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -158,7 +158,7 @@ public class CategoryServiceTest {
     public void testAddCategoryWithValidInfomation(){
         try {
             Category category = new Category();
-            category.setCatName("Tên loại sản phẩm thứ 7777");
+            category.setCatName("Tên loại sản phẩm thứ 787");
             int preAmo = categoryService.getCategoryAmount();
             Assertions.assertTrue(categoryService.addCategory(category));
             int nextAmo = categoryService.getCategoryAmount();

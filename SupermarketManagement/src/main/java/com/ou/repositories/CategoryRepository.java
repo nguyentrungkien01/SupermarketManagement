@@ -39,6 +39,7 @@ public class CategoryRepository {
         }
         return cates;
     }
+
     // Lấy số lượng sản phẩm của danh mục
     private int getProductAmount(int catId) throws SQLException {
         if (catId <= 0)
@@ -54,6 +55,7 @@ public class CategoryRepository {
             return 0;
         }
     }
+
     // Lấy tổng số danh mục sản phẩm
     public int getCategoryAmount() throws SQLException {
         try (Connection connection = DatabaseUtils.getConnection()) {
@@ -65,6 +67,7 @@ public class CategoryRepository {
             return 0;
         }
     }
+
     // Thêm một danh mục mới
     public boolean addCategory(Category category) throws SQLException {
         try(Connection connection = DatabaseUtils.getConnection()){
