@@ -1,5 +1,6 @@
 package com.ou.repositories;
 
+import com.ou.pojos.Category;
 import com.ou.pojos.Manufacturer;
 import com.ou.utils.DatabaseUtils;
 
@@ -116,5 +117,38 @@ public class ManufacturerRepository {
             preparedStatement.setInt(1, manId);
             return preparedStatement.executeQuery().next();
         }
+    }
+
+    // Lấy tất cả các nhà sản xuất còn hoạt động
+    public List<Manufacturer> getAllActiveManufacturer() throws SQLException {
+        List<Manufacturer> manufacturers = new ArrayList<>();
+        try (Connection connection = DatabaseUtils.getConnection()) {
+            String query = "SELECT man_name FROM Manufacturer WHERE man_is_active = TRUE";
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                Manufacturer manufacturer = new Manufacturer();
+                manufacturer.setManName(resultSet.getString("man_name"));
+                manufacturers.add(manufacturer);
+            }
+        }
+        return manufacturers;
+    }
+
+    // Láy thông tin của manufacturer dựa vào tên nhà sản xuất
+    public Manufacturer getManufacturerByName(String manName) throws SQLException{
+        try (Connection connection = DatabaseUtils.getConnection()) {
+            String query = "SELECT man_id, man_name FROM Manufacturer WHERE man_name = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, manName.trim());
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()){
+                Manufacturer manufacturer = new Manufacturer();
+                manufacturer.setManId(resultSet.getInt("man_id"));
+                manufacturer.setManName(resultSet.getString("man_name"));
+                return manufacturer;
+            }
+        }
+        return null;
     }
 }

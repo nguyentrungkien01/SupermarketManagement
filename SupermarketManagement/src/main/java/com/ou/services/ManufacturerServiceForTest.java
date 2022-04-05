@@ -1,8 +1,6 @@
 package com.ou.services;
 
-import com.ou.pojos.Branch;
 import com.ou.pojos.Manufacturer;
-import com.ou.repositories.BranchRepositoryForTest;
 import com.ou.repositories.ManufacturerRepositoryForTest;
 
 import java.sql.SQLException;

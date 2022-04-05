@@ -12,9 +12,11 @@ public class ManufacturerServiceTest {
     private static Connection connection;
     private static ManufacturerService manufacturerService;
     private static ManufacturerServiceForTest manufacturerServiceForTest;
-    public ManufacturerServiceTest(){
+
+    public ManufacturerServiceTest() {
 
     }
+
     @BeforeAll
     public static void setUpClass() {
         try {
@@ -22,7 +24,7 @@ public class ManufacturerServiceTest {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        manufacturerService= new ManufacturerService();
+        manufacturerService = new ManufacturerService();
         manufacturerServiceForTest = new ManufacturerServiceForTest();
     }
 
@@ -51,7 +53,7 @@ public class ManufacturerServiceTest {
         try {
             List<Manufacturer> manufacturers = manufacturerService.getManufacturers(null);
             int amount = manufacturerService.getManufacturerAmount();
-            Assertions.assertEquals(manufacturers.size(), amount);
+            Assertions.assertEquals(amount, manufacturers.size());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -64,7 +66,7 @@ public class ManufacturerServiceTest {
         try {
             List<Manufacturer> manufacturers = manufacturerService.getManufacturers("");
             int amount = manufacturerService.getManufacturerAmount();
-            Assertions.assertEquals(manufacturers.size(), amount);
+            Assertions.assertEquals(amount, manufacturers.size());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -76,19 +78,19 @@ public class ManufacturerServiceTest {
     public void testSelectAllManufacturerByValidKw() {
         try {
             List<Manufacturer> manufacturers = manufacturerService.getManufacturers("Tên nhà sản xuất thứ 1");
-            Assertions.assertEquals(manufacturers.size(), 1);
+            Assertions.assertEquals(1, manufacturers.size());
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     // Kiểm tra lấy thông tin nhà sản xuất khi truyền vào là 1 tên nhà sản xuất không tồn tại dưới database
-    // Không có chi nhánh nào tên "Tên nhà sản xuất thứ 9999999999999999"
+    // Không có nhà sản xuất nào tên "Tên nhà sản xuất thứ 9999999999999999"
     @Test
     public void testSelectAllManufacturerByInValid() {
         try {
             List<Manufacturer> manufacturers = manufacturerService.getManufacturers("Tên nhà sản xuất thứ 9999999999999999");
-            Assertions.assertEquals(manufacturers.size(), 0);
+            Assertions.assertEquals(0, manufacturers.size());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -97,13 +99,13 @@ public class ManufacturerServiceTest {
     // Kiểm tra số lấy số lượng nhà sản xuất còn hoạt động dưới database
     // Có 4 nhà sản xuất dưới database nhưng chỉ có 3 nhà sản xuất còn hoạt động
     @Test
-    public void testGetManufacturerAmount(){
+    public void testGetManufacturerAmount() {
         try {
             Manufacturer manufacturer = manufacturerServiceForTest.getManufacturerById(1);
             manufacturerService.deleteManufacturer(manufacturer);
             int amount = manufacturerService.getManufacturerAmount();
-            Assertions.assertEquals(amount, 3);
-        }catch (SQLException e){
+            Assertions.assertEquals(3, amount);
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -111,10 +113,10 @@ public class ManufacturerServiceTest {
     // Kiểm tra thêm giá trị null khi thêm nhà sản xuất
     // Trả về false
     @Test
-    public void testAddManufacturerWithNull(){
+    public void testAddManufacturerWithNull() {
         try {
             Assertions.assertFalse(manufacturerService.addManufacturer(null));
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -122,24 +124,24 @@ public class ManufacturerServiceTest {
     // Kiểm tra thêm thông tin nhà sản xuất khi thông tin không hợp lệ
     //  Trả về false
     @Test
-    public void testAddManufacturerWithInvalidInformation(){
+    public void testAddManufacturerWithInvalidInformation() {
         try {
-            Manufacturer  manufacturer = new Manufacturer();
+            Manufacturer manufacturer = new Manufacturer();
             manufacturer.setManName("");
             Assertions.assertFalse(manufacturerService.addManufacturer(manufacturer));
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     // Kiểm tra thêm thông tin nhà sản xuất đã tồn tại
-    // Chi nhánh có mã là 2 đã tồn tại. Trả về false
+    // Nhà sản xuất có mã là 2 đã tồn tại. Trả về false
     @Test
-    public void testAddManufacturerWithExist(){
+    public void testAddManufacturerWithExist() {
         try {
-            Manufacturer  manufacturer = manufacturerServiceForTest.getManufacturerById(2);
+            Manufacturer manufacturer = manufacturerServiceForTest.getManufacturerById(2);
             Assertions.assertFalse(manufacturerService.addManufacturer(manufacturer));
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -147,15 +149,15 @@ public class ManufacturerServiceTest {
     // Kiểm tra thêm nhà sản xuất mới thành công
     // Trả về true
     @Test
-    public void testAddManufacturerWithValidInfomation(){
+    public void testAddManufacturerWithValidInfomation() {
         try {
-            Manufacturer  manufacturer = new Manufacturer();
+            Manufacturer manufacturer = new Manufacturer();
             manufacturer.setManName("Tên nhà sản xuất thứ 6");
             int preAmo = manufacturerService.getManufacturerAmount();
             Assertions.assertTrue(manufacturerService.addManufacturer(manufacturer));
             int nextAmo = manufacturerService.getManufacturerAmount();
             Assertions.assertNotEquals(preAmo, nextAmo);
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -164,10 +166,10 @@ public class ManufacturerServiceTest {
     // Kiểm tra thêm giá trị null khi sửa nhà sản xuất
     // Trả về false
     @Test
-    public void testUpdateManufacturerWithNull(){
+    public void testUpdateManufacturerWithNull() {
         try {
             Assertions.assertFalse(manufacturerService.updateManufacturer(null));
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -175,12 +177,12 @@ public class ManufacturerServiceTest {
     // Kiểm tra sửa thông tin nhà sản xuất khi thông tin không hợp lệ
     //  Trả về false
     @Test
-    public void testUpdateManufacturerWithInvalidInformation(){
+    public void testUpdateManufacturerWithInvalidInformation() {
         try {
-            Manufacturer  manufacturer = manufacturerServiceForTest.getManufacturerById(1);
+            Manufacturer manufacturer = manufacturerServiceForTest.getManufacturerById(1);
             manufacturer.setManName("");
             Assertions.assertFalse(manufacturerService.updateManufacturer(manufacturer));
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -190,12 +192,12 @@ public class ManufacturerServiceTest {
     // Sửa thông tin nhà sản xuất 1 trùng với thông tin nhà sản xuất 2 mà
     // nhà sản xuất có mã là 2 đã tồn tại. Trả về false
     @Test
-    public void testUpdateManufacturerWithExist(){
+    public void testUpdateManufacturerWithExist() {
         try {
-            Manufacturer  manufacturer = manufacturerServiceForTest.getManufacturerById(1);
+            Manufacturer manufacturer = manufacturerServiceForTest.getManufacturerById(1);
             manufacturer.setManName("Tên nhà sản xuất thứ 2");
             Assertions.assertFalse(manufacturerService.updateManufacturer(manufacturer));
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -203,12 +205,12 @@ public class ManufacturerServiceTest {
     // Kiểm tra sửa nhà sản xuất mới thành công
     // Trả về true
     @Test
-    public void testUpdateManufacturerWithValidInfomation(){
+    public void testUpdateManufacturerWithValidInfomation() {
         try {
-            Manufacturer  manufacturer = manufacturerServiceForTest.getManufacturerById(1);
+            Manufacturer manufacturer = manufacturerServiceForTest.getManufacturerById(1);
             manufacturer.setManName("Tên nhà sản xuất thứ 6");
             Assertions.assertTrue(manufacturerService.addManufacturer(manufacturer));
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -216,10 +218,10 @@ public class ManufacturerServiceTest {
     // Kiểm tra giá trị null khi xóa nhà sản xuất
     // Trả về false
     @Test
-    public void testDeleteManufacturerWithNull(){
+    public void testDeleteManufacturerWithNull() {
         try {
             Assertions.assertFalse(manufacturerService.deleteManufacturer(null));
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -227,12 +229,13 @@ public class ManufacturerServiceTest {
     // Kiểm tra xóa thông tin nhà sản xuất khi thông tin không hợp lệ
     //  Trả về false
     @Test
-    public void testDeleteManufacturerWithInvalidInformation(){
+    public void testDeleteManufacturerWithInvalidInformation() {
         try {
-            Manufacturer  manufacturer = manufacturerServiceForTest.getManufacturerById(1);
+            Manufacturer manufacturer = manufacturerServiceForTest.getManufacturerById(1);
             manufacturer.setManName(null);
+            manufacturer.setManId(null);
             Assertions.assertFalse(manufacturerService.deleteManufacturer(manufacturer));
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -240,12 +243,12 @@ public class ManufacturerServiceTest {
     // Kiểm tra xóa thông tin nhà sản xuất không tồn tại
     // nhà sản xuất có mã là 9999 không tồn tại. Trả về false
     @Test
-    public void testDeleteManufacturerWithExist(){
+    public void testDeleteManufacturerWithExist() {
         try {
-            Manufacturer  manufacturer = manufacturerServiceForTest.getManufacturerById(1);
+            Manufacturer manufacturer = manufacturerServiceForTest.getManufacturerById(1);
             manufacturer.setManId(9999);
             Assertions.assertFalse(manufacturerService.deleteManufacturer(manufacturer));
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -253,14 +256,14 @@ public class ManufacturerServiceTest {
     // Kiểm tra xóa nhà sản xuất thành công
     // Trả về true
     @Test
-    public void testDeleteManufacturerWithValidInfomation(){
+    public void testDeleteManufacturerWithValidInfomation() {
         try {
-            Manufacturer  manufacturer = manufacturerServiceForTest.getManufacturerById(1);
+            Manufacturer manufacturer = manufacturerServiceForTest.getManufacturerById(1);
             int preAmo = manufacturerService.getManufacturerAmount();
             Assertions.assertTrue(manufacturerService.deleteManufacturer(manufacturer));
             int nextAmo = manufacturerService.getManufacturerAmount();
             Assertions.assertNotEquals(preAmo, nextAmo);
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

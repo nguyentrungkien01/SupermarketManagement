@@ -142,4 +142,36 @@ public class BranchRepository {
         }
     }
 
+    // Lấy thông tin các chi nhánh còn hoạt động
+    public List<Branch> getAllActiveBranch() throws SQLException {
+        List<Branch> branches = new ArrayList<>();
+        try (Connection connection = DatabaseUtils.getConnection()) {
+            String query = "SELECT bra_name FROM Branch WHERE bra_is_active = TRUE";
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                Branch branch = new Branch();
+                branch.setBraName(resultSet.getString("bra_name"));
+                branches.add(branch);
+            }
+        }
+        return branches;
+    }
+
+    // Lấy thông tin của chi nhánh dựa vào tên chi nhánh
+    public Branch getBranchByName(String braName) throws SQLException{
+        try (Connection connection = DatabaseUtils.getConnection()) {
+            String query  = "SELECT bra_id, bra_name FROM Branch WHERE bra_name = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, braName.trim());
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()) {
+                Branch branch = new Branch();
+                branch.setBraId(resultSet.getInt("bra_id"));
+                branch.setBraName(resultSet.getString("bra_name"));
+                return branch;
+            }
+        }
+        return null;
+    }
 }

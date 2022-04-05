@@ -165,22 +165,19 @@ public class ManufacturerController implements Initializable {
 
     // Cập nhật thông tin một nhà sản xuất
     private void updateManufacturer() {
-        Manufacturer manufacturer = new Manufacturer();
         try {
+            Manufacturer manufacturer = new Manufacturer();
             manufacturer.setManId(Integer.parseInt(this.txtManId.getText()));
-        } catch (NumberFormatException e) {
-            AlertUtils.showAlert("Sửa thất bại! Vui lòng chọn nhà sản xuất để sửa", Alert.AlertType.ERROR);
-            return;
-        }
-        manufacturer.setManName(this.txtManName.getText());
-        manufacturer.setManIsActive(this.txtManIsActive.getText().equals("Đang hoạt động"));
-        try {
+            manufacturer.setManName(this.txtManName.getText());
+            manufacturer.setManIsActive(this.txtManIsActive.getText().equals("Đang hoạt động"));
             if (MANUFACTURER_SERVICE.updateManufacturer(manufacturer)) {
                 AlertUtils.showAlert("Sửa thành công", Alert.AlertType.INFORMATION);
                 reloadData();
             } else {
                 AlertUtils.showAlert("Sửa thất bại!", Alert.AlertType.ERROR);
             }
+        } catch (NumberFormatException numberFormatException) {
+            AlertUtils.showAlert("Sửa thất bại! Vui lòng chọn nhà sản xuất để sửa", Alert.AlertType.ERROR);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -188,20 +185,17 @@ public class ManufacturerController implements Initializable {
 
     // Xóa một nhà sản xuất
     private void deleteManufacturer() {
-        Manufacturer manufacturer = new Manufacturer();
         try {
+            Manufacturer manufacturer = new Manufacturer();
             manufacturer.setManId(Integer.parseInt(this.txtManId.getText()));
-        } catch (NumberFormatException inputMismatchException) {
-            AlertUtils.showAlert("Xóa thất bại! Vui lòng chọn nhà sản xuất cần xóa!", Alert.AlertType.ERROR);
-            return;
-        }
-        try {
             if (MANUFACTURER_SERVICE.deleteManufacturer(manufacturer)) {
                 AlertUtils.showAlert("Xoá thành công", Alert.AlertType.INFORMATION);
                 reloadData();
             } else {
                 AlertUtils.showAlert("Xóa thất bại!", Alert.AlertType.ERROR);
             }
+        } catch (NumberFormatException inputMismatchException) {
+            AlertUtils.showAlert("Xóa thất bại! Vui lòng chọn nhà sản xuất cần xóa!", Alert.AlertType.ERROR);
         } catch (SQLException e) {
             e.printStackTrace();
         }

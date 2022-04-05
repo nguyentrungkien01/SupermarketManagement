@@ -185,23 +185,21 @@ public class BranchController implements Initializable {
 
     // Cập nhật thông tin một chi nhánh
     private void updateBranch() {
-        Branch branch = new Branch();
         try {
+            Branch branch = new Branch();
             branch.setBraId(Integer.parseInt(this.txtBraId.getText()));
-        } catch (NumberFormatException e) {
-            AlertUtils.showAlert("Sửa thất bại! Vui lòng chọn chi nhánh để sửa", Alert.AlertType.ERROR);
-            return;
-        }
-        branch.setBraName(this.txtBraName.getText());
-        branch.setBraAddress(this.txtBraAddress.getText());
-        branch.setBraIsActive(this.txtBraIsActive.getText().equals("Đang hoạt động"));
-        try {
+            branch.setBraName(this.txtBraName.getText());
+            branch.setBraAddress(this.txtBraAddress.getText());
+            branch.setBraIsActive(this.txtBraIsActive.getText().equals("Đang hoạt động"));
+
             if (BRANCH_SERVICE.updateBranch(branch)) {
                 AlertUtils.showAlert("Sửa thành công", Alert.AlertType.INFORMATION);
                 reloadData();
             } else {
                 AlertUtils.showAlert("Sửa thất bại!", Alert.AlertType.ERROR);
             }
+        } catch (NumberFormatException numberFormatException) {
+            AlertUtils.showAlert("Sửa thất bại! Vui lòng chọn chi nhánh để sửa", Alert.AlertType.ERROR);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -209,20 +207,17 @@ public class BranchController implements Initializable {
 
     // Xóa một chi nhánh
     private void deleteBranch() {
-        Branch branch = new Branch();
         try {
+            Branch branch = new Branch();
             branch.setBraId(Integer.parseInt(this.txtBraId.getText()));
-        } catch (NumberFormatException inputMismatchException) {
-            AlertUtils.showAlert("Xóa thất bại! Vui lòng chọn chi nhánh cần xóa!", Alert.AlertType.ERROR);
-            return;
-        }
-        try {
             if (BRANCH_SERVICE.deleteBranch(branch)) {
                 AlertUtils.showAlert("Xoá thành công", Alert.AlertType.INFORMATION);
                 reloadData();
             } else {
                 AlertUtils.showAlert("Xóa thất bại!", Alert.AlertType.ERROR);
             }
+        } catch (NumberFormatException inputMismatchException) {
+            AlertUtils.showAlert("Xóa thất bại! Vui lòng chọn chi nhánh cần xóa!", Alert.AlertType.ERROR);
         } catch (SQLException e) {
             e.printStackTrace();
         }

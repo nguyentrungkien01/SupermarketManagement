@@ -6,7 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="e81043f1-563b-4be6-9200-33a8dc1c33d9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/target/classes/com/ou/controllers/branch.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/target/classes/com/ou/controllers/branch.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/BranchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/BranchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/ManufacturerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/ManufacturerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Branch.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Branch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Manufacturer.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Manufacturer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Unit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/BranchRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/BranchRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/ManufacturerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/ManufacturerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/ManufacturerRepositoryForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/ManufacturerRepositoryForTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/BranchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/BranchService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/ManufacturerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/ManufacturerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/ManufacturerServiceForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/ManufacturerServiceForTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/BranchServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/BranchServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/ManufacturerServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/ManufacturerServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,21 +82,8 @@
       <recent name="$PROJECT_DIR$/SupermarketManagement/src/main/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.App">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ou.controllers.App" />
-      <module name="SupermarketManagement" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ou.controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BranchServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.ProductServiceTest.testSelectAllProductByValidKw">
+    <configuration name="ProductServiceTest.testGetProductBranchesAmountWithInValidId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SupermarketManagement" />
       <extension name="coverage">
         <pattern>
@@ -90,29 +92,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.ou.services" />
-      <option name="MAIN_CLASS_NAME" value="com.ou.services.BranchServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BranchServiceTest.testDeleteBranchWithExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SupermarketManagement" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ou.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ou.services" />
-      <option name="MAIN_CLASS_NAME" value="com.ou.services.BranchServiceTest" />
-      <option name="METHOD_NAME" value="testDeleteBranchWithExist" />
+      <option name="MAIN_CLASS_NAME" value="com.ou.services.ProductServiceTest" />
+      <option name="METHOD_NAME" value="testGetProductBranchesAmountWithInValidId" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BranchServiceTest.testUpdateBranchWithExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProductServiceTest.testGetProductBranchesAmountWithValidId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SupermarketManagement" />
       <extension name="coverage">
         <pattern>
@@ -121,14 +108,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.ou.services" />
-      <option name="MAIN_CLASS_NAME" value="com.ou.services.BranchServiceTest" />
-      <option name="METHOD_NAME" value="testUpdateBranchWithExist" />
+      <option name="MAIN_CLASS_NAME" value="com.ou.services.ProductServiceTest" />
+      <option name="METHOD_NAME" value="testGetProductBranchesAmountWithValidId" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BranchServiceTest.testUpdateBranchWithInvalidInformation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProductServiceTest.testGetProductUnitsAmountWithInValidId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SupermarketManagement" />
       <extension name="coverage">
         <pattern>
@@ -137,8 +124,40 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.ou.services" />
-      <option name="MAIN_CLASS_NAME" value="com.ou.services.BranchServiceTest" />
-      <option name="METHOD_NAME" value="testUpdateBranchWithInvalidInformation" />
+      <option name="MAIN_CLASS_NAME" value="com.ou.services.ProductServiceTest" />
+      <option name="METHOD_NAME" value="testGetProductUnitsAmountWithInValidId" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductServiceTest.testGetProductUnitsAmountWithValidId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SupermarketManagement" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ou.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ou.services" />
+      <option name="MAIN_CLASS_NAME" value="com.ou.services.ProductServiceTest" />
+      <option name="METHOD_NAME" value="testGetProductUnitsAmountWithValidId" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductServiceTest.testSelectAllProductByValidKw" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SupermarketManagement" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ou.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ou.services" />
+      <option name="MAIN_CLASS_NAME" value="com.ou.services.ProductServiceTest" />
+      <option name="METHOD_NAME" value="testSelectAllProductByValidKw" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -146,11 +165,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.App" />
-        <item itemvalue="JUnit.BranchServiceTest.testDeleteBranchWithExist" />
-        <item itemvalue="JUnit.BranchServiceTest" />
-        <item itemvalue="JUnit.BranchServiceTest.testUpdateBranchWithInvalidInformation" />
-        <item itemvalue="JUnit.BranchServiceTest.testUpdateBranchWithExist" />
+        <item itemvalue="JUnit.ProductServiceTest.testSelectAllProductByValidKw" />
+        <item itemvalue="JUnit.ProductServiceTest.testGetProductUnitsAmountWithInValidId" />
+        <item itemvalue="JUnit.ProductServiceTest.testGetProductUnitsAmountWithValidId" />
+        <item itemvalue="JUnit.ProductServiceTest.testGetProductBranchesAmountWithInValidId" />
+        <item itemvalue="JUnit.ProductServiceTest.testGetProductBranchesAmountWithValidId" />
       </list>
     </recent_temporary>
   </component>
@@ -176,7 +195,17 @@
       <workItem from="1648688290986" duration="10855000" />
       <workItem from="1648823137542" duration="63000" />
       <workItem from="1648975509010" duration="7438000" />
-      <workItem from="1648990941814" duration="8190000" />
+      <workItem from="1648990941814" duration="8711000" />
+      <workItem from="1649037180953" duration="636000" />
+      <workItem from="1649043917007" duration="2560000" />
+      <workItem from="1649061768953" duration="7123000" />
+      <workItem from="1649077072805" duration="9198000" />
+      <workItem from="1649121801480" duration="6112000" />
+      <workItem from="1649128380508" duration="2577000" />
+      <workItem from="1649147200379" duration="837000" />
+      <workItem from="1649148058436" duration="321000" />
+      <workItem from="1649148410156" duration="8107000" />
+      <workItem from="1649165095004" duration="2445000" />
     </task>
     <servers />
   </component>
