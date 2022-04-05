@@ -4,10 +4,10 @@ import java.util.List;
 
 public class Category {
     private Integer catId;
-    private Integer catName;
+    private String catName;
     private Boolean catIsActive  = Boolean.TRUE;
     private List<Product> products;
-
+    private Integer productAmount;
     public Integer getCatId() {
         return catId;
     }
@@ -16,11 +16,11 @@ public class Category {
         this.catId = catId;
     }
 
-    public Integer getCatName() {
+    public String getCatName() {
         return catName;
     }
 
-    public void setCatName(Integer catName) {
+    public void setCatName(String catName) {
         this.catName = catName;
     }
 
@@ -38,5 +38,13 @@ public class Category {
 
     public void setCatIsActive(Boolean catIsActive) {
         this.catIsActive = catIsActive;
+    }
+
+    public Integer getProductAmount() {
+        return productAmount;
+    }
+
+    public void setProductAmount(Integer productAmount) {
+        this.productAmount = productAmount;
     }
 }
