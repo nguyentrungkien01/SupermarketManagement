@@ -158,8 +158,11 @@ public class CategoryServiceTest {
     public void testAddCategoryWithValidInfomation(){
         try {
             Category category = new Category();
-            category.setCatName("Tên loại sản phẩm thứ 7");
+            category.setCatName("Tên loại sản phẩm thứ 7777");
+            int preAmo = categoryService.getCategoryAmount();
             Assertions.assertTrue(categoryService.addCategory(category));
+            int nextAmo = categoryService.getCategoryAmount();
+            Assertions.assertNotEquals(preAmo, nextAmo);
         }catch (SQLException e){
             e.printStackTrace();
         }

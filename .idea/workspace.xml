@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e81043f1-563b-4be6-9200-33a8dc1c33d9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/CategoryRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/CategoryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/CategoryServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/CategoryServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +91,7 @@
       <recent name="com.ou.utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="JUnit.CategoryServiceTest.testAddCategoryWithValidInfomation">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ou.controllers.App" />
       <module name="SupermarketManagement" />
@@ -104,21 +101,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BranchServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SupermarketManagement" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ou.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ou.services" />
-      <option name="MAIN_CLASS_NAME" value="com.ou.services.BranchServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -171,13 +153,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CategoryServiceTest.testAddCategoryWithValidInfomation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SupermarketManagement" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ou.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ou.services" />
+      <option name="MAIN_CLASS_NAME" value="com.ou.services.CategoryServiceTest" />
+      <option name="METHOD_NAME" value="testAddCategoryWithValidInfomation" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CategoryServiceTest.testAddCategoryWithValidInfomation" />
         <item itemvalue="Application.App" />
         <item itemvalue="JUnit.BranchServiceTest.testUpdateBranchWithInvalidInformation" />
         <item itemvalue="JUnit.BranchServiceTest.testUpdateBranchWithExist" />
         <item itemvalue="JUnit.BranchServiceTest.testDeleteBranchWithExist" />
-        <item itemvalue="JUnit.BranchServiceTest" />
       </list>
     </recent_temporary>
   </component>
