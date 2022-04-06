@@ -7,7 +7,7 @@ public class Category {
     private String catName;
     private Boolean catIsActive  = Boolean.TRUE;
     private List<Product> products;
-
+    private Integer productAmount;
     public Integer getCatId() {
         return catId;
     }
@@ -40,7 +40,15 @@ public class Category {
         this.catIsActive = catIsActive;
     }
 
-    public String toString(){
+    public String toString() {
         return this.catName;
+    }
+
+    public Integer getProductAmount() {
+        return productAmount;
+    }
+
+    public void setProductAmount(Integer productAmount) {
+        this.productAmount = productAmount;
     }
 }

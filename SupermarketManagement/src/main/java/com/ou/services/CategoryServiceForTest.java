@@ -1,3 +1,4 @@
+
 package com.ou.services;
 
 import com.ou.pojos.Category;
@@ -11,8 +12,11 @@ public class CategoryServiceForTest {
     static {
         CATEGORY_REPOSITORY_FOR_TEST = new CategoryRepositoryForTest();
     }
-    // Lấy thông tin loại hàng dựa vào id
-    public Category getCategoryById(int catId) throws SQLException {
+
+    // Lấy thông tin danh mục dựa vào id
+    public Category getCategoryById(int catId) throws SQLException{
+        if(catId <1 )
+            return null;
         return CATEGORY_REPOSITORY_FOR_TEST.getCategoryById(catId);
     }
 }

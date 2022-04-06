@@ -5,28 +5,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e81043f1-563b-4be6-9200-33a8dc1c33d9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/CategoryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/SignInController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/SignInRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/SignInRepositoryForTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/SignInService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/SignInServiceForTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/utils/MD5Utils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/sign-in.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/CategoryServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/SignInServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_18.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_linux_18.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_18.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_linux_18.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_18.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_linux_18.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_18.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_linux_18.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/SupermarketManagement.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/SupermarketManagement.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/BranchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/BranchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/ManufacturerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/ManufacturerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Branch.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Branch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Manufacturer.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Manufacturer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Unit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/BranchRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/BranchRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/CategoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/CategoryRepositoryForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/CategoryRepositoryForTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/ManufacturerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/ManufacturerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/ManufacturerRepositoryForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/ManufacturerRepositoryForTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/BranchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/BranchService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/ManufacturerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/ManufacturerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/ManufacturerServiceForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/ManufacturerServiceForTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/BranchServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/BranchServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/ManufacturerServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/ManufacturerServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/CategoryServiceForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/CategoryServiceForTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/branch.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/branch.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/manufacturer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/manufacturer.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/product.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/product.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/unit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/unit.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/target/classes/com/ou/controllers/branch.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/category.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/target/classes/com/ou/controllers/manufacturer.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="PARALLEL_COMPILATION" value="false" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -66,110 +88,158 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
+    <property name="project.structure.side.proportion" value="0.468894" />
+    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou" />
       <recent name="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers" />
       <recent name="$PROJECT_DIR$/SupermarketManagement/src/main/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ProductServiceTest.testSelectAllProductByValidKw">
-    <configuration name="ProductServiceTest.testGetProductBranchesAmountWithInValidId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.App">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ou.controllers.App" />
       <module name="SupermarketManagement" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ou.services.*" />
+          <option name="PATTERN" value="com.ou.controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.ou.services" />
-      <option name="MAIN_CLASS_NAME" value="com.ou.services.ProductServiceTest" />
-      <option name="METHOD_NAME" value="testGetProductBranchesAmountWithInValidId" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProductServiceTest.testGetProductBranchesAmountWithValidId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SupermarketManagement" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ou.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ou.services" />
-      <option name="MAIN_CLASS_NAME" value="com.ou.services.ProductServiceTest" />
-      <option name="METHOD_NAME" value="testGetProductBranchesAmountWithValidId" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="SupermarketManagement [clean:clean]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean:clean" />
+              </list>
+            </option>
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/SupermarketManagement" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
     </configuration>
-    <configuration name="ProductServiceTest.testGetProductUnitsAmountWithInValidId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SupermarketManagement" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ou.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ou.services" />
-      <option name="MAIN_CLASS_NAME" value="com.ou.services.ProductServiceTest" />
-      <option name="METHOD_NAME" value="testGetProductUnitsAmountWithInValidId" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="SupermarketManagement [compiler:compile]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="compiler:compile" />
+              </list>
+            </option>
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/SupermarketManagement" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
     </configuration>
-    <configuration name="ProductServiceTest.testGetProductUnitsAmountWithValidId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SupermarketManagement" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ou.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ou.services" />
-      <option name="MAIN_CLASS_NAME" value="com.ou.services.ProductServiceTest" />
-      <option name="METHOD_NAME" value="testGetProductUnitsAmountWithValidId" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="SupermarketManagement [javafx:jlink]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="javafx:jlink" />
+              </list>
+            </option>
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/SupermarketManagement" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
     </configuration>
-    <configuration name="ProductServiceTest.testSelectAllProductByValidKw" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SupermarketManagement" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ou.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ou.services" />
-      <option name="MAIN_CLASS_NAME" value="com.ou.services.ProductServiceTest" />
-      <option name="METHOD_NAME" value="testSelectAllProductByValidKw" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="SupermarketManagement [javafx:run]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="javafx:run" />
+              </list>
+            </option>
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/SupermarketManagement" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Application.App" />
+      <item itemvalue="Maven.SupermarketManagement [clean:clean]" />
+      <item itemvalue="Maven.SupermarketManagement [compiler:compile]" />
+      <item itemvalue="Maven.SupermarketManagement [javafx:jlink]" />
+      <item itemvalue="Maven.SupermarketManagement [javafx:run]" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ProductServiceTest.testSelectAllProductByValidKw" />
-        <item itemvalue="JUnit.ProductServiceTest.testGetProductUnitsAmountWithInValidId" />
-        <item itemvalue="JUnit.ProductServiceTest.testGetProductUnitsAmountWithValidId" />
-        <item itemvalue="JUnit.ProductServiceTest.testGetProductBranchesAmountWithInValidId" />
-        <item itemvalue="JUnit.ProductServiceTest.testGetProductBranchesAmountWithValidId" />
+        <item itemvalue="Application.App" />
+        <item itemvalue="Maven.SupermarketManagement [javafx:run]" />
+        <item itemvalue="Maven.SupermarketManagement [javafx:jlink]" />
+        <item itemvalue="Maven.SupermarketManagement [compiler:compile]" />
+        <item itemvalue="Maven.SupermarketManagement [clean:clean]" />
       </list>
     </recent_temporary>
   </component>
@@ -205,7 +275,10 @@
       <workItem from="1649147200379" duration="837000" />
       <workItem from="1649148058436" duration="321000" />
       <workItem from="1649148410156" duration="8107000" />
-      <workItem from="1649165095004" duration="2445000" />
+      <workItem from="1649165095004" duration="4004000" />
+      <workItem from="1649169123898" duration="3207000" />
+      <workItem from="1649172355236" duration="999000" />
+      <workItem from="1649210683620" duration="2296000" />
     </task>
     <servers />
   </component>

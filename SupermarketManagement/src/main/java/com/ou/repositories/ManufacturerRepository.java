@@ -1,6 +1,5 @@
 package com.ou.repositories;
 
-import com.ou.pojos.Category;
 import com.ou.pojos.Manufacturer;
 import com.ou.utils.DatabaseUtils;
 
