@@ -76,4 +76,8 @@ public class Branch {
     public void setBraIsActive(Boolean braIsActive) {
         this.braIsActive = braIsActive;
     }
+
+    public String toString(){
+        return braName;
+    }
 }

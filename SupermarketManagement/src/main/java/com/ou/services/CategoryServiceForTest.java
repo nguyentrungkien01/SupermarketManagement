@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.ou.services;
 
 import com.ou.pojos.Category;
@@ -9,10 +6,6 @@ import com.ou.repositories.CategoryRepositoryForTest;
 
 import java.sql.SQLException;
 
-/**
- *
- * @author danhn
- */
 public class CategoryServiceForTest {
     private final static CategoryRepositoryForTest CATEGORY_REPOSITORY_FOR_TEST;
 

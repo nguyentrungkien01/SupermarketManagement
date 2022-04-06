@@ -5,6 +5,7 @@ import com.ou.repositories.ManufacturerRepository;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Objects;
 
 public class ManufacturerService {
     private final static ManufacturerRepository MANUFACTURER_REPOSITORY;
@@ -44,9 +45,13 @@ public class ManufacturerService {
                 manufacturer.getManId() == null ||
                 manufacturer.getManName() ==  null || manufacturer.getManName().trim().isEmpty())
             return false;
-        if (!MANUFACTURER_REPOSITORY.isExistManufacturer(manufacturer.getManId()) ||
-        MANUFACTURER_REPOSITORY.isExistManufacturer(manufacturer))
+        if (!MANUFACTURER_REPOSITORY.isExistManufacturer(manufacturer.getManId()))
             return false;
+        if (MANUFACTURER_REPOSITORY.isExistManufacturer(manufacturer)){
+            Manufacturer existMan = MANUFACTURER_REPOSITORY.getManufacturerByName(manufacturer.getManName());
+            if (!Objects.equals(existMan.getManId(), manufacturer.getManId()))
+                return false;
+        }
         return MANUFACTURER_REPOSITORY.updateManufacturer(manufacturer);
     }
 
@@ -57,5 +62,17 @@ public class ManufacturerService {
         if (!MANUFACTURER_REPOSITORY.isExistManufacturer(manufacturer.getManId()))
             return false;
         return MANUFACTURER_REPOSITORY.deleteManufacturer(manufacturer);
+    }
+
+    // Lấy tất cả các nhà sản xuất còn hoạt động
+    public List<Manufacturer> getAllActiveManufacturer() throws SQLException {
+        return MANUFACTURER_REPOSITORY.getAllActiveManufacturer();
+    }
+
+    // Láy thông tin của manufacturer dựa vào tên nhà sản xuất
+    public Manufacturer getManufacturerByName(String manName) throws SQLException{
+        if (manName == null)
+            return null;
+        return MANUFACTURER_REPOSITORY.getManufacturerByName(manName);
     }
 }

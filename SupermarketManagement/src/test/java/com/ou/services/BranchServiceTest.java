@@ -1,7 +1,6 @@
 package com.ou.services;
 
 import com.ou.pojos.Branch;
-import com.ou.pojos.Manufacturer;
 import com.ou.utils.DatabaseUtils;
 import org.junit.jupiter.api.*;
 
@@ -13,9 +12,11 @@ public class BranchServiceTest {
     private static Connection connection;
     private static BranchService branchService;
     private static BranchServiceForTest branchServiceForTest;
-    public BranchServiceTest(){
+
+    public BranchServiceTest() {
 
     }
+
     @BeforeAll
     public static void setUpClass() {
         try {
@@ -23,7 +24,7 @@ public class BranchServiceTest {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        branchService= new BranchService();
+        branchService = new BranchService();
         branchServiceForTest = new BranchServiceForTest();
     }
 
@@ -65,7 +66,7 @@ public class BranchServiceTest {
         try {
             List<Branch> branches = branchService.getBranches("");
             int amount = branchService.getBranchAmount();
-            Assertions.assertEquals(branches.size(), amount);
+            Assertions.assertEquals(amount, branches.size());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -77,7 +78,7 @@ public class BranchServiceTest {
     public void testSelectAllBranchByValidKw() {
         try {
             List<Branch> branches = branchService.getBranches("Tên chi nhánh thứ 2");
-            Assertions.assertEquals(branches.size(), 1);
+            Assertions.assertEquals(1, branches.size());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -89,22 +90,23 @@ public class BranchServiceTest {
     public void testSelectAllBranchByInValid() {
         try {
             List<Branch> branches = branchService.getBranches("Tên chi nhánh thứ 9999999999");
-            Assertions.assertEquals(branches.size(), 0);
+            Assertions.assertEquals(0, branches.size());
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
+
     // Kiểm tra số lấy số lượng chi nhánh còn hoạt động dưới database
     // Có 2 chi nhánh dưới database nhưng chỉ có 1 chi nhánh còn hoạt động
     @Test
-    public void testGetBranchAmount(){
+    public void testGetBranchAmount() {
         try {
             Branch branch = branchServiceForTest.getBranchById(1);
             branchService.deleteBranch(branch);
             int amount = branchService.getBranchAmount();
-            Assertions.assertEquals(amount, 1);
-        }catch (SQLException e){
+            Assertions.assertEquals(1, amount);
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -112,10 +114,10 @@ public class BranchServiceTest {
     // Kiểm tra thêm giá trị null khi thêm chi nhánh
     // Trả về false
     @Test
-    public void testAddBranchWithNull(){
+    public void testAddBranchWithNull() {
         try {
             Assertions.assertFalse(branchService.addBranch(null));
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -123,13 +125,13 @@ public class BranchServiceTest {
     // Kiểm tra thêm thông tin chi nhánh khi thông tin không hợp lệ
     //  Trả về false
     @Test
-    public void testAddBranchWithInvalidInformation(){
+    public void testAddBranchWithInvalidInformation() {
         try {
-            Branch  branch = new Branch();
+            Branch branch = new Branch();
             branch.setBraName("");
             branch.setBraAddress("");
             Assertions.assertFalse(branchService.addBranch(branch));
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -137,11 +139,11 @@ public class BranchServiceTest {
     // Kiểm tra thêm thông tin chi nhánh đã tồn tại
     // Chi nhánh có mã là 2 đã tồn tại. Trả về false
     @Test
-    public void testAddBranchWithExist(){
+    public void testAddBranchWithExist() {
         try {
-            Branch  branch = branchServiceForTest.getBranchById(2);
+            Branch branch = branchServiceForTest.getBranchById(2);
             Assertions.assertFalse(branchService.addBranch(branch));
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -149,7 +151,7 @@ public class BranchServiceTest {
     // Kiểm tra thêm chi nhánh mới thành công
     // Trả về true
     @Test
-    public void testAddBranchWithValidInfomation(){
+    public void testAddBranchWithValidInfomation() {
         try {
             Branch branch = new Branch();
             branch.setBraName("Tên chi nhánh thứ 3");
@@ -158,7 +160,7 @@ public class BranchServiceTest {
             Assertions.assertTrue(branchService.addBranch(branch));
             int nextAmo = branchService.getBranchAmount();
             Assertions.assertNotEquals(preAmo, nextAmo);
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -167,10 +169,10 @@ public class BranchServiceTest {
     // Kiểm tra thêm giá trị null khi sửa chi nhánh
     // Trả về false
     @Test
-    public void testUpdateBranchWithNull(){
+    public void testUpdateBranchWithNull() {
         try {
             Assertions.assertFalse(branchService.updateBranch(null));
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -178,13 +180,13 @@ public class BranchServiceTest {
     // Kiểm tra sửa thông tin chi nhánh khi thông tin không hợp lệ
     //  Trả về false
     @Test
-    public void testUpdateBranchWithInvalidInformation(){
+    public void testUpdateBranchWithInvalidInformation() {
         try {
-            Branch  branch = branchServiceForTest.getBranchById(1);
+            Branch branch = branchServiceForTest.getBranchById(1);
             branch.setBraName("");
             branch.setBraAddress("");
             Assertions.assertFalse(branchService.updateBranch(branch));
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -194,13 +196,13 @@ public class BranchServiceTest {
     // Sửa thông tin chi nhánh 1 trùng với thông tin chi nhánh 2 mà
     // chi nhánh có mã là 2 đã tồn tại. Trả về false
     @Test
-    public void testUpdateBranchWithExist(){
+    public void testUpdateBranchWithExist() {
         try {
-            Branch  branch = branchServiceForTest.getBranchById(1);
+            Branch branch = branchServiceForTest.getBranchById(1);
             branch.setBraName("Tên chi nhánh thứ 2");
             branch.setBraAddress("Địa chỉ chi nhánh thứ 2");
             Assertions.assertFalse(branchService.updateBranch(branch));
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -208,13 +210,13 @@ public class BranchServiceTest {
     // Kiểm tra sửa chi nhánh mới thành công
     // Trả về true
     @Test
-    public void testUpdateBranchWithValidInfomation(){
+    public void testUpdateBranchWithValidInfomation() {
         try {
-            Branch  branch = branchServiceForTest.getBranchById(1);
+            Branch branch = branchServiceForTest.getBranchById(1);
             branch.setBraName("Tên chi nhánh thứ 3");
             branch.setBraAddress("Địa chỉ chi nhánh thứ 3");
             Assertions.assertTrue(branchService.addBranch(branch));
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -222,10 +224,10 @@ public class BranchServiceTest {
     // Kiểm tra giá trị null khi xóa chi nhánh
     // Trả về false
     @Test
-    public void testDeleteBranchWithNull(){
+    public void testDeleteBranchWithNull() {
         try {
             Assertions.assertFalse(branchService.deleteBranch(null));
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -233,12 +235,12 @@ public class BranchServiceTest {
     // Kiểm tra xóa thông tin chi nhánh khi thông tin không hợp lệ
     //  Trả về false
     @Test
-    public void testDeleteBranchWithInvalidInformation(){
+    public void testDeleteBranchWithInvalidInformation() {
         try {
-            Branch  branch = branchServiceForTest.getBranchById(1);
+            Branch branch = branchServiceForTest.getBranchById(1);
             branch.setBraId(null);
             Assertions.assertFalse(branchService.deleteBranch(branch));
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -246,12 +248,12 @@ public class BranchServiceTest {
     // Kiểm tra xóa thông tin chi nhánh không tồn tại
     // chi nhánh có mã là 9999 không tồn tại. Trả về false
     @Test
-    public void testDeleteBranchWithExist(){
+    public void testDeleteBranchWithExist() {
         try {
-            Branch  branch = branchServiceForTest.getBranchById(1);
+            Branch branch = branchServiceForTest.getBranchById(1);
             branch.setBraId(9999);
             Assertions.assertFalse(branchService.deleteBranch(branch));
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -259,14 +261,14 @@ public class BranchServiceTest {
     // Kiểm tra xóa chi nhánh thành công
     // Trả về true
     @Test
-    public void testDeleteBranchWithValidInfomation(){
+    public void testDeleteBranchWithValidInfomation() {
         try {
-            Branch  branch = branchServiceForTest.getBranchById(1);
+            Branch branch = branchServiceForTest.getBranchById(1);
             int preAmo = branchService.getBranchAmount();
             Assertions.assertTrue(branchService.deleteBranch(branch));
             int nextAmo = branchService.getBranchAmount();
             Assertions.assertNotEquals(preAmo, nextAmo);
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

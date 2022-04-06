@@ -39,4 +39,8 @@ public class Unit {
     public void setUniIsActive(Boolean uniIsActive) {
         this.uniIsActive = uniIsActive;
     }
+
+    public String toString(){
+        return uniName;
+    }
 }

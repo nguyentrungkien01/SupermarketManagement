@@ -40,6 +40,10 @@ public class Category {
         this.catIsActive = catIsActive;
     }
 
+    public String toString() {
+        return this.catName;
+    }
+
     public Integer getProductAmount() {
         return productAmount;
     }

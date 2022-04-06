@@ -48,4 +48,7 @@ public class Manufacturer {
     public void setProductAmount(Integer productAmount) {
         this.productAmount = productAmount;
     }
+    public String toString(){
+        return this.manName;
+    }
 }

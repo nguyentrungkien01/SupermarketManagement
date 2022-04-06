@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.ou.services;
 
 import com.ou.pojos.Category;
@@ -9,11 +6,8 @@ import com.ou.repositories.CategoryRepository;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Objects;
 
-/**
- *
- * @author danhn
- */
 public class CategoryService {
     private final static CategoryRepository CATEGORY_REPOSITORY;
     static {
@@ -49,8 +43,12 @@ public class CategoryService {
                 category.getCatName() ==  null || 
                 category.getCatName().trim().isEmpty())
             return false;
-        if (CATEGORY_REPOSITORY.isExistCategory(category) || !CATEGORY_REPOSITORY.isExistCategory(category.getCatId()))
-            return false;
+        if (CATEGORY_REPOSITORY.isExistCategory(category)){
+            Category existCategory = CATEGORY_REPOSITORY.getCategoryByName(category.getCatName());
+            if(!Objects.equals(existCategory.getCatId(), category.getCatId()))
+                return false;
+        }
+
         return CATEGORY_REPOSITORY.updateCategory(category);
     }
     //Xóa danh mục
@@ -60,5 +58,16 @@ public class CategoryService {
         if (!CATEGORY_REPOSITORY.isExistCategory(category.getCatId()))
             return false;
         return CATEGORY_REPOSITORY.deleteCategory(category);
+    }
+    // Lấy tất cả những category còn hoạt động
+    public List<Category> getAllActiveCategory() throws SQLException {
+        return CATEGORY_REPOSITORY.getAllActiveCategory();
+    }
+
+    // Lấy thông tin của category dựa vào tên loại hàng
+    public Category getCategoryByName(String catName) throws SQLException {
+        if (catName == null)
+            return null;
+        return CATEGORY_REPOSITORY.getCategoryByName(catName);
     }
 }
