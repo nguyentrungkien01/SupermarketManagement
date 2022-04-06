@@ -151,7 +151,7 @@ public class BranchServiceTest {
     // Kiểm tra thêm chi nhánh mới thành công
     // Trả về true
     @Test
-    public void testAddBranchWithValidInfomation() {
+    public void testAddBranchWithValidInformation() {
         try {
             Branch branch = new Branch();
             branch.setBraName("Tên chi nhánh thứ 3");
@@ -210,7 +210,7 @@ public class BranchServiceTest {
     // Kiểm tra sửa chi nhánh mới thành công
     // Trả về true
     @Test
-    public void testUpdateBranchWithValidInfomation() {
+    public void testUpdateBranchWithValidInformation() {
         try {
             Branch branch = branchServiceForTest.getBranchById(1);
             branch.setBraName("Tên chi nhánh thứ 3");
@@ -261,7 +261,7 @@ public class BranchServiceTest {
     // Kiểm tra xóa chi nhánh thành công
     // Trả về true
     @Test
-    public void testDeleteBranchWithValidInfomation() {
+    public void testDeleteBranchWithValidInformation() {
         try {
             Branch branch = branchServiceForTest.getBranchById(1);
             int preAmo = branchService.getBranchAmount();

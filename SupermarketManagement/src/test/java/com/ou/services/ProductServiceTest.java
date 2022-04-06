@@ -292,7 +292,7 @@ public class ProductServiceTest {
     // Kiểm tra thêm sản phẩm mới thành công
     // Trả về true
     @Test
-    public void testAddProductWithValidInfomation() {
+    public void testAddProductWithValidInformation() {
         try {
             Product product = new Product();
             product = generateProduct(product);
@@ -402,7 +402,7 @@ public class ProductServiceTest {
     // Kiểm tra xóa sản phẩm thành công
     // Trả về true
     @Test
-    public void testDeleteManufacturerWithValidInfomation() {
+    public void testDeleteManufacturerWithValidInformation() {
         try {
             Product product = productServiceForTest.getProductById(1);
             int preAmo = productService.getProductAmount();
