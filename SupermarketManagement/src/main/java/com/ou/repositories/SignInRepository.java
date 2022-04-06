@@ -12,10 +12,10 @@ public class SignInRepository {
     
     public Staff getAccount(String username, String password) throws SQLException{
         try (Connection connection = DatabaseUtils.getConnection()) {
-            String query = "SELECT * FROM staff,person  WHERE staff.sta_id = person.pers_id"
-                    + " AND staff.sta_username = ? "
-                    + " AND staff.sta_password =  ? "
-                    + " AND person.pers_is_active = true";
+            String query = "SELECT * FROM Staff,Person  WHERE Staff.sta_id = Person.pers_id"
+                    + " AND Staff.sta_username = ? "
+                    + " AND Staff.sta_password =  ? "
+                    + " AND Person.pers_is_active = true";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, username);
             preparedStatement.setString(2, password);

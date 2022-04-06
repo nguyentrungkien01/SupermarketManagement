@@ -149,7 +149,7 @@ public class ManufacturerServiceTest {
     // Kiểm tra thêm nhà sản xuất mới thành công
     // Trả về true
     @Test
-    public void testAddManufacturerWithValidInfomation() {
+    public void testAddManufacturerWithValidInformation() {
         try {
             Manufacturer manufacturer = new Manufacturer();
             manufacturer.setManName("Tên nhà sản xuất thứ 6");
@@ -205,7 +205,7 @@ public class ManufacturerServiceTest {
     // Kiểm tra sửa nhà sản xuất mới thành công
     // Trả về true
     @Test
-    public void testUpdateManufacturerWithValidInfomation() {
+    public void testUpdateManufacturerWithValidInformation() {
         try {
             Manufacturer manufacturer = manufacturerServiceForTest.getManufacturerById(1);
             manufacturer.setManName("Tên nhà sản xuất thứ 6");
@@ -256,7 +256,7 @@ public class ManufacturerServiceTest {
     // Kiểm tra xóa nhà sản xuất thành công
     // Trả về true
     @Test
-    public void testDeleteManufacturerWithValidInfomation() {
+    public void testDeleteManufacturerWithValidInformation() {
         try {
             Manufacturer manufacturer = manufacturerServiceForTest.getManufacturerById(1);
             int preAmo = manufacturerService.getManufacturerAmount();
