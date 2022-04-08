@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e81043f1-563b-4be6-9200-33a8dc1c33d9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_linux_19_ea_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_linux_19_ea_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_linux_19_ea_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_linux_19_ea_2.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/SupermarketManagement.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/SupermarketManagement.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/MemberType.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/MemberType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/MemberController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Person.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +63,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />

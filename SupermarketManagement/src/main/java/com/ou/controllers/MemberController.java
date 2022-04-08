@@ -244,12 +244,15 @@ public class MemberController implements Initializable {
             member.setPersDateOfBirth(new Date(dpMemDoB.getValue().getYear() - 1900,
                     dpMemDoB.getValue().getMonth().getValue() - 1, dpMemDoB.getValue().getDayOfMonth()));
         try {
-            if (MEMBER_SERVICE.updateMember(member)) {
-                AlertUtils.showAlert("Cập nhật thành công", Alert.AlertType.INFORMATION);
-                reloadData();
-            } else {
-                AlertUtils.showAlert("Cập nhật thất bại!", Alert.AlertType.ERROR);
-            }
+            if(Objects.equals(txtMemIsActive.getText(), "Ngưng hoạt động"))
+                AlertUtils.showAlert("Cập nhật thất bại! vì thành viên đã ngưng hoạt động!!!", Alert.AlertType.ERROR);
+            else
+                if (MEMBER_SERVICE.updateMember(member)) {
+                    AlertUtils.showAlert("Cập nhật thành công", Alert.AlertType.INFORMATION);
+                    reloadData();
+                } else {
+                    AlertUtils.showAlert("Cập nhật thất bại!", Alert.AlertType.ERROR);
+                }
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -1,6 +1,6 @@
 package com.ou.pojos;
 
-import java.sql.Date;
+import java.util.Date;
 
 public abstract class Person {
     protected Integer persId;
