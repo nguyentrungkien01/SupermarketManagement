@@ -4,18 +4,9 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class Member extends Person{
-    private MemberType memMemberType;
     private BigDecimal memTotalPurchase;
     private MemberType memberType;
     private List<Bill> bills;
-
-    public MemberType getMemMemberType() {
-        return memMemberType;
-    }
-
-    public void setMemMemberType(MemberType memMemberType) {
-        this.memMemberType = memMemberType;
-    }
 
     public BigDecimal getMemTotalPurchase() {
         return memTotalPurchase;
