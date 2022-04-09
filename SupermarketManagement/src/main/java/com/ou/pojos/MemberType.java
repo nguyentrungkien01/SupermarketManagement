@@ -67,4 +67,8 @@ public class MemberType {
     public void setMemtIsActive(Boolean memtIsActive) {
         this.memtIsActive = memtIsActive;
     }
+
+    public String toString(){
+        return this.memtName;
+    }
 }

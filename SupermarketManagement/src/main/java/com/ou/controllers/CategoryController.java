@@ -133,7 +133,7 @@ public class CategoryController implements Initializable {
     }
 
     // load data
-    private void loadData() {
+    private void reloadData() {
         loadCategoryTbvData(this.txtSearchCatName.getText());
         loadCategoryAmount();
         clearInputData();
@@ -155,7 +155,7 @@ public class CategoryController implements Initializable {
         try {
             if (CATEGORY_SERVICE.addCategory(category)) {
                 AlertUtils.showAlert("Thêm thành công", Alert.AlertType.INFORMATION);
-                loadData();
+                reloadData();
             } else {
                 AlertUtils.showAlert("Thêm thất bại!", Alert.AlertType.ERROR);
             }
@@ -177,7 +177,7 @@ public class CategoryController implements Initializable {
         try {
             if (CATEGORY_SERVICE.updateCategory(category)) {
                 AlertUtils.showAlert("Sửa thành công", Alert.AlertType.INFORMATION);
-                loadData();
+                reloadData();
             } else {
                 AlertUtils.showAlert("Sửa thất bại!", Alert.AlertType.ERROR);
             }
@@ -198,7 +198,7 @@ public class CategoryController implements Initializable {
         try {
             if (CATEGORY_SERVICE.deleteCategory(category)) {
                 AlertUtils.showAlert("Xoá thành công", Alert.AlertType.INFORMATION);
-                loadData();
+                reloadData();
             } else {
                 AlertUtils.showAlert("Xóa thất bại!", Alert.AlertType.ERROR);
             }
