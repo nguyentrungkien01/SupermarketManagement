@@ -15,11 +15,13 @@ public class MemberRepository {
         List<Member> members = new ArrayList<>();
         try (Connection connection = DatabaseUtils.getConnection()){
             String query = "SELECT * FROM Person p, Member m LEFT JOIN MemberType mt ON m.memt_id = mt.memt_id\n" +
-                    "WHERE p.pers_id = m.mem_id and pers_first_name LIKE CONCAT(\"%\", ? , \"%\")";
+                    "WHERE p.pers_id = m.mem_id AND (pers_first_name LIKE CONCAT(\"%\", ? , \"%\") OR " +
+                    "pers_last_name LIKE CONCAT(\"%\", ? , \"%\"))";
             if (kw == null)
                 kw = "";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, kw);
+            preparedStatement.setString(2, kw);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 Member member = new Member();
@@ -50,7 +52,7 @@ public class MemberRepository {
         try(Connection connection = DatabaseUtils.getConnection()){
             String query = "SELECT count(p.pers_id) as mem_amount " +
                     "FROM Person p, Member m LEFT JOIN MemberType mt ON m.memt_id = mt.memt_id " +
-                    "WHERE p.pers_id = m.mem_id";
+                    "WHERE p.pers_id = m.mem_id AND p.pers_is_active = TRUE";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next())

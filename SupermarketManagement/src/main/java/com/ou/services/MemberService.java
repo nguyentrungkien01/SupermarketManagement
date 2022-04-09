@@ -26,6 +26,7 @@ public class MemberService {
     //thêm mới một thành viên
     public boolean addMember(Member member) throws SQLException {
         if (member == null || member.getPersFirstName().isEmpty() || member.getPersLastName().isEmpty() ||
+                member.getPersFirstName() == null || member.getPersLastName() == null||
         member.getPersDateOfBirth() == null || member.getPersSex() == null || member.getPersIdCard() == null ||
         member.getPersPhoneNumber() == null)
             return false;
@@ -45,6 +46,7 @@ public class MemberService {
     //cập nhật thông tin cho một thành viên
     public boolean updateMember(Member member) throws SQLException {
         if (member == null || member.getPersFirstName().isEmpty() || member.getPersLastName().isEmpty() ||
+                member.getPersFirstName() == null || member.getPersLastName() == null||
                 member.getPersDateOfBirth() == null || member.getPersSex() == null || member.getPersIdCard() == null ||
                 member.getPersPhoneNumber() == null || member.getPersPhoneNumber().isEmpty() ||
                 member.getPersId() == null || member.getPersIdCard().isEmpty())
@@ -57,6 +59,8 @@ public class MemberService {
 
     //xóa một thành viên
     public boolean deleteMember(Member member) throws SQLException {
+        if(member == null || member.getPersId() == null)
+            return false;
         return MEMBER_REPOSITORY.deleteMember(member);
     }
 }

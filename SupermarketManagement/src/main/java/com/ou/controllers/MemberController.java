@@ -10,11 +10,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
+import javafx.util.StringConverter;
 
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.sql.Date;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -85,6 +87,38 @@ public class MemberController implements Initializable {
         this.txtMemType.setEditable(false);
         this.txtMemTotalPurchase.setEditable(false);
         this.dpMemJoinedDate.setEditable(false);
+        this.dpMemJoinedDate.setConverter(new StringConverter<LocalDate>() {
+            private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            @Override
+            public String toString(LocalDate localDate) {
+                if (localDate == null)
+                    return null;
+                return dateTimeFormatter.format(localDate);
+            }
+
+            @Override
+            public LocalDate fromString(String s) {
+                if (s == null|| s.trim().isEmpty())
+                    return null;
+                return LocalDate.parse(s, dateTimeFormatter);
+            }
+        });
+        this.dpMemDoB.setConverter(new StringConverter<LocalDate>() {
+            private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            @Override
+            public String toString(LocalDate localDate) {
+                if (localDate == null)
+                    return null;
+                return dateTimeFormatter.format(localDate);
+            }
+
+            @Override
+            public LocalDate fromString(String s) {
+                if (s == null|| s.trim().isEmpty())
+                    return null;
+                return LocalDate.parse(s, dateTimeFormatter);
+            }
+        });
     }
 
     //khởi tạo giá trị combobox giới tính
@@ -138,10 +172,8 @@ public class MemberController implements Initializable {
             this.txtMemCardId.setText(selectedMem.getPersIdCard());
             this.txtMemPhoneNumber.setText(selectedMem.getPersPhoneNumber());
             this.cbMemSex.setValue(selectedMem.getPersSex() == 1 ? "Nam" : "Nữ");
-            this.dpMemDoB.setValue(LocalDate.of(selectedMem.getPersDateOfBirth().getYear() + 1900,
-                    selectedMem.getPersDateOfBirth().getMonth() + 1,selectedMem.getPersDateOfBirth().getDay()));
-            this.dpMemJoinedDate.setValue(LocalDate.of(selectedMem.getPersJoinedDate().getYear() + 1900,
-                    selectedMem.getPersJoinedDate().getMonth() + 1,selectedMem.getPersJoinedDate().getDay()));
+            this.dpMemDoB.setValue(LocalDate.parse(selectedMem.getPersDateOfBirth().toString()));
+            this.dpMemJoinedDate.setValue(LocalDate.parse(selectedMem.getPersJoinedDate().toString()));
             this.txtMemIsActive.setText(selectedMem.getPersIsActive() ? "Đang hoạt động" : "Ngưng hoạt động");
 
         }
@@ -210,13 +242,17 @@ public class MemberController implements Initializable {
         Member member = new Member();
         member.setPersFirstName(txtMemFirstName.getText());
         member.setPersLastName(txtMemLastName.getText());
-        member.setPersIdCard(txtMemCardId.getText());
-        member.setPersPhoneNumber(txtMemPhoneNumber.getText());
+        String phoneNumber = txtMemPhoneNumber.getText();
+        String idCard = txtMemCardId.getText();
+        if(phoneNumber.matches("\\d+") && idCard.matches("\\d+") &&
+                phoneNumber.length() <= 10 && idCard.length() <= 12) {
+            member.setPersPhoneNumber(txtMemPhoneNumber.getText());
+            member.setPersIdCard(txtMemCardId.getText());
+        }
         member.setPersSex((byte) (Objects.equals(cbMemSex.getValue().toString(), "Nam") ? 1 : 0));
         member.setPersIsActive(true);
         if(dpMemDoB.getValue() != null)
-             member.setPersDateOfBirth(new Date(dpMemDoB.getValue().getYear() - 1900,
-                dpMemDoB.getValue().getMonth().getValue() - 1, dpMemDoB.getValue().getDayOfMonth()));
+            member.setPersDateOfBirth(Date.valueOf(dpMemDoB.getValue()));
         try {
             if (MEMBER_SERVICE.addMember(member)) {
                 AlertUtils.showAlert("Thêm thành công", Alert.AlertType.INFORMATION);
@@ -236,13 +272,17 @@ public class MemberController implements Initializable {
             member.setPersId(Integer.parseInt(txtMemId.getText()));
         member.setPersFirstName(txtMemFirstName.getText());
         member.setPersLastName(txtMemLastName.getText());
-        member.setPersIdCard(txtMemCardId.getText());
-        member.setPersPhoneNumber(txtMemPhoneNumber.getText());
+        String phoneNumber = txtMemPhoneNumber.getText();
+        String idCard = txtMemCardId.getText();
+        if(phoneNumber.matches("\\d+") && idCard.matches("\\d+")
+            && phoneNumber.length() <= 10 && idCard.length() <= 12) {
+            member.setPersPhoneNumber(txtMemPhoneNumber.getText());
+            member.setPersIdCard(txtMemCardId.getText());
+        }
         member.setPersSex((byte) (Objects.equals(cbMemSex.getValue().toString(), "Nam") ? 1 : 0));
         member.setPersIsActive(Objects.equals(txtMemIsActive.getText(), "Đang hoạt động"));
         if(dpMemDoB.getValue() != null)
-            member.setPersDateOfBirth(new Date(dpMemDoB.getValue().getYear() - 1900,
-                    dpMemDoB.getValue().getMonth().getValue() - 1, dpMemDoB.getValue().getDayOfMonth()));
+            member.setPersDateOfBirth(Date.valueOf(dpMemDoB.getValue()));
         try {
             if(Objects.equals(txtMemIsActive.getText(), "Ngưng hoạt động"))
                 AlertUtils.showAlert("Cập nhật thất bại! vì thành viên đã ngưng hoạt động!!!", Alert.AlertType.ERROR);

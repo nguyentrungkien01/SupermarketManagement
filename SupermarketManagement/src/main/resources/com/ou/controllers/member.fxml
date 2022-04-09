@@ -95,19 +95,19 @@
                   <Insets left="10.0" top="10.0" />
                </FlowPane.margin>
             </ComboBox>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Số tài khoản" wrappingWidth="77.7421875">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Số CCCD/CMND" wrappingWidth="89.7421875">
                <FlowPane.margin>
-                  <Insets left="10.0" top="10.0" />
+                  <Insets left="30.0" top="10.0" />
                </FlowPane.margin>
             </Text>
-            <TextField fx:id="txtMemCardId" prefHeight="25.0" prefWidth="232.0">
+            <TextField fx:id="txtMemCardId" prefHeight="25.0" prefWidth="219.0">
                <FlowPane.margin>
                   <Insets left="10.0" top="10.0" />
                </FlowPane.margin>
             </TextField>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Số điện thoại">
                <FlowPane.margin>
-                  <Insets left="30.0" top="10.0" />
+                  <Insets left="20.0" top="10.0" />
                </FlowPane.margin>
             </Text>
             <TextField fx:id="txtMemPhoneNumber" prefHeight="25.0" prefWidth="184.0">
@@ -165,14 +165,14 @@
                   <Insets left="20.0" top="10.0" />
                </FlowPane.margin>
             </TextField>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tổng số thành viên">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tổng số thành viên còn hoạt động">
                <FlowPane.margin>
-                  <Insets left="180.0" top="10.0" />
+                  <Insets left="100.0" top="20.0" />
                </FlowPane.margin>
             </Text>
             <Text fx:id="textMemAmount" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                <FlowPane.margin>
-                  <Insets left="10.0" top="10.0" />
+                  <Insets left="10.0" top="20.0" />
                </FlowPane.margin>
             </Text>
          </children>
