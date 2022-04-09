@@ -23,8 +23,25 @@ import java.util.ResourceBundle;
 public class MemberController implements Initializable {
 
     private static final MemberService MEMBER_SERVICE;
+    private static final StringConverter<LocalDate> STRING_CONVERTER;
     static {
         MEMBER_SERVICE = new MemberService();
+        STRING_CONVERTER = new StringConverter<LocalDate>() {
+            private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            @Override
+            public String toString(LocalDate localDate) {
+                if (localDate == null)
+                    return null;
+                return dateTimeFormatter.format(localDate);
+            }
+
+            @Override
+            public LocalDate fromString(String s) {
+                if (s == null|| s.trim().isEmpty())
+                    return null;
+                return LocalDate.parse(s, dateTimeFormatter);
+            }
+        };
     }
 
     @FXML
@@ -87,38 +104,8 @@ public class MemberController implements Initializable {
         this.txtMemType.setEditable(false);
         this.txtMemTotalPurchase.setEditable(false);
         this.dpMemJoinedDate.setEditable(false);
-        this.dpMemJoinedDate.setConverter(new StringConverter<LocalDate>() {
-            private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-            @Override
-            public String toString(LocalDate localDate) {
-                if (localDate == null)
-                    return null;
-                return dateTimeFormatter.format(localDate);
-            }
-
-            @Override
-            public LocalDate fromString(String s) {
-                if (s == null|| s.trim().isEmpty())
-                    return null;
-                return LocalDate.parse(s, dateTimeFormatter);
-            }
-        });
-        this.dpMemDoB.setConverter(new StringConverter<LocalDate>() {
-            private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-            @Override
-            public String toString(LocalDate localDate) {
-                if (localDate == null)
-                    return null;
-                return dateTimeFormatter.format(localDate);
-            }
-
-            @Override
-            public LocalDate fromString(String s) {
-                if (s == null|| s.trim().isEmpty())
-                    return null;
-                return LocalDate.parse(s, dateTimeFormatter);
-            }
-        });
+        this.dpMemJoinedDate.setConverter(STRING_CONVERTER);
+        this.dpMemDoB.setConverter(STRING_CONVERTER);
     }
 
     //khởi tạo giá trị combobox giới tính
