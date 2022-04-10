@@ -40,4 +40,9 @@ public class LimitSale extends Sale{
     public void setBills(List<Bill> bills) {
         this.bills = bills;
     }
+
+    @Override
+    public String toString() {
+        return this.sale.toString();
+    }
 }

@@ -84,4 +84,8 @@ public abstract class Person {
     public void setPersIsActive(Boolean persIsActive) {
         this.persIsActive = persIsActive;
     }
+
+    public String toString(){
+        return persLastName + " "+ persFirstName;
+    }
 }

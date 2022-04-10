@@ -52,8 +52,7 @@ public class BranchServiceTest {
     public void testSelectAllBranchByNullKw() {
         try {
             List<Branch> branches = branchService.getBranches(null);
-            int amount = branchService.getBranchAmount();
-            Assertions.assertEquals(branches.size(), amount);
+            Assertions.assertEquals(2, branches.size());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -65,8 +64,7 @@ public class BranchServiceTest {
     public void testSelectAllBranchByEmptyKw() {
         try {
             List<Branch> branches = branchService.getBranches("");
-            int amount = branchService.getBranchAmount();
-            Assertions.assertEquals(amount, branches.size());
+            Assertions.assertEquals(2, branches.size());
         } catch (SQLException e) {
             e.printStackTrace();
         }

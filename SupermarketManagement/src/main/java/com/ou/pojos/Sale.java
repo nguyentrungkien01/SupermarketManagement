@@ -39,4 +39,8 @@ public class Sale {
     public void setSaleIsActive(Boolean saleIsActive) {
         this.saleIsActive = saleIsActive;
     }
+
+    public String toString(){
+        return salePercent.toString();
+    }
 }

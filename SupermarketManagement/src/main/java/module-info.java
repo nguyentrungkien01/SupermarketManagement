@@ -11,5 +11,7 @@ module com.ou.controllers {
     exports com.ou.repositories;
     opens com.ou.services to javafx.fxml;
     exports com.ou.services;
+    opens com.ou.utils to javafx.fxml;
+    exports com.ou.utils;
 
 }

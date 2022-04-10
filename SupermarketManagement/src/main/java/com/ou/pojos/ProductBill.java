@@ -2,7 +2,7 @@ package com.ou.pojos;
 
 public class ProductBill {
     private Integer proAmount;
-    private Product product;
+    private ProductUnit productUnit;
     private Bill bill;
 
     public Integer getProAmount() {
@@ -13,12 +13,12 @@ public class ProductBill {
         this.proAmount = proAmount;
     }
 
-    public Product getProduct() {
-        return product;
+    public ProductUnit getProductUnit() {
+        return productUnit;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setProductUnit(ProductUnit productUnit) {
+        this.productUnit = productUnit;
     }
 
     public Bill getBill() {
