@@ -5,20 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e81043f1-563b-4be6-9200-33a8dc1c33d9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/MemberController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/member.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_linux_19_ea_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_linux_19_ea_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_linux_19_ea_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_linux_19_ea_2.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/BranchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/BranchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Bill.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Bill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/LimitSale.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/LimitSale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/ProductBill.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/ProductBill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/ProductUnit.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/ProductUnit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Sale.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Sale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/SalePercent.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/SalePercent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/unit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/unit.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/BranchServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/BranchServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/MemberType.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/MemberType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/MemberRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/MemberRepositoryForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/MemberRepositoryForTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/MemberServiceForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/MemberServiceForTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/MemberServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/MemberServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,22 +106,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LimitSaleServiceTest.testGetLimitSaleByIdExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SupermarketManagement" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ou.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ou.services" />
-      <option name="MAIN_CLASS_NAME" value="com.ou.services.LimitSaleServiceTest" />
-      <option name="METHOD_NAME" value="testGetLimitSaleByIdExist" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="MemberServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SupermarketManagement" />
       <extension name="coverage">
@@ -131,6 +117,22 @@
       <option name="PACKAGE_NAME" value="com.ou.services" />
       <option name="MAIN_CLASS_NAME" value="com.ou.services.MemberServiceTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MemberServiceTest.testSelectAllMemberByNullKw" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SupermarketManagement" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ou.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ou.services" />
+      <option name="MAIN_CLASS_NAME" value="com.ou.services.MemberServiceTest" />
+      <option name="METHOD_NAME" value="testSelectAllMemberByNullKw" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -166,19 +168,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.LimitSaleServiceTest.testGetLimitSaleByIdExist" />
+      <item itemvalue="Application.App" />
       <item itemvalue="JUnit.MemberServiceTest" />
       <item itemvalue="JUnit.SalePercentServiceTest" />
       <item itemvalue="JUnit.StaffServiceTest" />
-      <item itemvalue="Application.App" />
+      <item itemvalue="JUnit.MemberServiceTest.testSelectAllMemberByNullKw" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
+        <item itemvalue="JUnit.MemberServiceTest.testSelectAllMemberByNullKw" />
         <item itemvalue="JUnit.StaffServiceTest" />
         <item itemvalue="JUnit.SalePercentServiceTest" />
         <item itemvalue="JUnit.MemberServiceTest" />
-        <item itemvalue="JUnit.LimitSaleServiceTest.testGetLimitSaleByIdExist" />
       </list>
     </recent_temporary>
   </component>
@@ -228,7 +230,8 @@
       <workItem from="1649491094041" duration="9713000" />
       <workItem from="1649501011490" duration="39000" />
       <workItem from="1649511647213" duration="6641000" />
-      <workItem from="1649556789808" duration="9247000" />
+      <workItem from="1649556789808" duration="9812000" />
+      <workItem from="1649577308079" duration="1018000" />
     </task>
     <servers />
   </component>
