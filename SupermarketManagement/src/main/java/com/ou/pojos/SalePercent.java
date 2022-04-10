@@ -39,4 +39,9 @@ public class SalePercent {
     public void setSperIsActive(Boolean sperIsActive) {
         this.sperIsActive = sperIsActive;
     }
+
+    @Override
+    public String toString() {
+        return sperPercent.toString() + "%";
+    }
 }

@@ -1,6 +1,8 @@
 package com.ou.controllers;
 
-import com.ou.pojos.*;
+import com.ou.pojos.Member;
+import com.ou.pojos.MemberType;
+import com.ou.pojos.Product;
 import com.ou.services.MemberService;
 import com.ou.utils.AlertUtils;
 import javafx.collections.FXCollections;
@@ -13,9 +15,9 @@ import javafx.scene.text.Text;
 import javafx.util.StringConverter;
 
 import java.net.URL;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.sql.Date;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 import java.util.ResourceBundle;

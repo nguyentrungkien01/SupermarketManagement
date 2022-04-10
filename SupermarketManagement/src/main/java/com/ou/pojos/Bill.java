@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Bill {
     private Integer billId;
-    private Date billDateCreated;
+    private Date billCreatedDate;
     private BigDecimal billCustomerMoney;
     private BigDecimal billTotalMoney;
     private BigDecimal billTotalSaleMoney;
@@ -23,12 +23,12 @@ public class Bill {
         this.billId = billId;
     }
 
-    public Date getBillDateCreated() {
-        return billDateCreated;
+    public Date getBillCreatedDate() {
+        return billCreatedDate;
     }
 
-    public void setBillDateCreated(Date billDateCreated) {
-        this.billDateCreated = billDateCreated;
+    public void setBillCreatedDate(Date billCreatedDate) {
+        this.billCreatedDate = billCreatedDate;
     }
 
     public BigDecimal getBillCustomerMoney() {

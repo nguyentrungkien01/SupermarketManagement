@@ -5,8 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e81043f1-563b-4be6-9200-33a8dc1c33d9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/MemberController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/member.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_linux_19_ea_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_linux_19_ea_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_linux_19_ea_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_linux_19_ea_2.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/MemberType.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/MemberType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/MemberRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/MemberRepositoryForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/MemberRepositoryForTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/MemberServiceForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/MemberServiceForTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/MemberServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/MemberServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,9 +86,6 @@
     <property name="settings.editor.selected.configurable" value="project.propDebugger" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\danhn\Desktop\SupermarketManagement\SupermarketManagement\src\main\resources\com\ou\controllers" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou" />
       <recent name="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers" />
@@ -110,7 +121,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MemberServiceTest.testDeleteMemberWithValidInfomation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MemberServiceTest.testSelectAllMemberByNullKw" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SupermarketManagement" />
       <extension name="coverage">
         <pattern>
@@ -120,13 +131,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.ou.services" />
       <option name="MAIN_CLASS_NAME" value="com.ou.services.MemberServiceTest" />
-      <option name="METHOD_NAME" value="testDeleteMemberWithValidInfomation" />
+      <option name="METHOD_NAME" value="testSelectAllMemberByNullKw" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MemberServiceTest.testGetMemberAmount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SalePercentServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SupermarketManagement" />
       <extension name="coverage">
         <pattern>
@@ -135,14 +146,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.ou.services" />
-      <option name="MAIN_CLASS_NAME" value="com.ou.services.MemberServiceTest" />
-      <option name="METHOD_NAME" value="testGetMemberAmount" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="com.ou.services.SalePercentServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MemberServiceTest.testUpdateMemberWithValidInfomation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StaffServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SupermarketManagement" />
       <extension name="coverage">
         <pattern>
@@ -151,27 +161,26 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.ou.services" />
-      <option name="MAIN_CLASS_NAME" value="com.ou.services.MemberServiceTest" />
-      <option name="METHOD_NAME" value="testUpdateMemberWithValidInfomation" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="com.ou.services.StaffServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.MemberServiceTest" />
-      <item itemvalue="JUnit.MemberServiceTest.testDeleteMemberWithValidInfomation" />
-      <item itemvalue="JUnit.MemberServiceTest.testGetMemberAmount" />
-      <item itemvalue="JUnit.MemberServiceTest.testUpdateMemberWithValidInfomation" />
       <item itemvalue="Application.App" />
+      <item itemvalue="JUnit.MemberServiceTest" />
+      <item itemvalue="JUnit.SalePercentServiceTest" />
+      <item itemvalue="JUnit.StaffServiceTest" />
+      <item itemvalue="JUnit.MemberServiceTest.testSelectAllMemberByNullKw" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
+        <item itemvalue="JUnit.MemberServiceTest.testSelectAllMemberByNullKw" />
+        <item itemvalue="JUnit.StaffServiceTest" />
+        <item itemvalue="JUnit.SalePercentServiceTest" />
         <item itemvalue="JUnit.MemberServiceTest" />
-        <item itemvalue="JUnit.MemberServiceTest.testDeleteMemberWithValidInfomation" />
-        <item itemvalue="JUnit.MemberServiceTest.testUpdateMemberWithValidInfomation" />
-        <item itemvalue="JUnit.MemberServiceTest.testGetMemberAmount" />
       </list>
     </recent_temporary>
   </component>
@@ -211,7 +220,18 @@
       <workItem from="1649169123898" duration="3207000" />
       <workItem from="1649172355236" duration="999000" />
       <workItem from="1649210683620" duration="2296000" />
-      <workItem from="1649235009151" duration="5294000" />
+      <workItem from="1649235009151" duration="5919000" />
+      <workItem from="1649252819976" duration="6140000" />
+      <workItem from="1649296018586" duration="1390000" />
+      <workItem from="1649300968235" duration="2175000" />
+      <workItem from="1649338014959" duration="1724000" />
+      <workItem from="1649423237572" duration="9077000" />
+      <workItem from="1649469726176" duration="9211000" />
+      <workItem from="1649491094041" duration="9713000" />
+      <workItem from="1649501011490" duration="39000" />
+      <workItem from="1649511647213" duration="6641000" />
+      <workItem from="1649556789808" duration="9812000" />
+      <workItem from="1649577308079" duration="1018000" />
     </task>
     <servers />
   </component>

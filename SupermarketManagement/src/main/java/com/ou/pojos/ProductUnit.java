@@ -3,6 +3,7 @@ package com.ou.pojos;
 import java.math.BigDecimal;
 
 public class ProductUnit {
+    private Integer pruId;
     private BigDecimal proPrice;
     private Product product;
     private Unit unit;
@@ -29,5 +30,13 @@ public class ProductUnit {
 
     public void setUnit(Unit unit) {
         this.unit = unit;
+    }
+
+    public Integer getPruId() {
+        return pruId;
+    }
+
+    public void setPruId(Integer pruId) {
+        this.pruId = pruId;
     }
 }

@@ -1,7 +1,6 @@
 package com.ou.services;
 
 import com.ou.pojos.Member;
-import com.ou.repositories.MemberRepositoryForTest;
 import com.ou.utils.DatabaseUtils;
 import org.junit.jupiter.api.*;
 
@@ -9,15 +8,16 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Objects;
+
 
 public class MemberServiceTest {
     private static Connection connection;
     private static MemberService memberService;
-    private static MemberRepositoryForTest memberRepositoryForTest;
-    public MemberServiceTest(){
+    private static MemberServiceForTest memberServiceForTest;
+    public MemberServiceTest() {
 
     }
+
     @BeforeAll
     public static void setUpClass() {
         try {
@@ -25,8 +25,8 @@ public class MemberServiceTest {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        memberServiceForTest = new MemberServiceForTest();
         memberService= new MemberService();
-        memberRepositoryForTest = new MemberRepositoryForTest();
     }
 
     @AfterAll
@@ -52,7 +52,7 @@ public class MemberServiceTest {
     @Test
     public void testSelectAllMemberByNullKw() {
         try {
-            List<Member> members = memberRepositoryForTest.getMembers(null);
+            List<Member> members = memberService.getMembers(null);
             int amount = memberService.getMemberAmount();
             Assertions.assertEquals(amount, members.size());
         } catch (SQLException e) {
@@ -65,7 +65,7 @@ public class MemberServiceTest {
     @Test
     public void testSelectAllMemberByEmptyKw() {
         try {
-            List<Member> members = memberRepositoryForTest.getMembers("");
+            List<Member> members = memberService.getMembers("");
             int amount = memberService.getMemberAmount();
             Assertions.assertEquals(amount, members.size());
         } catch (SQLException e) {
@@ -78,7 +78,7 @@ public class MemberServiceTest {
     @Test
     public void testSelectAllMemberByValidKw() {
         try {
-            List<Member> members = memberRepositoryForTest.getMembers("Trần Anh");
+            List<Member> members = memberService.getMembers("Trần Anh");
             Assertions.assertEquals(1, members.size());
         } catch (SQLException e) {
             e.printStackTrace();
@@ -90,7 +90,7 @@ public class MemberServiceTest {
     @Test
     public void testSelectAllMemberByInValidKw() {
         try {
-            List<Member> members = memberRepositoryForTest.getMembers("Nguyễn Thành Danh");
+            List<Member> members = memberService.getMembers("Nguyễn Thành Danh");
             Assertions.assertEquals(0, members.size());
         } catch (SQLException e) {
             e.printStackTrace();
@@ -102,7 +102,7 @@ public class MemberServiceTest {
     @Test
     public void testGetMemberAmount(){
         try {
-            Member member = memberRepositoryForTest.getMemberById(7);
+            Member member = memberServiceForTest.getMemberById(7);
             memberService.deleteMember(member);
             int amount = memberService.getMemberAmount();
             Assertions.assertEquals(3, amount);
@@ -142,7 +142,7 @@ public class MemberServiceTest {
     @Test
     public void testAddMemberWithExist(){
         try {
-            Member member = memberRepositoryForTest.getMemberById(6);
+            Member member = memberServiceForTest.getMemberById(6);
             Assertions.assertFalse(memberService.addMember(member));
         }catch (SQLException e){
             e.printStackTrace();
@@ -188,7 +188,7 @@ public class MemberServiceTest {
     @Test
     public void testUpdateMemberWithInvalidInformation(){
         try {
-            Member member = memberRepositoryForTest.getMemberById(6);
+            Member member = memberServiceForTest.getMemberById(6);
             member.setPersPhoneNumber("");
             member.setPersIdCard("");
             Assertions.assertFalse(memberService.updateMember(member));
@@ -202,7 +202,7 @@ public class MemberServiceTest {
     @Test
     public void testUpdateMemberWithExist(){
         try {
-            Member member = memberRepositoryForTest.getMemberById(6);
+            Member member = memberServiceForTest.getMemberById(6);
             member.setPersIdCard("001215432158");
             Assertions.assertFalse(memberService.updateMember(member));
         }catch (SQLException e){
@@ -215,7 +215,7 @@ public class MemberServiceTest {
     @Test
     public void testUpdateMemberWithValidInfomation(){
         try {
-            Member member = memberRepositoryForTest.getMemberById(7);
+            Member member = memberServiceForTest.getMemberById(7);
             member.setPersFirstName("Danh");
             Assertions.assertTrue(memberService.updateMember(member));
         }catch (SQLException e){
@@ -239,7 +239,7 @@ public class MemberServiceTest {
     @Test
     public void testDeleteMemberWithInvalidInformation(){
         try {
-            Member member = memberRepositoryForTest.getMemberById(5);
+            Member member = memberServiceForTest.getMemberById(5);
             member.setPersId(null);
             Assertions.assertFalse(memberService.deleteMember(member));
         }catch (SQLException e){
@@ -251,7 +251,7 @@ public class MemberServiceTest {
     @Test
     public void testDeleteMemberWithExist(){
         try {
-            Member member = memberRepositoryForTest.getMemberById(5);
+            Member member = memberServiceForTest.getMemberById(5);
             member.setPersId(9999);
             Assertions.assertFalse(memberService.deleteMember(member));
         }catch (SQLException e){
@@ -264,11 +264,46 @@ public class MemberServiceTest {
     @Test
     public void testDeleteMemberWithValidInfomation(){
         try {
-            Member member = memberRepositoryForTest.getMemberById(8);
+            Member member = memberServiceForTest.getMemberById(8);
             int preAmo = memberService.getMemberAmount();
             memberService.deleteMember(member);
             int nextAmo = memberService.getMemberAmount();
             Assertions.assertNotEquals(preAmo, nextAmo);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    // kiểm tra lấy thông tin member khi truyền vào null id
+    // trả ra null object
+    @Test
+    public void testGetMemberByIdNull(){
+        try {
+            Member member = memberService.getMemberById(null);
+            Assertions.assertNull(member);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+    // kiểm tra lấy thông tin member khi truyền vào id không tồn tại
+    // trả ra null object
+    @Test
+    public void testGetMemberByIdNotExist(){
+        try {
+            Member member = memberService.getMemberById(9999999);
+            Assertions.assertNull(member);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    // kiểm tra lấy thông tin member khi truyền vào id tồn tại
+    // trả ra limit sale object
+    @Test
+    public void testGetMemberByIdExist(){
+        try {
+            Member member = memberService.getMemberById(5);
+            Assertions.assertNotNull(member);
         }catch (SQLException e){
             e.printStackTrace();
         }

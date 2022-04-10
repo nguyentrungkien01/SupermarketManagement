@@ -13,7 +13,7 @@ public class MemberRepository {
     //lấy danh sách thành viên
     public List<Member> getMembers(String kw) throws SQLException {
         List<Member> members = new ArrayList<>();
-        try (Connection connection = DatabaseUtils.getConnection()){
+        try (Connection connection = DatabaseUtils.getConnection()) {
             String query = "SELECT * FROM Person p, Member m LEFT JOIN MemberType mt ON m.memt_id = mt.memt_id\n" +
                     "WHERE p.pers_id = m.mem_id AND (pers_first_name LIKE CONCAT(\"%\", ? , \"%\") OR " +
                     "pers_last_name LIKE CONCAT(\"%\", ? , \"%\"))";
@@ -49,7 +49,7 @@ public class MemberRepository {
 
     //lấy tổng số lượng thành viên
     public int getMemberAmount() throws SQLException {
-        try(Connection connection = DatabaseUtils.getConnection()){
+        try (Connection connection = DatabaseUtils.getConnection()) {
             String query = "SELECT count(p.pers_id) as mem_amount " +
                     "FROM Person p, Member m LEFT JOIN MemberType mt ON m.memt_id = mt.memt_id " +
                     "WHERE p.pers_id = m.mem_id AND p.pers_is_active = TRUE";
@@ -63,8 +63,8 @@ public class MemberRepository {
 
     //thêm mới một thành viên
     public boolean addMember(Member member) throws SQLException {
-        try(Connection connection = DatabaseUtils.getConnection()) {
-            if(!member.getPersIsActive()){
+        try (Connection connection = DatabaseUtils.getConnection()) {
+            if (!member.getPersIsActive()) {
                 String query = "UPDATE Person SET pers_is_active = TRUE where pers_id = ?";
                 PreparedStatement preparedStatement = connection.prepareStatement(query);
                 preparedStatement.setInt(1, member.getPersId());
@@ -79,7 +79,7 @@ public class MemberRepository {
             preparedStatement1.setString(4, member.getPersLastName());
             preparedStatement1.setString(5, member.getPersFirstName());
             preparedStatement1.setDate(6, (Date) member.getPersDateOfBirth());
-            preparedStatement1.setBoolean(7,member.getPersIsActive());
+            preparedStatement1.setBoolean(7, member.getPersIsActive());
             preparedStatement1.executeUpdate();
             String query2 = "INSERT INTO Member (mem_id, mem_total_purchase) VALUES (?,?)";
             PreparedStatement preparedStatement2 = connection.prepareStatement(query2);
@@ -91,7 +91,7 @@ public class MemberRepository {
 
     //cập nhật thông tin cho một thành viên
     public boolean updateMember(Member member) throws SQLException {
-        try(Connection connection = DatabaseUtils.getConnection()) {
+        try (Connection connection = DatabaseUtils.getConnection()) {
             String query = "UPDATE person SET pers_first_name = ?, pers_last_name = ?, pers_sex = ?, pers_date_of_birth = ?," +
                     "pers_id_card = ?, pers_phone_number = ? WHERE pers_id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -108,7 +108,7 @@ public class MemberRepository {
 
     //xóa một thành viên
     public boolean deleteMember(Member member) throws SQLException {
-        try(Connection connection = DatabaseUtils.getConnection()) {
+        try (Connection connection = DatabaseUtils.getConnection()) {
             String query = "UPDATE person SET pers_is_active = 0 WHERE pers_id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, member.getPersId());
@@ -118,7 +118,7 @@ public class MemberRepository {
 
     // lấy id dựa vào số điện thoại
     private int getPersIdByPhone(String phone) throws SQLException {
-        try(Connection connection = DatabaseUtils.getConnection()){
+        try (Connection connection = DatabaseUtils.getConnection()) {
             String query = "SELECT pers_id FROM Person WHERE pers_phone_number = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, phone);
@@ -131,13 +131,13 @@ public class MemberRepository {
 
     // lấy member dựa vào số điện thoại
     public Member getMemberByPhone(String phone) throws SQLException {
-        try(Connection connection = DatabaseUtils.getConnection()){
+        try (Connection connection = DatabaseUtils.getConnection()) {
             String query = "SELECT * FROM Person WHERE pers_phone_number = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, phone);
             ResultSet resultSet = preparedStatement.executeQuery();
             Member member = new Member();
-            if(resultSet.next()){
+            if (resultSet.next()) {
                 member.setPersId(resultSet.getInt("pers_id"));
                 member.setPersFirstName(resultSet.getString("pers_first_name"));
                 member.setPersLastName(resultSet.getString("pers_last_name"));
@@ -154,16 +154,17 @@ public class MemberRepository {
 
     // kiểm tra số tài khoản đã tồn tại? (for add-function)
     public boolean isExistIdCard(String id_card) throws SQLException {
-        try(Connection connection = DatabaseUtils.getConnection()) {
+        try (Connection connection = DatabaseUtils.getConnection()) {
             String query = "SELECT * FROM Person WHERE pers_id_card = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, id_card);
             return preparedStatement.executeQuery().next();
         }
     }
+
     // kiểm tra số tài khoản đã tồn tại? (for update-function)
     public boolean isExistIdCard(String id_card, int id) throws SQLException {
-        try(Connection connection = DatabaseUtils.getConnection()) {
+        try (Connection connection = DatabaseUtils.getConnection()) {
             String query = "SELECT * FROM Person WHERE pers_id_card = ? and pers_id != ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, id_card);
@@ -174,21 +175,41 @@ public class MemberRepository {
 
     // kiểm tra số điện thoại đã tồn tại? (for add-function)
     public boolean isExistPhoneNumber(String phone_number) throws SQLException {
-        try(Connection connection = DatabaseUtils.getConnection()) {
+        try (Connection connection = DatabaseUtils.getConnection()) {
             String query = "SELECT * FROM Person WHERE pers_phone_number = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, phone_number);
             return preparedStatement.executeQuery().next();
         }
     }
+
     // kiểm tra số điện thoại đã tồn tại? (for update-function)
     public boolean isExistPhoneNumber(String phone_number, int id) throws SQLException {
-        try(Connection connection = DatabaseUtils.getConnection()) {
+        try (Connection connection = DatabaseUtils.getConnection()) {
             String query = "SELECT * FROM Person WHERE pers_phone_number = ? and pers_id != ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, phone_number);
             preparedStatement.setInt(2, id);
             return preparedStatement.executeQuery().next();
         }
+
+    }
+
+    //Lấy thông tin của người
+    public Member getMemberById(Integer memId) throws SQLException {
+        try (Connection connection = DatabaseUtils.getConnection()) {
+            String query = "SELECT * FROM Person WHERE pers_id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, memId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                Member member = new Member();
+                member.setPersFirstName(resultSet.getString("pers_first_name"));
+                member.setPersLastName(resultSet.getString("pers_last_name"));
+                member.setPersId(resultSet.getInt("pers_id"));
+                return member;
+            }
+        }
+        return null;
     }
 }

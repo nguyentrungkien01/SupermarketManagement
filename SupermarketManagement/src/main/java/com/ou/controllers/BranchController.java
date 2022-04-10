@@ -146,7 +146,6 @@ public class BranchController implements Initializable {
             this.txtBraStaffAmount.setText(String.valueOf(selectedBra.getStaffAmount()));
             this.txtBraProductAmount.setText(String.valueOf(selectedBra.getProductAmount()));
             this.txtBraIsActive.setText(selectedBra.getBraIsActive() ? "Đang hoạt động" : "Ngưng hoạt động");
-
         }
     }
 

@@ -7,7 +7,6 @@ public class Product {
     private String proName;
     private Boolean proIsActive = Boolean.TRUE;
     private List<ProductBranch> productBranches;
-    private List<ProductBill> productBills;
     private List<ProductUnit> productUnits;
     private Category category;
     private Manufacturer manufacturer;
@@ -34,14 +33,6 @@ public class Product {
 
     public void setProductBranches(List<ProductBranch> productBranches) {
         this.productBranches = productBranches;
-    }
-
-    public List<ProductBill> getProductBills() {
-        return productBills;
-    }
-
-    public void setProductBills(List<ProductBill> productBills) {
-        this.productBills = productBills;
     }
 
     public List<ProductUnit> getProductUnits() {
