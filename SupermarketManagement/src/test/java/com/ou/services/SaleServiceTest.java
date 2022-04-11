@@ -1,6 +1,8 @@
 package com.ou.services;
 
 import com.ou.pojos.Sale;
+import com.ou.pojos.SalePercent;
+import com.ou.repositories.SaleRepositoryForTest;
 import com.ou.utils.DatabaseUtils;
 import org.junit.jupiter.api.*;
 
@@ -75,6 +77,86 @@ public class SaleServiceTest {
             Sale sale = saleService.getSaleById(5);
             Assertions.assertNotNull(sale);
         }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    // kiểm tra thêm thông tin sale khi truyền vào sper_id là null
+    // trả về false
+    @Test
+    public void testAddSaleBySperIdIsNull(){
+        try {
+            Sale sale = null;
+            Assertions.assertFalse(saleService.addSale(sale));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    // kiểm tra thêm thông tin sale khi truyền vào hợp lệ
+    // trả về true
+    @Test
+    public void testAddSaleBySperIdIsValid(){
+        try {
+            Sale sale = new Sale();
+            SalePercent salePercent = new SalePercent();
+            salePercent.setSperId(1);
+            salePercent.setSperIsActive(true);
+            sale.setSalePercent(salePercent);
+            Assertions.assertTrue(saleService.addSale(sale));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // kiểm tra sửa thông tin sale khi truyền vào sper_id là null
+    // trả về false
+    @Test
+    public void testUpdateSaleBySperIdIsNull(){
+        try {
+            Sale sale = null;
+            Assertions.assertFalse(saleService.updateSale(sale));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    // kiểm tra thêm thông tin sale khi truyền vào hợp lệ
+    // trả về true
+    @Test
+    public void testUpdateSaleBySperIdIsValid(){
+        try {
+            Sale sale = saleServiceForTest.getSaleById(1);
+            sale.getSalePercent().setSperId(3);
+            Assertions.assertTrue(saleService.addSale(sale));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // kiểm tra xóa thông tin sale khi truyền vào sale_id là null
+    // trả về false
+    @Test
+    public void testDeleteSaleByIdIsNull(){
+        try {
+            Sale sale = null;
+            Assertions.assertFalse(saleService.deleteSale(sale));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    // kiểm tra xóa thông tin sale khi truyền vào sale_id hợp lệ
+    // trả về true
+    @Test
+    public void testDeleteSaleByIdIsValid(){
+        try {
+            Sale sale = saleServiceForTest.getSaleById(3);
+            Assertions.assertTrue(saleService.deleteSale(sale));
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
