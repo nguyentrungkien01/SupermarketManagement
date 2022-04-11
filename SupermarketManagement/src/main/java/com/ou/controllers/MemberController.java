@@ -2,7 +2,6 @@ package com.ou.controllers;
 
 import com.ou.pojos.Member;
 import com.ou.pojos.MemberType;
-import com.ou.pojos.Product;
 import com.ou.services.MemberService;
 import com.ou.utils.AlertUtils;
 import javafx.collections.FXCollections;
@@ -92,7 +91,7 @@ public class MemberController implements Initializable {
         this.loadMemberTbvData(txtSearchMemName.getText());
         this.loadMemberAmount();
         this.tbvMember.getSelectionModel().getSelectedItems()
-                .addListener((ListChangeListener<? super Product>) e -> changeInputData());
+                .addListener((ListChangeListener<? super Member>) e -> changeInputData());
         this.btnAdd.setOnMouseClicked(e -> addMember());
         this.btnEdit.setOnMouseClicked(e -> updateMember());
         this.btnDelete.setOnMouseClicked(e -> deleteMember());
