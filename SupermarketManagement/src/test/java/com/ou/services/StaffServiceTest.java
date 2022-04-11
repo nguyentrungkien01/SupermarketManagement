@@ -198,6 +198,18 @@ public class StaffServiceTest {
         }
     }
 
+    // kiểm tra active của username null
+    // mong muốn trả ra false
+    @Test
+    public void testIsActiveFailed2() {
+        try {
+            boolean flag = staffService.isActive("");
+            Assertions.assertFalse(flag);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     // sửa active cho tài khoản có active = fasle               username10 : ngưng hoạt động
     // mong muốn trả ra true và active = true
     @Test
@@ -213,7 +225,22 @@ public class StaffServiceTest {
         }
     }
 
-    // kiểm tra thêm staff không hợp lệ
+
+    // sửa active cho tài khoản không tồn tại
+    // mong muốn trả ra true và active = false
+    @Test
+    public void testSetActiveForUsernameFailed() {
+        try {
+            String user_name = "";
+            boolean flag = staffService.setActive(user_name);
+            Assertions.assertFalse(flag);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // kiểm tra thêm staff không rỗng
     // mong muốn trả ra false
     @Test
     public void testAddStaffFailed() {
@@ -233,7 +260,6 @@ public class StaffServiceTest {
     public void testAddStaffPass() {
         try {
             Integer before = staffServiceForTest.getListUsernameStaff().size();
-            System.out.println(before);
             Staff staff = new Staff();
             staff.setPersLastName("nguyen van");
             staff.setPersFirstName("truong");
@@ -251,9 +277,8 @@ public class StaffServiceTest {
             Assertions.assertTrue(flag);
 
             Integer after = staffServiceForTest.getListUsernameStaff().size();
-            System.out.println(after);
 
-            Assertions.assertEquals(before +1 , after);
+            Assertions.assertEquals(after, before +1);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -276,6 +301,18 @@ public class StaffServiceTest {
     public void testCardIdNotExist() {
         try {
             Assertions.assertFalse(staffService.isExistCardId("11111111111111111"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    // kiểm tra số CMND rỗng
+    // mong muốn trả ra fasle
+    @Test
+    public void testCardIdFailed() {
+        try {
+            Assertions.assertFalse(staffService.isExistCardId(""));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -386,7 +423,7 @@ public class StaffServiceTest {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        Assertions.assertEquals(md5, password);
+        Assertions.assertEquals(password, md5);
     }
 
     // xóa staff không tồn tại
