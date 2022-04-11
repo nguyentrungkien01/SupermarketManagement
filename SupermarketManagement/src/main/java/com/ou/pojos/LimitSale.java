@@ -7,7 +7,7 @@ public class LimitSale extends Sale{
     private Date lsalFromDate;
     private Date lsalToDate;
     private Sale sale;
-    private List<Bill> bills;
+    private List<ProductLimitSale> bills;
 
     public Date getLsalFromDate() {
         return lsalFromDate;
@@ -33,11 +33,11 @@ public class LimitSale extends Sale{
         this.sale = sale;
     }
 
-    public List<Bill> getBills() {
+    public List<ProductLimitSale> getProLimitSales() {
         return bills;
     }
 
-    public void setBills(List<Bill> bills) {
+    public void setProductLimitSales(List<ProductLimitSale> bills) {
         this.bills = bills;
     }
 

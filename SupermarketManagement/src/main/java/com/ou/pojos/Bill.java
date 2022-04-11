@@ -12,7 +12,6 @@ public class Bill {
     private BigDecimal billTotalSaleMoney;
     private Staff staff;
     private Member member;
-    private LimitSale limitSale;
     private List<ProductBill> productBills;
 
     public Integer getBillId() {
@@ -69,14 +68,6 @@ public class Bill {
 
     public void setMember(Member member) {
         this.member = member;
-    }
-
-    public LimitSale getLimitSale() {
-        return limitSale;
-    }
-
-    public void setLimitSale(LimitSale limitSale) {
-        this.limitSale = limitSale;
     }
 
     public List<ProductBill> getProductBills() {

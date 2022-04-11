@@ -74,9 +74,9 @@ public class ManufacturerController implements Initializable {
 
     // KHởi tạo các thuộc tính của vùng input
     private void initInputData() {
-        this.txtManId.setEditable(false);
-        this.txtManProductAmount.setEditable(false);
-        this.txtManIsActive.setEditable(false);
+        this.txtManId.setDisable(true);
+        this.txtManProductAmount.setDisable(true);
+        this.txtManIsActive.setDisable(true);
     }
 
     // Khởi tạo các thuộc tính của table view liệu chi nhánh

@@ -70,8 +70,8 @@ public class UnitController implements Initializable {
 
     // KHởi tạo các thuộc tính của vùng input
     private void initInputData() {
-        this.txtUniId.setEditable(false);
-        this.txtUniIsActive.setEditable(false);
+        this.txtUniId.setDisable(true);
+        this.txtUniIsActive.setDisable(true);
     }
 
     // Khởi tạo các thuộc tính của table view liệu chi nhánh

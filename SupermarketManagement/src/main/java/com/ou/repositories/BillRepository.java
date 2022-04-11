@@ -9,6 +9,7 @@ import com.ou.utils.PersonType;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class BillRepository {
@@ -27,10 +28,9 @@ public class BillRepository {
         List<Bill> bills = new ArrayList<>();
         try (Connection connection = DatabaseUtils.getConnection()) {
             String query = "SELECT b.bill_id, b.bill_created_date, b.bill_customer_money," +
-                    "b.bill_total_money, b.bill_total_sale_money, s.sta_id, m.mem_id, l.lsal_id " +
+                    "b.bill_total_money, b.bill_total_sale_money, s.sta_id, m.mem_id " +
                     "FROM Bill b JOIN Staff s ON b.sta_id = s.sta_id " +
-                    "LEFT JOIN Member m ON b.mem_id = m.mem_id " +
-                    "LEFT JOIN LimitSale l ON b.lsal_id = l.lsal_id ";
+                    "LEFT JOIN Member m ON b.mem_id = m.mem_id ";
             if (name == null || name.isEmpty() || personType == null) {
                 name = "";
                 personType = PersonType.STAFF;
@@ -63,7 +63,6 @@ public class BillRepository {
                 int billId = resultSet.getInt("bill_id");
                 int staId = resultSet.getInt("sta_id");
                 Integer memId = resultSet.getInt("mem_id");
-                Integer lsalId = resultSet.getInt("lsal_id");
                 bill.setBillId(billId);
                 bill.setBillCreatedDate(resultSet.getDate("bill_created_date"));
                 bill.setBillCustomerMoney(resultSet.getBigDecimal("bill_customer_money"));
@@ -75,9 +74,6 @@ public class BillRepository {
                 if (member != null)
                     bill.setMember(member);
 
-                LimitSale limitSale = LIMIT_SALE_SERVICE.getLimitSaleById(lsalId);
-                if (limitSale != null)
-                    bill.setLimitSale(limitSale);
                 bills.add(bill);
             }
         }
@@ -138,4 +134,16 @@ public class BillRepository {
         return productBills;
     }
 
+    // Lấy thông tin ngày tạo hóa đơn
+    public Date getCreatedDateBill(int billId) throws SQLException {
+        try (Connection connection = DatabaseUtils.getConnection()){
+            String query = "SELECT bill_created_date FROM Bill WHERE bill_id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, billId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next())
+                return resultSet.getDate("bill_created_date");
+        }
+        return  null;
+    }
 }

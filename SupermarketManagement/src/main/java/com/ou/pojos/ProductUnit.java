@@ -7,6 +7,7 @@ public class ProductUnit {
     private BigDecimal proPrice;
     private Product product;
     private Unit unit;
+    private Boolean pruIsActive = true;
 
     public BigDecimal getProPrice() {
         return proPrice;
@@ -38,5 +39,13 @@ public class ProductUnit {
 
     public void setPruId(Integer pruId) {
         this.pruId = pruId;
+    }
+
+    public Boolean getPruIsActive() {
+        return pruIsActive;
+    }
+
+    public void setPruIsActive(Boolean pruIsActive) {
+        this.pruIsActive = pruIsActive;
     }
 }

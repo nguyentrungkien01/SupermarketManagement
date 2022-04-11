@@ -8,6 +8,7 @@ public class Product {
     private Boolean proIsActive = Boolean.TRUE;
     private List<ProductBranch> productBranches;
     private List<ProductUnit> productUnits;
+    private List<ProductLimitSale> productLimitSales;
     private Category category;
     private Manufacturer manufacturer;
 
@@ -65,5 +66,13 @@ public class Product {
 
     public void setProIsActive(Boolean proIsActive) {
         this.proIsActive = proIsActive;
+    }
+
+    public List<ProductLimitSale> getProductLimitSales() {
+        return productLimitSales;
+    }
+
+    public void setProductLimitSales(List<ProductLimitSale> productLimitSales) {
+        this.productLimitSales = productLimitSales;
     }
 }

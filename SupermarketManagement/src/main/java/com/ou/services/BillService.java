@@ -7,6 +7,7 @@ import com.ou.utils.PersonType;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class BillService {
@@ -29,5 +30,10 @@ public class BillService {
     // Lấy danh sách sản phẩm tương ứng của hóa đơn
     public List<ProductBill> getProductBillsByBillId(int billId) throws SQLException {
         return BILL_REPOSITORY.getProductBillsByBillId(billId);
+    }
+
+    // Lấy thông tin ngày tạo hóa đơn
+    public Date getCreatedDateBill(int billId) throws SQLException {
+        return BILL_REPOSITORY.getCreatedDateBill(billId);
     }
 }

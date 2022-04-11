@@ -131,16 +131,6 @@
                   <Insets left="20.0" top="20.0" />
                </FlowPane.margin>
             </TextField>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Phần trăm khuyến mãi">
-               <FlowPane.margin>
-                  <Insets left="30.0" top="20.0" />
-               </FlowPane.margin>
-            </Text>
-            <TextField fx:id="txtBillSalePercent" prefHeight="24.0" prefWidth="199.0">
-               <FlowPane.margin>
-                  <Insets left="20.0" top="20.0" />
-               </FlowPane.margin>
-            </TextField>
          </children>
       </FlowPane>
       <FlowPane layoutX="11.0" layoutY="247.0" prefHeight="24.0" prefWidth="202.0" AnchorPane.leftAnchor="11.0">
@@ -158,9 +148,9 @@
          </children>
       </FlowPane>
       <Text layoutX="687.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="QUẢN LÝ HÓA ĐƠN" textAlignment="CENTER" />
-      <ScrollPane layoutX="139.0" layoutY="283.0" prefHeight="212.0" prefWidth="1222.0">
+      <ScrollPane layoutX="28.0" layoutY="283.0" prefHeight="212.0" prefWidth="1351.0">
          <content>
-            <HBox fx:id="hbxBillProduct" prefHeight="207.0" prefWidth="1217.0">
+            <HBox fx:id="hbxBillProduct" prefHeight="207.0" prefWidth="1347.0">
                <children>
                   <VBox prefHeight="207.0" prefWidth="100.0">
                      <children>
@@ -228,6 +218,16 @@
                            <children>
                               <Text layoutX="13.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Giá tiền 1 sản phẩm" />
                               <Separator layoutY="35.0" prefHeight="6.0" prefWidth="160.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="207.0" prefWidth="126.0">
+                     <children>
+                        <AnchorPane prefHeight="50.0" prefWidth="126.0">
+                           <children>
+                              <Text layoutX="23.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\% Giảm giá" />
+                              <Separator layoutY="35.0" prefHeight="6.0" prefWidth="126.0" />
                            </children>
                         </AnchorPane>
                      </children>

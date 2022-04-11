@@ -1,6 +1,7 @@
 package com.ou.repositories;
 
 import com.ou.pojos.*;
+import com.ou.services.LimitSaleService;
 import com.ou.utils.DatabaseUtils;
 
 import java.math.BigDecimal;
@@ -9,6 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductRepository {
+    private final static LimitSaleService LIMIT_SALE_SERVICE;
+    static {
+        LIMIT_SALE_SERVICE = new LimitSaleService();
+    }
     // Lấy thông tin các sản phẩm
     public List<Product> getProducts(String kw) throws SQLException {
         List<Product> products = new ArrayList<>();
@@ -60,7 +65,7 @@ public class ProductRepository {
         try (Connection connection = DatabaseUtils.getConnection()) {
             String query = "SELECT pu.pro_price, u.uni_name " +
                     "FROM Product_Unit pu JOIN Unit u ON pu.uni_id = u.uni_id JOIN Product p ON pu.pro_id = p.pro_id " +
-                    "WHERE p.pro_is_active = TRUE AND u.uni_is_active = TRUE AND pu.pro_id = ?";
+                    "WHERE p.pro_is_active = TRUE AND pu.pru_is_active =TRUE AND u.uni_is_active = TRUE AND pu.pro_id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, proId);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -97,6 +102,28 @@ public class ProductRepository {
         return  productBranches;
     }
 
+    // Lấy các mã giảm giá của sản phẩm
+    public List<ProductLimitSale> getProductLimitSales(int proId) throws SQLException{
+        List<ProductLimitSale> productLimitSales = new ArrayList<>();
+        try(Connection connection = DatabaseUtils.getConnection()){
+            String query = "SELECT lsal.lsal_from_date, lsal.lsal_id " +
+                    "FROM Product_LimitSale pl JOIN Product p ON pl.pro_id = p.pro_id " +
+                    "JOIN LimitSale lsal ON pl.lsal_id = lsal.lsal_id " +
+                    "WHERE p.pro_is_active = TRUE AND p.pro_id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, proId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                ProductLimitSale productLimitSale = new ProductLimitSale();
+                LimitSale limitSale = LIMIT_SALE_SERVICE.getLimitSaleById(resultSet.getInt("lsal_id"));
+                limitSale.setSaleId(resultSet.getInt("lsal_id"));
+                productLimitSale.setLimitSale(limitSale);
+                productLimitSales.add(productLimitSale);
+            }
+            return productLimitSales;
+        }
+    }
+
     // Lấy số lượng chi nhánh còn hoạt động đang bán sản phẩm
     public int getProductBranchAmount(int proId) throws SQLException{
         try (Connection connection = DatabaseUtils.getConnection()) {
@@ -113,12 +140,13 @@ public class ProductRepository {
         return 0;
     }
 
-    // Lấy số lượng chi nhánh còn hoạt động đang bán sản phẩm
+    // Lấy số lượng đơn vị của sản phẩm
     public int getProductUnitAmount(int proId) throws SQLException{
         try (Connection connection = DatabaseUtils.getConnection()) {
             String query = "SELECT COUNT(*) as uni_amount " +
                     "FROM Product_Unit pu JOIN Unit u ON pu.uni_id = u.uni_id JOIN Product p ON pu.pro_id = p.pro_id " +
-                    "WHERE p.pro_is_active = TRUE AND u.uni_is_active = TRUE AND pu.pro_id = ?";
+                    "WHERE p.pro_is_active = TRUE AND pu.pru_is_active = TRUE " +
+                    "AND u.uni_is_active = TRUE AND pu.pro_id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, proId);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -142,7 +170,17 @@ public class ProductRepository {
     // Xóa những đơn giá của sản phẩm cũ
     private boolean deleteProductUnit(int proId) throws SQLException {
         try (Connection connection = DatabaseUtils.getConnection()) {
-            String query = "DELETE FROM Product_Unit WHERE pro_id = ?";
+            String query = "UPDATE Product_Unit SET pru_is_active = FALSE WHERE pro_id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, proId);
+            return preparedStatement.executeUpdate() == 1;
+        }
+    }
+
+    // Xóa những giảm giá của sản phẩm
+    private boolean deleteProductLimitSale(int proId) throws SQLException {
+        try (Connection connection = DatabaseUtils.getConnection()) {
+            String query = "DELETE FROM Product_LimitSale WHERE pro_id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, proId);
             return preparedStatement.executeUpdate() == 1;
@@ -171,6 +209,17 @@ public class ProductRepository {
             preparedStatement.setDouble(3, Double.parseDouble(proPrice.toString()));
             return preparedStatement.executeUpdate()==1;
 
+        }
+    }
+
+    // Thêm giảm giá vào sản phẩm
+    private boolean addProductLimitSale(int proId, int lsalId) throws SQLException{
+        try(Connection connection = DatabaseUtils.getConnection()){
+            String query = "INSERT INTO Product_LimitSale (pro_id, lsal_id) VALUES (?, ?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, proId);
+            preparedStatement.setInt(2, lsalId);
+            return preparedStatement.executeUpdate() ==1;
         }
     }
 
@@ -207,6 +256,7 @@ public class ProductRepository {
                 preparedStatement.setInt(1, product.getProId());
                 deleteProductBranch(product.getProId());
                 deleteProductUnit(product.getProId());
+                deleteProductLimitSale(product.getProId());
                 product.getProductBranches().forEach(pb->{
                     try {
                         addProductBranch(product.getProId(), pb.getBranch().getBraId());
@@ -218,6 +268,13 @@ public class ProductRepository {
                     try {
                         addProductUnit(product.getProId(), pu.getUnit().getUniId(), pu.getProPrice());
                     } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                });
+                product.getProductLimitSales().forEach(pl->{
+                    try {
+                        addProductLimitSale(product.getProId(), pl.getLimitSale().getSaleId());
+                    }catch (SQLException e){
                         e.printStackTrace();
                     }
                 });
@@ -246,6 +303,13 @@ public class ProductRepository {
                         e.printStackTrace();
                     }
                 });
+                product.getProductLimitSales().forEach(pl->{
+                    try {
+                        addProductLimitSale(product.getProId(), pl.getLimitSale().getSaleId());
+                    }catch (SQLException e){
+                        e.printStackTrace();
+                    }
+                });
                 return true;
             }
             return false;
@@ -255,22 +319,6 @@ public class ProductRepository {
     // Sửa thông tin sản phẩm
     public boolean updateProduct(Product product) throws SQLException{
         try (Connection connection = DatabaseUtils.getConnection()) {
-            deleteProductBranch(product.getProId());
-            deleteProductUnit(product.getProId());
-            product.getProductBranches().forEach(pb->{
-                try {
-                    addProductBranch(product.getProId(), pb.getBranch().getBraId());
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            });
-            product.getProductUnits().forEach(pu->{
-                try {
-                    addProductUnit(product.getProId(), pu.getUnit().getUniId(), pu.getProPrice());
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            });
             String query = "UPDATE Product SET pro_name = ? , cat_id = ?, man_id= ? " +
                     "WHERE pro_id = ? AND pro_is_active = TRUE";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -278,7 +326,34 @@ public class ProductRepository {
             preparedStatement.setInt(2, product.getCategory().getCatId());
             preparedStatement.setInt(3, product.getManufacturer().getManId());
             preparedStatement.setInt(4, product.getProId());
-            return preparedStatement.executeUpdate() == 1;
+            if(preparedStatement.executeUpdate() == 1){
+                deleteProductBranch(product.getProId());
+                deleteProductUnit(product.getProId());
+                deleteProductLimitSale(product.getProId());
+                product.getProductBranches().forEach(pb->{
+                    try {
+                        addProductBranch(product.getProId(), pb.getBranch().getBraId());
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                });
+                product.getProductUnits().forEach(pu->{
+                    try {
+                        addProductUnit(product.getProId(), pu.getUnit().getUniId(), pu.getProPrice());
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                });
+                product.getProductLimitSales().forEach(pl->{
+                    try {
+                        addProductLimitSale(product.getProId(), pl.getLimitSale().getSaleId());
+                    }catch (SQLException e){
+                        e.printStackTrace();
+                    }
+                });
+                return true;
+            }
+            return false;
         }
     }
 
@@ -324,6 +399,31 @@ public class ProductRepository {
                 product.setProId(resultSet.getInt("pro_id"));
                 product.setProName(resultSet.getString("pro_name"));
                 return  product;
+            }
+        }
+        return null;
+    }
+
+    // Lấy thông tin giảm giá của sản phẩm
+    public ProductLimitSale getProductLimitSaleOfProduct(int proId, java.util.Date date) throws SQLException {
+        try(Connection connection = DatabaseUtils.getConnection()){
+            String query = "SELECT ls.lsal_id " +
+                    "FROM Product_LimitSale pl JOIN LimitSale ls ON pl.lsal_id = ls.lsal_id " +
+                    "JOIN Sale s ON ls.lsal_id = s.sale_id " +
+                    "JOIN SalePercent sper ON s.sper_id = sper.sper_percent " +
+                    "WHERE pl.pro_id = ? AND ls.lsal_from_date <= ? AND ls.lsal_to_date >= ? " +
+                    "ORDER BY ls.lsal_to_date DESC , sper.sper_percent DESC " +
+                    "LIMIT 1";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, proId);
+            preparedStatement.setDate(2, (Date) date);
+            preparedStatement.setDate(3, (Date) date);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()){
+                ProductLimitSale productLimitSale = new ProductLimitSale();
+                LimitSale limitSale = LIMIT_SALE_SERVICE.getLimitSaleById(resultSet.getInt("lsal_id"));
+                productLimitSale.setLimitSale(limitSale);
+                return productLimitSale;
             }
         }
         return null;

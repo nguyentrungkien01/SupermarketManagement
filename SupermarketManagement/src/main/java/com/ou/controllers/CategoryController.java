@@ -71,9 +71,9 @@ public class CategoryController implements Initializable {
 
     // KHởi tạo các thuộc tính của vùng input
     private void initInputData() {
-        this.txtCatIsActive.setEditable(false);
-        this.txtCatProductAmount.setEditable(false);
-        this.txtCatId.setEditable(false);
+        this.txtCatIsActive.setDisable(true);
+        this.txtCatProductAmount.setDisable(true);
+        this.txtCatId.setDisable(true);
     }
 
     // Lấy dữ liệu cho table view
