@@ -17,6 +17,7 @@ import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -26,6 +27,7 @@ public class ProductController implements Initializable {
     private final static UnitService UNIT_SERVICE;
     private final static ManufacturerService MANUFACTURER_SERVICE;
     private final static CategoryService CATEGORY_SERVICE;
+    private final static LimitSaleService LIMIT_SALE_SERVICE;
 
     static {
         PRODUCT_SERVICE = new ProductService();
@@ -33,8 +35,8 @@ public class ProductController implements Initializable {
         UNIT_SERVICE = new UnitService();
         MANUFACTURER_SERVICE=new ManufacturerService();
         CATEGORY_SERVICE= new CategoryService();
+        LIMIT_SALE_SERVICE = new LimitSaleService();
     }
-
 
     @FXML
     private TableView<Product> tbvProduct;
@@ -73,6 +75,9 @@ public class ProductController implements Initializable {
     private VBox vbxProBranches;
 
     @FXML
+    private VBox vbxProLimitSales;
+
+    @FXML
     private Button btnAddPro;
 
     @FXML
@@ -83,7 +88,6 @@ public class ProductController implements Initializable {
 
     @FXML
     private Button btnBack;
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -105,13 +109,14 @@ public class ProductController implements Initializable {
         this.txtSearchProName.textProperty().addListener(e -> loadProductTbvData(this.txtSearchProName.getText()));
         this.loadProUnitsData();
         this.loadProBranchData();
+        this.loadProLimitSaleData();
     }
     // KHởi tạo các thuộc tính của vùng input
     private void initInputData() throws SQLException {
-        this.txtProId.setEditable(false);
-        this.txtProIsActive.setEditable(false);
-        this.txtProBranchAmount.setEditable(false);
-        this.txtProUnitAmount.setEditable(false);
+        this.txtProId.setDisable(true);
+        this.txtProIsActive.setDisable(true);
+        this.txtProBranchAmount.setDisable(true);
+        this.txtProUnitAmount.setDisable(true);
         List<String> categories =new ArrayList<>();
         List<String> manufacturers = new ArrayList<>();
             CATEGORY_SERVICE.getAllActiveCategory().forEach(c->{
@@ -181,7 +186,7 @@ public class ProductController implements Initializable {
                 TextField textField = new TextField("");
                 Text text1 = new Text(" / ");
                 Text text2 = new Text("VNĐ");
-                textField.setEditable(false);
+                textField.setDisable(true);
                 hBox.getChildren().add(checkBox);
                 checkBox.setText(u.getUniName());
                 hBox.getChildren().add(text1);
@@ -190,9 +195,9 @@ public class ProductController implements Initializable {
                 this.vbxProUnits.getChildren().add(hBox);
                 checkBox.setOnMouseClicked(event->{
                     if(checkBox.isSelected())
-                        textField.setEditable(true);
+                        textField.setDisable(false);
                     else{
-                        textField.setEditable(false);
+                        textField.setDisable(true);
                         textField.setText("");
                     }
                 });
@@ -218,6 +223,25 @@ public class ProductController implements Initializable {
         }
     }
 
+    // Lấy thông tin giảm giá sản phẩm
+    private void loadProLimitSaleData(){
+        try {
+            List<LimitSale> limitSales = LIMIT_SALE_SERVICE.getLimitSales();
+            limitSales.forEach(lsal->{
+                HBox hBox = new HBox();
+                CheckBox checkBox = new CheckBox();
+                hBox.getChildren().add(checkBox);
+                checkBox.setText(String.format("%d | %s - %s (%s)",lsal.getSaleId(), lsal.getLsalFromDate(),
+                        lsal.getLsalToDate(), lsal.getSalePercent().toString()));
+                if (lsal.getLsalToDate().before(new Date()))
+                    checkBox.setDisable(true);
+                this.vbxProLimitSales.getChildren().add(hBox);
+            });
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
     // Thiết lập vùng dữ liệu đơn giá sản phẩm khi lựa chọn thay đổi dưới table view
     private void changeProUnitData(int proId){
         try {
@@ -227,13 +251,13 @@ public class ProductController implements Initializable {
                 CheckBox checkBox = (CheckBox) row.getChildren().get(0);
                 TextField textField = (TextField) row.getChildren().get(2);
                 textField.setText("");
-                textField.setEditable(false);
+                textField.setDisable(true);
                 checkBox.setSelected(false);
                 productUnits.forEach(pu->{
                     if(checkBox.getText().equals(pu.getUnit().getUniName())){
                         checkBox.setSelected(true);
                         textField.setText(pu.getProPrice().toString());
-                        textField.setEditable(true);
+                        textField.setDisable(false);
                     }
                 });
             });
@@ -260,6 +284,26 @@ public class ProductController implements Initializable {
             e.printStackTrace();
         }
 
+    }
+
+    // Thiết lập vùng dữ liệu các khuyến mãi sản phẩm khi lựa chọn thay đổi dưới table view
+    private void changeProLimitSaleData(int proId){
+        try {
+            List<ProductLimitSale> productLimitSales = PRODUCT_SERVICE.getProductLimitSales(proId);
+            vbxProLimitSales.getChildren().forEach(r->{
+                HBox row = (HBox) r;
+                CheckBox checkBox = (CheckBox) row.getChildren().get(0);
+                checkBox.setSelected(false);
+                int lsalId = Integer.parseInt(checkBox.getText().substring(0,
+                        checkBox.getText().indexOf("|")).trim());
+                productLimitSales.forEach(pl->{
+                    if (lsalId == pl.getLimitSale().getSaleId())
+                        checkBox.setSelected(true);
+                });
+            });
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     // Thiết lập dữ liệu loại sản phẩm
@@ -296,6 +340,7 @@ public class ProductController implements Initializable {
 
             changeProBranchData(selectedPro.getProId());
             changeProUnitData(selectedPro.getProId());
+            changeProLimitSaleData(selectedPro.getProId());
             changeProCategoryData(selectedPro.getCategory());
             changeProManufacturerData(selectedPro.getManufacturer());
         }
@@ -326,6 +371,7 @@ public class ProductController implements Initializable {
                 this.cbxProManufacturer.getSelectionModel().getSelectedItem());
         List<ProductBranch> productBranches = new ArrayList<>();
         List<ProductUnit> productUnits = new ArrayList<>();
+        List<ProductLimitSale> productLimitSales = new ArrayList<>();
         this.vbxProBranches.getChildren().forEach(r -> {
             HBox hBox = (HBox) r;
             CheckBox checkBox = (CheckBox) hBox.getChildren().get(0);
@@ -360,11 +406,26 @@ public class ProductController implements Initializable {
                 productUnits.add(productUnit);
             }
         });
+
+        this.vbxProLimitSales.getChildren().forEach(r -> {
+            HBox hBox = (HBox) r;
+            CheckBox checkBox = (CheckBox) hBox.getChildren().get(0);
+            if (checkBox.isSelected()) {
+                ProductLimitSale productLimitSale = new ProductLimitSale();
+                LimitSale limitSale = new LimitSale();
+                limitSale.setSaleId(Integer.valueOf(checkBox.getText().substring(0,
+                        checkBox.getText().indexOf("|")).trim()));
+                productLimitSale.setLimitSale(limitSale);
+                productLimitSales.add(productLimitSale);
+            }
+        });
+
         product.setProName(this.txtProName.getText());
         product.setCategory(category);
         product.setManufacturer(manufacturer);
         product.setProductBranches(productBranches);
         product.setProductUnits(productUnits);
+        product.setProductLimitSales(productLimitSales);
         return product;
     }
 

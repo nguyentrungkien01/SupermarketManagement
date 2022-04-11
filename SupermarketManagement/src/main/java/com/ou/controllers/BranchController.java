@@ -80,10 +80,10 @@ public class BranchController implements Initializable {
 
     // KHởi tạo các thuộc tính của vùng input
     private void initInputData() {
-        this.txtBraId.setEditable(false);
-        this.txtBraProductAmount.setEditable(false);
-        this.txtBraStaffAmount.setEditable(false);
-        this.txtBraIsActive.setEditable(false);
+        this.txtBraId.setDisable(true);
+        this.txtBraProductAmount.setDisable(true);
+        this.txtBraStaffAmount.setDisable(true);
+        this.txtBraIsActive.setDisable(true);
     }
 
     // Khởi tạo các thuộc tính của table view liệu chi nhánh

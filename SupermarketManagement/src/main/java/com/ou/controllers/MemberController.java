@@ -28,8 +28,9 @@ public class MemberController implements Initializable {
     private static final StringConverter<LocalDate> STRING_CONVERTER;
     static {
         MEMBER_SERVICE = new MemberService();
-        STRING_CONVERTER = new StringConverter<LocalDate>() {
+        STRING_CONVERTER = new StringConverter<>() {
             private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
             @Override
             public String toString(LocalDate localDate) {
                 if (localDate == null)
@@ -39,7 +40,7 @@ public class MemberController implements Initializable {
 
             @Override
             public LocalDate fromString(String s) {
-                if (s == null|| s.trim().isEmpty())
+                if (s == null || s.trim().isEmpty())
                     return null;
                 return LocalDate.parse(s, dateTimeFormatter);
             }
@@ -101,11 +102,11 @@ public class MemberController implements Initializable {
 
     // KHởi tạo các thuộc tính của vùng input
     private void initInputData() {
-        this.txtMemIsActive.setEditable(false);
-        this.txtMemId.setEditable(false);
-        this.txtMemType.setEditable(false);
-        this.txtMemTotalPurchase.setEditable(false);
-        this.dpMemJoinedDate.setEditable(false);
+        this.txtMemIsActive.setDisable(true);
+        this.txtMemId.setDisable(true);
+        this.txtMemType.setDisable(true);
+        this.txtMemTotalPurchase.setDisable(true);
+        this.dpMemJoinedDate.setDisable(true);
         this.dpMemJoinedDate.setConverter(STRING_CONVERTER);
         this.dpMemDoB.setConverter(STRING_CONVERTER);
     }

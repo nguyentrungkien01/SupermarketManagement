@@ -2,6 +2,7 @@ package com.ou.services;
 
 import com.ou.pojos.Product;
 import com.ou.pojos.ProductBranch;
+import com.ou.pojos.ProductLimitSale;
 import com.ou.pojos.ProductUnit;
 import com.ou.repositories.ProductRepository;
 
@@ -46,6 +47,11 @@ public class ProductService {
         return PRODUCT_REPOSITORY.getProductUnitAmount(proId);
     }
 
+    // Lấy các mã giảm giá của sản phẩm
+    public List<ProductLimitSale> getProductLimitSales(int proId) throws SQLException {
+        return PRODUCT_REPOSITORY.getProductLimitSales(proId);
+    }
+
     // Kiểm tra sự hợp lệ của sản phẩm
     private boolean isValidProduct(Product product) {
         return !(product == null ||
@@ -80,7 +86,7 @@ public class ProductService {
             return false;
         if (!PRODUCT_REPOSITORY.isExistProduct(product.getProId()))
             return false;
-        if (PRODUCT_REPOSITORY.isExistProduct(product)){
+        if (PRODUCT_REPOSITORY.isExistProduct(product)) {
             Product existPro = PRODUCT_REPOSITORY.getProductByName(product.getProName());
             if (!Objects.equals(product.getProId(), existPro.getProId()))
                 return false;
@@ -102,5 +108,10 @@ public class ProductService {
         if (proName == null)
             return null;
         return PRODUCT_REPOSITORY.getProductByName(proName);
+    }
+
+    // Lấy thông tin giảm giá của sản phẩm
+    public ProductLimitSale getProductLimitSaleOfProduct(int proId, java.util.Date date) throws SQLException {
+        return PRODUCT_REPOSITORY.getProductLimitSaleOfProduct(proId, date);
     }
 }

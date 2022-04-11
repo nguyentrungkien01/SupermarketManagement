@@ -1,8 +1,8 @@
 package com.ou.controllers;
 
 import com.ou.pojos.Bill;
-import com.ou.pojos.LimitSale;
 import com.ou.pojos.Member;
+import com.ou.pojos.ProductLimitSale;
 import com.ou.pojos.Staff;
 import com.ou.services.BillService;
 import com.ou.services.ProductService;
@@ -83,9 +83,6 @@ public class BillController implements Initializable {
     private TextField txtBillToTalSaleMoney;
 
     @FXML
-    private TextField txtBillSalePercent;
-
-    @FXML
     private TextField txtSearchBillStaName;
 
     @FXML
@@ -153,18 +150,17 @@ public class BillController implements Initializable {
 
     // KHởi tạo các thuộc tính của vùng input
     private void initInputData() {
-        this.txtBillId.setEditable(false);
-        this.dtpBillCreatedDate.setEditable(false);
+        this.txtBillId.setDisable(true);
+        this.dtpBillCreatedDate.setDisable(true);
         this.dtpBillCreatedDate.setConverter(STRING_CONVERTER);
         this.dtpSearchBillCreatedDate.setConverter(STRING_CONVERTER);
         this.dtpSearchBillFromCreatedDate.setConverter(STRING_CONVERTER);
         this.dtpSearchBillToCreatedDate.setConverter(STRING_CONVERTER);
-        this.txtBillStaName.setEditable(false);
-        this.txtBillMemName.setEditable(false);
-        this.txtBillTotalMoney.setEditable(false);
-        this.txtBillCustomerMoney.setEditable(false);
-        this.txtBillToTalSaleMoney.setEditable(false);
-        this.txtBillSalePercent.setEditable(false);
+        this.txtBillStaName.setDisable(true);
+        this.txtBillMemName.setDisable(true);
+        this.txtBillTotalMoney.setDisable(true);
+        this.txtBillCustomerMoney.setDisable(true);
+        this.txtBillToTalSaleMoney.setDisable(true);
 
     }
 
@@ -193,7 +189,6 @@ public class BillController implements Initializable {
         TableColumn<Bill, Bill> billTotalMoneyColumn = new TableColumn<>("Tổng tiền thanh toán");
         TableColumn<Bill, BigDecimal> billCustomerMoneyColumn = new TableColumn<>("Tiền khách hàng đưa");
         TableColumn<Bill, BigDecimal> billTotalSaleMoneyColumn = new TableColumn<>("Tổng tiền khuyến mãi");
-        TableColumn<Bill, LimitSale> billSalePercentColumn = new TableColumn<>("Phần trăm khuyến mãi");
         billIdColumn.setCellValueFactory(new PropertyValueFactory<>("billId"));
         billCustomerNameColumn.setCellValueFactory(new PropertyValueFactory<>("member"));
         billStaffNameColumn.setCellValueFactory(new PropertyValueFactory<>("staff"));
@@ -201,21 +196,19 @@ public class BillController implements Initializable {
         billTotalMoneyColumn.setCellValueFactory(new PropertyValueFactory<>("billTotalMoney"));
         billCustomerMoneyColumn.setCellValueFactory(new PropertyValueFactory<>("billCustomerMoney"));
         billTotalSaleMoneyColumn.setCellValueFactory(new PropertyValueFactory<>("billTotalSaleMoney"));
-        billSalePercentColumn.setCellValueFactory(new PropertyValueFactory<>("limitSale"));
 
         billIdColumn.setPrefWidth(100);
-        billCustomerNameColumn.setPrefWidth(200);
-        billStaffNameColumn.setPrefWidth(200);
+        billCustomerNameColumn.setPrefWidth(300);
+        billStaffNameColumn.setPrefWidth(300);
         billCreatedDateColumn.setPrefWidth(200);
         billTotalMoneyColumn.setPrefWidth(200);
         billCustomerMoneyColumn.setPrefWidth(200);
         billTotalSaleMoneyColumn.setPrefWidth(200);
-        billSalePercentColumn.setPrefWidth(200);
 
         billIdColumn.setSortType(TableColumn.SortType.DESCENDING);
         this.tbvBill.getColumns().addAll(billIdColumn, billCustomerNameColumn, billStaffNameColumn,
                 billCreatedDateColumn, billTotalMoneyColumn, billCustomerMoneyColumn,
-                billTotalSaleMoneyColumn, billSalePercentColumn);
+                billTotalSaleMoneyColumn);
     }
 
 
@@ -229,6 +222,7 @@ public class BillController implements Initializable {
             VBox vbxProAmo = (VBox) this.hbxBillProduct.getChildren().get(4);
             VBox vbxProUniName = (VBox) this.hbxBillProduct.getChildren().get(5);
             VBox vbxProPrice = (VBox) this.hbxBillProduct.getChildren().get(6);
+            VBox vbxProSalePercent =  (VBox) this.hbxBillProduct.getChildren().get(7);
             this.hbxBillProduct.getChildren().forEach(col->{
                 VBox vbxCol = (VBox) col;
                 int amount = vbxCol.getChildren().size();
@@ -344,6 +338,30 @@ public class BillController implements Initializable {
                 acpProPrice.getChildren().add(textProPrice);
                 acpProPrice.getChildren().add(sptProPrice);
 
+                AnchorPane acpProSalePercent = new AnchorPane();
+                acpProSalePercent.setPrefHeight(50);
+                acpProSalePercent.setPrefWidth(126);
+                Text textProSalePercent = new Text();
+                Separator sptProSalePercent = new Separator();
+                textProSalePercent.setLayoutY(25.0);
+                sptProSalePercent.setPrefHeight(6.0);
+                sptProSalePercent.setPrefWidth(126.0);
+                sptProSalePercent.setLayoutY(35.0);
+                try {
+                    ProductLimitSale productLimitSale = PRODUCT_SERVICE.getProductLimitSaleOfProduct(
+                            pb.getProductUnit().getProduct().getProId(),
+                            BILL_SERVICE.getCreatedDateBill(bill.getBillId()));
+                    if (productLimitSale != null)
+                        textProSalePercent.setText(productLimitSale.getLimitSale().toString());
+                    else textProSalePercent.setText("0%");
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                textProSalePercent.setLayoutX((acpProSalePercent.getPrefWidth() -
+                        textProSalePercent.getLayoutBounds().getWidth())/2);
+                acpProSalePercent.getChildren().add(textProSalePercent);
+                acpProSalePercent.getChildren().add(sptProSalePercent);
+
                 vbxProId.getChildren().add(acpProId);
                 vbxProName.getChildren().add(acpProName);
                 vbxProCat.getChildren().add(acpProCat);
@@ -351,6 +369,7 @@ public class BillController implements Initializable {
                 vbxProAmo.getChildren().add(acpProAmo);
                 vbxProUniName.getChildren().add(acpProUniName);
                 vbxProPrice.getChildren().add(acpProPrice);
+                vbxProSalePercent.getChildren().add(acpProSalePercent);
             });
         } catch (SQLException e) {
             e.printStackTrace();
@@ -381,10 +400,6 @@ public class BillController implements Initializable {
             this.txtBillTotalMoney.setText(selectedBill.getBillTotalMoney().toString());
             this.txtBillCustomerMoney.setText(selectedBill.getBillCustomerMoney().toString());
             this.txtBillToTalSaleMoney.setText(selectedBill.getBillTotalSaleMoney().toString());
-            if (selectedBill.getLimitSale() != null)
-                this.txtBillSalePercent.setText(selectedBill.getLimitSale().toString());
-            else
-                this.txtBillSalePercent.setText("Không có");
             loadBillProductVboxData(selectedBill);
         }
     }
