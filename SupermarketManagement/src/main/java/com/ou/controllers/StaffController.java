@@ -315,15 +315,15 @@ public class StaffController implements Initializable {
         idColumn.setPrefWidth(50);
         lastNameColumn.setPrefWidth(120);
         firstNameColumn.setPrefWidth(120);
-        usernameColum.setPrefWidth(150);
-        cardColumn.setPrefWidth(130);
-        phoneNumberColumn.setPrefWidth(120);
+        usernameColum.setPrefWidth(120);
+        cardColumn.setPrefWidth(150);
+        phoneNumberColumn.setPrefWidth(150);
         sexColumn.setPrefWidth(80);
         dateOfBirthColumn.setPrefWidth(120);
         joinedDateColumn.setPrefWidth(120);
         branchColumn.setPrefWidth(150);
-        roleColumn.setPrefWidth(100);
-        activeColumn.setPrefWidth(180);
+        roleColumn.setPrefWidth(120);
+        activeColumn.setPrefWidth(150);
         idColumn.setSortType(TableColumn.SortType.DESCENDING);
         this.tbvStaff.getColumns().addAll(idColumn,nameStaffColumn, usernameColum, cardColumn, phoneNumberColumn,
                 sexColumn, dateOfBirthColumn, joinedDateColumn, activeColumn, branchColumn, roleColumn);
