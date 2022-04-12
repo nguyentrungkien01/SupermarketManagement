@@ -23,7 +23,7 @@ public class SignInRepository {
             
             if(rs.next()){
                 Staff staff = new Staff();
-                
+                staff.setPersId(rs.getInt("pers_id")); // update 11/04/2022
                 staff.setStaUsername(rs.getString("sta_username"));
                 staff.setStaPassword(rs.getString("sta_password"));
                 staff.setStaIsAdmin(rs.getBoolean("sta_is_admin"));

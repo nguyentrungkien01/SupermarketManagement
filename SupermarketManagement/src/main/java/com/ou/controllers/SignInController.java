@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
+import java.io.IOException;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
@@ -50,9 +51,15 @@ public class SignInController implements Initializable {
                     AlertUtils.showAlert("Tên tài khoản hoặc mật khẩu không đúng!", Alert.AlertType.ERROR);
                 else{
                     // chuyen windown
-                    if(staff.getStaIsAdmin() == true) // Admin
-                        AlertUtils.showAlert("Chuyển qua cửa sổ Admin    ", Alert.AlertType.INFORMATION);
-
+                    if(staff.getStaIsAdmin() == true) {// update 11/04/20220
+                        HomepageAdminController admin = new HomepageAdminController();
+                        admin.setId(staff.getPersId());
+                        try {
+                            App.setRoot("homepage-admin");
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
                     else // Nhân viên
                         AlertUtils.showAlert("Chuyển qua cửa sổ nhân viên", Alert.AlertType.INFORMATION);
                 }
