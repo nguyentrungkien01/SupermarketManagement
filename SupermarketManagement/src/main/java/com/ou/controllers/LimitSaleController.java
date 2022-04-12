@@ -3,8 +3,6 @@ package com.ou.controllers;
 import com.ou.pojos.LimitSale;
 import com.ou.services.LimitSaleService;
 import com.ou.utils.AlertUtils;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
@@ -18,7 +16,6 @@ import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.chrono.Chronology;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Objects;
@@ -32,7 +29,7 @@ public class LimitSaleController implements Initializable {
     static {
         LIMIT_SALE_SERVICE = new LimitSaleService();
         STRING_CONVERTER = new StringConverter<>() {
-            private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            private final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
             @Override
             public String toString(LocalDate localDate) {
@@ -79,6 +76,7 @@ public class LimitSaleController implements Initializable {
     @FXML
     TextArea textAreaListProductId;
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.initInputData();
@@ -88,6 +86,7 @@ public class LimitSaleController implements Initializable {
         this.loadTotalAmountLimitSale();
         this.loadComboboxSaleId();
         this.loadComboboxProductId();
+        this.initFunctionData();
         this.tbvLimitSale.getSelectionModel().getSelectedItems()
                 .addListener((ListChangeListener<? super LimitSale>) e -> changeInputData());
         this.cbSaleId.getSelectionModel().selectedItemProperty().
@@ -95,7 +94,7 @@ public class LimitSaleController implements Initializable {
         this.btnAdd.setOnMouseClicked(e -> addLimitSale());
         this.btnEdit.setOnMouseClicked(e -> updateLimitSale());
         this.btnDelete.setOnMouseClicked(e -> deleteLimitSale());
-        this.btnBack.setOnMouseClicked(e -> back());
+        this.btnBack.setOnAction(e -> back());
         this.dpSearchDate.setOnAction(e -> loadLimitSaleTbvData());
     }
 
@@ -106,6 +105,13 @@ public class LimitSaleController implements Initializable {
         this.dpLsalToDate.setConverter(STRING_CONVERTER);
         this.dpLsalFromDate.setConverter(STRING_CONVERTER);
         this.dpSearchDate.setConverter(STRING_CONVERTER);
+    }
+
+    // khởi tạo thuộc tính vùng chức năng add, edit, delete
+    private void initFunctionData(){
+        this.btnDelete.setDisable(true);
+        this.btnEdit.setDisable(true);
+        this.btnAdd.setDisable(true);
     }
 
     // Khởi tạo các thuộc tính của table view
@@ -195,9 +201,10 @@ public class LimitSaleController implements Initializable {
         this.textAreaListProductId.setText("");
         try {
             List<String> productIds = LIMIT_SALE_SERVICE.getIdProductByLsalId(Integer.parseInt(cbSaleId.getValue().toString()));
-            for(int i = 0; i < productIds.size(); i++) {
-                this.textAreaListProductId.setText(String.format("%s (%s)", this.textAreaListProductId.getText(), productIds.get(i)));
-            };
+            for (String productId : productIds) {
+                this.textAreaListProductId.setText(String.format("%s (%s)", this.textAreaListProductId.getText(), productId));
+            }
+            ;
         } catch (SQLException e) {
             e.printStackTrace();
         }
