@@ -8,6 +8,7 @@ public class LimitSale extends Sale{
     private Date lsalToDate;
     private Sale sale;
     private List<ProductLimitSale> bills;
+    private int amountProduct;
 
     public Date getLsalFromDate() {
         return lsalFromDate;
@@ -44,5 +45,13 @@ public class LimitSale extends Sale{
     @Override
     public String toString() {
         return this.sale.toString();
+    }
+
+    public int getAmountProduct() {
+        return amountProduct;
+    }
+
+    public void setAmountProduct(int amountProduct) {
+        this.amountProduct = amountProduct;
     }
 }
