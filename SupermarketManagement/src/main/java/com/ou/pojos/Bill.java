@@ -1,12 +1,12 @@
 package com.ou.pojos;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.sql.Timestamp;
 import java.util.List;
 
 public class Bill {
     private Integer billId;
-    private Date billCreatedDate;
+    private Timestamp billCreatedDate;
     private BigDecimal billCustomerMoney;
     private BigDecimal billTotalMoney;
     private BigDecimal billTotalSaleMoney;
@@ -22,11 +22,11 @@ public class Bill {
         this.billId = billId;
     }
 
-    public Date getBillCreatedDate() {
+    public Timestamp getBillCreatedDate() {
         return billCreatedDate;
     }
 
-    public void setBillCreatedDate(Date billCreatedDate) {
+    public void setBillCreatedDate(Timestamp billCreatedDate) {
         this.billCreatedDate = billCreatedDate;
     }
 

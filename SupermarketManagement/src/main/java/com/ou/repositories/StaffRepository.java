@@ -1,5 +1,6 @@
 package com.ou.repositories;
 
+import com.ou.pojos.Branch;
 import com.ou.pojos.Staff;
 import com.ou.utils.DatabaseUtils;
 
@@ -299,4 +300,27 @@ public class StaffRepository {
         }
     }
 
+    // Lấy thông tin nhân viên dựa vào username
+    public Staff getStaffByUsername(String username) throws SQLException {
+        try(Connection connection = DatabaseUtils.getConnection()){
+            String query = "SELECT p.pers_id, p.pers_first_name, p.pers_last_name, b.bra_name " +
+                    "FROM Staff s JOIN Person p ON s.sta_id = p.pers_id " +
+                    "JOIN Branch b ON s.bra_id = b.bra_id " +
+                    "WHERE s.sta_username = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, username.trim());
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()){
+                Staff staff = new Staff();
+                Branch branch = new Branch();
+                branch.setBraName(resultSet.getString("bra_name"));
+                staff.setPersId(resultSet.getInt("pers_id"));
+                staff.setPersFirstName(resultSet.getString("pers_first_name"));
+                staff.setPersLastName(resultSet.getString("pers_last_name"));
+                staff.setBranch(branch);
+                return staff;
+            }
+        }
+        return null;
+    }
 }

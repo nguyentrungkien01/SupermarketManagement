@@ -111,5 +111,11 @@ public class StaffService {
         }
         return false;
     }
-
+    // Lấy thông tin nhân viên dựa vào username
+    public Staff getStaffByUsername(String username) throws SQLException {
+        if (username==null || username.isEmpty() ||
+                !STAFF_REPOSITORY.isUsername(username.trim()) )
+            return null;
+        return STAFF_REPOSITORY.getStaffByUsername(username.trim());
+    }
 }

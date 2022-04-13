@@ -104,10 +104,8 @@ public class ProductService {
     }
 
     // Lấy thông tin sản phẩm dựa vào tên sản phẩm
-    public Product getProductByName(String proName) throws SQLException {
-        if (proName == null)
-            return null;
-        return PRODUCT_REPOSITORY.getProductByName(proName);
+    public Product getProductById(int proId) throws SQLException {
+        return PRODUCT_REPOSITORY.getProductById(proId);
     }
 
     // Lấy thông tin giảm giá của sản phẩm
