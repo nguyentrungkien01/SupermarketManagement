@@ -63,7 +63,7 @@ public class ProductRepository {
     public List<ProductUnit> getProductUnits(int proId) throws SQLException {
         List<ProductUnit> productUnits = new ArrayList<>();
         try (Connection connection = DatabaseUtils.getConnection()) {
-            String query = "SELECT pu.pro_price, u.uni_name " +
+            String query = "SELECT pu.pro_price, u.uni_name, pu.pru_id " +
                     "FROM Product_Unit pu JOIN Unit u ON pu.uni_id = u.uni_id JOIN Product p ON pu.pro_id = p.pro_id " +
                     "WHERE p.pro_is_active = TRUE AND pu.pru_is_active =TRUE AND u.uni_is_active = TRUE AND pu.pro_id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -72,6 +72,7 @@ public class ProductRepository {
             while (resultSet.next()) {
                 ProductUnit productUnit= new ProductUnit();
                 productUnit.setProPrice(BigDecimal.valueOf(resultSet.getFloat("pro_price")));
+                productUnit.setPruId(resultSet.getInt("pru_id"));
                 Unit unit = new Unit();
                 unit.setUniName(resultSet.getString("uni_name"));
                 productUnit.setUnit(unit);
@@ -428,4 +429,31 @@ public class ProductRepository {
         }
         return null;
     }
+
+    // Lấy thông tin sản phẩm dựa vào mã sản phẩm
+    public Product getProductById(int proId) throws SQLException{
+        try (Connection connection = DatabaseUtils.getConnection()) {
+            String query = "SELECT p.pro_name, c.cat_name, m.man_name " +
+                    "FROM Product p JOIN Category c ON p.pro_id = c.cat_id " +
+                    "JOIN Manufacturer m ON p.man_id = m.man_id " +
+                    "WHERE pro_id = ?";
+            PreparedStatement preparedStatement =connection.prepareStatement(query);
+            preparedStatement.setInt(1, proId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()){
+                Product product = new Product();
+                Category category  = new Category();
+                Manufacturer manufacturer = new Manufacturer();
+                category.setCatName(resultSet.getString("cat_name"));
+                manufacturer.setManName(resultSet.getString("man_name"));
+                product.setProName(resultSet.getString("pro_name"));
+                product.setProId(proId);
+                product.setCategory(category);
+                product.setManufacturer(manufacturer);
+                return  product;
+            }
+        }
+        return null;
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.ou.controllers;
 
+import com.ou.pojos.Staff;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,6 +15,7 @@ import java.io.IOException;
 public class App extends Application {
 
     private static Scene scene;
+    public static Staff currentStaff = null;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -25,6 +27,7 @@ public class App extends Application {
 
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
+
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
