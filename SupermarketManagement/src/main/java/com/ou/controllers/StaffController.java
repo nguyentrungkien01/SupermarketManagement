@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -136,7 +137,11 @@ public class StaffController implements Initializable {
     }
 
     private void goToBack(){
-        // trở về
+        try {
+            App.setRoot("homepage-admin");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     // gán giá trị cho combobox quyền

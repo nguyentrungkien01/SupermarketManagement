@@ -234,7 +234,7 @@ public class StaffRepository {
         try (Connection connection = DatabaseUtils.getConnection()) {
             String query = "SELECT pers_id_card, pers_phone_number, pers_sex, pers_last_name, " +
                     "pers_first_name, pers_date_of_birth, sta_username, sta_is_admin, sta_password, pers_is_active, " +
-                    "bra_id FROM Person, Staff WHERE Person.pers_id = Staff.sta_id AND " +
+                    "bra_id, pers_joined_date FROM Person, Staff WHERE Person.pers_id = Staff.sta_id AND " +
                     "Staff.sta_id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, id);
@@ -253,6 +253,7 @@ public class StaffRepository {
                 staff.setStaUsername(rs.getString("sta_username"));
                 staff.setStaPassword(rs.getString("sta_password"));
                 staff.setPersIsActive(rs.getBoolean("pers_is_active"));
+                staff.setPersJoinedDate(rs.getDate("pers_joined_date")); // 13/04/2022
             }
         }
         return staff;

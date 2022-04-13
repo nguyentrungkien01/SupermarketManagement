@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
+import java.io.IOException;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
@@ -54,12 +55,19 @@ public class SignInController implements Initializable {
                     AlertUtils.showAlert("Tên tài khoản hoặc mật khẩu không đúng!", Alert.AlertType.ERROR);
                 else{
                     App.currentStaff = STAFF_SERVICE.getStaffByUsername(this.txtUsername.getText().trim());
-                    // chuyen windown
-                    if(staff.getStaIsAdmin() == true) // Admin
-                        AlertUtils.showAlert("Chuyển qua cửa sổ Admin    ", Alert.AlertType.INFORMATION);
-
-                    else // Nhân viên
-                        AlertUtils.showAlert("Chuyển qua cửa sổ nhân viên", Alert.AlertType.INFORMATION);
+                    if(staff.getStaIsAdmin() == true) // admin
+                        try {
+                            App.setRoot("homepage-admin");
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    else {      // nhan vien
+                        try {
+                            App.setRoot("payment");
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
                 }
             }
         } catch (SQLException ex) {
