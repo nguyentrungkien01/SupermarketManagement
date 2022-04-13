@@ -195,26 +195,39 @@ public class LimitSaleRepository {
             return preparedStatement.executeQuery().next();
         }
     }
+    // kiểm tra xem product_id có tồn tại không
+    public boolean isExitsProductIdLimitSale(LimitSale limitSale, int proId) throws SQLException {
+        try(Connection connection = DatabaseUtils.getConnection()){
+            String query = "SELECT * FROM Product_LimitSale WHERE lsal_id = ? and pro_id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, limitSale.getSaleId());
+            preparedStatement.setInt(2, proId);
+            return preparedStatement.executeQuery().next();
+        }
+    }
 
     // thêm một limit sale
     public boolean addLimitSale(LimitSale limitSale, int proId) throws SQLException {
         try(Connection connection = DatabaseUtils.getConnection()){
+            String query = "";
+            PreparedStatement preparedStatement;
+            if(proId == 0 && !limitSale.getSaleIsActive()){
+                query = "UPDATE Sale SET sale_is_active = TRUE WHERE sale_id = ?";
+                preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setInt(1, limitSale.getSaleId());
+                preparedStatement.executeUpdate();
+                return 1 == preparedStatement.executeUpdate();
+            }
             if(!isExitsLimitSale(limitSale.getSaleId())){
-                String query = "INSERT INTO LimitSale (lsal_id, lsal_from_date, lsal_to_date) VALUES (?, ?, ?)";
-                PreparedStatement preparedStatement = connection.prepareStatement(query);
+                query = "INSERT INTO LimitSale (lsal_id, lsal_from_date, lsal_to_date) VALUES (?, ?, ?)";
+                preparedStatement = connection.prepareStatement(query);
                 preparedStatement.setInt(1, limitSale.getSaleId());
                 preparedStatement.setDate(2, (Date) limitSale.getLsalFromDate());
                 preparedStatement.setDate(3, (Date) limitSale.getLsalToDate());
                 preparedStatement.executeUpdate();
             }
-            if(!limitSale.getSaleIsActive()){
-                String query = "UPDATE Sale SET sale_is_active = TRUE WHERE sale_id = ?";
-                PreparedStatement preparedStatement = connection.prepareStatement(query);
-                preparedStatement.setInt(1, limitSale.getSaleId());
-                preparedStatement.executeUpdate();
-            }
-            String query2 = "INSERT INTO Product_LimitSale (lsal_id, pro_id) VALUES (?, ?)";
-            PreparedStatement preparedStatement = connection.prepareStatement(query2);
+            query = "INSERT INTO Product_LimitSale (lsal_id, pro_id) VALUES (?, ?)";
+            preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, limitSale.getSaleId());
             preparedStatement.setInt(2, proId);
             return 1 == preparedStatement.executeUpdate();
@@ -234,11 +247,19 @@ public class LimitSaleRepository {
     }
 
     // xóa 1 limit sale
-    public boolean deleteLimitSale(LimitSale limitSale) throws SQLException {
+    public boolean deleteLimitSale(LimitSale limitSale, int proId) throws SQLException {
         try(Connection connection = DatabaseUtils.getConnection()){
-            String query = "UPDATE Sale SET sale_is_active = FALSE WHERE sale_id = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, limitSale.getSaleId());
+            PreparedStatement preparedStatement;
+            if(proId == 0){
+                String query = "UPDATE Sale SET sale_is_active = FALSE WHERE sale_id = ?";
+                preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setInt(1, limitSale.getSaleId());
+            }else {
+                String query = "DELETE From Product_LimitSale WHERE lsal_id = ? and pro_id = ?";
+                preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setInt(1, limitSale.getSaleId());
+                preparedStatement.setInt(2, proId);
+            }
             return 1 == preparedStatement.executeUpdate();
         }
     }

@@ -7,7 +7,10 @@
     <list default="true" id="e81043f1-563b-4be6-9200-33a8dc1c33d9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/LimitSaleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/LimitSaleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/LimitSaleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/LimitSaleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/LimitSaleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/LimitSaleService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/limit-sale.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/limit-sale.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/LimitSaleServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/LimitSaleServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +96,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MemberServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LimitSaleServiceTest.testDeleteLimitSaleWithInfoInValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SupermarketManagement" />
       <extension name="coverage">
         <pattern>
@@ -102,29 +105,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.ou.services" />
-      <option name="MAIN_CLASS_NAME" value="com.ou.services.MemberServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MemberServiceTest.testSelectAllMemberByNullKw" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SupermarketManagement" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ou.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ou.services" />
-      <option name="MAIN_CLASS_NAME" value="com.ou.services.MemberServiceTest" />
-      <option name="METHOD_NAME" value="testSelectAllMemberByNullKw" />
+      <option name="MAIN_CLASS_NAME" value="com.ou.services.LimitSaleServiceTest" />
+      <option name="METHOD_NAME" value="testDeleteLimitSaleWithInfoInValid" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SalePercentServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LimitSaleServiceTest.testDeleteLimitSaleWithInfoValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SupermarketManagement" />
       <extension name="coverage">
         <pattern>
@@ -133,13 +121,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.ou.services" />
-      <option name="MAIN_CLASS_NAME" value="com.ou.services.SalePercentServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="com.ou.services.LimitSaleServiceTest" />
+      <option name="METHOD_NAME" value="testDeleteLimitSaleWithInfoValid" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StaffServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LimitSaleServiceTest.testDeleteLimitSaleWithInfoValid2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SupermarketManagement" />
       <extension name="coverage">
         <pattern>
@@ -148,26 +137,43 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.ou.services" />
-      <option name="MAIN_CLASS_NAME" value="com.ou.services.StaffServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="com.ou.services.LimitSaleServiceTest" />
+      <option name="METHOD_NAME" value="testDeleteLimitSaleWithInfoValid2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LimitSaleServiceTest.testUpdateLimitSaleWithInfoValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SupermarketManagement" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ou.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ou.services" />
+      <option name="MAIN_CLASS_NAME" value="com.ou.services.LimitSaleServiceTest" />
+      <option name="METHOD_NAME" value="testUpdateLimitSaleWithInfoValid" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.LimitSaleServiceTest.testUpdateLimitSaleWithInfoValid" />
+      <item itemvalue="JUnit.LimitSaleServiceTest.testDeleteLimitSaleWithInfoValid" />
+      <item itemvalue="JUnit.LimitSaleServiceTest.testDeleteLimitSaleWithInfoValid2" />
+      <item itemvalue="JUnit.LimitSaleServiceTest.testDeleteLimitSaleWithInfoInValid" />
       <item itemvalue="Application.App" />
-      <item itemvalue="JUnit.MemberServiceTest" />
-      <item itemvalue="JUnit.SalePercentServiceTest" />
-      <item itemvalue="JUnit.StaffServiceTest" />
-      <item itemvalue="JUnit.MemberServiceTest.testSelectAllMemberByNullKw" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
-        <item itemvalue="JUnit.MemberServiceTest.testSelectAllMemberByNullKw" />
-        <item itemvalue="JUnit.StaffServiceTest" />
-        <item itemvalue="JUnit.SalePercentServiceTest" />
-        <item itemvalue="JUnit.MemberServiceTest" />
+        <item itemvalue="JUnit.LimitSaleServiceTest.testDeleteLimitSaleWithInfoInValid" />
+        <item itemvalue="JUnit.LimitSaleServiceTest.testDeleteLimitSaleWithInfoValid2" />
+        <item itemvalue="JUnit.LimitSaleServiceTest.testDeleteLimitSaleWithInfoValid" />
+        <item itemvalue="JUnit.LimitSaleServiceTest.testUpdateLimitSaleWithInfoValid" />
       </list>
     </recent_temporary>
   </component>
@@ -235,6 +241,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

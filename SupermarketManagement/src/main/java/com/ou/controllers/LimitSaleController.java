@@ -48,7 +48,7 @@ public class LimitSaleController implements Initializable {
     }
 
     @FXML
-    ComboBox cbProductId;
+    ComboBox cbProductLimitSaleId;
     @FXML
     ComboBox cbSaleId;
     @FXML
@@ -75,7 +75,8 @@ public class LimitSaleController implements Initializable {
     Text textTotalAmountLimitSale;
     @FXML
     TextArea textAreaListProductId;
-
+    @FXML
+    ComboBox cbProductNotInLimitSaleId;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -85,8 +86,6 @@ public class LimitSaleController implements Initializable {
         this.loadLimitSaleTbvData();
         this.loadTotalAmountLimitSale();
         this.loadComboboxSaleId();
-        this.loadComboboxProductId();
-        this.initFunctionData();
         this.tbvLimitSale.getSelectionModel().getSelectedItems()
                 .addListener((ListChangeListener<? super LimitSale>) e -> changeInputData());
         this.cbSaleId.getSelectionModel().selectedItemProperty().
@@ -105,13 +104,6 @@ public class LimitSaleController implements Initializable {
         this.dpLsalToDate.setConverter(STRING_CONVERTER);
         this.dpLsalFromDate.setConverter(STRING_CONVERTER);
         this.dpSearchDate.setConverter(STRING_CONVERTER);
-    }
-
-    // khởi tạo thuộc tính vùng chức năng add, edit, delete
-    private void initFunctionData(){
-        this.btnDelete.setDisable(true);
-        this.btnEdit.setDisable(true);
-        this.btnAdd.setDisable(true);
     }
 
     // Khởi tạo các thuộc tính của table view
@@ -138,16 +130,6 @@ public class LimitSaleController implements Initializable {
             else
                 this.tbvLimitSale.setItems(FXCollections.observableList(LIMIT_SALE_SERVICE.
                         getLimitSales(null)));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    // lấy dữ liệu cho combobox product id
-    private void loadComboboxProductId(){
-        try {
-            cbProductId.getItems().clear();
-            cbProductId.getItems().addAll(LIMIT_SALE_SERVICE.getListProductId());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -216,9 +198,12 @@ public class LimitSaleController implements Initializable {
             try {
                 int lsal_id = parseInt(cbSaleId.getValue().toString());
                 if(LIMIT_SALE_SERVICE.isExitsLimitSale(lsal_id)){
-                    cbProductId.getItems().clear();
-                    cbProductId.getItems().addAll(LIMIT_SALE_SERVICE.
+                    cbProductNotInLimitSaleId.getItems().clear();
+                    cbProductLimitSaleId.getItems().clear();
+                    cbProductNotInLimitSaleId.getItems().addAll(LIMIT_SALE_SERVICE.
                             getProductIdNotInLimitSaleByLsalId(lsal_id));
+                    cbProductLimitSaleId.getItems().addAll(LIMIT_SALE_SERVICE.
+                            getIdProductByLsalId(lsal_id));
                     LimitSale limitSale = LIMIT_SALE_SERVICE.getLimitSaleByLsalId(lsal_id);
                     this.txtSaleIsActive.setText(limitSale.getSaleIsActive()? "Đang hoạt động" : "Ngưng hoạt động");
                     this.dpLsalFromDate.setValue(LocalDate.parse(limitSale.getLsalFromDate().toString()));
@@ -226,8 +211,13 @@ public class LimitSaleController implements Initializable {
                     this.textAmountProduct.setText(String.valueOf(limitSale.getAmountProduct()));
                     this.getIdProductByLsalId();
                 }else {
-                    loadComboboxProductId();
+                    cbProductLimitSaleId.getItems().clear();
+                    cbProductNotInLimitSaleId.getItems().clear();
+                    cbProductNotInLimitSaleId.getItems().addAll(LIMIT_SALE_SERVICE.
+                            getProductIdNotInLimitSaleByLsalId(lsal_id));
                     textAreaListProductId.clear();
+                    textAreaListProductId.setText("Chưa có sản phẩm nào!!!");
+                    txtSaleIsActive.setText("");
                     dpLsalFromDate.setValue(LocalDate.now());
                     dpLsalToDate.setValue(LocalDate.now());
                 }
@@ -240,7 +230,8 @@ public class LimitSaleController implements Initializable {
     // xóa dữ liêu vùng input
     private  void clearInputData(){
         this.textAmountProduct.setText("0");
-        this.cbProductId.getItems().clear();
+        this.cbProductLimitSaleId.getItems().clear();
+        this.cbProductNotInLimitSaleId.getItems().clear();
         this.txtSaleIsActive.setText("");
         this.textAreaListProductId.clear();
         this.cbSaleId.setValue("");
@@ -275,8 +266,8 @@ public class LimitSaleController implements Initializable {
         }
         try {
             int proId = 0;
-            if(cbProductId.getValue()!= null)
-                proId = parseInt(cbProductId.getValue().toString());
+            if(cbProductNotInLimitSaleId.getValue()!= null)
+                proId = parseInt(cbProductNotInLimitSaleId.getValue().toString());
             if(LIMIT_SALE_SERVICE.addLimitSale(limitSale, proId)){
                 AlertUtils.showAlert("Thêm thành công", Alert.AlertType.INFORMATION);
                 reloadData();
@@ -326,6 +317,9 @@ public class LimitSaleController implements Initializable {
     // xóa limit sale
     private void deleteLimitSale(){
         LimitSale limitSale = new LimitSale();
+        int proId = 0;
+        if(cbProductLimitSaleId.getValue() != null && !cbProductLimitSaleId.getValue().toString().isEmpty())
+            proId = parseInt(cbProductLimitSaleId.getValue().toString());
         try {
             limitSale.setSaleId(parseInt(cbSaleId.getValue().toString()));
             if(!LIMIT_SALE_SERVICE.isExitsLimitSale(limitSale.getSaleId())){
@@ -337,7 +331,7 @@ public class LimitSaleController implements Initializable {
             return;
         }
         try {
-            if(LIMIT_SALE_SERVICE.deleteLimitSale(limitSale)){
+            if(LIMIT_SALE_SERVICE.deleteLimitSale(limitSale, proId)){
                 AlertUtils.showAlert("Xóa thành công", Alert.AlertType.INFORMATION);
                 reloadData();
             }

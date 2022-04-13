@@ -65,6 +65,8 @@ public class LimitSaleService {
 
     // thêm một limit sale
     public boolean addLimitSale(LimitSale limitSale, int proId) throws SQLException {
+        if(proId == 0 && !limitSale.getSaleIsActive())
+            return LIMIT_SALE_REPOSITORY.addLimitSale(limitSale, proId);
         if(limitSale == null || proId == 0)
             return false;
         return LIMIT_SALE_REPOSITORY.addLimitSale(limitSale, proId);
@@ -78,9 +80,9 @@ public class LimitSaleService {
     }
 
     // xóa thông tin limit sale
-    public boolean deleteLimitSale(LimitSale limitSale) throws SQLException {
+    public boolean deleteLimitSale(LimitSale limitSale, int proId) throws SQLException {
         if(limitSale == null || limitSale.getSaleId() == null)
             return false;
-        return LIMIT_SALE_REPOSITORY.deleteLimitSale(limitSale);
+        return LIMIT_SALE_REPOSITORY.deleteLimitSale(limitSale, proId);
     }
 }
