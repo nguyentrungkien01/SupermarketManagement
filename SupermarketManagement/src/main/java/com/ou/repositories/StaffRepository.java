@@ -304,7 +304,8 @@ public class StaffRepository {
     // Lấy thông tin nhân viên dựa vào username
     public Staff getStaffByUsername(String username) throws SQLException {
         try(Connection connection = DatabaseUtils.getConnection()){
-            String query = "SELECT p.pers_id, p.pers_first_name, p.pers_last_name, b.bra_name " +
+            String query = "SELECT p.pers_id, p.pers_first_name, p.pers_last_name, p.pers_id_card, p.pers_phone_number, " +
+                    " p.pers_sex, p.pers_date_of_birth, p.pers_joined_date, b.bra_name, s.sta_username " +
                     "FROM Staff s JOIN Person p ON s.sta_id = p.pers_id " +
                     "JOIN Branch b ON s.bra_id = b.bra_id " +
                     "WHERE s.sta_username = ?";
@@ -315,9 +316,15 @@ public class StaffRepository {
                 Staff staff = new Staff();
                 Branch branch = new Branch();
                 branch.setBraName(resultSet.getString("bra_name"));
+                staff.setStaUsername(resultSet.getString("sta_username"));
                 staff.setPersId(resultSet.getInt("pers_id"));
                 staff.setPersFirstName(resultSet.getString("pers_first_name"));
                 staff.setPersLastName(resultSet.getString("pers_last_name"));
+                staff.setPersIdCard(resultSet.getString("pers_id_card"));
+                staff.setPersPhoneNumber(resultSet.getString("pers_phone_number"));
+                staff.setPersSex(resultSet.getByte("pers_sex"));
+                staff.setPersDateOfBirth(resultSet.getDate("pers_date_of_birth"));
+                staff.setPersJoinedDate(resultSet.getDate("pers_joined_date"));
                 staff.setBranch(branch);
                 return staff;
             }

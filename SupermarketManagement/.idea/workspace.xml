@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcd808c9-fb19-406a-baa7-44dff6e663f1" name="Changes" comment="" />
+    <list default="true" id="fcd808c9-fb19-406a-baa7-44dff6e663f1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/controllers/HomepageAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/controllers/HomepageAdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/repositories/StaffRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/repositories/StaffRepository.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -141,11 +146,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.App" />
         <item itemvalue="JUnit.PaymentServiceTest.testAddBillWithNullTotalSaleMoney" />
         <item itemvalue="JUnit.PaymentServiceTest.testAddBillWithEmptyProductList" />
         <item itemvalue="JUnit.PaymentServiceTest.testAddBillWithEmptyBill" />
         <item itemvalue="JUnit.PaymentServiceTest" />
-        <item itemvalue="Application.App" />
       </list>
     </recent_temporary>
   </component>

@@ -109,7 +109,7 @@ public class HomepageAdminController implements Initializable {
 
     private void setInfoAcount() {
         Staff staff = new Staff();
-        staff = STAFF_SERVICE.getStaffDataById(App.currentStaff.getPersId());
+        staff = App.currentStaff;
         System.out.println(staff.getStaUsername());
         if (App.currentStaff.getPersId() > 0) {
             this.lblUsername.setText(":   " + staff.getStaUsername());
@@ -121,7 +121,7 @@ public class HomepageAdminController implements Initializable {
             this.lblSex.setText(":   " + sex);
             this.lblDateOfBirth.setText(":   " + staff.getPersDateOfBirth());
             this.lblJoinedDate.setText(":   " + staff.getPersJoinedDate());
-            this.lblBranch.setText(":   " + staff.getBranchName());
+            this.lblBranch.setText(":   " + staff.getBranch().getBraName());
         }
     }
 
@@ -241,6 +241,7 @@ public class HomepageAdminController implements Initializable {
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get().equals(ButtonType.OK)) {
             try {
+                App.currentStaff = null;
                 App.setRoot("sign-in");
             } catch (IOException e) {
                 e.printStackTrace();
