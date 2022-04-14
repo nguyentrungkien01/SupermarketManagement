@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="900.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ou.controllers.HomepageAdminController">
+   <children>
+      <AnchorPane layoutX="36.0" prefHeight="847.0" prefWidth="1039.0">
+         <children>
+            <Button fx:id="btnTypeMember" layoutX="57.0" layoutY="103.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="273.0" text="Quản lý loại thành viên">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnCategory" layoutX="374.0" layoutY="208.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="273.0" text="Quản lý loại hàng">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnProduct" layoutX="687.0" layoutY="208.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="273.0" text="Quản lý sản phẩm">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnStaff" layoutX="688.0" layoutY="103.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="273.0" text="Quản lý nhân viên">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnMember" layoutX="375.0" layoutY="103.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="273.0" text="Quản lý thành viên">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnManuFacturer" layoutX="57.0" layoutY="208.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="273.0" text="Quản lý nhà sản xuất">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnBill" layoutX="685.0" layoutY="311.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="273.0" text="Quản lý hóa đơn">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnUnit" layoutX="372.0" layoutY="311.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="273.0" text="Quản lý đơn vị">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnBranch" layoutX="57.0" layoutY="311.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="273.0" text="Quản lý chi nhánh">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnLimitSale" layoutX="685.0" layoutY="413.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="273.0" text="Quản lí giảm giá vô thời hạn">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnSale" layoutX="372.0" layoutY="413.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="273.0" text="Quản lý giảm giá có thời hạn">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnSalePercent" layoutX="57.0" layoutY="413.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="273.0" text="Quản lý phần trăm giảm giá">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="1076.0" prefHeight="715.0" prefWidth="424.0">
+         <children>
+            <Label layoutX="113.0" layoutY="34.0" prefHeight="35.0" prefWidth="242.0" text="Thông tin tài khoản" textFill="BLUE">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <Label layoutX="29.0" layoutY="120.0" prefHeight="27.0" prefWidth="125.0" text="Tên tài khoản">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblUsername" layoutX="175.0" layoutY="120.0" prefHeight="27.0" prefWidth="235.0" text=" ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="29.0" layoutY="314.0" prefHeight="27.0" prefWidth="125.0" text="Số CMND">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblCartId" layoutX="175.0" layoutY="314.0" prefHeight="27.0" prefWidth="235.0" text=" ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="29.0" layoutY="215.0" prefHeight="27.0" prefWidth="125.0" text="Tên ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblFirstName" layoutX="175.0" layoutY="215.0" prefHeight="27.0" prefWidth="235.0" text=" ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="29.0" layoutY="167.0" prefHeight="27.0" prefWidth="125.0" text="Họ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblLastName" layoutX="175.0" layoutY="167.0" prefHeight="27.0" prefWidth="235.0" text=" ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="29.0" layoutY="365.0" prefHeight="27.0" prefWidth="125.0" text="Số điện thoại">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblPhoneNumber" layoutX="175.0" layoutY="365.0" prefHeight="27.0" prefWidth="235.0" text=" ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="29.0" layoutY="508.0" prefHeight="27.0" prefWidth="125.0" text="Ngày tham gia">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblJoinedDate" layoutX="175.0" layoutY="508.0" prefHeight="27.0" prefWidth="235.0" text=" ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="29.0" layoutY="460.0" prefHeight="27.0" prefWidth="125.0" text="Ngày sinh">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblDateOfBirth" layoutX="175.0" layoutY="460.0" prefHeight="27.0" prefWidth="235.0" text=" ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="29.0" layoutY="412.0" prefHeight="27.0" prefWidth="125.0" text="Giới tính">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblSex" layoutX="175.0" layoutY="412.0" prefHeight="27.0" prefWidth="235.0" text=" ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="29.0" layoutY="265.0" prefHeight="27.0" prefWidth="125.0" text="Nhánh">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblBranch" layoutX="175.0" layoutY="265.0" prefHeight="27.0" prefWidth="235.0" text=" ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Button fx:id="btnSignOut" layoutX="1170.0" layoutY="747.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="273.0" text="Đăng xuất" textFill="RED">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
