@@ -110,7 +110,6 @@ public class HomepageAdminController implements Initializable {
     private void setInfoAcount() {
         Staff staff = new Staff();
         staff = App.currentStaff;
-        System.out.println(staff.getStaUsername());
         if (App.currentStaff.getPersId() > 0) {
             this.lblUsername.setText(":   " + staff.getStaUsername());
             this.lblLastName.setText(":   " + staff.getPersLastName());
