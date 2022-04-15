@@ -16,6 +16,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.util.StringConverter;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.SQLException;
@@ -431,7 +432,11 @@ public class BillController implements Initializable {
 
     // Trở về giao diện ban đầu
     private void backMenu() {
-        // Back to menu here
+        try {
+            App.setRoot("homepage-admin");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

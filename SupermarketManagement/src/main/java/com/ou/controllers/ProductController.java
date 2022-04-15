@@ -13,6 +13,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.SQLException;
@@ -484,6 +485,10 @@ public class ProductController implements Initializable {
 
     // Trở về giao diện ban đầu
     private void backMenu() {
-        // Back to menu here
+        try {
+            App.setRoot("homepage-admin");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

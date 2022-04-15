@@ -13,6 +13,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.util.StringConverter;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -96,6 +97,7 @@ public class MemberController implements Initializable {
         this.btnAdd.setOnMouseClicked(e -> addMember());
         this.btnEdit.setOnMouseClicked(e -> updateMember());
         this.btnDelete.setOnMouseClicked(e -> deleteMember());
+        this.btnBack.setOnMouseClicked(e->backToMenu());
         this.txtSearchMemName.textProperty().addListener(e -> loadMemberTbvData(this.txtSearchMemName.getText()));
     }
 
@@ -305,6 +307,14 @@ public class MemberController implements Initializable {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void backToMenu() {
+        try {
+            App.setRoot("homepage-admin");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }

@@ -5,11 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e81043f1-563b-4be6-9200-33a8dc1c33d9" name="Changes" comment="">
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/.idea/workspace.xml" afterDir="false" />
+=======
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/MemberType.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/MemberType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/MemberRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/MemberService.java" afterDir="false" />
+>>>>>>> main
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +60,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/nguyentrungkien/Documents/SupermarketManagement/SupermarketManagement"
+  }
+}]]></component>
+=======
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.Annotations" value="false" />
@@ -74,6 +86,7 @@
     <property name="project.structure.side.proportion" value="0.468894" />
     <property name="settings.editor.selected.configurable" value="project.propDebugger" />
   </component>
+>>>>>>> main
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\danhn\Desktop\SupermarketManagement\SupermarketManagement\src\main\resources\com\ou\controllers" />
@@ -163,11 +176,19 @@
       </method>
     </configuration>
     <list>
+<<<<<<< HEAD
+      <item itemvalue="Application.App" />
+      <item itemvalue="JUnit.LimitSaleServiceTest.testUpdateLimitSaleWithInfoValid" />
+      <item itemvalue="JUnit.LimitSaleServiceTest.testDeleteLimitSaleWithInfoValid" />
+      <item itemvalue="JUnit.LimitSaleServiceTest.testDeleteLimitSaleWithInfoValid2" />
+      <item itemvalue="JUnit.LimitSaleServiceTest.testDeleteLimitSaleWithInfoInValid" />
+=======
       <item itemvalue="JUnit.MemberTypeServiceTest.testUpdateMemberTypeWithNameIsExist" />
       <item itemvalue="JUnit.MemberTypeServiceTest.testUpdateMemberTypeWithValidInfo" />
       <item itemvalue="JUnit.MemberTypeServiceTest.testDeleteMemberTypeWithValid" />
       <item itemvalue="JUnit.MemberTypeServiceTest.testDeleteMemberTypeWithInValid" />
       <item itemvalue="Application.App" />
+>>>>>>> main
     </list>
     <recent_temporary>
       <list>
@@ -227,6 +248,7 @@
       <workItem from="1649511647213" duration="6641000" />
       <workItem from="1649556789808" duration="9812000" />
       <workItem from="1649577308079" duration="8697000" />
+      <workItem from="1650026721005" duration="9000" />
     </task>
     <servers />
   </component>

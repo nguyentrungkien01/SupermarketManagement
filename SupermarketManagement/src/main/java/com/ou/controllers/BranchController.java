@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -224,7 +225,11 @@ public class BranchController implements Initializable {
 
     // Trở về giao diện ban đầu
     private void backMenu() {
-        // Back to menu here
+        try {
+            App.setRoot("homepage-admin");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

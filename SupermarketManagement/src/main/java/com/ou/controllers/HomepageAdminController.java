@@ -154,7 +154,7 @@ public class HomepageAdminController implements Initializable {
     // quản lý loại thành viên
     private void setTypeMember() {
         try {
-            App.setRoot("type-member");
+            App.setRoot("member-type");
         } catch (IOException e) {
             e.printStackTrace();
         }
