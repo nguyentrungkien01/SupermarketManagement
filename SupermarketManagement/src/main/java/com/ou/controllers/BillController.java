@@ -1,9 +1,6 @@
 package com.ou.controllers;
 
-import com.ou.pojos.Bill;
-import com.ou.pojos.Member;
-import com.ou.pojos.ProductLimitSale;
-import com.ou.pojos.Staff;
+import com.ou.pojos.*;
 import com.ou.services.BillService;
 import com.ou.services.ProductService;
 import com.ou.utils.PersonType;
@@ -229,6 +226,7 @@ public class BillController implements Initializable {
                 if (amount > 1)
                     vbxCol.getChildren().subList(1, amount).clear();
             });
+            List<ProductBill> productBills = BILL_SERVICE.getProductBillsByBillId(bill.getBillId());
             BILL_SERVICE.getProductBillsByBillId(bill.getBillId()).forEach(pb -> {
 
                 AnchorPane acpProId = new AnchorPane();
@@ -391,7 +389,8 @@ public class BillController implements Initializable {
         Bill selectedBill = this.tbvBill.getSelectionModel().getSelectedItem();
         if (selectedBill != null) {
             this.txtBillId.setText(String.valueOf(selectedBill.getBillId()));
-            this.dtpBillCreatedDate.setValue(LocalDate.parse(selectedBill.getBillCreatedDate().toString()));
+            String createdDate = selectedBill.getBillCreatedDate().toString();
+            this.dtpBillCreatedDate.setValue(LocalDate.parse(createdDate.substring(0, createdDate.indexOf(" "))));
             this.txtBillStaName.setText(selectedBill.getStaff().toString());
             if (selectedBill.getMember() != null)
                 this.txtBillMemName.setText(selectedBill.getMember().toString());

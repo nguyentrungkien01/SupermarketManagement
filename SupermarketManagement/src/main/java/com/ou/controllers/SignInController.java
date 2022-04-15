@@ -2,6 +2,7 @@ package com.ou.controllers;
 
 import com.ou.pojos.Staff;
 import com.ou.services.SignInService;
+import com.ou.services.StaffService;
 import com.ou.utils.AlertUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -12,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
+import java.io.IOException;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
@@ -21,7 +23,11 @@ import java.util.logging.Logger;
 
 public class SignInController implements Initializable {
     private SignInService signInService;
+    private final static StaffService STAFF_SERVICE;
 
+    static {
+        STAFF_SERVICE = new StaffService();
+    }
     @FXML
     private TextField txtUsername;
     
@@ -45,16 +51,23 @@ public class SignInController implements Initializable {
         try {
             if (checkTextInput() == true){
                 Staff staff =signInService.getAccountMD5(this.txtUsername.getText().trim(), this.txtPassword.getText().trim());
-//                System.out.println(staff.getStaPassword() +"---"+ staff.getStaUsername());
                 if(staff == null)
                     AlertUtils.showAlert("Tên tài khoản hoặc mật khẩu không đúng!", Alert.AlertType.ERROR);
                 else{
-                    // chuyen windown
-                    if(staff.getStaIsAdmin() == true) // Admin
-                        AlertUtils.showAlert("Chuyển qua cửa sổ Admin    ", Alert.AlertType.INFORMATION);
-
-                    else // Nhân viên
-                        AlertUtils.showAlert("Chuyển qua cửa sổ nhân viên", Alert.AlertType.INFORMATION);
+                    App.currentStaff = STAFF_SERVICE.getStaffByUsername(this.txtUsername.getText().trim());
+                    if(staff.getStaIsAdmin() == true) // admin
+                        try {
+                            App.setRoot("homepage-admin");
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    else {      // nhan vien
+                        try {
+                            App.setRoot("payment");
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
                 }
             }
         } catch (SQLException ex) {

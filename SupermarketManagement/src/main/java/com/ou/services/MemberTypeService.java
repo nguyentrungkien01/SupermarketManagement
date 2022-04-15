@@ -58,5 +58,4 @@ public class MemberTypeService {
             return false;
         return MEMBER_TYPE_REPOSITORY.deleteMemberType(memberType);
     }
-
 }

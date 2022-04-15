@@ -15,12 +15,11 @@ import java.util.List;
 public class BillRepository {
     private final static StaffService STAFF_SERVICE;
     private final static MemberService MEMBER_SERVICE;
-    private final static LimitSaleService LIMIT_SALE_SERVICE;
+
 
     static {
         STAFF_SERVICE = new StaffService();
         MEMBER_SERVICE = new MemberService();
-        LIMIT_SALE_SERVICE = new LimitSaleService();
     }
 
     // Lấy danh sách hóa đơn do nhân viên tạo dựa vào tên nhân viên
@@ -64,7 +63,7 @@ public class BillRepository {
                 int staId = resultSet.getInt("sta_id");
                 Integer memId = resultSet.getInt("mem_id");
                 bill.setBillId(billId);
-                bill.setBillCreatedDate(resultSet.getDate("bill_created_date"));
+                bill.setBillCreatedDate(resultSet.getTimestamp("bill_created_date"));
                 bill.setBillCustomerMoney(resultSet.getBigDecimal("bill_customer_money"));
                 bill.setBillTotalSaleMoney(resultSet.getBigDecimal("bill_total_sale_money"));
                 bill.setBillTotalMoney(resultSet.getBigDecimal("bill_total_money"));

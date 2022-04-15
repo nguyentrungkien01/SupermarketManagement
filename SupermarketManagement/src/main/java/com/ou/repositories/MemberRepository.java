@@ -198,15 +198,24 @@ public class MemberRepository {
     //Lấy thông tin của người
     public Member getMemberById(Integer memId) throws SQLException {
         try (Connection connection = DatabaseUtils.getConnection()) {
-            String query = "SELECT * FROM Person WHERE pers_id = ?";
+            String query = "SELECT p.pers_first_name, p.pers_last_name, mt.memt_name," +
+                    "mt.memt_total_money, mt.memt_id " +
+                    "FROM Member m JOIN Person p ON m.mem_id = p.pers_id " +
+                    "JOIN MemberType mt ON m.memt_id = mt.memt_id " +
+                    "WHERE m.mem_id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, memId);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 Member member = new Member();
+                MemberType memberType = new MemberType();
+                memberType.setMemtId(resultSet.getInt("memt_id"));
+                memberType.setMemtName(resultSet.getString("memt_name"));
+                memberType.setMemtTotalMoney(resultSet.getBigDecimal("memt_total_money"));
                 member.setPersFirstName(resultSet.getString("pers_first_name"));
                 member.setPersLastName(resultSet.getString("pers_last_name"));
-                member.setPersId(resultSet.getInt("pers_id"));
+                member.setPersId(memId);
+                member.setMemberType(memberType);
                 return member;
             }
         }
