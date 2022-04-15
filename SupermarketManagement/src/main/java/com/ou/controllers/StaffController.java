@@ -510,7 +510,10 @@ public class StaffController implements Initializable {
             AlertUtils.showAlert("Tên tài khoản không vượt quá 10 kí tự!", Alert.AlertType.ERROR);
             return false;
         }
-
+        if (this.txtUsername.getText().trim().length() < 6) {
+            AlertUtils.showAlert("Tên tài khoản ít nhất có 6 kí tự!", Alert.AlertType.ERROR);
+            return false;
+        }
         try {
             Long cmnd = Long.parseLong(this.txtIdCard.getText().trim());
         }catch(NumberFormatException e) {
