@@ -6,11 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e81043f1-563b-4be6-9200-33a8dc1c33d9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/LimitSaleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/LimitSaleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/LimitSaleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/LimitSaleRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/LimitSaleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/LimitSaleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/limit-sale.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/limit-sale.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/LimitSaleServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/LimitSaleServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/MemberType.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/MemberType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/MemberRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/MemberService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +65,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -76,6 +75,9 @@
     <property name="settings.editor.selected.configurable" value="project.propDebugger" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\danhn\Desktop\SupermarketManagement\SupermarketManagement\src\main\resources\com\ou\controllers" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou" />
       <recent name="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers" />
@@ -96,7 +98,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LimitSaleServiceTest.testDeleteLimitSaleWithInfoInValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MemberTypeServiceTest.testDeleteMemberTypeWithInValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SupermarketManagement" />
       <extension name="coverage">
         <pattern>
@@ -105,14 +107,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.ou.services" />
-      <option name="MAIN_CLASS_NAME" value="com.ou.services.LimitSaleServiceTest" />
-      <option name="METHOD_NAME" value="testDeleteLimitSaleWithInfoInValid" />
+      <option name="MAIN_CLASS_NAME" value="com.ou.services.MemberTypeServiceTest" />
+      <option name="METHOD_NAME" value="testDeleteMemberTypeWithInValid" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LimitSaleServiceTest.testDeleteLimitSaleWithInfoValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MemberTypeServiceTest.testDeleteMemberTypeWithValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SupermarketManagement" />
       <extension name="coverage">
         <pattern>
@@ -121,14 +123,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.ou.services" />
-      <option name="MAIN_CLASS_NAME" value="com.ou.services.LimitSaleServiceTest" />
-      <option name="METHOD_NAME" value="testDeleteLimitSaleWithInfoValid" />
+      <option name="MAIN_CLASS_NAME" value="com.ou.services.MemberTypeServiceTest" />
+      <option name="METHOD_NAME" value="testDeleteMemberTypeWithValid" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LimitSaleServiceTest.testDeleteLimitSaleWithInfoValid2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MemberTypeServiceTest.testUpdateMemberTypeWithNameIsExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SupermarketManagement" />
       <extension name="coverage">
         <pattern>
@@ -137,14 +139,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.ou.services" />
-      <option name="MAIN_CLASS_NAME" value="com.ou.services.LimitSaleServiceTest" />
-      <option name="METHOD_NAME" value="testDeleteLimitSaleWithInfoValid2" />
+      <option name="MAIN_CLASS_NAME" value="com.ou.services.MemberTypeServiceTest" />
+      <option name="METHOD_NAME" value="testUpdateMemberTypeWithNameIsExist" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LimitSaleServiceTest.testUpdateLimitSaleWithInfoValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MemberTypeServiceTest.testUpdateMemberTypeWithValidInfo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SupermarketManagement" />
       <extension name="coverage">
         <pattern>
@@ -153,27 +155,27 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.ou.services" />
-      <option name="MAIN_CLASS_NAME" value="com.ou.services.LimitSaleServiceTest" />
-      <option name="METHOD_NAME" value="testUpdateLimitSaleWithInfoValid" />
+      <option name="MAIN_CLASS_NAME" value="com.ou.services.MemberTypeServiceTest" />
+      <option name="METHOD_NAME" value="testUpdateMemberTypeWithValidInfo" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.LimitSaleServiceTest.testUpdateLimitSaleWithInfoValid" />
-      <item itemvalue="JUnit.LimitSaleServiceTest.testDeleteLimitSaleWithInfoValid" />
-      <item itemvalue="JUnit.LimitSaleServiceTest.testDeleteLimitSaleWithInfoValid2" />
-      <item itemvalue="JUnit.LimitSaleServiceTest.testDeleteLimitSaleWithInfoInValid" />
+      <item itemvalue="JUnit.MemberTypeServiceTest.testUpdateMemberTypeWithNameIsExist" />
+      <item itemvalue="JUnit.MemberTypeServiceTest.testUpdateMemberTypeWithValidInfo" />
+      <item itemvalue="JUnit.MemberTypeServiceTest.testDeleteMemberTypeWithValid" />
+      <item itemvalue="JUnit.MemberTypeServiceTest.testDeleteMemberTypeWithInValid" />
       <item itemvalue="Application.App" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
-        <item itemvalue="JUnit.LimitSaleServiceTest.testDeleteLimitSaleWithInfoInValid" />
-        <item itemvalue="JUnit.LimitSaleServiceTest.testDeleteLimitSaleWithInfoValid2" />
-        <item itemvalue="JUnit.LimitSaleServiceTest.testDeleteLimitSaleWithInfoValid" />
-        <item itemvalue="JUnit.LimitSaleServiceTest.testUpdateLimitSaleWithInfoValid" />
+        <item itemvalue="JUnit.MemberTypeServiceTest.testDeleteMemberTypeWithInValid" />
+        <item itemvalue="JUnit.MemberTypeServiceTest.testDeleteMemberTypeWithValid" />
+        <item itemvalue="JUnit.MemberTypeServiceTest.testUpdateMemberTypeWithValidInfo" />
+        <item itemvalue="JUnit.MemberTypeServiceTest.testUpdateMemberTypeWithNameIsExist" />
       </list>
     </recent_temporary>
   </component>
@@ -248,6 +250,10 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.sql.SQLException" package="java.sql" />
+          <option name="timeStamp" value="3" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>

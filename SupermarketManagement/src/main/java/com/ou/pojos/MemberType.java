@@ -5,12 +5,12 @@ import java.util.List;
 
 public class MemberType {
     private Integer memtId;
-    private Sale memtSale;
     private String memtName;
     private BigDecimal memtTotalMoney;
     private Boolean memtIsActive = Boolean.TRUE;
     private Sale sale;
     private List<Member> members;
+    private int amountMember;
 
     public Integer getMemtId() {
         return memtId;
@@ -18,14 +18,6 @@ public class MemberType {
 
     public void setMemtId(Integer memtId) {
         this.memtId = memtId;
-    }
-
-    public Sale getMemtSale() {
-        return memtSale;
-    }
-
-    public void setMemtSale(Sale memtSale) {
-        this.memtSale = memtSale;
     }
 
     public String getMemtName() {
@@ -70,5 +62,13 @@ public class MemberType {
 
     public String toString(){
         return this.memtName;
+    }
+
+    public int getAmountMember() {
+        return amountMember;
+    }
+
+    public void setAmountMember(int amountMember) {
+        this.amountMember = amountMember;
     }
 }

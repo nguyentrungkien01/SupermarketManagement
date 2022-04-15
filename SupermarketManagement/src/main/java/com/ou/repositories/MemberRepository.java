@@ -212,4 +212,18 @@ public class MemberRepository {
         }
         return null;
     }
+
+    // update member type id for member
+    public void updateMemberTypeId(Member member, int memberTypeId) throws SQLException {
+        try (Connection connection = DatabaseUtils.getConnection()) {
+            String query = "UPDATE Member SET memt_id = ?  WHERE mem_id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            if (memberTypeId > 0)
+                preparedStatement.setInt(1, memberTypeId);
+            else
+                preparedStatement.setString(1, null);
+            preparedStatement.setInt(2, member.getPersId());
+            preparedStatement.executeUpdate();
+        }
+    }
 }
