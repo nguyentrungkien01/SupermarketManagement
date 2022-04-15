@@ -72,4 +72,9 @@ public class MemberService {
             return null;
         return MEMBER_REPOSITORY.getMemberById(memId);
     }
+
+    // update member type id for member
+    public void updateMemberTypeId(Member member, int memberTypeId) throws SQLException {
+        MEMBER_REPOSITORY.updateMemberTypeId(member, memberTypeId);
+    }
 }

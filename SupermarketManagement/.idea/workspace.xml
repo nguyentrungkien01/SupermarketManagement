@@ -5,19 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fcd808c9-fb19-406a-baa7-44dff6e663f1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ou/controllers/MemberTypeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ou/controllers/member-type.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/ou/services/MemberTypeServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/controllers/BillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/controllers/BillController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/controllers/BranchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/controllers/BranchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/controllers/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/controllers/HomepageAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/controllers/HomepageAdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/controllers/LimitSaleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/controllers/LimitSaleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/controllers/ManufacturerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/controllers/ManufacturerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/controllers/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/controllers/MemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/controllers/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/controllers/PaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/controllers/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/controllers/SaleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/controllers/SaleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/controllers/UnitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/controllers/UnitController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/controllers/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/controllers/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/controllers/StaffController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/controllers/StaffController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/pojos/MemberType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/pojos/MemberType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/repositories/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/repositories/MemberRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/repositories/MemberTypeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/repositories/MemberTypeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/repositories/MemberTypeRepositoryForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/repositories/MemberTypeRepositoryForTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/services/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/services/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/services/MemberTypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/services/MemberTypeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/services/MemberTypeServiceForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/services/MemberTypeServiceForTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,12 +66,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/nguyentrungkien/Documents/SupermarketManagement/SupermarketManagement"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/nguyentrungkien/Documents/SupermarketManagement/SupermarketManagement&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\KTPM\SupermarketManagement\SupermarketManagement\src\main\resources\com\ou\controllers" />
@@ -185,7 +186,7 @@
       <workItem from="1649842758752" duration="1575000" />
       <workItem from="1649855730915" duration="5467000" />
       <workItem from="1650026692978" duration="26000" />
-      <workItem from="1650026731498" duration="3866000" />
+      <workItem from="1650026731498" duration="4836000" />
     </task>
     <servers />
   </component>
