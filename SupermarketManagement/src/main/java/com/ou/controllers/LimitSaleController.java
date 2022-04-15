@@ -12,6 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.util.StringConverter;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -345,6 +346,10 @@ public class LimitSaleController implements Initializable {
 
     // trở về homepage
     private void back(){
-
+        try {
+            App.setRoot("homepage-admin");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

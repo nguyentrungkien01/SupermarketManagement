@@ -11,6 +11,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.SQLException;
@@ -826,6 +827,10 @@ public class PaymentController implements Initializable {
     // Đăng xuất
     private void signOut() {
         App.currentStaff = null;
-        // chuyển giao diện
+        try {
+            App.setRoot("sign-in");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
