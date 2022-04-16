@@ -70,7 +70,7 @@ public class MemberTypeRepository {
             if(resultSet.next()){
                 salePercent.setSperId(resultSet.getInt("sper_id"));
                 salePercent.setSperIsActive(resultSet.getBoolean("sper_is_active"));
-                salePercent.setSperPercent(resultSet.getFloat("sper_percent"));
+                salePercent.setSperPercent(resultSet.getInt("sper_percent"));
             }
         } catch (SQLException e) {
             e.printStackTrace();

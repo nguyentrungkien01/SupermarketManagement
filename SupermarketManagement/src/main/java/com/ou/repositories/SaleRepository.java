@@ -40,7 +40,7 @@ public class SaleRepository {
     public List<Sale> getSales(String kw) throws SQLException {
         List<Sale> sales = new ArrayList<>();
         try(Connection connection = DatabaseUtils.getConnection()){
-            String query = "SELECT * FROM Sale s JOIN Salepercent sp ON s.sper_id = sp.sper_id WHERE s.sale_id LIKE CONCAT (\"%\", ? , \"%\")";
+            String query = "SELECT * FROM Sale s JOIN SalePercent sp ON s.sper_id = sp.sper_id WHERE s.sale_id LIKE CONCAT (\"%\", ? , \"%\")";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, kw);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -51,7 +51,7 @@ public class SaleRepository {
                 SalePercent salePercent = new SalePercent();
                 salePercent.setSperId(resultSet.getInt("sper_id"));
                 salePercent.setSperIsActive(resultSet.getBoolean("sper_is_active"));
-                salePercent.setSperPercent(resultSet.getFloat("sper_percent"));
+                salePercent.setSperPercent(resultSet.getInt("sper_percent"));
                 sale.setSalePercent(salePercent);
                 sales.add(sale);
             }
@@ -99,7 +99,7 @@ public class SaleRepository {
     // lấy số lượng mã giảm giá đang còn hoạt động
     public int getSaleAmount() throws SQLException {
         try (Connection connection = DatabaseUtils.getConnection()){
-            String query = "SELECT COUNT(sale_id) AS sale_amount FROM Sale s JOIN Salepercent sp ON s.sper_id = sp.sper_id " +
+            String query = "SELECT COUNT(sale_id) AS sale_amount FROM Sale s JOIN SalePercent sp ON s.sper_id = sp.sper_id " +
                     "WHERE s.sale_is_active = TRUE and sp.sper_is_active = TRUE;";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -113,7 +113,7 @@ public class SaleRepository {
     public List<String> getSalePercentId() {
         List<String> salePercentIds = new ArrayList<>();
         try (Connection connection = DatabaseUtils.getConnection()){
-            String query = "SELECT sper_id FROM Salepercent WHERE sper_is_active = TRUE";
+            String query = "SELECT sper_id FROM SalePercent WHERE sper_is_active = TRUE";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
