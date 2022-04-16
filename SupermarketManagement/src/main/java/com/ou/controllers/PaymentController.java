@@ -432,7 +432,8 @@ public class PaymentController implements Initializable {
                 member = new Member();
                 member.setPersId(Integer.parseInt(this.txtMemberId.getText().trim()));
             }
-
+            // giảm giá thành viên
+            // giảm giá ngày sinh và > 1tr
             bill.setMember(member);
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             Date date = simpleDateFormat.parse(this.txtBillCreatedDate.getText().trim());
