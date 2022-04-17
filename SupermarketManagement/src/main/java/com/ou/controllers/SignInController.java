@@ -28,15 +28,16 @@ public class SignInController implements Initializable {
     static {
         STAFF_SERVICE = new StaffService();
     }
+
     @FXML
     private TextField txtUsername;
-    
-    @FXML 
+
+    @FXML
     private PasswordField txtPassword;
-    
+
     @FXML
     private Button btnSignIn;
-    
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         signInService = new SignInService();
@@ -44,18 +45,18 @@ public class SignInController implements Initializable {
             checkAccount();
         });
     }
-
+    
     // Kiểm tra mật khẩu
     @FXML
-    private void  checkAccount(){
+    private void checkAccount() {
         try {
-            if (checkTextInput() == true){
-                Staff staff =signInService.getAccountMD5(this.txtUsername.getText().trim(), this.txtPassword.getText().trim());
-                if(staff == null)
+            if (checkTextInput()) {
+                Staff staff = signInService.getAccountMD5(this.txtUsername.getText().trim(), this.txtPassword.getText().trim());
+                if (staff == null)
                     AlertUtils.showAlert("Tên tài khoản hoặc mật khẩu không đúng!", Alert.AlertType.ERROR);
-                else{
+                else {
                     App.currentStaff = STAFF_SERVICE.getStaffByUsername(this.txtUsername.getText().trim());
-                    if(staff.getStaIsAdmin() == true) // admin
+                    if (staff.getStaIsAdmin()) // admin
                         try {
                             App.setRoot("homepage-admin");
                         } catch (IOException e) {
@@ -70,27 +71,22 @@ public class SignInController implements Initializable {
                     }
                 }
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(SignInController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (NoSuchAlgorithmException ex) {
+        } catch (SQLException | NoSuchAlgorithmException ex) {
             Logger.getLogger(SignInController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     // Kiểm tra dữ liệu nhập
-    private boolean checkTextInput() throws SQLException, NoSuchAlgorithmException{
-        if("".equals(this.txtUsername.getText().trim()) || this.txtUsername.getText().trim().length()< 6){
+    private boolean checkTextInput() throws SQLException, NoSuchAlgorithmException {
+        if ("".equals(this.txtUsername.getText().trim()) || this.txtUsername.getText().trim().length() < 6) {
             AlertUtils.showAlert("Tên tài khoản phải có ít nhất 6 kí tự !!", Alert.AlertType.ERROR);
             return false;
+        } else if ("".equals(this.txtPassword.getText().trim()) || this.txtPassword.getText().trim().length() < 6) {
+            AlertUtils.showAlert("Mật khẩu phải có ít nhất 6 kí tự !!", Alert.AlertType.ERROR);
+            return false;
+        } else {
+            return true;
         }
-        else 
-            if("".equals(this.txtPassword.getText().trim()) || this.txtPassword.getText().trim().length()< 6){
-                AlertUtils.showAlert("Mật khẩu phải có ít nhất 6 kí tự !!", Alert.AlertType.ERROR);
-                return false;
-            }
-            else{
-                return true;
-            }
     }
 
     // Sự kiện bàn phím

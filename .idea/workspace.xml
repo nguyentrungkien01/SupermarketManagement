@@ -5,15 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e81043f1-563b-4be6-9200-33a8dc1c33d9" name="Changes" comment="">
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/.idea/workspace.xml" afterDir="false" />
-=======
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_linux_19_ea_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_win_19_ea_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_linux_19_ea_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_win_19_ea_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_linux_19_ea_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_19_ea_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_linux_19_ea_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_19_ea_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/SupermarketManagement.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/SupermarketManagement.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/MemberType.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/MemberType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/MemberRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/MemberService.java" afterDir="false" />
->>>>>>> main
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/SignInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/utils/DatabaseUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/utils/DatabaseUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/sign-in.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/sign-in.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,38 +64,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-<<<<<<< HEAD
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/nguyentrungkien/Documents/SupermarketManagement/SupermarketManagement"
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
-=======
-  <component name="PropertiesComponent">
-    <property name="Downloaded.Files.Path.Enabled" value="false" />
-    <property name="Repository.Attach.Annotations" value="false" />
-    <property name="Repository.Attach.JavaDocs" value="false" />
-    <property name="Repository.Attach.Sources" value="false" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.468894" />
-    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
-  </component>
->>>>>>> main
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\danhn\Desktop\SupermarketManagement\SupermarketManagement\src\main\resources\com\ou\controllers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\admin\Desktop\HK2\SupermarketManagement\SupermarketManagement\src\main\resources\com.ou.images" />
+      <recent name="C:\Users\admin\Desktop\HK2\SupermarketManagement\SupermarketManagement\src\main\images" />
       <recent name="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou" />
       <recent name="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers" />
       <recent name="$PROJECT_DIR$/SupermarketManagement/src/main/resources" />
@@ -176,19 +161,11 @@
       </method>
     </configuration>
     <list>
-<<<<<<< HEAD
       <item itemvalue="Application.App" />
-      <item itemvalue="JUnit.LimitSaleServiceTest.testUpdateLimitSaleWithInfoValid" />
-      <item itemvalue="JUnit.LimitSaleServiceTest.testDeleteLimitSaleWithInfoValid" />
-      <item itemvalue="JUnit.LimitSaleServiceTest.testDeleteLimitSaleWithInfoValid2" />
-      <item itemvalue="JUnit.LimitSaleServiceTest.testDeleteLimitSaleWithInfoInValid" />
-=======
+      <item itemvalue="JUnit.MemberTypeServiceTest.testDeleteMemberTypeWithInValid" />
+      <item itemvalue="JUnit.MemberTypeServiceTest.testDeleteMemberTypeWithValid" />
       <item itemvalue="JUnit.MemberTypeServiceTest.testUpdateMemberTypeWithNameIsExist" />
       <item itemvalue="JUnit.MemberTypeServiceTest.testUpdateMemberTypeWithValidInfo" />
-      <item itemvalue="JUnit.MemberTypeServiceTest.testDeleteMemberTypeWithValid" />
-      <item itemvalue="JUnit.MemberTypeServiceTest.testDeleteMemberTypeWithInValid" />
-      <item itemvalue="Application.App" />
->>>>>>> main
     </list>
     <recent_temporary>
       <list>
@@ -249,6 +226,8 @@
       <workItem from="1649556789808" duration="9812000" />
       <workItem from="1649577308079" duration="8697000" />
       <workItem from="1650026721005" duration="9000" />
+      <workItem from="1650164145402" duration="218000" />
+      <workItem from="1650164427216" duration="9711000" />
     </task>
     <servers />
   </component>
