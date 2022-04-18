@@ -150,7 +150,7 @@ public class StaffServiceTest {
         }
     }
 
-    // kiểm tra username có tồn tại
+    // kiểm tra username có tồn tại hay chưa
     // mong muốn trả ra false
     @Test
     public void testUsernameNotExist2() {
