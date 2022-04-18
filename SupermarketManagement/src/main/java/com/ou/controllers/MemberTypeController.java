@@ -177,7 +177,6 @@ public class MemberTypeController implements Initializable {
 
     private void addMemberType(){
         MemberType memberType = new MemberType();
-        memberType.setMemtName(txtMemberTypeName.getText());
         memberType.setMemtTotalMoney(new BigDecimal(-1));
         memberType.setMemtIsActive(!Objects.equals(txtMemberTypeIsActive.getText(), "Ngưng hoạt động"));
         try {
@@ -186,6 +185,15 @@ public class MemberTypeController implements Initializable {
                 AlertUtils.showAlert("Thêm thất bại!!", Alert.AlertType.ERROR);
                 return;
             }
+            if(txtTotalMoney.getText().length()>10){
+                AlertUtils.showAlert("Thêm thất bại!! Số tiền quá lớn vui lòng không vượt quá 10 chữ số", Alert.AlertType.ERROR);
+                return;
+            }
+            if(txtMemberTypeName.getText().length()>50){
+                AlertUtils.showAlert("Thêm thất bại!! Tên loại thành viên chỉ được tối đa 50 kí tự!", Alert.AlertType.ERROR);
+                return;
+            }
+            memberType.setMemtName(txtMemberTypeName.getText());
             memberType.setMemtTotalMoney(new BigDecimal(txtTotalMoney.getText()));
             Sale sale = new Sale();
             sale.setSaleId(Integer.parseInt(cbSaleId.getValue().toString()));
@@ -209,7 +217,6 @@ public class MemberTypeController implements Initializable {
     private void updateMemberType(){
         MemberType memberType = new MemberType();
         memberType.setMemtId(0);
-        memberType.setMemtName(txtMemberTypeName.getText());
         memberType.setMemtTotalMoney(new BigDecimal(-1));
         memberType.setMemtIsActive(!Objects.equals(txtMemberTypeIsActive.getText(), "Ngưng hoạt động"));
         try {
@@ -219,6 +226,16 @@ public class MemberTypeController implements Initializable {
                 AlertUtils.showAlert("Sửa thất bại!!", Alert.AlertType.ERROR);
                 return;
             }
+            if(txtTotalMoney.getText().length()>10){
+                AlertUtils.showAlert("Sửa thất bại!! Số tiền quá lớn vui lòng không vượt quá 10 chữ số", Alert.AlertType.ERROR);
+                return;
+            }
+            if(txtMemberTypeName.getText().length()>50){
+                AlertUtils.showAlert("Sửa thất bại!! Tên loại thành viên chỉ được tối đa 50 kí tự!", Alert.AlertType.ERROR);
+                return;
+            }
+            memberType.setMemtName(txtMemberTypeName.getText());
+            memberType.setMemtTotalMoney(new BigDecimal(txtTotalMoney.getText()));
             memberType.setMemtId(Integer.parseInt(txtMemberTypeId.getText()));
             memberType.setMemtTotalMoney(new BigDecimal(txtTotalMoney.getText()));
             Sale sale = new Sale();
