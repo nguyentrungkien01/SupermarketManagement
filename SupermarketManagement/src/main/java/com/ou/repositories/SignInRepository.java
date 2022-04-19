@@ -27,6 +27,7 @@ public class SignInRepository {
                 staff.setStaUsername(rs.getString("sta_username"));
                 staff.setStaPassword(rs.getString("sta_password"));
                 staff.setStaIsAdmin(rs.getBoolean("sta_is_admin"));
+                staff.setPersId(rs.getInt("sta_id"));
                 return  staff;
             }
             else

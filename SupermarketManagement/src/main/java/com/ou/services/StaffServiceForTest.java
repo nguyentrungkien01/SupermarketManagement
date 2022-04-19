@@ -32,4 +32,16 @@ public class StaffServiceForTest {
         }
         return false;
     }
+
+    // kiểm tra có phải admin hay không
+    public boolean isAdminByUsername (String username) {
+        if (!username.isEmpty()) {
+            try {
+                return STAFF_REPOSITORY_FOR_TEST.isAdminByUsername(username);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return false;
+    }
 }
