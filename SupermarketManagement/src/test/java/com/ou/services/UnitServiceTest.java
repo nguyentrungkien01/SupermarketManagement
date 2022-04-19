@@ -87,6 +87,12 @@ public class UnitServiceTest {
         try {
             List<Unit> units = unitService.getUnits("        ");
             Assertions.assertEquals(0, units.size());
+            int amount = unitService.getUnitAmount();
+            Assertions.assertEquals(amount, units.size());
+            Assertions.assertEquals(1, units.get(0).getUniId());
+            Assertions.assertEquals(2, units.get(1).getUniId());
+            Assertions.assertEquals(3, units.get(2).getUniId());
+            Assertions.assertEquals(4, units.get(3).getUniId());
         } catch (SQLException e) {
             e.printStackTrace();
         }

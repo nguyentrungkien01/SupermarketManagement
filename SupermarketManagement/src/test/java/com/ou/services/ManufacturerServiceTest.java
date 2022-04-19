@@ -88,7 +88,12 @@ public class ManufacturerServiceTest {
     public void testSelectAllManufacturerBySpacesKw() {
         try {
             List<Manufacturer> manufacturers = manufacturerService.getManufacturers("         ");
-            Assertions.assertEquals(0, manufacturers.size());
+            int amount = manufacturerService.getManufacturerAmount();
+            Assertions.assertEquals(amount, manufacturers.size());
+            Assertions.assertEquals(1, manufacturers.get(0).getManId());
+            Assertions.assertEquals(2, manufacturers.get(1).getManId());
+            Assertions.assertEquals(3, manufacturers.get(2).getManId());
+            Assertions.assertEquals(4, manufacturers.get(3).getManId());
         } catch (SQLException e) {
             e.printStackTrace();
         }
