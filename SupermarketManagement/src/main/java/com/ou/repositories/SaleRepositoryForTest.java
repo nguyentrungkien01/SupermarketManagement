@@ -1,6 +1,5 @@
 package com.ou.repositories;
 
-import com.ou.pojos.Category;
 import com.ou.pojos.Sale;
 import com.ou.pojos.SalePercent;
 import com.ou.utils.DatabaseUtils;

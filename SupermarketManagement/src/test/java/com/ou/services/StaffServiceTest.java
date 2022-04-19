@@ -7,7 +7,7 @@ import org.junit.jupiter.api.*;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.time.ZoneId;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -90,7 +90,7 @@ public class StaffServiceTest {
         try {
             List<Staff> listStaff;
             listStaff = staffService.getListStaff("11111111111111111111111111");
-            Assertions.assertEquals(listStaff.size(),0);
+            Assertions.assertEquals(0, listStaff.size());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -103,7 +103,7 @@ public class StaffServiceTest {
         try {
             List<Staff> listStaff;
             listStaff = staffService.getListStaff("Bình");
-            Assertions.assertNotEquals(listStaff.size(),0);
+            Assertions.assertNotEquals(0, listStaff.size());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -132,7 +132,7 @@ public class StaffServiceTest {
     public void testGetListBranch() {
         try {
             List<String> listBra = staffService.getListBranch();
-            Assertions.assertNotEquals(listBra.size(),0);
+            Assertions.assertNotEquals(0, listBra.size());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -150,7 +150,7 @@ public class StaffServiceTest {
         }
     }
 
-    // kiểm tra username có tồn tại
+    // kiểm tra username có tồn tại hay chưa
     // mong muốn trả ra false
     @Test
     public void testUsernameNotExist2() {
@@ -219,7 +219,7 @@ public class StaffServiceTest {
             boolean flag = staffService.setActive(user_name);
             Assertions.assertTrue(flag);
 
-            Assertions.assertEquals(staffService.isActive(user_name), true);
+            Assertions.assertEquals(true, staffService.isActive(user_name));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -263,26 +263,49 @@ public class StaffServiceTest {
             Staff staff = new Staff();
             staff.setPersLastName("nguyen van");
             staff.setPersFirstName("truong");
-            staff.setPersIdCard("206442814");
+            staff.setPersIdCard("206442815");
             staff.setPersPhoneNumber("0356371760");
             staff.setPersSex(Byte.parseByte("1"));
             Date dateOB = new Date();
             staff.setPersDateOfBirth(dateOB);
+            staff.setStaIsAdmin(false);
             staff.setBranchName("Tên chi nhánh thứ 1");
-            staff.setStaIsAdmin(true);
             staff.setStaUsername("truong1703");
             staff.setStaPassword("12345678");
 
+            // kiểm tra thêm staff
             boolean flag = staffService.addStaff(staff);
             Assertions.assertTrue(flag);
 
+            // kiểm tra số lượng sau khi thêm
             Integer after = staffServiceForTest.getListUsernameStaff().size();
 
             Assertions.assertEquals(after, before +1);
+
+            // kiểm tra thông tin mới thêm
+            Staff staffTest = new Staff();
+            staffTest = staffService.getStaffByUsername(staff.getStaUsername());
+
+            Assertions.assertEquals(staff.getBranchName(), staffTest.getBranch().getBraName());
+            Assertions.assertEquals(staff.getPersLastName(), staffTest.getPersLastName());
+            Assertions.assertEquals(staff.getPersFirstName(), staffTest.getPersFirstName());
+            Assertions.assertEquals(staff.getPersIdCard(), staffTest.getPersIdCard());
+            Assertions.assertEquals(staff.getPersPhoneNumber(), staffTest.getPersPhoneNumber());
+            Assertions.assertEquals(staff.getPersSex(), staffTest.getPersSex());
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            String date = formatter.format(staff.getPersDateOfBirth());
+            boolean dateOfBirth = date.compareTo(staffTest.getPersDateOfBirth().toString()) == 0 ? true : false;
+            Assertions.assertTrue(dateOfBirth);
+            boolean isAdmin = staffServiceForTest.isAdminByUsername(staff.getStaUsername());
+            Assertions.assertFalse(isAdmin);
+            Assertions.assertEquals(staff.getStaUsername(), staffTest.getStaUsername());
+            String password = staffServiceForTest.getPasswordStaff(staff.getStaUsername());
+            Assertions.assertEquals(staff.getStaPassword(), password);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
 
     // kiểm tra số CMND có tồn tại không với dữ liệu truyền vào rỗng
     // mong muốn trả ra fasle
@@ -368,20 +391,41 @@ public class StaffServiceTest {
     @Test
     public void testUpdateStaffPass() {
         Staff staff = new Staff();
+        staff.setPersId(1);
         staff.setPersLastName("nguyen van");
         staff.setPersFirstName("truong");
-        staff.setPersIdCard("206442815");
+        staff.setPersIdCard("1111111111");
         staff.setPersPhoneNumber("0356371760");
         staff.setPersSex(Byte.parseByte("1"));
         Date dateOB = new Date();
         staff.setPersDateOfBirth(dateOB);
         staff.setBranchName("Tên chi nhánh thứ 1");
         staff.setStaIsAdmin(true);
-        staff.setStaUsername("truong1703");
-        staff.setStaPassword("12345678");
+        staff.setStaUsername("username1");
 
         boolean flag = staffService.updateStaff(staff);
         Assertions.assertTrue(flag);
+
+        // kiểm tra thông tin mới sửa
+        Staff staffTest = new Staff();
+        try {
+            staffTest = staffService.getStaffByUsername(staff.getStaUsername());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        Assertions.assertEquals(staff.getBranchName(), staffTest.getBranch().getBraName());
+        Assertions.assertEquals(staff.getPersLastName(), staffTest.getPersLastName());
+        Assertions.assertEquals(staff.getPersFirstName(), staffTest.getPersFirstName());
+        Assertions.assertEquals(staff.getPersPhoneNumber(), staffTest.getPersPhoneNumber());
+        Assertions.assertEquals(staff.getPersSex(), staffTest.getPersSex());
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        String date = formatter.format(staff.getPersDateOfBirth());
+        boolean dateOfBirth = date.compareTo(staffTest.getPersDateOfBirth().toString()) == 0 ? true : false;
+        Assertions.assertTrue(dateOfBirth);
+        boolean isAdmin = staffServiceForTest.isAdminByUsername(staff.getStaUsername());
+        Assertions.assertTrue(isAdmin);
+        Assertions.assertEquals(staff.getStaUsername(), staffTest.getStaUsername());
     }
 
     // reset password cho username rỗng
@@ -423,7 +467,7 @@ public class StaffServiceTest {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        Assertions.assertEquals(password, md5);
+        Assertions.assertEquals(md5, password);
     }
 
     // xóa staff không tồn tại
@@ -449,6 +493,6 @@ public class StaffServiceTest {
             e.printStackTrace();
         }
 
-        Assertions.assertEquals(active, false);
+        Assertions.assertEquals(false, active);
     }
 }

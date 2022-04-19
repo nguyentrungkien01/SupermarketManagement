@@ -56,7 +56,7 @@ public class SalePercentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ((Stage)App.window).setTitle("Quản lý tỷ lệ giảm giá - OU Market");
+        ((Stage)App.window).setTitle("Quản lý phần trăm giảm giá - OU Market");
         this.initInputData();
         this.initSperTbv();
         this.loadSperTbvColumns();

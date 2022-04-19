@@ -28,4 +28,23 @@ public class BranchRepositoryForTest {
             return null;
         }
     }
+
+    // Lấy thông tin chi nhánh dựa vào tên chi nhánh
+    public Branch getBranchByBraName(String braName) throws SQLException {
+        try(Connection connection  = DatabaseUtils.getConnection()){
+            String query = "SELECT * FROM Branch WHERE bra_name =?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, braName);
+            ResultSet resultSet  = preparedStatement.executeQuery();
+            if(resultSet.next()){
+                Branch branch = new Branch();
+                branch.setBraId(resultSet.getInt("bra_id"));
+                branch.setBraName(resultSet.getString("bra_name"));
+                branch.setBraAddress(resultSet.getString("bra_address"));
+                branch.setBraIsActive(resultSet.getBoolean("bra_is_active"));
+                return branch;
+            }
+            return null;
+        }
+    }
 }

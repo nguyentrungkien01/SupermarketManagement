@@ -1,6 +1,5 @@
 package com.ou.services;
 
-import com.ou.pojos.Member;
 import com.ou.pojos.MemberType;
 import com.ou.repositories.MemberTypeRepositoryForTest;
 
@@ -17,6 +16,10 @@ public class MemberTypeServiceForTest {
         if(memtId <1 )
             return null;
         return MEMBER_TYPE_REPOSITORY_FOR_TEST.getMemberTypeById(memtId);
+    }
+    // Lấy thông tin  loại thành viên theo têm
+    public MemberType getMemberTypeByName(String name) throws SQLException {
+        return MEMBER_TYPE_REPOSITORY_FOR_TEST.getMemberTypeByName(name);
     }
 
     // lấy danh sách loại thành viên còn hoạt động

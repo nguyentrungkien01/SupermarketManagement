@@ -13,6 +13,7 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="900.0" prefWidth="1500.0" stylesheets="@../../../com.ou.css/fullpackstyling.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ou.controllers.SaleController">
+
    <children>
       <TableView fx:id="tbvSale" layoutX="67.0" layoutY="191.0" prefHeight="614.0" prefWidth="701.0" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="67.0" AnchorPane.rightAnchor="732.0" />
       <ImageView fitHeight="86.0" fitWidth="176.0" layoutX="27.0" layoutY="24.0" preserveRatio="true">

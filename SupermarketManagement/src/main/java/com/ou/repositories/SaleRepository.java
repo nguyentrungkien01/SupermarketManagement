@@ -31,6 +31,7 @@ public class SaleRepository {
                 SalePercent salePercent = SALE_PERCENT_SERVICE.getSalePercentById(sperId);
                 Sale sale = new Sale();
                 sale.setSalePercent(salePercent);
+                sale.setSaleId(resultSet.getInt("sale_id"));
                 return sale;
             }
         }

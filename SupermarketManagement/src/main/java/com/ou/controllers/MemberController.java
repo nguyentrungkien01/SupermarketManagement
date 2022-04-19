@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
@@ -30,7 +31,7 @@ public class MemberController implements Initializable {
     static {
         MEMBER_SERVICE = new MemberService();
         STRING_CONVERTER = new StringConverter<>() {
-            private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            private final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
             @Override
             public String toString(LocalDate localDate) {
@@ -43,7 +44,12 @@ public class MemberController implements Initializable {
             public LocalDate fromString(String s) {
                 if (s == null || s.trim().isEmpty())
                     return null;
-                return LocalDate.parse(s, dateTimeFormatter);
+                try{
+                    return LocalDate.parse(s, dateTimeFormatter);
+                }catch (DateTimeException dateTimeException){
+                    return null;
+                }
+
             }
         };
     }
@@ -233,17 +239,15 @@ public class MemberController implements Initializable {
     // thêm mới 1 thành viên
     private void addMember() {
         Member member = new Member();
-        member.setPersFirstName(txtMemFirstName.getText());
-        member.setPersLastName(txtMemLastName.getText());
-        String phoneNumber = txtMemPhoneNumber.getText();
-        String idCard = txtMemCardId.getText();
-        if(phoneNumber.matches("\\d+") && idCard.matches("\\d+") &&
-                phoneNumber.length() <= 10 && idCard.length() <= 12) {
-            member.setPersPhoneNumber(txtMemPhoneNumber.getText());
-            member.setPersIdCard(txtMemCardId.getText());
+        if(txtMemFirstName.getText().length() > 20){
+            AlertUtils.showAlert("Thêm thất bại! Tên chỉ được phép 20 kí tự", Alert.AlertType.ERROR);
+            return;
         }
-        member.setPersSex((byte) (Objects.equals(cbMemSex.getValue().toString(), "Nam") ? 1 : 0));
-        member.setPersIsActive(true);
+        if(txtMemLastName.getText().length() > 50){
+            AlertUtils.showAlert("Thêm thất bại! Họ và đệm chỉ được phép 50 kí tự", Alert.AlertType.ERROR);
+            return;
+        }
+        setInfo(member);
         if(dpMemDoB.getValue() != null)
             member.setPersDateOfBirth(Date.valueOf(dpMemDoB.getValue()));
         try {
@@ -258,21 +262,20 @@ public class MemberController implements Initializable {
         }
     }
 
-    // sua thong tin thanh vine
+    // sửa thông tin thành viên
     private void updateMember(){
         Member member = new Member();
+        if(txtMemFirstName.getText().length() > 20){
+            AlertUtils.showAlert("Sửa thất bại! Tên chỉ được phép 20 kí tự", Alert.AlertType.ERROR);
+            return;
+        }
+        if(txtMemLastName.getText().length() > 50){
+            AlertUtils.showAlert("Sửa thất bại! Họ và đệm chỉ được phép 50 kí tự", Alert.AlertType.ERROR);
+            return;
+        }
         if(txtMemId.getText() != null && !txtMemId.getText().isEmpty())
             member.setPersId(Integer.parseInt(txtMemId.getText()));
-        member.setPersFirstName(txtMemFirstName.getText());
-        member.setPersLastName(txtMemLastName.getText());
-        String phoneNumber = txtMemPhoneNumber.getText();
-        String idCard = txtMemCardId.getText();
-        if(phoneNumber.matches("\\d+") && idCard.matches("\\d+")
-            && phoneNumber.length() <= 10 && idCard.length() <= 12) {
-            member.setPersPhoneNumber(txtMemPhoneNumber.getText());
-            member.setPersIdCard(txtMemCardId.getText());
-        }
-        member.setPersSex((byte) (Objects.equals(cbMemSex.getValue().toString(), "Nam") ? 1 : 0));
+        setInfo(member);
         member.setPersIsActive(Objects.equals(txtMemIsActive.getText(), "Đang hoạt động"));
         if(dpMemDoB.getValue() != null)
             member.setPersDateOfBirth(Date.valueOf(dpMemDoB.getValue()));
@@ -318,5 +321,19 @@ public class MemberController implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private void setInfo(Member member){
+        member.setPersFirstName(txtMemFirstName.getText());
+        member.setPersLastName(txtMemLastName.getText());
+        String phoneNumber = txtMemPhoneNumber.getText();
+        String idCard = txtMemCardId.getText();
+        if(phoneNumber.matches("\\d+") && idCard.matches("\\d+") &&
+                phoneNumber.length() <= 10 && idCard.length() <= 12) {
+            member.setPersPhoneNumber(txtMemPhoneNumber.getText());
+            member.setPersIdCard(txtMemCardId.getText());
+        }
+        member.setPersSex((byte) (Objects.equals(cbMemSex.getValue().toString(), "Nam") ? 1 : 0));
+        member.setPersIsActive(!Objects.equals(txtMemIsActive.getText(), "Ngưng hoạt động"));
     }
 }

@@ -24,11 +24,12 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         window = stage;
-        scene = new Scene(loadFXML("bill"));
+        scene = new Scene(loadFXML("sign-in"));
         stage.getIcons().add(new Image(Objects.requireNonNull(App.class.getResourceAsStream("/com.ou.images/ouIcon.png"))));
         stage.setTitle("Quản lý siêu thị - OU Market");
         stage.setResizable(false);
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 

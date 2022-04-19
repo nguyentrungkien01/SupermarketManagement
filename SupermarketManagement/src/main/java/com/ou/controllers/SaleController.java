@@ -40,7 +40,7 @@ public class SaleController implements Initializable {
     @FXML
     TextField txtSearchSale;
     @FXML
-    TableView tbvSale;
+    TableView<Sale> tbvSale;
     @FXML
     TextField txtSaleId;
     @FXML
@@ -54,7 +54,7 @@ public class SaleController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ((Stage)App.window).setTitle("Quản lý giảm giá - OU Market");
+        ((Stage)App.window).setTitle("Quản lý giảm giá vô thời hạn - OU Market");
         this.initInputData();
         this.initSaleTbv();
         this.loadSaleTbvColumns();
@@ -112,7 +112,7 @@ public class SaleController implements Initializable {
 
     // Thiết lập vùng dữ liệu input khi lựa chọn thay đổi dưới table view
     private void changeInputData() {
-        Sale selectedSale = (Sale) this.tbvSale.getSelectionModel().getSelectedItem();
+        Sale selectedSale = this.tbvSale.getSelectionModel().getSelectedItem();
         if (selectedSale != null) {
             this.txtSaleId.setText(String.valueOf(selectedSale.getSaleId()));
             this.txtSaleIsActive.setText(selectedSale.getSaleIsActive()? "Đang hoạt động" : "Ngưng hoạt động");

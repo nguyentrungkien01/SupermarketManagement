@@ -1,6 +1,7 @@
 package com.ou.services;
 
 import com.ou.pojos.Member;
+import com.ou.pojos.SalePercent;
 import com.ou.repositories.MemberRepository;
 
 import java.sql.SQLException;
@@ -76,5 +77,11 @@ public class MemberService {
     // update member type id for member
     public void updateMemberTypeId(Member member, int memberTypeId) throws SQLException {
         MEMBER_REPOSITORY.updateMemberTypeId(member, memberTypeId);
+    }
+
+
+    // Lấy thông tin giảm giá của loại thành viên
+    public SalePercent getSalePercentOfMember(int memId ) throws SQLException {
+        return MEMBER_REPOSITORY.getSalePercentOfMember(memId);
     }
 }

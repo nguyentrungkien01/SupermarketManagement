@@ -15,6 +15,7 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="900.0" prefWidth="1500.0" stylesheets="@../../../com.ou.css/fullpackstyling.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ou.controllers.LimitSaleController">
+
    <children>
       <TableView fx:id="tbvLimitSale" layoutY="349.0" prefHeight="561.0" prefWidth="1510.0" />
       <ImageView fitHeight="86.0" fitWidth="176.0" layoutX="27.0" layoutY="24.0" preserveRatio="true">
@@ -22,7 +23,7 @@
             <Image url="@../../../com.ou.images/ouLogo.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnBack" layoutX="1397.0" layoutY="21.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="245.0" text="⬅ Trở về" />
+      <Button fx:id="btnBack" layoutX="1381.0" layoutY="21.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="245.0" text="⬅ Trở về" />
       <Pane layoutX="1016.0" layoutY="118.0" prefHeight="138.0" prefWidth="415.0">
          <children>
             <Label layoutX="11.0" layoutY="12.0" text="Tìm kiếm theo ngày:" />

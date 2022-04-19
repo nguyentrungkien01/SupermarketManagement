@@ -66,4 +66,21 @@ public class StaffRepositoryForTest {
     }
 
 
+    // lấy mật khẩu theo username
+    public boolean isAdminByUsername(String username) throws SQLException {
+        try (Connection connection = DatabaseUtils.getConnection()) {
+            String query = "SELECT sta_is_admin FROM Staff WHERE sta_username = ? ";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+
+            preparedStatement.setString(1, username);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            if  (rs.next()){
+                return rs.getBoolean("sta_is_admin");
+            }
+        }
+        return false;
+    }
+
 }

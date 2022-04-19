@@ -24,6 +24,7 @@ public class ProductRepository {
                     "GROUP BY p.pro_id ,p.pro_name,p.pro_is_active, c.cat_name,m.man_name";
             if (kw == null)
                 kw = "";
+            else kw=kw.trim();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, kw);
             ResultSet resultSet = preparedStatement.executeQuery();

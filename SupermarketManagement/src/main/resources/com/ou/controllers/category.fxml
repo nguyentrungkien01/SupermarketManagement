@@ -13,7 +13,7 @@
 
 <AnchorPane prefHeight="900.0" prefWidth="1500.0" stylesheets="@../../../com.ou.css/fullpackstyling.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ou.controllers.CategoryController">
    <children>
-      <TableView fx:id="tbvCategory" layoutX="-41.0" layoutY="241.0" prefHeight="520.0" prefWidth="1500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <TableView fx:id="tbvCategory" layoutX="-41.0" layoutY="241.0" prefHeight="476.0" prefWidth="1500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <ImageView fitHeight="86.0" fitWidth="176.0" layoutX="17.0" layoutY="14.0" preserveRatio="true">
          <image>
             <Image url="@../../../com.ou.images/ouLogo.png" />

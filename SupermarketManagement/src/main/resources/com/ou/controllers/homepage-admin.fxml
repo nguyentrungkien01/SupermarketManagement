@@ -9,6 +9,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="900.0" prefWidth="1500.0" stylesheets="@../../../com.ou.css/fullpackstyling.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ou.controllers.HomepageAdminController">
+
    <children>
       <BorderPane layoutX="-2.0" layoutY="-2.0" prefHeight="922.0" prefWidth="1502.0">
          <right>

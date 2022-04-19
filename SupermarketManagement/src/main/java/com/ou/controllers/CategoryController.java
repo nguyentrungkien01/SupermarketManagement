@@ -154,7 +154,12 @@ public class CategoryController implements Initializable {
     // Thêm một danh mục mới
     private void addCategory() {
         Category category = new Category();
-        category.setCatName(this.txtCatName.getText());
+        if(txtCatName.getText().length() > 200){
+            AlertUtils.showAlert("Sửa thất bại! tên danh mục vui lòng không quá 200 kí tự", Alert.AlertType.ERROR);
+            reloadData();
+            return;
+        }else
+            category.setCatName(this.txtCatName.getText());
         try {
             if (CATEGORY_SERVICE.addCategory(category)) {
                 AlertUtils.showAlert("Thêm thành công", Alert.AlertType.INFORMATION);
@@ -176,7 +181,12 @@ public class CategoryController implements Initializable {
             AlertUtils.showAlert("Sửa thất bại! Vui lòng chọn danh mục để sửa", Alert.AlertType.ERROR);
             return;
         }
-        category.setCatName(this.txtCatName.getText());
+        if(txtCatName.getText().length() > 200){
+            AlertUtils.showAlert("Sửa thất bại! tên danh mục vui lòng không quá 200 kí tự", Alert.AlertType.ERROR);
+            reloadData();
+            return;
+        }else
+            category.setCatName(this.txtCatName.getText());
         try {
             if (CATEGORY_SERVICE.updateCategory(category)) {
                 AlertUtils.showAlert("Sửa thành công", Alert.AlertType.INFORMATION);

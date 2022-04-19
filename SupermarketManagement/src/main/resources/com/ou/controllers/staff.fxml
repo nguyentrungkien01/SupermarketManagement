@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
@@ -14,6 +15,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="900.0" prefWidth="1500.0" stylesheets="@../../../com.ou.css/fullpackstyling.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ou.controllers.StaffController">
+
    <children>
       <TableView fx:id="tbvStaff" layoutY="474.0" prefHeight="426.0" prefWidth="1500.0" />
       <AnchorPane layoutX="120.0" layoutY="149.0" prefHeight="307.0" prefWidth="898.0">

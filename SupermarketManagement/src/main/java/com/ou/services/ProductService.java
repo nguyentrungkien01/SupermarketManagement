@@ -56,6 +56,7 @@ public class ProductService {
     private boolean isValidProduct(Product product) {
         return !(product == null ||
                 product.getProName() == null || product.getProName().trim().isEmpty() ||
+                product.getProName().trim().length()>=200||
                 product.getCategory() == null || product.getManufacturer() == null ||
                 product.getProductBranches() == null || product.getProductUnits() == null);
     }

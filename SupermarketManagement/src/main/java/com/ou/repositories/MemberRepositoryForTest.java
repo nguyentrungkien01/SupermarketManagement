@@ -16,7 +16,7 @@ public class MemberRepositoryForTest {
     public Member getMemberById(int memId) throws SQLException {
         try (Connection connection = DatabaseUtils.getConnection()) {
             String query = "SELECT * FROM Person p, Member m LEFT JOIN MemberType mt ON m.memt_id = mt.memt_id " +
-                    "WHERE p.pers_id = m.mem_id AND pers_id = ? AND pers_is_active = TRUE";
+                    "WHERE p.pers_id = m.mem_id AND pers_id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, memId);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -26,8 +26,39 @@ public class MemberRepositoryForTest {
                 member.setPersSex(resultSet.getByte("pers_sex"));
                 member.setPersLastName(resultSet.getString("pers_last_name"));
                 member.setPersFirstName(resultSet.getString("pers_first_name"));
-                member.setPersJoinedDate(resultSet.getDate("pers_date_of_birth"));
-                member.setPersDateOfBirth(resultSet.getDate("pers_joined_date"));
+                member.setPersDateOfBirth(resultSet.getDate("pers_date_of_birth"));
+                member.setPersJoinedDate(resultSet.getDate("pers_joined_date"));
+                member.setPersPhoneNumber(resultSet.getString("pers_phone_number"));
+                member.setPersIdCard(resultSet.getString("pers_id_card"));
+                member.setMemTotalPurchase(resultSet.getBigDecimal("mem_total_purchase"));
+                member.setPersIsActive(resultSet.getBoolean("pers_is_active"));
+                MemberType memberType = new MemberType();
+                memberType.setMemtIsActive(resultSet.getBoolean("memt_is_active"));
+                memberType.setMemtId(resultSet.getInt("memt_id"));
+                memberType.setMemtName(resultSet.getString("memt_name"));
+                member.setMemberType(memberType);
+                return member;
+            }
+            return null;
+        }
+    }
+
+    // Lấy thông tin  thành viên dựa vào cccd/cmnd
+    public Member getMemberByIdCard(String idCard) throws SQLException {
+        try (Connection connection = DatabaseUtils.getConnection()) {
+            String query = "SELECT * FROM Person p, Member m LEFT JOIN MemberType mt ON m.memt_id = mt.memt_id " +
+                    "WHERE p.pers_id = m.mem_id AND pers_id_card = ? AND pers_is_active = TRUE";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, idCard);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                Member member = new Member();
+                member.setPersId(resultSet.getInt("pers_id"));
+                member.setPersSex(resultSet.getByte("pers_sex"));
+                member.setPersLastName(resultSet.getString("pers_last_name"));
+                member.setPersFirstName(resultSet.getString("pers_first_name"));
+                member.setPersDateOfBirth(resultSet.getDate("pers_date_of_birth"));
+                member.setPersJoinedDate(resultSet.getDate("pers_joined_date"));
                 member.setPersPhoneNumber(resultSet.getString("pers_phone_number"));
                 member.setPersIdCard(resultSet.getString("pers_id_card"));
                 member.setMemTotalPurchase(resultSet.getBigDecimal("mem_total_purchase"));

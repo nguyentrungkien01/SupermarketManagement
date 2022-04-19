@@ -1,7 +1,6 @@
 package com.ou.services;
 
 import com.ou.pojos.Staff;
-import com.ou.repositories.StaffRepository;
 import com.ou.repositories.StaffRepositoryForTest;
 
 import java.sql.SQLException;
@@ -29,6 +28,18 @@ public class StaffServiceForTest {
     public boolean isActiveById(Integer id) throws SQLException {
         if (id != 0) {
             return STAFF_REPOSITORY_FOR_TEST.isActiveById(id);
+        }
+        return false;
+    }
+
+    // kiểm tra có phải admin hay không
+    public boolean isAdminByUsername (String username) {
+        if (!username.isEmpty()) {
+            try {
+                return STAFF_REPOSITORY_FOR_TEST.isAdminByUsername(username);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return false;
     }

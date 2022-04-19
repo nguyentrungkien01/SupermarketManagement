@@ -1,6 +1,5 @@
 package com.ou.repositories;
 
-import com.ou.pojos.Member;
 import com.ou.pojos.MemberType;
 import com.ou.pojos.Sale;
 import com.ou.pojos.SalePercent;
@@ -15,9 +14,34 @@ public class MemberTypeRepositoryForTest {
     public MemberType getMemberTypeById(int memtId) throws SQLException {
         try (Connection connection = DatabaseUtils.getConnection()) {
             String query = "SELECT * FROM MemberType mt JOIN Sale s ON mt.sale_id = s.sale_id" +
-                    " WHERE memt_is_active = TRUE and memt_id = ?";
+                    " and memt_id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, memtId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                MemberType memberType = new MemberType();
+                memberType.setMemtIsActive(resultSet.getBoolean("memt_is_active"));
+                memberType.setMemtId(resultSet.getInt("memt_id"));
+                memberType.setMemtName(resultSet.getString("memt_name"));
+                memberType.setMemtTotalMoney(resultSet.getBigDecimal("memt_total_money"));
+                memberType.setAmountMember(getTotalAmountMember(memberType.getMemtId()));
+                Sale sale = new Sale();
+                sale.setSaleId(resultSet.getInt("sale_id"));
+                sale.setSaleIsActive(resultSet.getBoolean("sale_is_active"));
+                sale.setSalePercent(getSalePercentById(resultSet.getInt("sper_id")));
+                memberType.setSale(sale);
+                return memberType;
+            }
+            return null;
+        }
+    }
+
+    public MemberType getMemberTypeByName(String name) throws SQLException {
+        try (Connection connection = DatabaseUtils.getConnection()) {
+            String query = "SELECT * FROM MemberType mt JOIN Sale s ON mt.sale_id = s.sale_id" +
+                    " WHERE memt_is_active = TRUE and memt_name = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, name);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 MemberType memberType = new MemberType();

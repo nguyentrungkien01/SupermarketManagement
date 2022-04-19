@@ -1,7 +1,9 @@
 package com.ou.controllers;
 
 import com.ou.pojos.*;
-import com.ou.services.*;
+import com.ou.services.MemberService;
+import com.ou.services.PaymentService;
+import com.ou.services.ProductService;
 import com.ou.utils.AlertUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -39,11 +41,6 @@ public class PaymentController implements Initializable {
         PRODUCT_SERVICE = new ProductService();
         MEMBER_SERVICE = new MemberService();
         DTF = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        try {
-            App.currentStaff = new StaffService().getStaffByUsername("username1");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
     @FXML
@@ -84,6 +81,9 @@ public class PaymentController implements Initializable {
 
     @FXML
     private TextField txtMemType;
+
+    @FXML
+    private TextField txtSalePercent;
 
     @FXML
     private Button btnMemChoice;
@@ -162,6 +162,7 @@ public class PaymentController implements Initializable {
         this.txtMemberId.setVisible(false);
         this.txtMemType.setDisable(true);
         this.acpMemInfo.setVisible(false);
+        this.txtSalePercent.setDisable(true);
         this.txtBillTempTotalMoney.setDisable(true);
         this.txtBillTotalSaleMoney.setDisable(true);
         this.txtBillActualTotalMoney.setDisable(true);
@@ -306,9 +307,11 @@ public class PaymentController implements Initializable {
                 AlertUtils.showAlert("Không tìm thấy thành viên!", Alert.AlertType.ERROR);
                 return;
             }
+            SalePercent salePercent = MEMBER_SERVICE.getSalePercentOfMember(member.getPersId());
             this.txtMemName.setText(String.format("%s %s", member.getPersLastName(), member.getPersFirstName()));
             this.txtMemberId.setText(String.valueOf(member.getPersId()));
             this.txtMemType.setText(member.getMemberType().getMemtName());
+            this.txtSalePercent.setText(String.format("-%s", salePercent.toString()));
             this.acpMemInfo.setVisible(false);
         } catch (NumberFormatException numberFormatException) {
             AlertUtils.showAlert("Không tìm thấy thành viên!", Alert.AlertType.ERROR);
@@ -330,6 +333,9 @@ public class PaymentController implements Initializable {
             this.txtExcessCash.setDisable(true);
             this.txtBillCustomerMoney.setDisable(true);
             this.btnBillPayment.setDisable(false);
+            this.btnBillProductAddition.setDisable(true);
+            this.btnBillProductCancel.setDisable(true);
+            this.btnCalExcessCash.setDisable(true);
         } catch (NumberFormatException numberFormatException) {
             AlertUtils.showAlert("Số tiền cần tính toán không phù hợp!", Alert.AlertType.ERROR);
         }
@@ -349,6 +355,7 @@ public class PaymentController implements Initializable {
         this.txtMemberId.setText("");
         this.txtMemType.setText("");
         this.txtMemId.setText("");
+        this.txtSalePercent.setText("");
         this.txtBillTempTotalMoney.setText("0");
         this.txtBillTotalSaleMoney.setText("0");
         this.txtBillActualTotalMoney.setText("0");
@@ -371,6 +378,9 @@ public class PaymentController implements Initializable {
         });
         this.txtBillCustomerMoney.setDisable(false);
         this.btnBillPayment.setDisable(true);
+        this.btnBillProductAddition.setDisable(false);
+        this.btnBillProductCancel.setDisable(false);
+        this.btnCalExcessCash.setDisable(false);
     }
 
     // Lấy danh sách sản phẩm đã thêm vào hóa đơn
@@ -423,16 +433,6 @@ public class PaymentController implements Initializable {
                 return;
             }
             Bill bill = new Bill();
-            Member member = null;
-            bill.setStaff(App.currentStaff);
-            if (this.txtMemberId.getText() != null &&
-                    !this.txtMemberId.getText().isEmpty()) {
-                member = new Member();
-                member.setPersId(Integer.parseInt(this.txtMemberId.getText().trim()));
-            }
-            // giảm giá thành viên
-            // giảm giá ngày sinh và > 1tr
-            bill.setMember(member);
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             Date date = simpleDateFormat.parse(this.txtBillCreatedDate.getText().trim());
             bill.setBillCreatedDate(new Timestamp(date.getTime()));
@@ -443,6 +443,38 @@ public class PaymentController implements Initializable {
             bill.setBillTotalSaleMoney(BigDecimal.valueOf(
                     Double.parseDouble(this.txtBillTotalSaleMoney.getText().trim())));
             bill.setProductBills(productBills);
+            bill.setStaff(App.currentStaff);
+            Member member = null;
+            if (this.txtMemberId.getText() != null &&
+                    !this.txtMemberId.getText().isEmpty()) {
+                member = new Member();
+                member.setPersId(Integer.parseInt(this.txtMemberId.getText().trim()));
+                SimpleDateFormat sdformat = new SimpleDateFormat("yyyy-MM-dd");
+                String memDateOfBirth = sdformat.format(MEMBER_SERVICE.getMemberById(
+                        member.getPersId()).getPersDateOfBirth());
+                String billCreatedDate = sdformat.format(sdformat.parse(this.txtBillCreatedDate.getText().trim()));
+
+                //giảm giá mua > 1tr và ngay ngày sinh của khác
+                if(bill.getBillTotalMoney().subtract(new BigDecimal(1000)).intValue()>0 &&
+                    memDateOfBirth.equals(billCreatedDate)){
+                    int salePercent = 7;
+                    BigDecimal saleMoney = bill.getBillTotalMoney().divide(new BigDecimal(1000000))
+                            .multiply(new BigDecimal(salePercent));
+                    bill.setBillTotalSaleMoney(bill.getBillTotalSaleMoney().add(saleMoney));
+                    bill.setBillTotalMoney(bill.getBillTotalMoney().subtract(saleMoney));
+                }
+            }
+            bill.setMember(member);
+            // Giảm giá thành viên
+            if (this.txtSalePercent.getText()!=null || this.txtSalePercent.getText().length()>0){
+                int salePercent = Integer.parseInt(this.txtSalePercent.getText().substring(1,
+                        this.txtSalePercent.getText().length()-1));
+                BigDecimal saleMoney = bill.getBillTotalMoney().divide(new BigDecimal(100))
+                        .multiply(new BigDecimal(salePercent));
+                bill.setBillTotalSaleMoney(bill.getBillTotalSaleMoney().add(saleMoney));
+                bill.setBillTotalMoney(bill.getBillTotalMoney().subtract(saleMoney));
+            }
+
             AlertUtils.showAlert("Thanh toán thành công", Alert.AlertType.INFORMATION);
             PAYMENT_SERVICE.addBill(bill);
 

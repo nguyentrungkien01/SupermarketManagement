@@ -39,6 +39,7 @@ public class StaffRepository {
                     "pers_first_name LIKE CONCAT(\"%\", ? , \"%\") )";
             if (kw == null)
                 kw = "";
+            else kw=kw.trim();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, kw);
             preparedStatement.setString(2, kw);

@@ -28,7 +28,8 @@ public class UnitService {
     // Thêm đơn vị
     public boolean addUnit(Unit unit) throws SQLException {
         if (unit == null ||
-                unit.getUniName()==null|| unit.getUniName().trim().isEmpty())
+                unit.getUniName() == null || unit.getUniName().trim().isEmpty() ||
+                unit.getUniName().trim().length() >= 100)
             return false;
         if (UNIT_REPOSITORY.isExistUnit(unit)) {
             Unit unitAdd = UNIT_REPOSITORY.getUnits(unit.getUniName().trim()).get(0);
@@ -43,11 +44,11 @@ public class UnitService {
     public boolean updateUnit(Unit unit) throws SQLException {
         if (unit == null ||
                 unit.getUniId() == null ||
-                unit.getUniName() ==  null || unit.getUniName().trim().isEmpty())
+                unit.getUniName() == null || unit.getUniName().trim().isEmpty())
             return false;
         if (!UNIT_REPOSITORY.isExistUnit(unit.getUniId()))
             return false;
-        if (UNIT_REPOSITORY.isExistUnit(unit)){
+        if (UNIT_REPOSITORY.isExistUnit(unit)) {
             Unit existUnit = UNIT_REPOSITORY.getUnitByName(unit.getUniName());
             if (!Objects.equals(existUnit.getUniId(), unit.getUniId()))
                 return false;
@@ -57,7 +58,7 @@ public class UnitService {
 
     // Xóa đơn vị
     public boolean deleteUnit(Unit unit) throws SQLException {
-        if (unit==null || unit.getUniId() == null)
+        if (unit == null || unit.getUniId() == null)
             return false;
         if (!UNIT_REPOSITORY.isExistUnit(unit.getUniId()))
             return false;
@@ -71,7 +72,7 @@ public class UnitService {
 
     //Lấy thông tin của unit dựa vào tên
     public Unit getUnitByName(String uniName) throws SQLException {
-        if (uniName==null)
+        if (uniName == null)
             return null;
         return UNIT_REPOSITORY.getUnitByName(uniName);
     }

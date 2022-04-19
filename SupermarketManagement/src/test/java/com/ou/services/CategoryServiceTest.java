@@ -10,6 +10,7 @@ import org.junit.jupiter.api.*;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -52,27 +53,42 @@ public class CategoryServiceTest {
     public void tearDown() {
     }
 
+    private List<Integer> getCategoryIds(){
+        List<Integer> categoryIds = new ArrayList<>();
+        for(int i = 1; i<=5; i++)
+            categoryIds.add(i);
+        return categoryIds;
+    }
+
     // Kiểm tra lấy thông tin danh mục khi từ khóa truyền vào là null
+    // dưới db có 5 danh mục
     // Phải trả về tất cả các danh mục còn sử dụng
     @Test
     public void testSelectAllCategoryByNullKw() {
         try {
             List<Category> categories = categoryService.getCategories(null);
+            List<Integer> categoryIds = getCategoryIds();
             int amount = categoryService.getCategoryAmount();
             Assertions.assertEquals(amount, categories.size());
+            for(int i = 0; i<5; i++)
+                Assertions.assertEquals(categoryIds.get(i), categories.get(i).getCatId());
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     // Kiểm tra lấy thông tin danh mục khi từ khóa truyền vào là 1 chuỗi rỗng
+    // dưới db có 5 danh mục
     // Phải trả về tổng tất cả các danh mục
     @Test
     public void testSelectAllCategoryByEmptyKw() {
         try {
             List<Category> categories = categoryService.getCategories("");
             int amount = categoryService.getCategoryAmount();
+            List<Integer> categoryIds = getCategoryIds();
             Assertions.assertEquals(amount, categories.size());
+            for(int i = 0; i<5; i++)
+                Assertions.assertEquals(categoryIds.get(i), categories.get(i).getCatId());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -85,6 +101,7 @@ public class CategoryServiceTest {
         try {
             List<Category> categories = categoryService.getCategories("Tên loại sản phẩm thứ 2");
             Assertions.assertEquals(1, categories.size());
+            Assertions.assertEquals("Tên loại sản phẩm thứ 2", categories.get(0).getCatName());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -107,10 +124,8 @@ public class CategoryServiceTest {
     @Test
     public void testGetCategoryAmount(){
         try {
-            Category category = categoryServiceForTest.getCategoryById(1);
-            categoryService.deleteCategory(category);
             int amount = categoryService.getCategoryAmount();
-            Assertions.assertEquals(4, amount);
+            Assertions.assertEquals(5, amount);
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -141,7 +156,8 @@ public class CategoryServiceTest {
     }
 
     // Kiểm tra thêm thông tin danh mục đã tồn tại
-    // danh mục có mã là 2 đã tồn tại. Trả về false
+    // lấy thông tin danh mục có mã là 2 dưới database rồi tạo mới một dan mục bằng thông tin đó
+    // Trả về false
     @Test
     public void testAddCategoryWithExist(){
         try {
@@ -163,6 +179,8 @@ public class CategoryServiceTest {
             Assertions.assertTrue(categoryService.addCategory(category));
             int nextAmo = categoryService.getCategoryAmount();
             Assertions.assertNotEquals(preAmo, nextAmo);
+            Category categoryNewAdd = categoryService.getCategoryByName("Tên loại sản phẩm thứ 787");
+            Assertions.assertEquals("Tên loại sản phẩm thứ 787", categoryNewAdd.getCatName());
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -193,13 +211,13 @@ public class CategoryServiceTest {
         }
     }
 
-    // Kiểm tra sửa thông tin danh đã tồn tại mà thông tin vừa sửa
-    // trùng với thông tin danh khác đã tồn tại
-    // Sửa thông tin danh 1 trùng với thông tin danh 2. Trả về false
+    // Kiểm tra sửa thông tin danh  mà thông tin trùng với thông tin danh mục khác đã tồn tại
+    // Sửa thông tin danh mục 5 trùng với thông tin danh mục 2.
+    // Trả về false
     @Test
     public void testUpdateCategoryWithExist(){
         try {
-            Category category = categoryServiceForTest.getCategoryById(1);
+            Category category = categoryServiceForTest.getCategoryById(5);
             category.setCatName("Tên loại sản phẩm thứ 2");
             Assertions.assertFalse(categoryService.updateCategory(category));
         }catch (SQLException e){
@@ -207,14 +225,16 @@ public class CategoryServiceTest {
         }
     }
 
-    // Kiểm tra sửa danh mục mới thành công
+    // Kiểm tra sửa danh mục thành công
     // Trả về true
     @Test
     public void testUpdateCategoryWithValidInfomation(){
         try {
-            Category category = categoryServiceForTest.getCategoryById(1);
+            Category category = categoryServiceForTest.getCategoryById(2);
             category.setCatName("Danh mục 14");
-            Assertions.assertTrue(categoryService.addCategory(category));
+            Assertions.assertTrue(categoryService.updateCategory(category));
+            Category categoryUpdate = categoryServiceForTest.getCategoryById(2);
+            Assertions.assertEquals("Danh mục 14", categoryUpdate.getCatName());
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -236,8 +256,9 @@ public class CategoryServiceTest {
     @Test
     public void testDeleteCategoryWithInvalidInformation(){
         try {
-            Category category = categoryServiceForTest.getCategoryById(1);
+            Category category = new Category();
             category.setCatId(null);
+            category.setCatName("");
             Assertions.assertFalse(categoryService.deleteCategory(category));
         }catch (SQLException e){
             e.printStackTrace();
@@ -245,10 +266,11 @@ public class CategoryServiceTest {
     }
 
     // Kiểm tra xóa thông tin danh mục không tồn tại
+    // không có mã danh mục là 9999 dươi db
     @Test
     public void testDeleteCategoryWithExist(){
         try {
-            Category category = categoryServiceForTest.getCategoryById(1);
+            Category category = new Category();
             category.setCatId(9999);
             Assertions.assertFalse(categoryService.deleteCategory(category));
         }catch (SQLException e){
@@ -261,9 +283,9 @@ public class CategoryServiceTest {
     @Test
     public void testDeleteCategoryWithValidInfomation(){
         try {
-            Category category = categoryServiceForTest.getCategoryById(1);
+            Category category = categoryServiceForTest.getCategoryById(2);
             int preAmo = categoryService.getCategoryAmount();
-            categoryService.deleteCategory(category);
+            Assertions.assertTrue(categoryService.deleteCategory(category));
             int nextAmo = categoryService.getCategoryAmount();
             Assertions.assertNotEquals(preAmo, nextAmo);
         }catch (SQLException e){

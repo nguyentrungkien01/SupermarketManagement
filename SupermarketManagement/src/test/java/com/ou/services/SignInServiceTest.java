@@ -69,7 +69,29 @@ public class SignInServiceTest {
         Assertions.assertNull(s);
     }
 
-    // Kiểm tra tài khoản có tồn tại
+
+    //  Kiểm tra tên tài khoản đúng, mật khẩu sai
+    //  Phải trả về null
+    @Test
+    public void testSignInNull1() throws SQLException, NoSuchAlgorithmException{
+        String username = "username1";
+        String password = "passwordFalse";
+        Staff s = signInService.getAccountMD5(username, password);
+        Assertions.assertNull(s);
+    }
+
+
+    //  Kiểm tra tên tài khoản sai, mật khẩu đúng
+    //  Phải trả về null
+    @Test
+    public void testSignInNull2() throws SQLException, NoSuchAlgorithmException{
+        String username = "username9999999999";
+        String password = "12345678";
+        Staff s = signInService.getAccountMD5(username, password);
+        Assertions.assertNull(s);
+    }
+
+    // Kiểm tra tài khoản có tồn tại và kiểm tra id của tài khoản
     // Mong muốn trả về Staff khác null
     @Test
     public void testSignIn() throws SQLException, NoSuchAlgorithmException {
@@ -77,6 +99,8 @@ public class SignInServiceTest {
         String password = "12345678";
         Staff s = signInService.getAccountMD5(username, password);
         Assertions.assertNotNull(s);
+
+        Assertions.assertEquals(signInServiceForTest.getIdByUsername(username), s.getPersId());
     }
 
     // Kiểm tra danh sách Staff có username trùng không
