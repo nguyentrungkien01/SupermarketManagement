@@ -27,6 +27,7 @@ public class LimitSaleRepository {
             ResultSet resultSet = preparedStatement.executeQuery();
             if(resultSet.next()){
                 LimitSale limitSale = new LimitSale();
+                limitSale.setSaleId(resultSet.getInt("lsal_id"));
                 limitSale.setSale(SALE_SERVICE.getSaleById(resultSet.getInt("lsal_id")));
                 limitSale.setLsalFromDate(resultSet.getDate("lsal_from_date"));
                 limitSale.setLsalToDate(resultSet.getDate("lsal_to_date"));
@@ -44,7 +45,7 @@ public class LimitSaleRepository {
                     "FROM LimitSale lsal JOIN Sale s ON lsal.lsal_id = s.sale_id " +
                     "JOIN SalePercent sper ON s.sper_id = sper.sper_id " +
                     "WHERE s.sale_is_active = TRUE " +
-                    "ORDER BY lsal.lsal_to_date DESC";
+                    "ORDER BY lsal.lsal_to_date ASC";
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
             while(resultSet.next()){
@@ -61,7 +62,7 @@ public class LimitSaleRepository {
         }
     }
 
-    // Lấy danh sách các loại giảm giá có thời hạn theo from_date và to_date
+    // Lấy danh sách các loại giảm giá có thời hạn theo ngày
     public List<LimitSale> getLimitSales(Date searchDate) throws SQLException {
         List<LimitSale> limitSales = new ArrayList<>();
         try(Connection connection =DatabaseUtils.getConnection()){
