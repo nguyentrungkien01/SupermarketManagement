@@ -76,12 +76,14 @@ public class BranchServiceTest {
     }
 
     // Kiểm tra lấy thông tin chi nhánh khi từ khóa truyền vào là 1 chuỗi khoảng trắng
-    // Phải trả về 0
+    // Phải trả về 2
     @Test
     public void testSelectAllBranchBySpacesKw() {
         try {
             List<Branch> branches = branchService.getBranches("       ");
-            Assertions.assertEquals(0, branches.size());
+            Assertions.assertEquals(2, branches.size());
+            Assertions.assertEquals(1, branches.get(0).getBraId());
+            Assertions.assertEquals(2, branches.get(1).getBraId());
         } catch (SQLException e) {
             e.printStackTrace();
         }

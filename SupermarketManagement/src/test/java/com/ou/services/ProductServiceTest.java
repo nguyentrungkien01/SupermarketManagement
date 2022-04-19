@@ -137,7 +137,10 @@ public class ProductServiceTest {
     public void testSelectAllProductBySpacesKw() {
         try {
             List<Product> products = productService.getProducts("        ");
-            Assertions.assertEquals(0, products.size());
+            int amount = productService.getProductAmount();
+            Assertions.assertEquals(amount, products.size());
+            for(int i= 0; i<10; i++)
+                Assertions.assertEquals(i+1, products.get(i).getProId());
         } catch (SQLException e) {
             e.printStackTrace();
         }

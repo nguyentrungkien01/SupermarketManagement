@@ -91,7 +91,6 @@ public class BillServiceTest {
     public void testGetBillsBySpaceName(){
         try {
             List<Bill> bills = billService.getBills("      ", null , null);
-            Assertions.assertEquals(6, bills.size());
             List<Integer> billIds = getBillIds();
             Assertions.assertEquals(6, bills.size());
             for(int i =0; i<6; i++)
