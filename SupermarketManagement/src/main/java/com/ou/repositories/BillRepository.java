@@ -31,6 +31,8 @@ public class BillRepository {
                     "LEFT JOIN Member m ON b.mem_id = m.mem_id ";
             if (name == null || name.isEmpty())
                 name = "";
+            else
+                name = name.trim();
 
             if (personType == null)
                 personType = PersonType.STAFF;
