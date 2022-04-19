@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -28,6 +29,7 @@ public class StaffController implements Initializable {
     static {
         STAFF_SERVICE = new StaffService();
     }
+
 
     @FXML
     private AnchorPane apId;
@@ -109,6 +111,7 @@ public class StaffController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ((Stage)App.window).setTitle("Quản lý nhân viên - OU Market");
         this.loadStaffTbvColumns();
         this.setTbvStaff();
         this.loadTbvData();
@@ -326,7 +329,7 @@ public class StaffController implements Initializable {
         sexColumn.setPrefWidth(80);
         dateOfBirthColumn.setPrefWidth(120);
         joinedDateColumn.setPrefWidth(120);
-        branchColumn.setPrefWidth(150);
+        branchColumn.setPrefWidth(200);
         roleColumn.setPrefWidth(120);
         activeColumn.setPrefWidth(150);
         idColumn.setSortType(TableColumn.SortType.DESCENDING);

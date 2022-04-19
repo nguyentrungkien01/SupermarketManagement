@@ -1,158 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="900.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ou.controllers.LimitSaleController">
+<AnchorPane prefHeight="900.0" prefWidth="1500.0" stylesheets="@../../../com.ou.css/fullpackstyling.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ou.controllers.LimitSaleController">
    <children>
-      <TableView fx:id="tbvLimitSale" layoutY="370.0" prefHeight="540.0" prefWidth="1510.0" />
-      <Text layoutX="692.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="QUẢN LÝ GIẢM GIÁ CÓ THỜI HẠN" textAlignment="CENTER" />
-      <FlowPane layoutX="854.0" layoutY="84.0" prefHeight="111.0" prefWidth="581.0">
+      <TableView fx:id="tbvLimitSale" layoutY="349.0" prefHeight="561.0" prefWidth="1510.0" />
+      <ImageView fitHeight="86.0" fitWidth="176.0" layoutX="27.0" layoutY="24.0" preserveRatio="true">
+         <image>
+            <Image url="@../../../com.ou.images/ouLogo.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnBack" layoutX="1397.0" layoutY="21.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="245.0" text="⬅ Trở về" />
+      <Pane layoutX="1016.0" layoutY="118.0" prefHeight="138.0" prefWidth="415.0">
          <children>
-            <FlowPane prefHeight="86.0" prefWidth="330.0">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tìm kiếm theo ngày">
-                     <FlowPane.margin>
-                        <Insets top="30.0" />
-                     </FlowPane.margin>
-                  </Text>
-                  <DatePicker fx:id="dpSearchDate" prefHeight="25.0" prefWidth="189.0">
-                     <FlowPane.margin>
-                        <Insets left="10.0" right="10.0" top="30.0" />
-                     </FlowPane.margin>
-                  </DatePicker>
-               </children>
-               <FlowPane.margin>
-                  <Insets />
-               </FlowPane.margin>
-            </FlowPane>
+            <Label layoutX="11.0" layoutY="12.0" text="Tìm kiếm theo ngày:" />
+            <DatePicker fx:id="dpSearchDate" layoutX="168.0" layoutY="8.0" prefHeight="25.0" prefWidth="230.0" promptText="Chọn ngày ..." />
+            <Label layoutX="12.0" layoutY="57.0" text="Thao tác:" />
+            <Button fx:id="btnAdd" layoutX="81.0" layoutY="85.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="245.0" text="➕ Thêm" />
+            <Button fx:id="btnDelete" layoutX="304.0" layoutY="85.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="245.0" text="❌ Xóa" />
+            <Button fx:id="btnEdit" layoutX="192.0" layoutY="85.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="245.0" text="➖ Sửa" />
          </children>
-      </FlowPane>
-      <FlowPane layoutX="34.0" layoutY="76.0" prefHeight="245.0" prefWidth="663.0">
+      </Pane>
+      <Pane layoutX="149.0" layoutY="116.0" prefHeight="227.0" prefWidth="862.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mã giảm giá">
-               <FlowPane.margin>
-                  <Insets left="30.0" top="10.0" />
-               </FlowPane.margin>
+            <Label layoutX="10.0" layoutY="14.0" text="Mã giảm giá:" />
+            <ComboBox fx:id="cbSaleId" layoutX="202.0" layoutY="9.0" prefHeight="25.0" prefWidth="151.0" />
+            <Label layoutX="10.0" layoutY="53.0" text="Mã sản phẩm giảm giá:" />
+            <ComboBox fx:id="cbProductLimitSaleId" layoutX="201.0" layoutY="48.0" prefHeight="25.0" prefWidth="151.0" />
+            <Label layoutX="10.0" layoutY="96.0" text="Mã sản phẩm không giảm giá:" />
+            <ComboBox fx:id="cbProductNotInLimitSaleId" layoutX="238.0" layoutY="91.0" prefHeight="25.0" prefWidth="115.0" />
+            <Label layoutX="11.0" layoutY="139.0" text="Từ ngày:" />
+            <Label layoutX="11.0" layoutY="182.0" text="Đến ngày:" />
+            <DatePicker fx:id="dpLsalFromDate" layoutX="97.0" layoutY="135.0" prefHeight="25.0" prefWidth="144.0" promptText="Chọn ngày ..." />
+            <DatePicker fx:id="dpLsalToDate" layoutX="97.0" layoutY="178.0" prefHeight="25.0" prefWidth="144.0" promptText="Chọn ngày ..." />
+            <Label layoutX="409.0" layoutY="14.0" text="Trạng thái:" />
+            <TextField fx:id="txtSaleIsActive" layoutX="589.0" layoutY="9.0" prefHeight="25.0" prefWidth="243.0" />
+            <Label layoutX="409.0" layoutY="61.0" text="Mã sản phẩm áp dụng:" />
+            <TextArea fx:id="textAreaListProductId" layoutX="590.0" layoutY="51.0" prefHeight="0.0" prefWidth="243.0" />
+            <Label layoutX="409.0" layoutY="106.0" text="Số lượng sản phẩm áp dụng:" />
+            <Text fx:id="textAmountProduct" fill="RED" layoutX="627.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="10.068768501281738">
+               <font>
+                  <Font name="Segoe UI Bold" size="13.0" />
+               </font>
             </Text>
-            <ComboBox fx:id="cbSaleId" prefHeight="25.0" prefWidth="71.0">
-               <FlowPane.margin>
-                  <Insets left="10.0" top="10.0" />
-               </FlowPane.margin>
-            </ComboBox>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mã Sản Phẩm giảm giá">
-               <FlowPane.margin>
-                  <Insets left="10.0" top="10.0" />
-               </FlowPane.margin>
-            </Text>
-            <ComboBox fx:id="cbProductLimitSaleId" prefHeight="25.0" prefWidth="79.0">
-               <FlowPane.margin>
-                  <Insets left="10.0" top="10.0" />
-               </FlowPane.margin>
-            </ComboBox>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mã Sản Phẩm không giảm giá">
-               <FlowPane.margin>
-                  <Insets left="10.0" top="10.0" />
-               </FlowPane.margin>
-            </Text>
-            <ComboBox fx:id="cbProductNotInLimitSaleId" prefHeight="25.0" prefWidth="71.0">
-               <FlowPane.margin>
-                  <Insets left="10.0" top="10.0" />
-               </FlowPane.margin>
-            </ComboBox>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Từ ngày">
-               <FlowPane.margin>
-                  <Insets left="30.0" top="10.0" />
-               </FlowPane.margin>
-            </Text>
-            <DatePicker fx:id="dpLsalFromDate" prefHeight="25.0" prefWidth="229.0">
-               <FlowPane.margin>
-                  <Insets left="10.0" top="10.0" />
-               </FlowPane.margin>
-            </DatePicker>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Đến ngày">
-               <FlowPane.margin>
-                  <Insets left="30.0" top="10.0" />
-               </FlowPane.margin>
-            </Text>
-            <DatePicker fx:id="dpLsalToDate" prefHeight="25.0" prefWidth="243.0">
-               <FlowPane.margin>
-                  <Insets left="10.0" top="10.0" />
-               </FlowPane.margin>
-            </DatePicker>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Trạng thái">
-               <FlowPane.margin>
-                  <Insets left="30.0" top="10.0" />
-               </FlowPane.margin>
-            </Text>
-            <TextField fx:id="txtSaleIsActive" prefHeight="25.0" prefWidth="551.0">
-               <FlowPane.margin>
-                  <Insets left="10.0" top="10.0" />
-               </FlowPane.margin>
-            </TextField>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mã sản phẩm áp dụng">
-               <FlowPane.margin>
-                  <Insets left="30.0" top="10.0" />
-               </FlowPane.margin>
-            </Text>
-            <TextArea fx:id="textAreaListProductId" prefHeight="68.0" prefWidth="483.0">
-               <FlowPane.margin>
-                  <Insets left="10.0" top="10.0" />
-               </FlowPane.margin>
-            </TextArea>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Số lượng sản phẩm áp dụng">
-               <FlowPane.margin>
-                  <Insets left="30.0" top="20.0" />
-               </FlowPane.margin>
-            </Text>
-            <Text fx:id="textAmountProduct" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="328.46875">
-               <FlowPane.margin>
-                  <Insets left="10.0" top="20.0" />
-               </FlowPane.margin>
-            </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tổng số mã giảm giá có thời hạn còn hoạt động">
-               <FlowPane.margin>
-                  <Insets left="30.0" top="10.0" />
-               </FlowPane.margin>
-            </Text>
-            <Text fx:id="textTotalAmountLimitSale" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-               <FlowPane.margin>
-                  <Insets left="10.0" top="10.0" />
-               </FlowPane.margin>
+            <Label layoutX="409.0" layoutY="149.0" text="Tổng số mã giảm giá có thời hạn còn hoạt động:" />
+            <Text fx:id="textTotalAmountLimitSale" fill="RED" layoutX="767.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+               <font>
+                  <Font name="Segoe UI Bold" size="13.0" />
+               </font>
             </Text>
          </children>
-      </FlowPane>
-      <FlowPane layoutX="854.0" layoutY="150.0" prefHeight="200.0" prefWidth="346.0">
-         <children>
-            <Button fx:id="btnAdd" mnemonicParsing="false" prefHeight="30.0" prefWidth="245.0" text="Thêm">
-               <FlowPane.margin>
-                  <Insets bottom="10.0" left="20.0" right="25.0" top="10.0" />
-               </FlowPane.margin>
-            </Button>
-            <Button fx:id="btnEdit" mnemonicParsing="false" prefHeight="30.0" prefWidth="245.0" text="Sửa">
-               <FlowPane.margin>
-                  <Insets bottom="10.0" left="20.0" right="25.0" top="10.0" />
-               </FlowPane.margin>
-            </Button>
-            <Button fx:id="btnDelete" mnemonicParsing="false" prefHeight="30.0" prefWidth="245.0" text="Xóa">
-               <FlowPane.margin>
-                  <Insets bottom="10.0" left="20.0" right="25.0" top="10.0" />
-               </FlowPane.margin>
-            </Button>
-            <Button fx:id="btnBack" mnemonicParsing="false" prefHeight="30.0" prefWidth="245.0" text="Quay lại">
-               <FlowPane.margin>
-                  <Insets bottom="10.0" left="20.0" right="25.0" top="10.0" />
-               </FlowPane.margin>
-            </Button>
-         </children>
-      </FlowPane>
+      </Pane>
    </children>
 </AnchorPane>

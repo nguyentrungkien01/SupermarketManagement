@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -55,6 +56,7 @@ public class UnitController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ((Stage)App.window).setTitle("Quản lý nhà đơn vị sản phẩm - OU Market");
         this.initInputData();
         this.initUnitTbv();
         this.loadUnitTbvColumns();
@@ -99,9 +101,9 @@ public class UnitController implements Initializable {
         uniIdColumn.setCellValueFactory(new PropertyValueFactory<>("uniId"));
         uniNameColumn.setCellValueFactory(new PropertyValueFactory<>("uniName"));
         uniIsActive.setCellValueFactory(new PropertyValueFactory<>("uniIsActive"));
-        uniIdColumn.setPrefWidth(300);
-        uniNameColumn.setPrefWidth(900);
-        uniIsActive.setPrefWidth(300);
+        uniIdColumn.setPrefWidth(250);
+        uniNameColumn.setPrefWidth(600);
+        uniIsActive.setPrefWidth(150);
         uniIdColumn.setSortType(TableColumn.SortType.DESCENDING);
         this.tbvUnit.getColumns().addAll(uniIdColumn, uniNameColumn, uniIsActive);
     }

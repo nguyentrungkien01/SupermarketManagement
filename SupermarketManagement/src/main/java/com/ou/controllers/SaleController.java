@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -53,6 +54,7 @@ public class SaleController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ((Stage)App.window).setTitle("Quản lý giảm giá - OU Market");
         this.initInputData();
         this.initSaleTbv();
         this.loadSaleTbvColumns();
@@ -97,13 +99,13 @@ public class SaleController implements Initializable {
     private void loadSaleTbvColumns() {
         TableColumn<Sale, Integer> saleIdColumn = new TableColumn<>("Mã giả giá");
         TableColumn<Sale, Integer> saleSperColumn = new TableColumn<>("Phần trăm giảm giá");
-        TableColumn<Sale, Boolean> saleIsActive = new TableColumn<>("Trạng thái hoạt động");
+        TableColumn<Sale, Boolean> saleIsActive = new TableColumn<>("Trạng thái");
         saleIdColumn.setCellValueFactory(new PropertyValueFactory<>("saleId"));
         saleSperColumn.setCellValueFactory(new PropertyValueFactory<>("salePercent"));
         saleIsActive.setCellValueFactory(new PropertyValueFactory<>("saleIsActive"));
-        saleIdColumn.setPrefWidth(500);
-        saleSperColumn.setPrefWidth(500);
-        saleIsActive.setPrefWidth(500);
+        saleIdColumn.setPrefWidth(150);
+        saleSperColumn.setPrefWidth(400);
+        saleIsActive.setPrefWidth(150);
         saleIdColumn.setSortType(TableColumn.SortType.DESCENDING);
         this.tbvSale.getColumns().addAll(saleIdColumn, saleSperColumn, saleIsActive);
     }

@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -55,6 +56,7 @@ public class SalePercentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ((Stage)App.window).setTitle("Quản lý tỷ lệ giảm giá - OU Market");
         this.initInputData();
         this.initSperTbv();
         this.loadSperTbvColumns();
@@ -104,9 +106,9 @@ public class SalePercentController implements Initializable {
         sperIdColumn.setCellValueFactory(new PropertyValueFactory<>("sperId"));
         sperPercentColumn.setCellValueFactory(new PropertyValueFactory<>("sperPercent"));
         sperIsActiveColumn.setCellValueFactory(new PropertyValueFactory<>("sperIsActive"));
-        sperIdColumn.setPrefWidth(500);
-        sperPercentColumn.setPrefWidth(500);
-        sperIsActiveColumn.setPrefWidth(500);
+        sperIdColumn.setPrefWidth(200);
+        sperPercentColumn.setPrefWidth(400);
+        sperIsActiveColumn.setPrefWidth(149);
         sperIdColumn.setSortType(TableColumn.SortType.DESCENDING);
         this.tbvSper.getColumns().addAll(sperIdColumn, sperPercentColumn,sperIsActiveColumn);
     }

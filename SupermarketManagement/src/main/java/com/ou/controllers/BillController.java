@@ -14,6 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
 import java.io.IOException;
@@ -122,6 +123,7 @@ public class BillController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ((Stage)App.window).setTitle("Quản lý hoá đơn - OU Market");
         this.initInputData();
         this.initBillTbv();
         this.loadBillTbvColumns();
@@ -201,7 +203,7 @@ public class BillController implements Initializable {
         billCreatedDateColumn.setPrefWidth(200);
         billTotalMoneyColumn.setPrefWidth(200);
         billCustomerMoneyColumn.setPrefWidth(200);
-        billTotalSaleMoneyColumn.setPrefWidth(200);
+        billTotalSaleMoneyColumn.setPrefWidth(195);
 
         billIdColumn.setSortType(TableColumn.SortType.DESCENDING);
         this.tbvBill.getColumns().addAll(billIdColumn, billCustomerNameColumn, billStaffNameColumn,

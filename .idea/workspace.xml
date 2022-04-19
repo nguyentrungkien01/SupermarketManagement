@@ -4,20 +4,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81043f1-563b-4be6-9200-33a8dc1c33d9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_linux_19_ea_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_win_19_ea_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_linux_19_ea_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_win_19_ea_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_linux_19_ea_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_19_ea_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_linux_19_ea_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_19_ea_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="e81043f1-563b-4be6-9200-33a8dc1c33d9" name="Changes" comment="login ui">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/SupermarketManagement.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/SupermarketManagement.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/BillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/BillController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/BranchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/BranchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/HomepageAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/HomepageAdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/LimitSaleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/LimitSaleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/ManufacturerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/ManufacturerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/MemberTypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/MemberTypeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/PaymentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/SaleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/SaleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/SalePercentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/SalePercentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/SignInController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/utils/DatabaseUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/utils/DatabaseUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/StaffController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/StaffController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/UnitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/UnitController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com.ou.css/fullpackstyling.css" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com.ou.css/fullpackstyling.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com.ou.css/sign-in.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/bill.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/bill.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/branch.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/branch.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/category.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/category.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/homepage-admin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/homepage-admin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/limit-sale.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/limit-sale.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/manufacturer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/manufacturer.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/member-type.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/member-type.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/member.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/member.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/payment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/payment.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/product.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/product.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/sale-percent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/sale-percent.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/sale.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/sale.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/sign-in.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/sign-in.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/staff.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/staff.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/unit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/unit.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,12 +85,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\danhn\Desktop\SupermarketManagement\SupermarketManagement\src\main\resources\com\ou\controllers" />
@@ -227,7 +252,17 @@
       <workItem from="1649577308079" duration="8697000" />
       <workItem from="1650026721005" duration="9000" />
       <workItem from="1650164145402" duration="218000" />
-      <workItem from="1650164427216" duration="9711000" />
+      <workItem from="1650164427216" duration="9956000" />
+      <workItem from="1650183779379" duration="1000" />
+      <workItem from="1650186803077" duration="1022000" />
+      <workItem from="1650205023244" duration="19000" />
+      <workItem from="1650206337464" duration="3804000" />
+      <workItem from="1650217076430" duration="2229000" />
+      <workItem from="1650245520221" duration="8075000" />
+      <workItem from="1650256212143" duration="6236000" />
+      <workItem from="1650275957351" duration="4457000" />
+      <workItem from="1650290603210" duration="10357000" />
+      <workItem from="1650329186590" duration="10236000" />
     </task>
     <servers />
   </component>

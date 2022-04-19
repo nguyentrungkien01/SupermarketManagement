@@ -8,6 +8,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -90,8 +91,8 @@ public class HomepageAdminController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ((Stage)App.window).setTitle("Trang tổng quan - OU Market");
         setInfoAcount();
-
         this.btnManuFacturer.setOnMouseClicked(mouseEvent -> setManufacturer());
         this.btnCategory.setOnMouseClicked(mouseEvent -> setCategory());
         this.btnProduct.setOnMouseClicked(mouseEvent -> setProduct());

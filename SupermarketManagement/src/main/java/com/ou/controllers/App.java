@@ -18,21 +18,18 @@ import java.util.Objects;
 public class App extends Application {
 
     private static Scene scene;
-    private static Window window;
+    public static Window window;
     public static Staff currentStaff = null;
 
     @Override
     public void start(Stage stage) throws IOException {
         window = stage;
-        scene = new Scene(loadFXML("sign-in"));
-//        String path =
+        scene = new Scene(loadFXML("bill"));
         stage.getIcons().add(new Image(Objects.requireNonNull(App.class.getResourceAsStream("/com.ou.images/ouIcon.png"))));
         stage.setTitle("Quản lý siêu thị - OU Market");
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
-
-
     }
 
     static void setRoot(String fxml) throws IOException {
