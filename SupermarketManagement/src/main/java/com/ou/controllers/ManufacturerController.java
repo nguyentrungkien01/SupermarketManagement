@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -59,6 +60,7 @@ public class ManufacturerController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ((Stage)App.window).setTitle("Quản lý nhà sản xuất - OU Market");
         this.initInputData();
         this.initManufacturerTbv();
         this.loadManufacturerTbvColumns();

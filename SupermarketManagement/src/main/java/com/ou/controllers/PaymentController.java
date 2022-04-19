@@ -12,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -71,9 +72,6 @@ public class PaymentController implements Initializable {
 
     @FXML
     private TextField txtStaName;
-
-    @FXML
-    private TextField txtStaId;
 
     @FXML
     private TextField txtMemberId;
@@ -140,6 +138,7 @@ public class PaymentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ((Stage)App.window).setTitle("Thanh toán - OU Market");
         initInputData();
         this.btnProSearch.setOnMouseClicked(evt -> searchProductData());
         this.btnMemChoice.setOnMouseClicked(evt -> this.acpMemInfo.setVisible(!this.acpMemInfo.isVisible()));
@@ -155,13 +154,12 @@ public class PaymentController implements Initializable {
     // Khởi tạo thuộc tính các ô input
     private void initInputData() {
         this.txtProName.setDisable(true);
-        this.txtProductId.setDisable(true);
+        this.txtProductId.setVisible(false);
         this.txtProCat.setDisable(true);
         this.txtProMan.setDisable(true);
         this.txtStaName.setDisable(true);
-        this.txtStaId.setDisable(true);
         this.txtMemName.setDisable(true);
-        this.txtMemberId.setDisable(true);
+        this.txtMemberId.setVisible(false);
         this.txtMemType.setDisable(true);
         this.acpMemInfo.setVisible(false);
         this.txtSalePercent.setDisable(true);

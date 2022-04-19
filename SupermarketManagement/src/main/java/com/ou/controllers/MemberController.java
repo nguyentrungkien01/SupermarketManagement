@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
 import java.io.IOException;
@@ -92,6 +93,7 @@ public class MemberController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ((Stage)App.window).setTitle("Quản lý thành viên - OU Market");
         this.initInputData();
         this.initComboBoxSexData();
         this.initMemberTbv();

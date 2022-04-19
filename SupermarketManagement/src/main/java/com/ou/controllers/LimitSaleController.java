@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
 import java.io.IOException;
@@ -87,6 +88,7 @@ public class LimitSaleController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ((Stage)App.window).setTitle("Quản lý giảm giá có thời hạn - OU Market");
         this.initInputData();
         this.initLimitSaleTbv();
         this.loadLimitSaleTbvColumns();

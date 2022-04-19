@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -56,6 +57,7 @@ public class CategoryController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        ((Stage)App.window).setTitle("Quản lý danh mục - OU Market");
         this.initInputData();
         this.initCategoryTbv();
         this.loadCategoryTbvColumns();

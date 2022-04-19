@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -56,6 +57,7 @@ public class MemberTypeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ((Stage)App.window).setTitle("Quản lý loại thành viên - OU Market");
         this.initInputData();
         this.loadMemberTypeTbvColumns();
         this.loadTableMemberTypeData(txtSearchMemberTypeName.getText());
@@ -103,10 +105,10 @@ public class MemberTypeController implements Initializable {
 
     // khởi tạo dữ liệu vùng input
     private void initInputData(){
-        this.txtMemberTypeId.setEditable(false);
-        this.txtMemberTypeIsActive.setEditable(false);
-        this.txtTotalAmountMember.setEditable(false);
-        this.txtSalePercent.setEditable(false);
+        this.txtMemberTypeId.setDisable(true);
+        this.txtMemberTypeIsActive.setDisable(true);
+        this.txtTotalAmountMember.setDisable(true);
+        this.txtSalePercent.setDisable(true);
     }
 
     // khởi tạo các cột của table view

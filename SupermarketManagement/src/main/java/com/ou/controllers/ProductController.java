@@ -12,6 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -92,6 +93,7 @@ public class ProductController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ((Stage)App.window).setTitle("Quản lý sản phẩm - OU Market");
         try {
             this.initInputData();
         } catch (SQLException e) {
@@ -162,7 +164,7 @@ public class ProductController implements Initializable {
         proNameColumn.setPrefWidth(400);
         proCategoryColumn.setPrefWidth(300);
         proManufacturerColumn.setPrefWidth(400);
-        proIsActive.setPrefWidth(200);
+        proIsActive.setPrefWidth(195);
         proIdColumn.setSortType(TableColumn.SortType.DESCENDING);
         this.tbvProduct.getColumns().addAll(proIdColumn, proNameColumn, proCategoryColumn, proManufacturerColumn,
                 proIsActive);

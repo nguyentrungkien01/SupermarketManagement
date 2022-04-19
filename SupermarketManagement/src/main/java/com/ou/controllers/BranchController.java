@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -65,6 +66,7 @@ public class BranchController implements Initializable {
     // Khởi tạo trước khi giao diện hiển thị
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ((Stage)App.window).setTitle("Quản lý chi nhánh - OU Market");
         this.initInputData();
         this.initBranchTbv();
         this.loadBranchTbvColumns();

@@ -4,16 +4,83 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81043f1-563b-4be6-9200-33a8dc1c33d9" name="Changes" comment="">
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/.idea/workspace.xml" afterDir="false" />
-=======
+    <list default="true" id="e81043f1-563b-4be6-9200-33a8dc1c33d9" name="Changes" comment="login ui">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/MemberType.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/pojos/MemberType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/BillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/BillController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/HomepageAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/HomepageAdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/LimitSaleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/LimitSaleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/MemberTypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/MemberTypeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/PaymentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/SaleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/SaleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/SalePercentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/controllers/SalePercentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/BillRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/BillRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/BranchRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/BranchRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/BranchRepositoryForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/BranchRepositoryForTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/CategoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/CategoryRepositoryForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/CategoryRepositoryForTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/LimitSaleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/LimitSaleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/ManufacturerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/ManufacturerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/ManufacturerRepositoryForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/ManufacturerRepositoryForTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/MemberRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/MemberRepositoryForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/MemberRepositoryForTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/MemberTypeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/MemberTypeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/MemberTypeRepositoryForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/MemberTypeRepositoryForTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/PaymentRepositoryForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/PaymentRepositoryForTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/ProductRepositoryForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/ProductRepositoryForTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/SalePercentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/SalePercentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/SaleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/SaleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/SaleRepositoryForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/SaleRepositoryForTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/SignInRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/SignInRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/SignInRepositoryForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/SignInRepositoryForTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/StaffRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/StaffRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/StaffRepositoryForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/StaffRepositoryForTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/UnitRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/UnitRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/UnitRepositoryForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/repositories/UnitRepositoryForTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/BranchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/BranchService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/BranchServiceForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/BranchServiceForTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/LimitSaleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/LimitSaleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/ManufacturerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/ManufacturerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/ManufacturerServiceForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/ManufacturerServiceForTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/MemberService.java" afterDir="false" />
->>>>>>> main
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/MemberServiceForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/MemberServiceForTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/MemberTypeServiceForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/MemberTypeServiceForTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/PaymentServiceForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/PaymentServiceForTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/ProductServiceForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/ProductServiceForTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/SignInServiceForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/SignInServiceForTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/StaffServiceForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/StaffServiceForTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/UnitService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/UnitService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/UnitServiceForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou/services/UnitServiceForTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/bill.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/bill.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/branch.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/branch.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/category.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/category.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/homepage-admin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/homepage-admin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/limit-sale.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/limit-sale.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/manufacturer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/manufacturer.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/member-type.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/member-type.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/member.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/member.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/payment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/payment.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/sale-percent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/sale-percent.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/sale.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/sale.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/staff.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers/staff.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/BillServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/BillServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/BranchServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/BranchServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/CategoryServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/CategoryServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/LimitSaleServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/LimitSaleServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/ManufacturerServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/ManufacturerServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/MemberServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/MemberServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/MemberTypeServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/MemberTypeServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/PaymentServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/PaymentServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/ProductServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/ProductServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/SaleServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/SaleServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/SignInServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/SignInServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/StaffServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/StaffServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/UnitServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement/src/test/java/com/ou/services/UnitServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,38 +127,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-<<<<<<< HEAD
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/nguyentrungkien/Documents/SupermarketManagement/SupermarketManagement"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
-=======
-  <component name="PropertiesComponent">
-    <property name="Downloaded.Files.Path.Enabled" value="false" />
-    <property name="Repository.Attach.Annotations" value="false" />
-    <property name="Repository.Attach.JavaDocs" value="false" />
-    <property name="Repository.Attach.Sources" value="false" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.468894" />
-    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
-  </component>
->>>>>>> main
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\danhn\Desktop\SupermarketManagement\SupermarketManagement\src\main\resources\com\ou\controllers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\admin\Desktop\HK2\SupermarketManagement\SupermarketManagement\src\main\resources\com.ou.images" />
+      <recent name="C:\Users\admin\Desktop\HK2\SupermarketManagement\SupermarketManagement\src\main\images" />
       <recent name="$PROJECT_DIR$/SupermarketManagement/src/main/java/com/ou" />
       <recent name="$PROJECT_DIR$/SupermarketManagement/src/main/resources/com/ou/controllers" />
       <recent name="$PROJECT_DIR$/SupermarketManagement/src/main/resources" />
@@ -176,19 +228,11 @@
       </method>
     </configuration>
     <list>
-<<<<<<< HEAD
       <item itemvalue="Application.App" />
-      <item itemvalue="JUnit.LimitSaleServiceTest.testUpdateLimitSaleWithInfoValid" />
-      <item itemvalue="JUnit.LimitSaleServiceTest.testDeleteLimitSaleWithInfoValid" />
-      <item itemvalue="JUnit.LimitSaleServiceTest.testDeleteLimitSaleWithInfoValid2" />
-      <item itemvalue="JUnit.LimitSaleServiceTest.testDeleteLimitSaleWithInfoInValid" />
-=======
+      <item itemvalue="JUnit.MemberTypeServiceTest.testDeleteMemberTypeWithInValid" />
+      <item itemvalue="JUnit.MemberTypeServiceTest.testDeleteMemberTypeWithValid" />
       <item itemvalue="JUnit.MemberTypeServiceTest.testUpdateMemberTypeWithNameIsExist" />
       <item itemvalue="JUnit.MemberTypeServiceTest.testUpdateMemberTypeWithValidInfo" />
-      <item itemvalue="JUnit.MemberTypeServiceTest.testDeleteMemberTypeWithValid" />
-      <item itemvalue="JUnit.MemberTypeServiceTest.testDeleteMemberTypeWithInValid" />
-      <item itemvalue="Application.App" />
->>>>>>> main
     </list>
     <recent_temporary>
       <list>
@@ -249,6 +293,18 @@
       <workItem from="1649556789808" duration="9812000" />
       <workItem from="1649577308079" duration="8697000" />
       <workItem from="1650026721005" duration="9000" />
+      <workItem from="1650164145402" duration="218000" />
+      <workItem from="1650164427216" duration="9956000" />
+      <workItem from="1650183779379" duration="1000" />
+      <workItem from="1650186803077" duration="1022000" />
+      <workItem from="1650205023244" duration="19000" />
+      <workItem from="1650206337464" duration="3804000" />
+      <workItem from="1650217076430" duration="2229000" />
+      <workItem from="1650245520221" duration="8075000" />
+      <workItem from="1650256212143" duration="6236000" />
+      <workItem from="1650275957351" duration="4457000" />
+      <workItem from="1650290603210" duration="10357000" />
+      <workItem from="1650329186590" duration="11950000" />
     </task>
     <servers />
   </component>
