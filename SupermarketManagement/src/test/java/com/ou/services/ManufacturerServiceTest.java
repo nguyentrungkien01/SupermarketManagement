@@ -47,26 +47,48 @@ public class ManufacturerServiceTest {
     }
 
     // Kiểm tra lấy thông tin nhà sản xuất khi từ khóa truyền vào là null
-    // Phải trả về tất cả các nhà sản xuất còn liên kết với cửa hàng còn hoạt động (4 nhà sản xuất)
+    // Phải trả về tất cả các nhà sản xuất còn liên kết với cửa hàng (4 nhà sản xuất có mã 1,2,3,4)
     @Test
     public void testSelectAllManufacturerByNullKw() {
         try {
             List<Manufacturer> manufacturers = manufacturerService.getManufacturers(null);
             int amount = manufacturerService.getManufacturerAmount();
             Assertions.assertEquals(amount, manufacturers.size());
+            Assertions.assertEquals(1, manufacturers.get(0).getManId());
+            Assertions.assertEquals(2, manufacturers.get(1).getManId());
+            Assertions.assertEquals(3, manufacturers.get(2).getManId());
+            Assertions.assertEquals(4, manufacturers.get(3).getManId());
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     // Kiểm tra lấy thông tin nhà sản xuất khi từ khóa truyền vào là 1 chuỗi rỗng
-    // Phải trả về tất cả các nhà sản xuất còn liên kết với cửa hàng còn hoạt động (4 nhà sản xuất)
+    // Phải trả về tất cả các nhà sản xuất còn liên kết với cửa hàng (4 nhà sản xuất)
     @Test
     public void testSelectAllManufacturerByEmptyKw() {
         try {
             List<Manufacturer> manufacturers = manufacturerService.getManufacturers("");
             int amount = manufacturerService.getManufacturerAmount();
             Assertions.assertEquals(amount, manufacturers.size());
+            Assertions.assertEquals(1, manufacturers.get(0).getManId());
+            Assertions.assertEquals(2, manufacturers.get(1).getManId());
+            Assertions.assertEquals(3, manufacturers.get(2).getManId());
+            Assertions.assertEquals(4, manufacturers.get(3).getManId());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    // Kiểm tra lấy thông tin nhà sản xuất khi từ khóa truyền vào là 1 chuỗi khoảng trắng
+    // Phải trả về 0
+    @Test
+    public void testSelectAllManufacturerBySpacesKw() {
+        try {
+            List<Manufacturer> manufacturers = manufacturerService.getManufacturers("         ");
+            Assertions.assertEquals(0, manufacturers.size());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -79,6 +101,7 @@ public class ManufacturerServiceTest {
         try {
             List<Manufacturer> manufacturers = manufacturerService.getManufacturers("Tên nhà sản xuất thứ 1");
             Assertions.assertEquals(1, manufacturers.size());
+            Assertions.assertEquals(1, manufacturers.get(0).getManId());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -105,6 +128,7 @@ public class ManufacturerServiceTest {
             manufacturerService.deleteManufacturer(manufacturer);
             int amount = manufacturerService.getManufacturerAmount();
             Assertions.assertEquals(3, amount);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -157,6 +181,9 @@ public class ManufacturerServiceTest {
             Assertions.assertTrue(manufacturerService.addManufacturer(manufacturer));
             int nextAmo = manufacturerService.getManufacturerAmount();
             Assertions.assertNotEquals(preAmo, nextAmo);
+            Manufacturer manufacturerTest = manufacturerServiceForTest.getManufacturerByName(manufacturer.getManName());
+            Assertions.assertEquals(manufacturer.getManName(), manufacturerTest.getManName());
+            Assertions.assertTrue(manufacturerTest.getManIsActive());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -209,7 +236,10 @@ public class ManufacturerServiceTest {
         try {
             Manufacturer manufacturer = manufacturerServiceForTest.getManufacturerById(1);
             manufacturer.setManName("Tên nhà sản xuất thứ 6");
-            Assertions.assertTrue(manufacturerService.addManufacturer(manufacturer));
+            Assertions.assertTrue(manufacturerService.updateManufacturer(manufacturer));
+            Manufacturer manufacturerTest = manufacturerServiceForTest.getManufacturerByName(manufacturer.getManName());
+            Assertions.assertEquals(manufacturer.getManName(), manufacturerTest.getManName());
+            Assertions.assertTrue(manufacturerTest.getManIsActive());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -263,6 +293,8 @@ public class ManufacturerServiceTest {
             Assertions.assertTrue(manufacturerService.deleteManufacturer(manufacturer));
             int nextAmo = manufacturerService.getManufacturerAmount();
             Assertions.assertNotEquals(preAmo, nextAmo);
+            Manufacturer manufacturerTest = manufacturerServiceForTest.getManufacturerByName(manufacturer.getManName());
+            Assertions.assertFalse(manufacturerTest.getManIsActive());
         } catch (SQLException e) {
             e.printStackTrace();
         }

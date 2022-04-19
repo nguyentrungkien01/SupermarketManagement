@@ -1,6 +1,5 @@
 package com.ou.repositories;
 
-import com.ou.pojos.Category;
 import com.ou.pojos.Sale;
 import com.ou.pojos.SalePercent;
 import com.ou.utils.DatabaseUtils;
@@ -25,7 +24,7 @@ public class SaleRepositoryForTest {
                 sale.setSaleId(resultSet.getInt("sale_id"));
                 SalePercent salePercent = new SalePercent();
                 salePercent.setSperId(resultSet.getInt("sper_id"));
-                salePercent.setSperPercent(resultSet.getFloat("sper_percent"));
+                salePercent.setSperPercent(resultSet.getInt("sper_percent"));
                 salePercent.setSperIsActive(resultSet.getBoolean("sper_is_active"));
                 sale.setSalePercent(salePercent);
                 return sale;

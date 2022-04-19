@@ -19,4 +19,9 @@ public class BranchServiceForTest {
             return null;
         return BRANCH_REPOSITORY_FOR_TEST.getBranchById(braId);
     }
+    // Lấy thông tin chi nhánh dựa vào tên chi nhánh
+    public Branch getBranchByBraName(String braName) throws SQLException {
+        return BRANCH_REPOSITORY_FOR_TEST.getBranchByBraName(braName.trim());
+    }
+
 }

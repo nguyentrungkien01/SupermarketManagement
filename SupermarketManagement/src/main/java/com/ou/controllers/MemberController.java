@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
@@ -42,7 +43,12 @@ public class MemberController implements Initializable {
             public LocalDate fromString(String s) {
                 if (s == null || s.trim().isEmpty())
                     return null;
-                return LocalDate.parse(s, dateTimeFormatter);
+                try{
+                    return LocalDate.parse(s, dateTimeFormatter);
+                }catch (DateTimeException dateTimeException){
+                    return null;
+                }
+
             }
         };
     }

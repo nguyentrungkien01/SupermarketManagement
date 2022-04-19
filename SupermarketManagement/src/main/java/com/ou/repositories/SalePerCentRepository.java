@@ -18,7 +18,7 @@ public class SalePerCentRepository {
             ResultSet resultSet = preparedStatement.executeQuery();
             if(resultSet.next()){
                 SalePercent salePercent = new SalePercent();
-                salePercent.setSperPercent(resultSet.getFloat("sper_percent"));
+                salePercent.setSperPercent(resultSet.getInt("sper_percent"));
                 return salePercent;
             }
         }

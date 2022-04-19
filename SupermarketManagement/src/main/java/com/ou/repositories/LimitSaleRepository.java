@@ -1,7 +1,6 @@
 package com.ou.repositories;
 
 import com.ou.pojos.LimitSale;
-import com.ou.pojos.Sale;
 import com.ou.pojos.SalePercent;
 import com.ou.services.SaleService;
 import com.ou.utils.DatabaseUtils;
@@ -53,7 +52,7 @@ public class LimitSaleRepository {
                 limitSale.setSaleId(resultSet.getInt("lsal_id"));
                 limitSale.setLsalFromDate(resultSet.getDate("lsal_from_date"));
                 limitSale.setLsalToDate(resultSet.getDate("lsal_to_date"));
-                salePercent.setSperPercent(resultSet.getFloat("sper_percent"));
+                salePercent.setSperPercent(resultSet.getInt("sper_percent"));
                 limitSale.setSalePercent(salePercent);
                 limitSales.add(limitSale);
             }

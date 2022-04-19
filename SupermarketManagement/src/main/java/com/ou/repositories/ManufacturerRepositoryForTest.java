@@ -28,4 +28,22 @@ public class ManufacturerRepositoryForTest {
             return null;
         }
     }
+
+    // Lấy thông tin nhà sản xuất dựa vào tên nhà sản xuất
+    public Manufacturer getManufacturerByName(String manName) throws SQLException{
+        try(Connection connection = DatabaseUtils.getConnection()){
+            String query = "SELECT * FROM Manufacturer WHERE man_name = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, manName);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()){
+                Manufacturer manufacturer = new Manufacturer();
+                manufacturer.setManId(resultSet.getInt("man_id"));
+                manufacturer.setManName(resultSet.getString("man_name"));
+                manufacturer.setManIsActive(resultSet.getBoolean("man_is_active"));
+                return manufacturer;
+            }
+            return null;
+        }
+    }
 }
