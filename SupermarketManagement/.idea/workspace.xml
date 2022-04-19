@@ -4,31 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="fcd808c9-fb19-406a-baa7-44dff6e663f1" name="Changes" comment="" />
-=======
     <list default="true" id="fcd808c9-fb19-406a-baa7-44dff6e663f1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__com_beust_jcommander_1_48.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__com_github_jai_imageio_jai_imageio_core_1_3_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__com_google_zxing_core_3_3_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__com_google_zxing_javase_3_3_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_openjfx_javafx_base_win_19_ea_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_openjfx_javafx_controls_win_19_ea_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_openjfx_javafx_fxml_win_19_ea_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_openjfx_javafx_graphics_win_19_ea_2.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/controllers/MemberTypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/controllers/MemberTypeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/controllers/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/controllers/PaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/controllers/SalePercentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/controllers/SalePercentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/repositories/LimitSaleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/repositories/LimitSaleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/repositories/BillRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/repositories/BillRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/repositories/BranchRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/repositories/BranchRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/repositories/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/repositories/CategoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/repositories/ManufacturerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/repositories/ManufacturerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/repositories/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/repositories/MemberRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/repositories/MemberTypeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/repositories/MemberTypeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/repositories/MemberTypeRepositoryForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/repositories/MemberTypeRepositoryForTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/repositories/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/repositories/ProductRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/repositories/SalePerCentRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/repositories/SaleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/repositories/SaleRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/repositories/SaleRepositoryForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/repositories/SaleRepositoryForTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/repositories/StaffRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/repositories/StaffRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/repositories/UnitRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/repositories/UnitRepository.java" afterDir="false" />
     </list>
->>>>>>> main
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,12 +63,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/nguyentrungkien/Documents/test/SupermarketManagement/SupermarketManagement"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/nguyentrungkien/Documents/test/SupermarketManagement/SupermarketManagement&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\KTPM\SupermarketManagement\SupermarketManagement\src\main\resources\com\ou\controllers" />
@@ -199,17 +187,12 @@
       <workItem from="1649842758752" duration="1575000" />
       <workItem from="1649855730915" duration="5467000" />
       <workItem from="1650026692978" duration="26000" />
-<<<<<<< HEAD
       <workItem from="1650026731498" duration="9837000" />
       <workItem from="1650072061508" duration="126000" />
       <workItem from="1650248368845" duration="3633000" />
       <workItem from="1650270378833" duration="10524000" />
       <workItem from="1650286825154" duration="9277000" />
       <workItem from="1650330099608" duration="1137000" />
-=======
-      <workItem from="1650026731498" duration="4836000" />
-      <workItem from="1650112216467" duration="958000" />
->>>>>>> main
     </task>
     <servers />
   </component>

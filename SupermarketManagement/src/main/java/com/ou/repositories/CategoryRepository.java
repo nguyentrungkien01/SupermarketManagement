@@ -17,7 +17,8 @@ public class CategoryRepository {
             String query = "SELECT * FROM Category WHERE cat_name LIKE CONCAT(\"%\", ? , \"%\")";
             if (kw == null) {
                 kw = "";
-            }
+            }else
+                kw = kw.trim();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, kw);
             ResultSet resultSet = preparedStatement.executeQuery();

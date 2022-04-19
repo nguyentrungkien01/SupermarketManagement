@@ -17,6 +17,7 @@ public class BranchRepository {
                     "WHERE bra_name LIKE CONCAT(\"%\", ? , \"%\")";
             if (kw == null)
                 kw = "";
+            else kw=kw.trim();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, kw);
             ResultSet resultSet = preparedStatement.executeQuery();

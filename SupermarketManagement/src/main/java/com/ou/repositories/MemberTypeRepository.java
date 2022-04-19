@@ -21,6 +21,9 @@ public class MemberTypeRepository {
         try (Connection connection = DatabaseUtils.getConnection()) {
             String query = "SELECT * FROM MemberType mt JOIN Sale s ON mt.sale_id = s.sale_id" +
                     " WHERE memt_name LIKE CONCAT(\"%\", ?, \"%\") ORDER BY memt_total_money ASC";
+            if (kw == null)
+                kw = "";
+            else kw=kw.trim();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, kw);
             ResultSet resultSet = preparedStatement.executeQuery();

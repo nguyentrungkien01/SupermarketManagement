@@ -20,6 +20,7 @@ public class MemberRepository {
                     "pers_last_name LIKE CONCAT(\"%\", ? , \"%\"))";
             if (kw == null)
                 kw = "";
+            else kw=kw.trim();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, kw);
             preparedStatement.setString(2, kw);
