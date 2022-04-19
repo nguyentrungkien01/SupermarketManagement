@@ -1,9 +1,6 @@
 package com.ou.services;
 
-import com.ou.pojos.Bill;
-import com.ou.pojos.ProductBill;
-import com.ou.pojos.ProductUnit;
-import com.ou.pojos.Staff;
+import com.ou.pojos.*;
 import com.ou.utils.DatabaseUtils;
 import org.junit.jupiter.api.*;
 
@@ -20,10 +17,15 @@ import java.util.List;
 public class PaymentServiceTest {
     private static PaymentService paymentService;
     private static StaffService staffService;
+    private static PaymentServiceForTest paymentServiceForTest;
+
+    private static BillService billService;
     private static Connection connection;
     static {
         paymentService = new PaymentService();
         staffService= new StaffService();
+        billService  = new BillService();
+        paymentServiceForTest = new PaymentServiceForTest();
     }
     public PaymentServiceTest(){
     }
@@ -59,6 +61,8 @@ public class PaymentServiceTest {
     private Bill generateBill() throws SQLException, ParseException {
         Bill bill = new Bill();
         Staff staff = staffService.getStaffById(1);
+        Member member = new Member();
+        member.setPersId(7);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = simpleDateFormat.parse("2022-04-13 13:20:30");
         bill.setBillCreatedDate(new Timestamp(date.getTime()));
@@ -68,6 +72,7 @@ public class PaymentServiceTest {
                 Double.parseDouble("50000".trim())));
         bill.setBillTotalSaleMoney(BigDecimal.valueOf(
                 Double.parseDouble("10000".trim())));
+        bill.setMember(member);
         bill.setStaff(staff);
         List<ProductBill> productBills = new ArrayList<>();
         ProductUnit productUnit = new ProductUnit();
@@ -75,7 +80,6 @@ public class PaymentServiceTest {
         ProductBill productBill = new ProductBill();
         productBill.setProductUnit(productUnit);
         productBill.setProAmount(10);
-        productBill.setProductUnit(productUnit);
         productBills.add(productBill);
         bill.setProductBills(productBills);
         return bill;
@@ -177,6 +181,22 @@ public class PaymentServiceTest {
         try {
             Bill bill = generateBill();
             Assertions.assertTrue(paymentService.addBill(bill));
+            Bill billTest = paymentServiceForTest.getBillByCreatedDate("2022-04-13 13:20:30");
+            Assertions.assertEquals(bill.getStaff().getPersId(), billTest.getStaff().getPersId());
+            Assertions.assertEquals(bill.getMember().getPersId(), billTest.getMember().getPersId());
+            Assertions.assertEquals( bill.getBillCreatedDate(), billTest.getBillCreatedDate());
+            Assertions.assertEquals(0, bill.getBillCustomerMoney()
+                    .subtract(billTest.getBillCustomerMoney()).intValue());
+            Assertions.assertEquals(0, bill.getBillTotalMoney()
+                    .subtract(billTest.getBillTotalMoney()).intValue());
+            Assertions.assertEquals(0, bill.getBillTotalSaleMoney()
+                    .subtract(billTest.getBillTotalSaleMoney()).intValue());
+            for(int i =0; i<bill.getProductBills().size(); i++) {
+                Assertions.assertEquals(bill.getProductBills().get(i).getProAmount(),
+                        billTest.getProductBills().get(i).getProAmount());
+                Assertions.assertEquals(bill.getProductBills().get(i).getProductUnit().getPruId(),
+                        billTest.getProductBills().get(i).getProductUnit().getPruId());
+            }
         }catch (ParseException | SQLException p){
             p.printStackTrace();
         }

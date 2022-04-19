@@ -18,4 +18,8 @@ public class ManufacturerServiceForTest {
             return null;
         return MANUFACTURER_REPOSITORY_FOR_TEST.getManufacturerById(manId);
     }
+    // Lấy thông tin nhà sản xuất dựa vào tên nhà sản xuất
+    public Manufacturer getManufacturerByName(String manName) throws SQLException{
+        return MANUFACTURER_REPOSITORY_FOR_TEST.getManufacturerByName(manName.trim());
+    }
 }

@@ -15,12 +15,9 @@ import javafx.scene.text.Text;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Objects;
 import java.util.ResourceBundle;
-
-import static java.lang.Integer.parseInt;
 
 public class MemberTypeController implements Initializable {
 

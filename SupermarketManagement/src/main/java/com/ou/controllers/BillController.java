@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -45,7 +46,12 @@ public class BillController implements Initializable {
             public LocalDate fromString(String s) {
                 if (s == null || s.trim().isEmpty())
                     return null;
-                return LocalDate.parse(s, dateTimeFormatter);
+                try{
+                    return LocalDate.parse(s, dateTimeFormatter);
+                }catch (DateTimeException dateTimeException){
+                    return null;
+                }
+
             }
         };
     }
@@ -413,6 +419,7 @@ public class BillController implements Initializable {
         LocalDate createdDate = this.dtpSearchBillCreatedDate.getValue();
         if (createdDate !=null)
             loadBillTbvData(null, PersonType.STAFF, Collections.singletonList(createdDate.toString()));
+        else loadBillTbvData(null, null, null);
     }
 
     // Tìm kiếm theo khoảng thời gian
@@ -427,7 +434,7 @@ public class BillController implements Initializable {
             dates.add(fromDate.toString());
             dates.add(toDate.toString());
             loadBillTbvData(null, PersonType.STAFF, dates);
-        }
+        } else loadBillTbvData(null, null, null);
     }
 
     // Trở về giao diện ban đầu

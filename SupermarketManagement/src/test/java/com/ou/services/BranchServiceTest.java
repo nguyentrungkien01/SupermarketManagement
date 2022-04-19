@@ -47,36 +47,54 @@ public class BranchServiceTest {
     }
 
     // Kiểm tra lấy thông tin chi nhánh khi từ khóa truyền vào là null
-    // Phải trả về tất cả các chi nhánh còn hoạt động (2 chi nhánh)
+    // Phải trả về tất cả các chi nhánh(2 chi nhánh)
     @Test
     public void testSelectAllBranchByNullKw() {
         try {
             List<Branch> branches = branchService.getBranches(null);
             Assertions.assertEquals(2, branches.size());
+            Assertions.assertEquals(1,branches.get(0).getBraId());
+            Assertions.assertEquals(2,branches.get(1).getBraId());
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     // Kiểm tra lấy thông tin chi nhánh khi từ khóa truyền vào là 1 chuỗi rỗng
-    // Phải trả về tổng tất cả các chi nhánh còn hoạt động (2 chi nhánh)
+    // Phải trả về tổng tất cả các chi nhánh (2 chi nhánh có mã là 1,2)
     @Test
     public void testSelectAllBranchByEmptyKw() {
         try {
             List<Branch> branches = branchService.getBranches("");
             Assertions.assertEquals(2, branches.size());
+            Assertions.assertEquals(1, branches.get(0).getBraId());
+            Assertions.assertEquals(2, branches.get(1).getBraId());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Kiểm tra lấy thông tin chi nhánh khi từ khóa truyền vào là 1 chuỗi khoảng trắng
+    // Phải trả về 0
+    @Test
+    public void testSelectAllBranchBySpacesKw() {
+        try {
+            List<Branch> branches = branchService.getBranches("       ");
+            Assertions.assertEquals(0, branches.size());
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     // Kiểm tra lấy thông tin chi nhánh khi từ khóa truyền vào là tên 1 chi nhánh dưới database
-    // Có 1 chi nhánh tên "Tên chi nhánh thứ 2" còn hoạt động
+    // Có 1 chi nhánh tên "Tên chi nhánh thứ 2"
     @Test
     public void testSelectAllBranchByValidKw() {
         try {
             List<Branch> branches = branchService.getBranches("Tên chi nhánh thứ 2");
             Assertions.assertEquals(1, branches.size());
+            Assertions.assertEquals(2, branches.get(0).getBraId());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -158,6 +176,10 @@ public class BranchServiceTest {
             Assertions.assertTrue(branchService.addBranch(branch));
             int nextAmo = branchService.getBranchAmount();
             Assertions.assertNotEquals(preAmo, nextAmo);
+            Branch branchTest = branchServiceForTest.getBranchByBraName(branch.getBraName());
+            Assertions.assertEquals( branch.getBraName(), branchTest.getBraName());
+            Assertions.assertEquals( branch.getBraAddress(), branchTest.getBraAddress());
+            Assertions.assertTrue(branchTest.getBraIsActive());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -213,7 +235,11 @@ public class BranchServiceTest {
             Branch branch = branchServiceForTest.getBranchById(1);
             branch.setBraName("Tên chi nhánh thứ 3");
             branch.setBraAddress("Địa chỉ chi nhánh thứ 3");
-            Assertions.assertTrue(branchService.addBranch(branch));
+            Assertions.assertTrue(branchService.updateBranch(branch));
+            Branch branchTest = branchServiceForTest.getBranchByBraName(branch.getBraName());
+            Assertions.assertEquals( branch.getBraName(), branchTest.getBraName());
+            Assertions.assertEquals( branch.getBraAddress(), branchTest.getBraAddress());
+            Assertions.assertTrue(branchTest.getBraIsActive());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -266,6 +292,8 @@ public class BranchServiceTest {
             Assertions.assertTrue(branchService.deleteBranch(branch));
             int nextAmo = branchService.getBranchAmount();
             Assertions.assertNotEquals(preAmo, nextAmo);
+            Branch branchTest = branchServiceForTest.getBranchByBraName(branch.getBraName());
+            Assertions.assertFalse(branchTest.getBraIsActive());
         } catch (SQLException e) {
             e.printStackTrace();
         }

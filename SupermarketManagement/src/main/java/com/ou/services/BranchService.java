@@ -28,6 +28,7 @@ public class BranchService {
     public boolean addBranch(Branch branch) throws SQLException {
         if (branch == null ||
                 branch.getBraName() == null || branch.getBraName().trim().isEmpty() ||
+                branch.getBraName().trim().length()>=100||
                 branch.getBraAddress() == null || branch.getBraAddress().trim().isEmpty())
             return false;
         if (BRANCH_REPOSITORY.isExistBranch(branch)) {
@@ -45,6 +46,7 @@ public class BranchService {
         if (branch == null ||
                 branch.getBraId() == null ||
                 branch.getBraName() == null || branch.getBraName().trim().isEmpty() ||
+                branch.getBraName().trim().length()>=100||
                 branch.getBraAddress() == null || branch.getBraAddress().trim().isEmpty())
             return false;
         if (!BRANCH_REPOSITORY.isExistBranch(branch.getBraId()))

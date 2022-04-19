@@ -16,4 +16,8 @@ public class UnitServiceForTest {
     public Unit getUnitById(int uniId) throws SQLException {
         return UNIT_REPOSITORY_FOR_TEST.getUnitById(uniId);
     }
+    // Lấy thông tin đơn vị dựa vào tên
+    public Unit getUnitByName (String uniName) throws SQLException{
+        return UNIT_REPOSITORY_FOR_TEST.getUnitByName(uniName.trim());
+    }
 }

@@ -27,14 +27,15 @@ public class ManufacturerService {
     // Thêm nhà sản xuất
     public boolean addManufacturer(Manufacturer manufacturer) throws SQLException {
         if (manufacturer == null ||
-                manufacturer.getManName()==null|| manufacturer.getManName().trim().isEmpty())
+                manufacturer.getManName() == null || manufacturer.getManName().trim().isEmpty() ||
+                manufacturer.getManName().trim().length() >= 200)
             return false;
         if (MANUFACTURER_REPOSITORY.isExistManufacturer(manufacturer)) {
-           Manufacturer manufacturerAdd = MANUFACTURER_REPOSITORY.getManufacturers(manufacturer.getManName()
+            Manufacturer manufacturerAdd = MANUFACTURER_REPOSITORY.getManufacturers(manufacturer.getManName()
                     .trim()).get(0);
-           if (!manufacturerAdd.getManIsActive())
+            if (!manufacturerAdd.getManIsActive())
                 return MANUFACTURER_REPOSITORY.addManufacturer(manufacturerAdd);
-           return false;
+            return false;
         }
         return MANUFACTURER_REPOSITORY.addManufacturer(manufacturer);
     }
@@ -43,11 +44,12 @@ public class ManufacturerService {
     public boolean updateManufacturer(Manufacturer manufacturer) throws SQLException {
         if (manufacturer == null ||
                 manufacturer.getManId() == null ||
-                manufacturer.getManName() ==  null || manufacturer.getManName().trim().isEmpty())
+                manufacturer.getManName() == null || manufacturer.getManName().trim().isEmpty() ||
+                manufacturer.getManName().trim().length() >= 200)
             return false;
         if (!MANUFACTURER_REPOSITORY.isExistManufacturer(manufacturer.getManId()))
             return false;
-        if (MANUFACTURER_REPOSITORY.isExistManufacturer(manufacturer)){
+        if (MANUFACTURER_REPOSITORY.isExistManufacturer(manufacturer)) {
             Manufacturer existMan = MANUFACTURER_REPOSITORY.getManufacturerByName(manufacturer.getManName());
             if (!Objects.equals(existMan.getManId(), manufacturer.getManId()))
                 return false;
@@ -57,7 +59,7 @@ public class ManufacturerService {
 
     // Xóa nhà sản xuất
     public boolean deleteManufacturer(Manufacturer manufacturer) throws SQLException {
-        if (manufacturer==null || manufacturer.getManId() == null)
+        if (manufacturer == null || manufacturer.getManId() == null)
             return false;
         if (!MANUFACTURER_REPOSITORY.isExistManufacturer(manufacturer.getManId()))
             return false;
@@ -70,7 +72,7 @@ public class ManufacturerService {
     }
 
     // Láy thông tin của manufacturer dựa vào tên nhà sản xuất
-    public Manufacturer getManufacturerByName(String manName) throws SQLException{
+    public Manufacturer getManufacturerByName(String manName) throws SQLException {
         if (manName == null)
             return null;
         return MANUFACTURER_REPOSITORY.getManufacturerByName(manName);

@@ -47,38 +47,59 @@ public class UnitServiceTest {
     }
 
     // Kiểm tra lấy thông tin đơn vị khi từ khóa truyền vào là null
-    // Phải trả về tất cả các đơn vị của cửa hàng còn hoạt động (4 đơn vị)
+    // Phải trả về tất cả các đơn vị của cửa hàng  (4 đơn vị)
     @Test
     public void testSelectAllUnitByNullKw() {
         try {
             List<Unit> units = unitService.getUnits(null);
             int amount = unitService.getUnitAmount();
             Assertions.assertEquals(amount, units.size());
+            Assertions.assertEquals(1, units.get(0).getUniId());
+            Assertions.assertEquals(2, units.get(1).getUniId());
+            Assertions.assertEquals(3, units.get(2).getUniId());
+            Assertions.assertEquals(4, units.get(3).getUniId());
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     // Kiểm tra lấy thông tin đơn vị khi từ khóa truyền vào là 1 chuỗi rỗng
-    // Phải trả về tất cả các đơn vị của cửa hàng còn hoạt động (4 đơn vị)
+    // Phải trả về tất cả các đơn vị của cửa hàng (4 đơn vị)
     @Test
-    public void testSelectAllUnitrByEmptyKw() {
+    public void testSelectAllUnitByEmptyKw() {
         try {
             List<Unit> units = unitService.getUnits("");
             int amount = unitService.getUnitAmount();
             Assertions.assertEquals(amount, units.size());
+            Assertions.assertEquals(1, units.get(0).getUniId());
+            Assertions.assertEquals(2, units.get(1).getUniId());
+            Assertions.assertEquals(3, units.get(2).getUniId());
+            Assertions.assertEquals(4, units.get(3).getUniId());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Kiểm tra lấy thông tin đơn vị khi từ khóa truyền vào là 1 chuỗi khoảng trắng
+    // Phải trả về 0
+    @Test
+    public void testSelectAllUnitBySpacesKw() {
+        try {
+            List<Unit> units = unitService.getUnits("        ");
+            Assertions.assertEquals(0, units.size());
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     // Kiểm tra lấy thông tin đơn vị khi từ khóa truyền vào là tên 1 nhà sản xuất dưới database
-    // Có 1 đơn vị tên "Tên đơn vị thứ 1" còn hoạt động
+    // Có 1 đơn vị tên "Tên đơn vị thứ 1"
     @Test
-    public void testSelectAllManufacturerByValidKw() {
+    public void testSelectAllUnitByValidKw() {
         try {
             List<Unit> units = unitService.getUnits("Tên đơn vị thứ 1");
             Assertions.assertEquals(1, units.size());
+            Assertions.assertEquals(1, units.get(0).getUniId());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -157,6 +178,9 @@ public class UnitServiceTest {
             Assertions.assertTrue(unitService.addUnit(unit));
             int nextAmo = unitService.getUnitAmount();
             Assertions.assertNotEquals(preAmo, nextAmo);
+            Unit unitTest = unitServiceForTest.getUnitByName(unit.getUniName());
+            Assertions.assertEquals(unit.getUniName(), unitTest.getUniName());
+            Assertions.assertTrue(unitTest.getUniIsActive());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -209,7 +233,10 @@ public class UnitServiceTest {
         try {
             Unit unit = unitServiceForTest.getUnitById(1);
             unit.setUniName("Tên đơn vị thứ 5");
-            Assertions.assertTrue(unitService.addUnit(unit));
+            Assertions.assertTrue(unitService.updateUnit(unit));
+            Unit unitTest = unitServiceForTest.getUnitByName(unit.getUniName());
+            Assertions.assertEquals(1, unitTest.getUniId());
+            Assertions.assertTrue(unitTest.getUniIsActive());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -263,6 +290,8 @@ public class UnitServiceTest {
             Assertions.assertTrue(unitService.deleteUnit(unit));
             int nextAmo = unitService.getUnitAmount();
             Assertions.assertNotEquals(preAmo, nextAmo);
+            Unit unitTest = unitServiceForTest.getUnitByName(unit.getUniName());
+            Assertions.assertFalse(unitTest.getUniIsActive());
         } catch (SQLException e) {
             e.printStackTrace();
         }

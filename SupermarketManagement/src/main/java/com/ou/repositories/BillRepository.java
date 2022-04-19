@@ -1,7 +1,6 @@
 package com.ou.repositories;
 
 import com.ou.pojos.*;
-import com.ou.services.LimitSaleService;
 import com.ou.services.MemberService;
 import com.ou.services.StaffService;
 import com.ou.utils.DatabaseUtils;
@@ -30,18 +29,20 @@ public class BillRepository {
                     "b.bill_total_money, b.bill_total_sale_money, s.sta_id, m.mem_id " +
                     "FROM Bill b JOIN Staff s ON b.sta_id = s.sta_id " +
                     "LEFT JOIN Member m ON b.mem_id = m.mem_id ";
-            if (name == null || name.isEmpty() || personType == null) {
+            if (name == null || name.isEmpty())
                 name = "";
+
+            if (personType == null)
                 personType = PersonType.STAFF;
-            }
+
             if (personType == PersonType.STAFF)
-                query += "JOIN Person p1 ON s.sta_id = p1.pers_id " +
-                        "WHERE (p1.pers_first_name LIKE CONCAT(\"%\", ? , \"%\") " +
-                        "OR p1.pers_last_name LIKE CONCAT(\"%\", ? , \"%\")) ";
+                query += "JOIN Person p1 ON s.sta_id = p1.pers_id ";
+
             if (personType == PersonType.MEMBER)
-                query += "JOIN Person p1 ON m.mem_id = p1.pers_id " +
-                        "WHERE (p1.pers_first_name LIKE CONCAT(\"%\", ? , \"%\") " +
-                        "OR p1.pers_last_name LIKE CONCAT(\"%\", ? , \"%\")) ";
+                query += "JOIN Person p1 ON m.mem_id = p1.pers_id ";
+
+            query +="WHERE (p1.pers_first_name LIKE CONCAT(\"%\", ? , \"%\") " +
+                    "OR p1.pers_last_name LIKE CONCAT(\"%\", ? , \"%\")) ";
 
             if (dates != null && dates.size() == 1)
                 query += "AND DATE(b.bill_created_date) = ?";
@@ -94,9 +95,9 @@ public class BillRepository {
     // Lấy danh sách sản phẩm tương ứng của hóa đơn
     public List<ProductBill> getProductBillsByBillId(int billId) throws SQLException {
         List<ProductBill> productBills = new ArrayList<>();
-        try(Connection connection = DatabaseUtils.getConnection()){
+        try (Connection connection = DatabaseUtils.getConnection()) {
             String query = "SELECT p.pro_id, p.pro_name, pb.pro_amount, c.cat_name, m.man_name, " +
-                                 "pu.pro_price, u.uni_name " +
+                    "pu.pro_price, u.uni_name " +
                     "FROM Product_Bill pb JOIN Product_Unit pu ON pb.pru_id = pu.pru_id " +
                     "JOIN Product p ON pu.pro_id = p.pro_id " +
                     "JOIN Bill b ON pb.bill_id = b.bill_id " +
@@ -108,7 +109,7 @@ public class BillRepository {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, billId);
             ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 ProductUnit productUnit = new ProductUnit();
                 Product product = new Product();
                 Unit unit = new Unit();
@@ -135,7 +136,7 @@ public class BillRepository {
 
     // Lấy thông tin ngày tạo hóa đơn
     public Date getCreatedDateBill(int billId) throws SQLException {
-        try (Connection connection = DatabaseUtils.getConnection()){
+        try (Connection connection = DatabaseUtils.getConnection()) {
             String query = "SELECT bill_created_date FROM Bill WHERE bill_id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, billId);
@@ -143,6 +144,6 @@ public class BillRepository {
             if (resultSet.next())
                 return resultSet.getDate("bill_created_date");
         }
-        return  null;
+        return null;
     }
 }

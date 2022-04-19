@@ -4,6 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="fcd808c9-fb19-406a-baa7-44dff6e663f1" name="Changes" comment="" />
+=======
     <list default="true" id="fcd808c9-fb19-406a-baa7-44dff6e663f1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__com_beust_jcommander_1_48.xml" beforeDir="false" />
@@ -25,6 +28,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/repositories/SaleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/repositories/SaleRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/repositories/SaleRepositoryForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/repositories/SaleRepositoryForTest.java" afterDir="false" />
     </list>
+>>>>>>> main
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -102,7 +106,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PaymentServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PaymentServiceTest.testAddBillWithValidInformation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SupermarketManagement" />
       <extension name="coverage">
         <pattern>
@@ -112,28 +116,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.ou.services" />
       <option name="MAIN_CLASS_NAME" value="com.ou.services.PaymentServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PaymentServiceTest.testAddBillWithEmptyBill" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SupermarketManagement" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ou.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ou.services" />
-      <option name="MAIN_CLASS_NAME" value="com.ou.services.PaymentServiceTest" />
-      <option name="METHOD_NAME" value="testAddBillWithEmptyBill" />
+      <option name="METHOD_NAME" value="testAddBillWithValidInformation" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PaymentServiceTest.testAddBillWithEmptyProductList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProductServiceTest.testAddProductWithValidInformation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SupermarketManagement" />
       <extension name="coverage">
         <pattern>
@@ -142,14 +131,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.ou.services" />
-      <option name="MAIN_CLASS_NAME" value="com.ou.services.PaymentServiceTest" />
-      <option name="METHOD_NAME" value="testAddBillWithEmptyProductList" />
+      <option name="MAIN_CLASS_NAME" value="com.ou.services.ProductServiceTest" />
+      <option name="METHOD_NAME" value="testAddProductWithValidInformation" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PaymentServiceTest.testAddBillWithNullTotalSaleMoney" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProductServiceTest.testDeleteManufacturerWithValidInformation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SupermarketManagement" />
       <extension name="coverage">
         <pattern>
@@ -158,8 +147,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.ou.services" />
-      <option name="MAIN_CLASS_NAME" value="com.ou.services.PaymentServiceTest" />
-      <option name="METHOD_NAME" value="testAddBillWithNullTotalSaleMoney" />
+      <option name="MAIN_CLASS_NAME" value="com.ou.services.ProductServiceTest" />
+      <option name="METHOD_NAME" value="testDeleteManufacturerWithValidInformation" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductServiceTest.testUpdateProductWithValidInformation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SupermarketManagement" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ou.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ou.services" />
+      <option name="MAIN_CLASS_NAME" value="com.ou.services.ProductServiceTest" />
+      <option name="METHOD_NAME" value="testUpdateProductWithValidInformation" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -168,10 +173,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
-        <item itemvalue="JUnit.PaymentServiceTest.testAddBillWithNullTotalSaleMoney" />
-        <item itemvalue="JUnit.PaymentServiceTest.testAddBillWithEmptyProductList" />
-        <item itemvalue="JUnit.PaymentServiceTest.testAddBillWithEmptyBill" />
-        <item itemvalue="JUnit.PaymentServiceTest" />
+        <item itemvalue="JUnit.PaymentServiceTest.testAddBillWithValidInformation" />
+        <item itemvalue="JUnit.ProductServiceTest.testDeleteManufacturerWithValidInformation" />
+        <item itemvalue="JUnit.ProductServiceTest.testUpdateProductWithValidInformation" />
+        <item itemvalue="JUnit.ProductServiceTest.testAddProductWithValidInformation" />
       </list>
     </recent_temporary>
   </component>
@@ -194,8 +199,17 @@
       <workItem from="1649842758752" duration="1575000" />
       <workItem from="1649855730915" duration="5467000" />
       <workItem from="1650026692978" duration="26000" />
+<<<<<<< HEAD
+      <workItem from="1650026731498" duration="9837000" />
+      <workItem from="1650072061508" duration="126000" />
+      <workItem from="1650248368845" duration="3633000" />
+      <workItem from="1650270378833" duration="10524000" />
+      <workItem from="1650286825154" duration="9277000" />
+      <workItem from="1650330099608" duration="1137000" />
+=======
       <workItem from="1650026731498" duration="4836000" />
       <workItem from="1650112216467" duration="958000" />
+>>>>>>> main
     </task>
     <servers />
   </component>

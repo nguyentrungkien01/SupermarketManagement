@@ -3,7 +3,8 @@ package com.ou.services;
 import com.ou.pojos.LimitSale;
 import com.ou.repositories.LimitSaleRepository;
 
-import java.sql.*;
+import java.sql.Date;
+import java.sql.SQLException;
 import java.util.List;
 
 public class LimitSaleService {

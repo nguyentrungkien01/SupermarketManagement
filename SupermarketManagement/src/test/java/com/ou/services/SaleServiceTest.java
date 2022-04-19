@@ -2,7 +2,6 @@ package com.ou.services;
 
 import com.ou.pojos.Sale;
 import com.ou.pojos.SalePercent;
-import com.ou.repositories.SaleRepositoryForTest;
 import com.ou.utils.DatabaseUtils;
 import org.junit.jupiter.api.*;
 

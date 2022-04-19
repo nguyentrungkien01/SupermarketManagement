@@ -1,6 +1,5 @@
 package com.ou.repositories;
 
-import com.ou.pojos.Member;
 import com.ou.pojos.MemberType;
 import com.ou.pojos.Sale;
 import com.ou.pojos.SalePercent;
