@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane prefHeight="900.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ou.controllers.SalePercentController">
+   <children>
+      <TableView fx:id="tbvSper" layoutX="-41.0" layoutY="241.0" prefHeight="630.0" prefWidth="1500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Text layoutX="682.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="QUẢN LÝ TỶ LỆ GIẢM GIÁ" textAlignment="CENTER" AnchorPane.leftAnchor="682.0" AnchorPane.rightAnchor="681.474609375" AnchorPane.topAnchor="23.93310546875" />
+      <FlowPane layoutX="933.0" layoutY="53.0" prefHeight="206.0" prefWidth="567.0" AnchorPane.leftAnchor="933.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tìm kiếm theo phần trăm giảm giá">
+               <FlowPane.margin>
+                  <Insets left="20.0" top="20.0" />
+               </FlowPane.margin>
+            </Text>
+            <TextField fx:id="txtSearchSper" prefHeight="24.0" prefWidth="287.0">
+               <FlowPane.margin>
+                  <Insets left="20.0" top="20.0" />
+               </FlowPane.margin>
+            </TextField>
+            <FlowPane prefHeight="83.0" prefWidth="535.0">
+               <children>
+                  <Button fx:id="btnAddSper" mnemonicParsing="false" prefHeight="43.0" prefWidth="82.0" text="Thêm">
+                     <FlowPane.margin>
+                        <Insets bottom="10.0" left="20.0" right="25.0" top="20.0" />
+                     </FlowPane.margin>
+                  </Button>
+                  <Button fx:id="btnEditSper" mnemonicParsing="false" prefHeight="41.0" prefWidth="79.0" text="Sửa">
+                     <FlowPane.margin>
+                        <Insets bottom="10.0" left="20.0" right="25.0" top="20.0" />
+                     </FlowPane.margin>
+                  </Button>
+                  <Button fx:id="btnDelSper" mnemonicParsing="false" prefHeight="40.0" prefWidth="78.0" text="Xóa">
+                     <FlowPane.margin>
+                        <Insets bottom="10.0" left="20.0" right="25.0" top="20.0" />
+                     </FlowPane.margin>
+                  </Button>
+                  <Button fx:id="btnBack" mnemonicParsing="false" prefHeight="44.0" prefWidth="82.0" text="Quay lại">
+                     <FlowPane.margin>
+                        <Insets bottom="10.0" left="20.0" right="25.0" top="20.0" />
+                     </FlowPane.margin>
+                  </Button>
+               </children>
+               <FlowPane.margin>
+                  <Insets bottom="20.0" left="30.0" top="20.0" />
+               </FlowPane.margin>
+            </FlowPane>
+         </children>
+      </FlowPane>
+      <FlowPane layoutX="24.0" layoutY="74.0" prefHeight="186.0" prefWidth="672.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="828.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mã giảm giá:">
+               <FlowPane.margin>
+                  <Insets left="30.0" top="10.0" />
+               </FlowPane.margin></Text>
+            <TextField fx:id="txtSperId">
+               <FlowPane.margin>
+                  <Insets left="30.0" top="10.0" />
+               </FlowPane.margin></TextField>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Phần trăm giảm giá:">
+               <FlowPane.margin>
+                  <Insets left="30.0" top="10.0" />
+               </FlowPane.margin></Text>
+            <TextField fx:id="txtSperPercent" prefHeight="24.0" prefWidth="168.0">
+               <FlowPane.margin>
+                  <Insets left="30.0" top="10.0" />
+               </FlowPane.margin></TextField>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Trạng thái">
+               <FlowPane.margin>
+                  <Insets left="30.0" top="10.0" />
+               </FlowPane.margin>
+            </Text>
+            <TextField fx:id="txtSperIsActive">
+               <FlowPane.margin>
+                  <Insets left="30.0" top="10.0" />
+               </FlowPane.margin>
+            </TextField>
+            <FlowPane prefHeight="42.0" prefWidth="202.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tổng số mã giảm giá:">
+                     <FlowPane.margin>
+                        <Insets top="5.0" />
+                     </FlowPane.margin>
+                  </Text>
+                  <Text fx:id="textSperAmount" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                     <FlowPane.margin>
+                        <Insets left="20.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Text>
+               </children>
+               <FlowPane.margin>
+                  <Insets left="30.0" top="30.0" />
+               </FlowPane.margin>
+            </FlowPane>
+         </children>
+      </FlowPane>
+   </children>
+</AnchorPane>

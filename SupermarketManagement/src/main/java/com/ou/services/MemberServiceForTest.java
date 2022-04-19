@@ -21,4 +21,9 @@ public class MemberServiceForTest {
     public List<Member> getMembers(String kw) throws SQLException {
         return MEMBER_REPOSITORY_FOR_TEST.getMembers(kw);
     }
+
+    // lấy thành viên theo id card
+    public Member getMemberByIdCard(String idCard) throws SQLException {
+        return MEMBER_REPOSITORY_FOR_TEST.getMemberByIdCard(idCard);
+    }
 }

@@ -15,4 +15,15 @@ public class SignInServiceForTest {
     static List<String> getStaff() throws SQLException {
         return signInRepositoryForTest.getStaff();
     }
+
+    public Integer getIdByUsername (String username) {
+        if (!username.isEmpty()) {
+            try {
+                return signInRepositoryForTest.getIdbyUsername(username);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return 0;
+    }
 }

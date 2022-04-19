@@ -17,6 +17,10 @@ public class MemberTypeServiceForTest {
             return null;
         return MEMBER_TYPE_REPOSITORY_FOR_TEST.getMemberTypeById(memtId);
     }
+    // Lấy thông tin  loại thành viên theo têm
+    public MemberType getMemberTypeByName(String name) throws SQLException {
+        return MEMBER_TYPE_REPOSITORY_FOR_TEST.getMemberTypeByName(name);
+    }
 
     // lấy danh sách loại thành viên còn hoạt động
     public List<MemberType> getMemberTypes() throws SQLException {

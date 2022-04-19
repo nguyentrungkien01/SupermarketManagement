@@ -8,6 +8,7 @@ import org.junit.jupiter.api.*;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MemberTypeServiceTest {
@@ -47,13 +48,53 @@ public class MemberTypeServiceTest {
     public void tearDown() {
     }
 
-    // kiểm tra lấy danh sách member type
+    // Dưới database có 5 member type 1,2,3,4,5
+    private List<Integer> getMemberTypeIds(){
+        List<Integer> memberTypeIds = new ArrayList<>();
+        for(int i=1; i<=5; i++)
+            memberTypeIds.add(i);
+        return memberTypeIds;
+    }
+
+    // kiểm tra lấy số lượng member type
+    // trả về 5 (vì có 5 membertype dưới db)
     @Test
-    public void testSelectAllMemberTypeByNullKw() {
+    public void testGetTotalAmountMemberType() {
         try {
-            List<MemberType> memberTypes = memberTypeService.getMemberTypes();
+            int amount = memberTypeService.getTotalAmountMemberType();
+            Assertions.assertEquals(5, amount);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    // kiểm tra lấy danh sách member type khi truyền vào ""
+    // trả về tất cả member type
+    @Test
+    public void testSelectAllMemberTypeByEmptyKw() {
+        try {
+            List<MemberType> memberTypes = memberTypeService.getMemberTypes("");
             int amount = memberTypeService.getTotalAmountMemberType();
             Assertions.assertEquals(amount, memberTypes.size());
+
+            List<Integer> memberTypeIds = getMemberTypeIds();
+            for(int i=0; i<memberTypes.size(); i++)
+                Assertions.assertEquals(memberTypeIds.get(i), memberTypes.get(i).getMemtId());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // kiểm tra lấy danh sách member type khi truyền vào kw hợp lệ
+    // có 1 member type tên là: "Thành viên bạc" dưới db
+    // trả về 1 thành viên có tên là "Thành viên bạc"
+    @Test
+    public void testSelectAllMemberTypeByValidKw() {
+        try {
+            List<MemberType> memberTypes = memberTypeService.getMemberTypes("Thành viên bạc");
+            Assertions.assertEquals(1, memberTypes.size());
+            Assertions.assertEquals("Thành viên bạc", memberTypes.get(0).getMemtName());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -100,6 +141,11 @@ public class MemberTypeServiceTest {
             memberType.setSale(s);
             memberType.setMemtTotalMoney(new BigDecimal(150000));
             Assertions.assertTrue(memberTypeService.addMemberType(memberType));
+
+            MemberType memberTypeNew = memberTypeServiceForTest.getMemberTypeByName("test add member type");
+            Assertions.assertEquals(memberType.getMemtName(), memberTypeNew.getMemtName());
+            Assertions.assertEquals(memberType.getMemtTotalMoney(), memberTypeNew.getMemtTotalMoney());
+            Assertions.assertEquals(memberType.getSale().getSaleId(), memberTypeNew.getSale().getSaleId());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -113,6 +159,9 @@ public class MemberTypeServiceTest {
             MemberType memberType = memberTypeServiceForTest.getMemberTypeById(1);
             memberType.setMemtTotalMoney(new BigDecimal(-1));
             Assertions.assertFalse(memberTypeService.updateMemberType(memberType));
+
+            MemberType memberTypeUpdate = memberTypeServiceForTest.getMemberTypeById(1);
+            Assertions.assertNotEquals(new BigDecimal(-1), memberTypeUpdate.getMemtTotalMoney());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -126,6 +175,9 @@ public class MemberTypeServiceTest {
             MemberType memberType = memberTypeServiceForTest.getMemberTypeById(1);
             memberType.setMemtName("");
             Assertions.assertFalse(memberTypeService.updateMemberType(memberType));
+
+            MemberType memberTypeUpdate = memberTypeServiceForTest.getMemberTypeById(1);
+            Assertions.assertNotEquals(memberType.getMemtName(), memberTypeUpdate.getMemtName());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -139,6 +191,9 @@ public class MemberTypeServiceTest {
             MemberType memberType = memberTypeServiceForTest.getMemberTypeById(1);
             memberType.setMemtName("Thành viên bạc");
             Assertions.assertFalse(memberTypeService.updateMemberType(memberType));
+
+            MemberType memberTypeUpdate = memberTypeServiceForTest.getMemberTypeById(1);
+            Assertions.assertNotEquals(memberType.getMemtName(), memberTypeUpdate.getMemtName());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -152,6 +207,9 @@ public class MemberTypeServiceTest {
             MemberType memberType = memberTypeServiceForTest.getMemberTypeById(1);
             memberType.setMemtName("Thành viên Test");
             Assertions.assertTrue(memberTypeService.updateMemberType(memberType));
+
+            MemberType memberTypeUpdate = memberTypeServiceForTest.getMemberTypeById(1);
+            Assertions.assertEquals(memberType.getMemtName(), memberTypeUpdate.getMemtName());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -162,7 +220,7 @@ public class MemberTypeServiceTest {
     @Test
     public void testDeleteMemberTypeWithInValid() {
         try {
-            MemberType memberType = memberTypeServiceForTest.getMemberTypeById(2);
+            MemberType memberType = new MemberType();
             memberType.setMemtId(0);
             Assertions.assertFalse(memberTypeService.deleteMemberType(memberType));
         } catch (SQLException e) {
@@ -171,12 +229,17 @@ public class MemberTypeServiceTest {
     }
 
     // kiểm tra xóa member type hợp lệ
-    // trả về true
+    // trả về true khi xoá
+    // trả về false khi lấy trường active
     @Test
     public void testDeleteMemberTypeWithValid() {
         try {
-            MemberType memberType = memberTypeServiceForTest.getMemberTypeById(1);
+            MemberType memberType = new MemberType();
+            memberType.setMemtId(1);
             Assertions.assertTrue(memberTypeService.deleteMemberType(memberType));
+
+            MemberType memberTypeDel = memberTypeServiceForTest.getMemberTypeById(1);
+            Assertions.assertFalse(memberTypeDel.getMemtIsActive());
         } catch (SQLException e) {
             e.printStackTrace();
         }

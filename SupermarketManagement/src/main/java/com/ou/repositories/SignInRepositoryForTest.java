@@ -25,4 +25,18 @@ public class SignInRepositoryForTest {
         return username;
     }
 
+    // lấy id theo username
+    public Integer getIdbyUsername(String username) throws SQLException {
+        try (Connection conn = DatabaseUtils.getConnection()) {
+            String query = "SELECT sta_id FROM Staff WHERE sta_username = ?";
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            preparedStatement.setString(1, username);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            if (rs.next()) {
+                return rs.getInt("sta_id");
+            }
+        }
+        return 0;
+    }
 }
