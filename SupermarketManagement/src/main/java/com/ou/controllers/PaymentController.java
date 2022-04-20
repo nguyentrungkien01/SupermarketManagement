@@ -325,7 +325,9 @@ public class PaymentController implements Initializable {
         try {
             double bActualTotalMoney = Double.parseDouble(this.txtBillActualTotalMoney.getText());
             double bCustomerMoney = Double.parseDouble(this.txtBillCustomerMoney.getText());
-            if (bActualTotalMoney == 0 || bCustomerMoney == 0 || bCustomerMoney < bActualTotalMoney) {
+            if (bActualTotalMoney == 0 || bCustomerMoney == 0 || bCustomerMoney < bActualTotalMoney ||
+                    this.txtBillCustomerMoney.getText().contains("d") ||
+                    this.txtBillCustomerMoney.getText().contains("f")) {
                 AlertUtils.showAlert("Số tiền cần tính toán không phù hợp!", Alert.AlertType.ERROR);
                 return;
             }
@@ -466,7 +468,7 @@ public class PaymentController implements Initializable {
             }
             bill.setMember(member);
             // Giảm giá thành viên
-            if (this.txtSalePercent.getText()!=null || this.txtSalePercent.getText().length()>0){
+            if (this.txtSalePercent.getText()!=null && this.txtSalePercent.getText().length()>0){
                 int salePercent = Integer.parseInt(this.txtSalePercent.getText().substring(1,
                         this.txtSalePercent.getText().length()-1));
                 BigDecimal saleMoney = bill.getBillTotalMoney().divide(new BigDecimal(100))
@@ -614,6 +616,12 @@ public class PaymentController implements Initializable {
 
     // Thêm sản phẩm vào hóa đơn
     private void addProductToBill() throws SQLException {
+        if(Double.parseDouble(this.txtProAmo.getText().trim()) > 1000)
+        {
+            AlertUtils.showAlert("Số lượng vượt quá 1000. Vui lòng nhập lại", Alert.AlertType.ERROR);
+            return;
+        }
+
         VBox vbxProAction = (VBox) this.hbxBillProducts.getChildren().get(0);
         VBox vbxProId = (VBox) this.hbxBillProducts.getChildren().get(1);
         VBox vbxProName = (VBox) this.hbxBillProducts.getChildren().get(2);

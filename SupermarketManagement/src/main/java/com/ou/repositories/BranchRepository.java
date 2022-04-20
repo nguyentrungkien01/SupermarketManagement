@@ -125,10 +125,9 @@ public class BranchRepository {
     // Kiểm tra chi nhánh đó đã tồn tài hay chưa
     public boolean isExistBranch(Branch branch) throws SQLException {
         try (Connection connection = DatabaseUtils.getConnection()) {
-            String query = "SELECT * FROM Branch WHERE (bra_name = ? or bra_address = ?)";
+            String query = "SELECT * FROM Branch WHERE bra_name = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, branch.getBraName().trim());
-            preparedStatement.setString(2, branch.getBraAddress().trim());
             return preparedStatement.executeQuery().next();
         }
     }
@@ -162,7 +161,7 @@ public class BranchRepository {
     // Lấy thông tin của chi nhánh dựa vào tên chi nhánh
     public Branch getBranchByName(String braName) throws SQLException{
         try (Connection connection = DatabaseUtils.getConnection()) {
-            String query  = "SELECT bra_id, bra_name FROM Branch WHERE bra_name = ?";
+            String query  = "SELECT bra_id, bra_name, bra_address FROM Branch WHERE bra_name = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, braName.trim());
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -170,9 +169,40 @@ public class BranchRepository {
                 Branch branch = new Branch();
                 branch.setBraId(resultSet.getInt("bra_id"));
                 branch.setBraName(resultSet.getString("bra_name"));
+                branch.setBraAddress(resultSet.getString("bra_address"));
                 return branch;
             }
         }
         return null;
+    }
+
+    // Kiểm tra địa chỉ chi nhánh tồn tại hay chưa
+    public boolean isExistAddress(String braAddress) throws SQLException{
+        try(Connection connection = DatabaseUtils.getConnection()){
+            String query = "SELECT * FROM Branch WHERE bra_address = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, braAddress);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            return resultSet.next();
+        }
+    }
+
+    // Lấy thông tin  chi nhánh dựa vào id
+    public Branch getBranchById(int braId) throws SQLException {
+        try (Connection connection = DatabaseUtils.getConnection()) {
+            String query = "SELECT * FROM Branch WHERE bra_id = ? ";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, braId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                Branch branch = new Branch();
+                branch.setBraId(resultSet.getInt("bra_id"));
+                branch.setBraName(resultSet.getString("bra_name"));
+                branch.setBraAddress(resultSet.getString("bra_address"));
+                branch.setBraIsActive(resultSet.getBoolean("bra_is_active"));
+                return branch;
+            }
+            return null;
+        }
     }
 }

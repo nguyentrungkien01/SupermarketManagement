@@ -44,7 +44,8 @@ public class UnitService {
     public boolean updateUnit(Unit unit) throws SQLException {
         if (unit == null ||
                 unit.getUniId() == null ||
-                unit.getUniName() == null || unit.getUniName().trim().isEmpty())
+                unit.getUniName() == null || unit.getUniName().trim().isEmpty() ||
+                unit.getUniName().trim().length() >= 100)
             return false;
         if (!UNIT_REPOSITORY.isExistUnit(unit.getUniId()))
             return false;
