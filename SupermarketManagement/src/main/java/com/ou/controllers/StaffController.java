@@ -12,22 +12,49 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class StaffController implements Initializable {
     private final static StaffService STAFF_SERVICE;
-
+    private final static StringConverter<LocalDate> STRING_CONVERTER;
     static {
         STAFF_SERVICE = new StaffService();
+        STRING_CONVERTER = new StringConverter<>() {
+            private final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+            @Override
+            public String toString(LocalDate localDate) {
+                if (localDate == null)
+                    return "";
+                return dateTimeFormatter.format(localDate);
+            }
+
+            @Override
+            public LocalDate fromString(String s) {
+                if (s == null || s.trim().isEmpty())
+                    return null;
+                try{
+                    return LocalDate.parse(s, dateTimeFormatter);
+                }catch (DateTimeException dateTimeException){
+                    return null;
+                }
+
+            }
+        };
     }
 
 
@@ -135,7 +162,8 @@ public class StaffController implements Initializable {
         this.chbAdd.setOnMouseClicked(mouseEvent -> setCheckBoxAdd());
         this.chbEdit.setOnMouseClicked(mouseEvent -> setCheckBoxEdit());
         this.chbDelete.setOnMouseClicked(mouseEvent -> setCheckBoxDelete());
-
+        this.txtSearch.textProperty().addListener(e -> loadTbvData());
+        this.dpDateOfBirth.setConverter(STRING_CONVERTER);
         setEditableFalse();
     }
 
