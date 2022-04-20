@@ -3,6 +3,7 @@ package com.ou.controllers;
 import com.ou.pojos.*;
 import com.ou.services.BillService;
 import com.ou.services.ProductService;
+import com.ou.utils.AlertUtils;
 import com.ou.utils.PersonType;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
@@ -235,7 +236,6 @@ public class BillController implements Initializable {
                 if (amount > 1)
                     vbxCol.getChildren().subList(1, amount).clear();
             });
-            List<ProductBill> productBills = BILL_SERVICE.getProductBillsByBillId(bill.getBillId());
             BILL_SERVICE.getProductBillsByBillId(bill.getBillId()).forEach(pb -> {
 
                 AnchorPane acpProId = new AnchorPane();
@@ -420,8 +420,12 @@ public class BillController implements Initializable {
         this.dtpSearchBillToCreatedDate.setValue(null);
         LocalDate createdDate = this.dtpSearchBillCreatedDate.getValue();
         if (createdDate !=null)
-            loadBillTbvData(null, PersonType.STAFF, Collections.singletonList(createdDate.toString()));
-        else loadBillTbvData(null, null, null);
+            loadBillTbvData(null, PersonType.STAFF, Collections.singletonList(createdDate.toString().trim()));
+        else {
+            AlertUtils.showAlert("Dữ liệu không hợp lệ", Alert.AlertType.ERROR);
+            this.dtpBillCreatedDate.setValue(null);
+            loadBillTbvData(null, null, null);
+        }
     }
 
     // Tìm kiếm theo khoảng thời gian
@@ -433,10 +437,15 @@ public class BillController implements Initializable {
         LocalDate toDate  = this.dtpSearchBillToCreatedDate.getValue();
         if (fromDate !=null && toDate!=null) {
             List<String> dates = new ArrayList<>();
-            dates.add(fromDate.toString());
-            dates.add(toDate.toString());
+            dates.add(fromDate.toString().trim());
+            dates.add(toDate.toString().trim());
             loadBillTbvData(null, PersonType.STAFF, dates);
-        } else loadBillTbvData(null, null, null);
+        } else{
+            AlertUtils.showAlert("Dữ liệu không hợp lệ", Alert.AlertType.ERROR);
+            this.dtpSearchBillFromCreatedDate.setValue(null);
+            this.dtpSearchBillToCreatedDate.setValue(null);
+            loadBillTbvData(null, null, null);
+        }
     }
 
     // Trở về giao diện ban đầu

@@ -6,11 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="fcd808c9-fb19-406a-baa7-44dff6e663f1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ou/services/BillServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ou/services/BillServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ou/services/BranchServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ou/services/BranchServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ou/services/ManufacturerServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ou/services/ManufacturerServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ou/services/ProductServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ou/services/ProductServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ou/services/UnitServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ou/services/UnitServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupermarketManagement.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketManagement.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/controllers/BillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/controllers/BillController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/controllers/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/controllers/PaymentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/repositories/BranchRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/repositories/BranchRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/services/BranchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/services/BranchService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/services/UnitService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/services/UnitService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ou/utils/DatabaseUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ou/utils/DatabaseUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,12 +61,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/nguyentrungkien/Documents/test/SupermarketManagement/SupermarketManagement&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/nguyentrungkien/Documents/SupermarketManagement/SupermarketManagement"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\KTPM\SupermarketManagement\SupermarketManagement\src\main\resources\com\ou\controllers" />
@@ -188,6 +191,8 @@
       <workItem from="1650270378833" duration="10524000" />
       <workItem from="1650286825154" duration="9277000" />
       <workItem from="1650330099608" duration="1137000" />
+      <workItem from="1650418191630" duration="21000" />
+      <workItem from="1650442054710" duration="6669000" />
     </task>
     <servers />
   </component>

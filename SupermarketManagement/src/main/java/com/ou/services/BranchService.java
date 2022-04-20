@@ -28,8 +28,10 @@ public class BranchService {
     public boolean addBranch(Branch branch) throws SQLException {
         if (branch == null ||
                 branch.getBraName() == null || branch.getBraName().trim().isEmpty() ||
-                branch.getBraName().trim().length()>=100||
-                branch.getBraAddress() == null || branch.getBraAddress().trim().isEmpty())
+                branch.getBraName().trim().length() >= 100 ||
+                branch.getBraAddress() == null || branch.getBraAddress().trim().isEmpty() ||
+                branch.getBraAddress().trim().length() >= 150 ||
+                BRANCH_REPOSITORY.isExistAddress(branch.getBraAddress().trim()))
             return false;
         if (BRANCH_REPOSITORY.isExistBranch(branch)) {
             Branch branchAdd = BRANCH_REPOSITORY.getBranches(branch.getBraName()
@@ -46,18 +48,17 @@ public class BranchService {
         if (branch == null ||
                 branch.getBraId() == null ||
                 branch.getBraName() == null || branch.getBraName().trim().isEmpty() ||
-                branch.getBraName().trim().length()>=100||
-                branch.getBraAddress() == null || branch.getBraAddress().trim().isEmpty())
+                branch.getBraName().trim().length() >= 100 ||
+                branch.getBraAddress() == null || branch.getBraAddress().trim().isEmpty() ||
+                branch.getBraAddress().trim().length() >= 150)
             return false;
         if (!BRANCH_REPOSITORY.isExistBranch(branch.getBraId()))
             return false;
-        if (BRANCH_REPOSITORY.isExistBranch(branch)) {
-            Branch existBra = BRANCH_REPOSITORY.getBranchByName(branch.getBraName());
-            if (!Objects.equals(existBra.getBraId(), branch.getBraId()))
-                return false;
-
+        try {
+           return BRANCH_REPOSITORY.updateBranch(branch);
+        }catch (SQLException sqlException){
+            return false;
         }
-        return BRANCH_REPOSITORY.updateBranch(branch);
     }
 
     // Xóa chi nhánh
@@ -75,7 +76,7 @@ public class BranchService {
     }
 
     // Lấy thông tin của chi nhánh dựa vào tên chi nhánh
-    public Branch getBranchByName(String braName) throws SQLException{
+    public Branch getBranchByName(String braName) throws SQLException {
         if (braName == null)
             return null;
         return BRANCH_REPOSITORY.getBranchByName(braName);
