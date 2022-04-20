@@ -6,6 +6,7 @@ import com.ou.pojos.SalePercent;
 import com.ou.services.MemberService;
 import com.ou.utils.DatabaseUtils;
 
+import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -254,5 +255,19 @@ public class MemberTypeRepository {
             }
         }
         return memberTypes;
+    }
+
+    // kiểm tra tổng tiền thanh toán có trùng với loại thành viên khác không
+    public boolean isExistTotalMoney(int memtId, BigDecimal totalMoney){
+        try (Connection connection = DatabaseUtils.getConnection()){
+            String query = "SELECT * FROM MemberType WHERE memt_id != ? AND memt_total_money = ?";
+            PreparedStatement p = connection.prepareStatement(query);
+            p.setInt(1, memtId);
+            p.setBigDecimal(2, totalMoney);
+            ResultSet r = p.executeQuery();
+            return !r.next();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

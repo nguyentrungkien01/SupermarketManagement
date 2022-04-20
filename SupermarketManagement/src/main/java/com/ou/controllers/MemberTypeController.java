@@ -1,5 +1,6 @@
 package com.ou.controllers;
 
+import com.ou.pojos.Member;
 import com.ou.pojos.MemberType;
 import com.ou.pojos.Sale;
 import com.ou.services.MemberTypeService;
@@ -192,11 +193,9 @@ public class MemberTypeController implements Initializable {
                 AlertUtils.showAlert("Thêm thất bại!! Tên loại thành viên chỉ được tối đa 50 kí tự!", Alert.AlertType.ERROR);
                 return;
             }
-            memberType.setMemtName(txtMemberTypeName.getText());
-            memberType.setMemtTotalMoney(new BigDecimal(txtTotalMoney.getText()));
-            Sale sale = new Sale();
-            sale.setSaleId(Integer.parseInt(cbSaleId.getValue().toString()));
-            memberType.setSale(sale);
+            memberType.setMemtName(txtMemberTypeName.getText().trim());
+            if(!checkMoneyExist(memberType))
+                return;
         } catch (NumberFormatException ex) {
             ex.printStackTrace();
         }
@@ -233,13 +232,10 @@ public class MemberTypeController implements Initializable {
                 AlertUtils.showAlert("Sửa thất bại!! Tên loại thành viên chỉ được tối đa 50 kí tự!", Alert.AlertType.ERROR);
                 return;
             }
-            memberType.setMemtName(txtMemberTypeName.getText());
-            memberType.setMemtTotalMoney(new BigDecimal(txtTotalMoney.getText()));
-            memberType.setMemtId(Integer.parseInt(txtMemberTypeId.getText()));
-            memberType.setMemtTotalMoney(new BigDecimal(txtTotalMoney.getText()));
-            Sale sale = new Sale();
-            sale.setSaleId(Integer.parseInt(cbSaleId.getValue().toString()));
-            memberType.setSale(sale);
+            memberType.setMemtName(txtMemberTypeName.getText().trim());
+            memberType.setMemtId(Integer.parseInt(txtMemberTypeId.getText().trim()));
+            if(!checkMoneyExist(memberType))
+                return;
         } catch (NumberFormatException ex) {
             ex.printStackTrace();
         }
@@ -278,6 +274,18 @@ public class MemberTypeController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    private boolean checkMoneyExist(MemberType memberType){
+        memberType.setMemtTotalMoney(new BigDecimal(txtTotalMoney.getText().trim()));
+        if(!MEMBER_TYPE_SERVICE.isExistTotalMoney(0, memberType.getMemtTotalMoney())){
+            AlertUtils.showAlert("Thêm thất bại!! Số tiền đã tồn tại ở loại thành viên khác!", Alert.AlertType.ERROR);
+            return false;
+        }
+        Sale sale = new Sale();
+        sale.setSaleId(Integer.parseInt(cbSaleId.getValue().toString()));
+        memberType.setSale(sale);
+        return true;
     }
 
     private void back(){

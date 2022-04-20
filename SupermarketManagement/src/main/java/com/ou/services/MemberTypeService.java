@@ -58,4 +58,9 @@ public class MemberTypeService {
             return false;
         return MEMBER_TYPE_REPOSITORY.deleteMemberType(memberType);
     }
+
+    // kiểm tra tổng tiền thanh toán có trùng với loại thành viên khác không
+    public boolean isExistTotalMoney(int memtId, BigDecimal totalMoney){
+        return MEMBER_TYPE_REPOSITORY.isExistTotalMoney(memtId, totalMoney);
+    }
 }

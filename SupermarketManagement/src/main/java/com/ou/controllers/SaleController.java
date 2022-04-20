@@ -69,7 +69,7 @@ public class SaleController implements Initializable {
         this.btnEdit.setOnMouseClicked(e -> updateSale());
         this.btnDelete.setOnMouseClicked(e -> deleteSale());
         this.btnBack.setOnMouseClicked(e -> backMenu());
-        this.txtSearchSale.textProperty().addListener(e -> loadSaleTbvData(this.txtSearchSale.getText()));
+        this.txtSearchSale.textProperty().addListener(e -> loadSaleTbvData(this.txtSearchSale.getText().trim()));
     }
 
     // KHởi tạo các thuộc tính của vùng input
@@ -153,8 +153,12 @@ public class SaleController implements Initializable {
     private void addSale(){
         Sale sale = new Sale();
         try {
-            sale.setSaleId(parseInt(txtSaleId.getText()));
-            sale.setSaleIsActive(Objects.equals(txtSaleIsActive.getText(), "Đang hoạt động"));
+            if(txtSaleId.getText().trim().isEmpty() || txtSaleId.getText() == null)
+                sale.setSaleId(0);
+            else{
+                sale.setSaleId(parseInt(txtSaleId.getText()));
+                sale.setSaleIsActive(Objects.equals(txtSaleIsActive.getText(), "Đang hoạt động"));
+            }
             SalePercent salePercent = new SalePercent();
             salePercent.setSperId(parseInt(cbSperId.getValue().toString()));
             sale.setSalePercent(salePercent);
@@ -180,7 +184,7 @@ public class SaleController implements Initializable {
     private void updateSale(){
         Sale sale = new Sale();
         try {
-            if(txtSaleId.getText().isEmpty() || txtSaleId.getText() == null){
+            if(txtSaleId.getText().isEmpty() || txtSaleId.getText() == null || Objects.equals(txtSaleIsActive.getText(), "Ngưng hoạt động")){
                 AlertUtils.showAlert("Cập nhật thất bại thất bại!", Alert.AlertType.ERROR);
                 return;
             }
