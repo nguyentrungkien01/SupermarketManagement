@@ -260,7 +260,11 @@ public class LimitSaleController implements Initializable {
         LimitSale limitSale = new LimitSale();
         try {
             limitSale.setSaleId(parseInt(cbSaleId.getValue().toString()));
-            limitSale.setSaleIsActive(Objects.equals(txtSaleIsActive.getText(), "Đang hoạt động"));
+            limitSale.setSaleIsActive(!Objects.equals(txtSaleIsActive.getText(), "Ngưng hoạt động"));
+            if(!limitSale.getSaleIsActive() && cbProductNotInLimitSaleId.getValue()!=null){
+                AlertUtils.showAlert("Thêm thất bại! Mã đã ngưng sử dụng!!!", Alert.AlertType.ERROR);
+                return;
+            }
             if(!LIMIT_SALE_SERVICE.isExitsLimitSale(limitSale.getSaleId())){
                 limitSale.setLsalFromDate(Date.valueOf(dpLsalFromDate.getValue()));
                 limitSale.setLsalToDate(Date.valueOf(dpLsalToDate.getValue()));
@@ -329,6 +333,10 @@ public class LimitSaleController implements Initializable {
         int proId = 0;
         if(cbProductLimitSaleId.getValue() != null && !cbProductLimitSaleId.getValue().toString().isEmpty())
             proId = parseInt(cbProductLimitSaleId.getValue().toString());
+        if(Objects.equals(txtSaleIsActive.getText(), "Ngưng hoạt động")){
+            AlertUtils.showAlert("Xóa thất bại! mã đã ngưng hoạt động!!!", Alert.AlertType.ERROR);
+            return;
+        }
         try {
             limitSale.setSaleId(parseInt(cbSaleId.getValue().toString()));
             if(!LIMIT_SALE_SERVICE.isExitsLimitSale(limitSale.getSaleId())){

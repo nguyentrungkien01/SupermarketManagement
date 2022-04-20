@@ -106,7 +106,7 @@ public class MemberController implements Initializable {
         this.btnEdit.setOnMouseClicked(e -> updateMember());
         this.btnDelete.setOnMouseClicked(e -> deleteMember());
         this.btnBack.setOnMouseClicked(e->backToMenu());
-        this.txtSearchMemName.textProperty().addListener(e -> loadMemberTbvData(this.txtSearchMemName.getText()));
+        this.txtSearchMemName.textProperty().addListener(e -> loadMemberTbvData(this.txtSearchMemName.getText().trim()));
     }
 
     // KHởi tạo các thuộc tính của vùng input
@@ -297,6 +297,10 @@ public class MemberController implements Initializable {
     //xoa 1 thanh vien
     private void deleteMember() {
         Member member = new Member();
+        if(Objects.equals(txtMemIsActive.getText(), "Ngưng hoạt động")){
+            AlertUtils.showAlert("Xóa thất bại! Thành viên đã ngưng hoạt động!", Alert.AlertType.ERROR);
+            return;
+        }
         try {
             member.setPersId(Integer.parseInt(this.txtMemId.getText()));
         } catch (NumberFormatException inputMismatchException) {
@@ -324,14 +328,14 @@ public class MemberController implements Initializable {
     }
 
     private void setInfo(Member member){
-        member.setPersFirstName(txtMemFirstName.getText());
-        member.setPersLastName(txtMemLastName.getText());
-        String phoneNumber = txtMemPhoneNumber.getText();
-        String idCard = txtMemCardId.getText();
+        member.setPersFirstName(txtMemFirstName.getText().trim());
+        member.setPersLastName(txtMemLastName.getText().trim());
+        String phoneNumber = txtMemPhoneNumber.getText().trim();
+        String idCard = txtMemCardId.getText().trim();
         if(phoneNumber.matches("\\d+") && idCard.matches("\\d+") &&
-                phoneNumber.length() <= 10 && idCard.length() <= 12) {
-            member.setPersPhoneNumber(txtMemPhoneNumber.getText());
-            member.setPersIdCard(txtMemCardId.getText());
+                phoneNumber.length() == 10 && idCard.length() <= 12 && idCard.length() >= 9) {
+            member.setPersPhoneNumber(phoneNumber);
+            member.setPersIdCard(idCard);
         }
         member.setPersSex((byte) (Objects.equals(cbMemSex.getValue().toString(), "Nam") ? 1 : 0));
         member.setPersIsActive(!Objects.equals(txtMemIsActive.getText(), "Ngưng hoạt động"));

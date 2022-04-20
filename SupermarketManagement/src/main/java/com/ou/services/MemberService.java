@@ -64,7 +64,6 @@ public class MemberService {
         if (member == null || member.getPersId() == null)
             return false;
         return MEMBER_REPOSITORY.deleteMember(member);
-
     }
 
     //Lấy thông tin của người
