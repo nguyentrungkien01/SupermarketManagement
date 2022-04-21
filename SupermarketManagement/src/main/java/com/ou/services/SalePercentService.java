@@ -82,4 +82,9 @@ public class SalePercentService {
     public List<SalePercent> getAllActiveSalePercent() throws SQLException {
         return SALE_PERCENT_REPOSITORY.getAllActiveSalePercent();
     }
+
+    // kiểm tra username có đang hoạt động hay không
+    public boolean isActive(Integer sperId) throws SQLException {
+        return SALE_PERCENT_REPOSITORY.isActive(sperId);
+    }
 }

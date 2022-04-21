@@ -9,7 +9,7 @@ public class DatabaseUtils {
     private final static String HOST = "localhost";
     private final static String DATABASE = "SupermarketManagement";
     private final static String USERNAME = "root";
-    private final static String PASSWORD = "12345678";
+    private final static String PASSWORD = "thanhnam";
 
     static {
         try {
