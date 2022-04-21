@@ -56,7 +56,7 @@ public class SalePercentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ((Stage)App.window).setTitle("Quản lý phần trăm giảm giá - OU Market");
+        ((Stage) App.window).setTitle("Quản lý phần trăm giảm giá - OU Market");
         this.initInputData();
         this.initSperTbv();
         this.loadSperTbvColumns();
@@ -69,16 +69,25 @@ public class SalePercentController implements Initializable {
         this.btnDelSper.setOnMouseClicked(e -> deleteSalePercent());
         this.btnBack.setOnMouseClicked(e -> backMenu());
         this.txtSearchSper.textProperty().addListener(e -> {
-            if (this.txtSearchSper.getText() == null || this.txtSearchSper.getText().length() > 0 )
-                loadSperTbvData(Integer.parseInt(this.txtSearchSper.getText()));
-            else
+            if (isNumber(this.txtSearchSper.getText().trim()))
+                loadSperTbvData(Integer.parseInt(this.txtSearchSper.getText().trim()));
+            else if (this.txtSearchSper.getText().trim().length() == 0)
                 loadSperTbvData(-1);
+            else loadSperTbvData(999999);
         });
     }
 
+    private boolean isNumber(String number) {
+        try {
+            Integer.parseInt(number);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
 
     // Khỏi tạo các thuộc tính của vùng input
-    private void initInputData(){
+    private void initInputData() {
         this.txtSperId.setDisable(true);
         this.txtSperIsActive.setDisable(true);
     }
@@ -99,7 +108,7 @@ public class SalePercentController implements Initializable {
     }
 
     // Tạo các cột và match dữ liệu cho table view
-    private void loadSperTbvColumns(){
+    private void loadSperTbvColumns() {
         TableColumn<SalePercent, Integer> sperIdColumn = new TableColumn<>("Mã phiếu giảm giá");
         TableColumn<SalePercent, Float> sperPercentColumn = new TableColumn<>("Phần trăm giảm giá");
         TableColumn<SalePercent, Boolean> sperIsActiveColumn = new TableColumn<>("Trạng thái");
@@ -110,16 +119,16 @@ public class SalePercentController implements Initializable {
         sperPercentColumn.setPrefWidth(400);
         sperIsActiveColumn.setPrefWidth(149);
         sperIdColumn.setSortType(TableColumn.SortType.DESCENDING);
-        this.tbvSper.getColumns().addAll(sperIdColumn, sperPercentColumn,sperIsActiveColumn);
+        this.tbvSper.getColumns().addAll(sperIdColumn, sperPercentColumn, sperIsActiveColumn);
     }
 
     // Lấy số lượng mã giảm giá
-    private void loadSperAmount(){
-            try {
-                this.textSperAmount.setText(String.valueOf(SALE_PERCENT_SERVICE.getSalePercentAmount()));
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+    private void loadSperAmount() {
+        try {
+            this.textSperAmount.setText(String.valueOf(SALE_PERCENT_SERVICE.getSalePercentAmount()));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     // Thiết lập vùng dữ liệu input khi lựa chọn thay đổi dưới table view
@@ -128,7 +137,7 @@ public class SalePercentController implements Initializable {
         if (selectedSper != null) {
             this.txtSperId.setText(String.valueOf(selectedSper.getSperId()));
             this.txtSperPercent.setText(String.valueOf(selectedSper.getSperPercent()));
-            this.txtSperIsActive.setText(selectedSper.getSperIsActive()?"Đang hoạt động":"Ngưng hoạt động");
+            this.txtSperIsActive.setText(selectedSper.getSperIsActive() ? "Đang hoạt động" : "Ngưng hoạt động");
         }
     }
 
@@ -150,19 +159,20 @@ public class SalePercentController implements Initializable {
     private void addSalePercent() {
         SalePercent salePercent = new SalePercent();
         try {
-            salePercent.setSperPercent(Integer.valueOf(this.txtSperPercent.getText()));
+            int percent = Integer.parseInt(this.txtSperPercent.getText().trim());
+            salePercent.setSperPercent(percent);
             if (SALE_PERCENT_SERVICE.addSalePercent(salePercent)) {
-               AlertUtils.showAlert("Thêm thành công", Alert.AlertType.INFORMATION);
-               reloadData();
-           } else {
-               AlertUtils.showAlert("Thêm thất bại !", Alert.AlertType.ERROR);
-           }
-        }catch (NumberFormatException numberFormatException) {
+                AlertUtils.showAlert("Thêm thành công", Alert.AlertType.INFORMATION);
+                reloadData();
+            }  else if (percent <= 0 || percent > 100){
+                AlertUtils.showAlert("Phầm trăm giảm giảm phải từ 1 -> 100. Thêm thất bại !", Alert.AlertType.ERROR);
+            } else {
+                AlertUtils.showAlert("Thêm thất bại !", Alert.AlertType.ERROR);
+            }
+        } catch (NumberFormatException numberFormatException) {
 
             AlertUtils.showAlert("Thêm thất bại !", Alert.AlertType.ERROR);
-        }
-
-        catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -172,7 +182,7 @@ public class SalePercentController implements Initializable {
         try {
             SalePercent salePercent = new SalePercent();
             salePercent.setSperId(Integer.parseInt(this.txtSperId.getText()));
-            salePercent.setSperPercent(Integer.parseInt(this.txtSperPercent.getText()));
+            salePercent.setSperPercent(Integer.parseInt(this.txtSperPercent.getText().trim()));
             salePercent.setSperIsActive(this.txtSperIsActive.getText().equals("Đang hoạt động"));
 
             if (SALE_PERCENT_SERVICE.updateSalePercent(salePercent)) {
@@ -193,16 +203,32 @@ public class SalePercentController implements Initializable {
         try {
             SalePercent salePercent = new SalePercent();
             salePercent.setSperId(Integer.parseInt(this.txtSperId.getText()));
-            if (SALE_PERCENT_SERVICE.deleteSalePercent(salePercent)) {
-                AlertUtils.showAlert("Xoá thành công", Alert.AlertType.INFORMATION);
-                reloadData();
-            } else {
-                AlertUtils.showAlert("Xoá thất bại", Alert.AlertType.ERROR);
-            }
+            salePercent.setSperPercent(Integer.parseInt(this.txtSperId.getText().trim()));
+
+            if (isActive()) {
+                if (SALE_PERCENT_SERVICE.deleteSalePercent(salePercent)) {
+                    AlertUtils.showAlert("Xoá thành công", Alert.AlertType.INFORMATION);
+                    reloadData();
+                } else {
+                    AlertUtils.showAlert("Xoá thất bại", Alert.AlertType.ERROR);
+                }
+            } else
+                AlertUtils.showAlert("Mã giảm giá đã xoá từ trước!", Alert.AlertType.ERROR);
+
         } catch (NumberFormatException numberFormatException) {
             AlertUtils.showAlert("Xoá thất bại! Vui lòng chọn mã giảm giá cần xoá", Alert.AlertType.ERROR);
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    // Kiểm tra tài khoản có đang còn hoạt động hay không
+    private boolean isActive(){
+        try {
+            return SALE_PERCENT_SERVICE.isActive(Integer.valueOf(this.txtSperId.getText()));
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
         }
     }
 

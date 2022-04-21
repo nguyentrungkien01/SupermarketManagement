@@ -157,4 +157,20 @@ public class SalePercentRepository {
             return preparedStatement.executeQuery().next();
         }
     }
+
+    // kiểm tra active của mã giảm giá
+    public boolean isActive(Integer saleSperId) throws SQLException {
+        try (Connection connection = DatabaseUtils.getConnection()) {
+            String query = "SELECT sper_is_active FROM SalePercent WHERE sper_id = ? ";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, saleSperId);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            if (rs.next()) {
+                return rs.getBoolean("sper_is_active");
+            }
+        }
+        return  false;
+    }
 }
